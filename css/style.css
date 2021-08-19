@@ -17,7 +17,6 @@ html{
     --cinzamaisclaro:#f7f7f7;
     --cinzaclaro:#f3f3f3;
     --cinzaclaro100:#dcdcdc;
-
     --cinza:#5A6978;
 
 
@@ -63,6 +62,7 @@ p{
 
 .btn-nav-exit{
 
+    cursor: pointer;
     color: var(--cinzaclaro);
     text-decoration: none;
     border-radius: 10px;
@@ -240,10 +240,14 @@ nav ul li a:hover span{
     border-right: 1px solid var(--cinza);
 }
 
-.voltar h2{
+.voltar a{
     color: var(--cinza);
     font-size: 1.25rem;
-    font-weight: 500;
+    text-decoration: none;
+    font-weight: 400;
+}
+.voltar a span{
+    margin-right: 10px;
 }
 
 .titulo-cadastrar{
@@ -257,71 +261,111 @@ nav ul li a:hover span{
 
 /* FORM */
 
-.main-section{
-    
+/* INPUT-FILE-CUSTOM */
 
+input[type="file"]{
+    display: none;
+    
+} 
+.h2Adicionar{
+    line-height: 50px;
+}
+.carregar-imagem-pub{
+    cursor: pointer;
+    color: var(--cinzaclaro);
+    text-decoration: none;
+    border-radius: 10px;
+    padding: 10px 40px;
+    background-color: var(--azulbtnsair);
+}
+
+/* ACABOU */
+
+
+
+.main-section{
     margin: 0 auto;
     width:70%;
     
 }
-.formulario{
-    display:flex;
+.main-section .formulario .user-details{
+    display: flex;
     flex-wrap: wrap;
-}
-.row-form-type1{
+    justify-content: space-between;
 
-    display: flex;
-    margin-bottom: 40px;
-    flex-direction: column;
-    width:100%;
-    height: 10vh;
-    position: relative;
-    
 }
-.box-form{
-    display: flex;
-    margin-bottom: 40px;
-    flex-direction:row;
-    width:100%;
-    height: 10vh;
-    position: relative;
+.formulario .user-details .input-box{
+    margin: 20px 0  12px 0;
+    width: calc(100% / 2 - 20px);
+
 }
-.row-form-type3{
-    
-    flex: 1 1;
-    display: flex;
-    margin-bottom: 40px;
-    flex-direction: column;
-    width:100%;
-    height: 10vh;
-    position: relative;
-    margin-right: 20px;
+.formulario .user-details .input-boxwidth30{
+    margin: 20px 0  12px 0;
+    width: calc(100% / 3 - 20px);
+
 }
-.titulo-label h2{
+.user-details .input-box-width30 input{
+    padding: 15px 10px;
+    border-radius: 15px;
+    outline: 0px;
+    border: 0px;
+    width: 100%;
+
+} 
+.user-details .input-box-width30 h2{
     color: var(--cinza);
     font-size: 1.25rem;
-}
-.input-width100{
+    margin-bottom: 10px;
 
-    background-color: #dcdcdc;
+} 
+.formulario .user-details .input-box-width100{
+    margin: 20px 0  12px 0;
+    width: 100%;
+
+}
+.user-details .input-box-width100 input{
+    padding: 15px 10px;
+    border-radius: 15px;
+    outline: 0px;
+    border: 0px;
+    width: 100%;
+
+} 
+.user-details .input-box-width100 h2{
+    color: var(--cinza);
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+
+} 
+.user-details .input-box input{
+
+    padding: 15px 10px;
+    border-radius: 15px;
+    outline: 0px;
+    border: 0px;
+    width: 100%;
+}
+.user-details .input-box h2{
+    color: var(--cinza);
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+}
+.button{
+    width: 100%;
+}
+
+/*.titulo-label h2{
+    color: var(--cinza);
+    font-size: 1.25rem;
+}*/
+    /*background-color: #dcdcdc;
     width: 100%;
     font-weight: 700;
     margin-top:10px;
     padding: 15px 10px;
     border-radius: 15px;
     outline: 0px;
-    border: 0px;
-}
-.input-width50{
-    background-color: #dcdcdc;
-    width: 40%;
-    font-weight: 700;
-    margin-top:10px;
-    padding: 15px 10px;
-    border-radius: 15px;
-    outline: 0px;
-    border: 0px;
-}
+    border: 0px;*/
 
 /* ACABOU O FORM*/
 
@@ -345,10 +389,13 @@ nav ul li a:hover span{
     .logo{
         max-width: 87.5%;
     }
-    .input-width50{
-        
+    .formulario .user-details .input-box{
         width: 100%;
-        
+    
+    }
+    .formulario .user-details .input-boxwidth30{
+        width: 100%;
+    
     }
     
     
