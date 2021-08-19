@@ -9,17 +9,16 @@
 html{
     
 }
-:root{
-    --azulnavbar:#26466D;
-    --azulbtnsair:#042243;
-    --azulmenulateral:#123256;
-
-    --cinzamaisclaro:#f7f7f7;
-    --cinzaclaro:#f3f3f3;
-    --cinzaclaro100:#dcdcdc;
-    --cinza:#5A6978;
-
-
+:root {
+    --azulnavbar: #26466D;
+    --azulbtnsair: #042243;
+    --azulmenulateral: #123256;
+    --cinzamaisclaro: #f7f7f7;
+    --cinzaclaro: #f3f3f3;
+    --cinzaclaro100: #dcdcdc;
+    --cinza: #5A6978;
+    --cinzaescuro: #47525E;
+    --branco: #ffffff;
 }
 h1{
     font-size: 2rem;
@@ -70,6 +69,174 @@ p{
     background-color: var(--azulbtnsair);
     
 }
+
+/* TELA LOGIN */
+
+.bg-login {
+    background-color: var(--azulbtnsair);
+    padding: 50px;
+}
+
+.card-login {
+    width: 500px;
+    height: 550px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: var(--cinzamaisclaro);
+    padding: 20px;
+    border-radius: 15px;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-login {
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+}
+
+.label-login {
+    font-family: 'Fira Sans';
+    font-size: 26px;
+    text-align: center;
+    align-content: center;
+    font-weight: bold;
+    color: var(--azulbtnsair);
+}
+
+.input-login {
+    background-color: var(--cinzaclaro);
+    font-family: 'Roboto';
+    font-weight: bold;
+    width: 100%;
+    font-size: 16px;
+    color: var(--cinzaescuro);
+    margin-top: 10px;
+    padding: 13px 18px;
+    border-radius: 10px;
+    outline: 0px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--azulmenulateral);
+}
+
+.div-titulo {
+    padding-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.div-titulo2 {
+    padding-bottom: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.div-login {
+    padding: 15px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.cb-conectado {
+    appearance: none;
+    height: 20px;
+    width: 20px;
+    background-color: var(--branco);
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--azulbtnsair);
+}
+
+.cb-conectado:hover {
+    height: 20px;
+    width: 20px;
+    background-color: var(--cinzaclaro100);
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--azulbtnsair);
+}
+
+.cb-conectado:checked {
+    height: 20px;
+    width: 20px;
+    background-color: var(--azulbtnsair);
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--azulbtnsair);
+}
+
+.cb-conectado:checked::after {
+    content: '\2714';
+    font-size: 18px;
+    position: relative;
+    top: -3px;
+    left: 1px;
+    color: var(--cinzamaisclaro);
+}
+
+.label-conectado {
+    margin-top: 2px;
+    margin-left: 10px;
+    font-family: 'Roboto';
+    font-weight: bold;
+    color: var(--azulbtnsair);
+    font-size: 15px;
+}
+
+.btn-login {
+    padding: 15px;
+    width: 30%;
+    background-color: var(--azulbtnsair);
+    color: var(--branco);
+    font-weight: bold;
+    font-size: 15px;
+    border-radius: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-width: 0px;
+}
+
+.btn-esqueci {
+    padding: 15px;
+    width: 30%;
+    background-color: var(--branco);
+    color: var(--azulbtnsair);
+    font-weight: bold;
+    font-size: 15px;
+    border-radius: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-width: 1px;
+    border-color: var(--azulbtnsair);
+}
+
+.nota-copy {
+    font-size: 12px;
+    font-weight: bold;
+    color: var(--cinzaescuro);
+    text-align: center;
+    font-family: 'Lato';
+}
+
+.div-footer {
+    background-color: var(--azulnavbar);
+    height: 100%;
+    position: relative;
+}
+
+
+/* FIM TELA LOGIN */
 
 /* MENU LATERAL */
 
