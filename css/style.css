@@ -205,7 +205,7 @@ nav ul li a:hover span{
 
 /* Container */
 
-.container{
+.container-main{
     flex-wrap: wrap;
     padding-top: 10vh;
     padding-bottom: 40px;
@@ -331,6 +331,17 @@ input[type="file"]{
     width: 100%;
 
 } 
+.user-details .input-box-width100 .text-area{
+    padding-top: 15px ;
+    padding-left:10px;
+    padding-right: 10px;
+    padding-bottom: 35px;
+    border-radius: 15px;
+    outline: 0px;
+    border: 0px;
+    width: 100%;
+
+} 
 .user-details .input-box-width100 h2{
     color: var(--cinza);
     font-size: 1.25rem;
@@ -351,21 +362,10 @@ input[type="file"]{
     margin-bottom: 10px;
 }
 .button{
+    margin-top: 20px;
     width: 100%;
 }
 
-/*.titulo-label h2{
-    color: var(--cinza);
-    font-size: 1.25rem;
-}*/
-    /*background-color: #dcdcdc;
-    width: 100%;
-    font-weight: 700;
-    margin-top:10px;
-    padding: 15px 10px;
-    border-radius: 15px;
-    outline: 0px;
-    border: 0px;*/
 
 /* ACABOU O FORM*/
 

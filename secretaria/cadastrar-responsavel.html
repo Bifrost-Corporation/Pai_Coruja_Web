@@ -5,10 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
-
-    <title>Cadastro Aluno</title>
+    <title>Cadastro Responsavel</title>
 
 
 </head>
@@ -17,7 +16,7 @@
     <header>
 
         <nav class="nav-bar">
-            <a href=""><img class="logo" src="images/pai_coruja_3.jpg"></a>
+            <a href=""><img class="logo" src="../images/pai_coruja_3.jpg"></a>
             <ul class="ul-area-btn">
                 <li class="nav-li"><a class="btn-nav-exit" href="#">Sair</a></li>
             </ul>
@@ -26,7 +25,7 @@
         <nav class="sidebar">
             <div class="perfil">
                 <div class="img-perfil">
-                    <img src="images/usuario-de-perfil.png">
+                    <img src="../images/usuario-de-perfil.png">
                 </div>
                 <div class="text-perfil">
                     <p>Olá, Secretário</p>
@@ -52,6 +51,7 @@
                     </a>
                     <ul id="sub-menu-2">
                         <li><a href="cadastrar-aluno.html">Cadastrar Aluno</a></li>
+                        <li><a href="cadastrar-professor.html">Cadastrar Professor</a></li>
                         <li><a href="cadastrar-responsavel.html">Cadastrar Responsável</a></li>
                         <li><a href="nova-publicacao.html">Nova Publicação</a></li>
                     </ul>
@@ -62,7 +62,7 @@
     </header>
 
 
-    <main class="container">
+    <main class="container-main">
 
 
         <section class="top-section">
@@ -72,7 +72,7 @@
                 </a>
             </div>
             <div class="titulo-cadastrar">
-                <h2>Cadastrar Aluno:</h2>
+                <h2>Cadastrar Responsável:</h2>
             </div>
         </section>
 
@@ -81,50 +81,61 @@
             <form class="formulario" action="#" method="#">
                 <div class="user-details">
                     <div class="input-box-width100">
-                        <h2>Nome do aluno:</h2>
-                        <input name="name" type="text" placeholder="Insira o nome do aluno" required>
-                    </div>
-                    <div class="input-box-width30">
-                        <h2>Data de Nascimento:</h2>
-                        <input name="name" type="date" placeholder="Insira a idade" required>
-                    </div>
-                    <div class="input-box-width30">
-                        <h2>Turma:</h2>
-                        <input name="name" type="text" placeholder="Insira a turma" required>
-                    </div>
-                    <div class="input-box-width30">
-                        <h2>Série:</h2>
-                        <input name="name" type="text" placeholder="Insira a série" required>
+                        <h2>Nome Responsável</h2>
+                        <input name="name" type="text" placeholder="Insira o nome do Responsável" required>
                     </div>
 
                     <div class="input-box-width100">
-                        <h2>Responsável:</h2>
-                        <input name="name" type="text" placeholder="Insira o nome do Responsável" required>
+                        <h2>Email Responsável</h2>
+                        <input name="email" type="email" placeholder="Insira o email do Responsável" required>
+                    </div>
+                    <div class="input-box">
+                        <h2>Senha Responsável</h2>
+                        <input name="name" type="text" placeholder="********" required>
+                    </div>
+                    <div class="input-box">
+                        <h2>Confirmar senha:</h2>
+                        <input name="name" type="text" placeholder="********" required>
+                    </div>
+                    <div class="input-box">
+                        <h2>Telefone do Responsável</h2>
+                        <input name="text" type="text" placeholder="Insira o numero de telefone do Responsável"
+                            required>
                     </div>
                     <div class="input-box">
                         <h2>Endereço:</h2>
-                        <input name="name" type="text" placeholder="Insira o endereço do aluno" required>
+                        <input name="name" type="text" placeholder="Insira o endereço do Responsável" required>
                     </div>
                     <div class="input-box">
-                        <h2>Numero:</h2>
-                        <input name="name" type="text" placeholder="Numero da casa" required>
+                        <h2>Número</h2>
+                        <input name="name" type="text" placeholder="Insira o número da residência" required>
                     </div>
                     <div class="input-box">
                         <h2>Cidade:</h2>
-                        <input name="name" type="text" placeholder="Insira a cidade:" required>
+                        <input name="name" type="text" placeholder="Insira a cidade" required>
                     </div>
                     <div class="input-box">
                         <h2>Bairro:</h2>
-                        <input name="name" type="text" placeholder="Insira o Bairro" required>
+                        <input name="name" type="text" placeholder="Insira o bairro" required>
                     </div>
+
                     <div class="input-box">
                         <h2>Complemento:</h2>
                         <input name="name" type="text" placeholder="Insira o complemento" required>
                     </div>
                     <div class="input-box">
                         <h2>CEP:</h2>
-                        <input name="name" type="text" placeholder="" required>
+                        <input name="name" type="text" placeholder="Insira o CEP" required>
                     </div>
+                    <div class="input-box-width100">
+                        <h2>De qual aluno você é responsável:</h2>
+                        <input name="name" type="text" placeholder="Insira o nome do aluno" required>
+                    </div>
+                    <div class="input-box">
+                        <h2>RA do aluno:</h2>
+                        <input name="name" type="text" placeholder="Insira o RA do aluno" required>
+                    </div>
+
                     <div class="button">
                         <input type="submit" class="btn-nav-exit" value="Cadastrar">
                     </div>
@@ -133,8 +144,9 @@
         </section>
     </main>
 
-    <script src="js/nav.js"></script>
+    <script src="../js/nav.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
 </body>
 
 
