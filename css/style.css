@@ -6,7 +6,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family:sans-serif;
-    
+
 
 }
 html{
@@ -21,6 +21,7 @@ html{
     --cinzaclaro100: #dcdcdc;
     --cinza: #5A6978;
     --cinzaescuro: #47525E;
+    --cinzafonte:#343F4B;
     --branco: #ffffff;
 }
 h1{
@@ -241,6 +242,7 @@ p{
 
 /* FIM TELA LOGIN */
 
+
 /* MENU LATERAL */
 
 .sidebar{
@@ -429,6 +431,78 @@ nav ul li a:hover span{
     font-size: 1.25rem;
 }
 
+/* HOME */
+
+.destaque-card{
+    
+    display: flex;
+    width: 100%;
+    height: 340px;
+    padding: 2rem;
+    color: var(--cinzamaisclaro);
+    background-color:var(--azulbtnsair);
+}
+
+.esquerda-destaque{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+}
+
+.destaque-card h1,small:first-child{
+    margin-bottom: 1rem;
+}
+
+.saiba-mais-btn{
+    cursor: pointer;
+    border-radius: 10px;
+    border-style: none;
+    padding: 0.5rem 2.5rem;
+    font-weight: bold;
+    border-radius: 15px;
+    color: var(--cinzafonte);
+    background-color:var(--cinzamaisclaro);
+}
+
+.cards-eventos{
+    padding: 2rem;
+    color: var(--cinzafonte);
+    width: 100%;
+}
+
+.arrumar-cards{
+    display: flex;
+    flex-direction: row;
+}
+
+.evento-card{
+    margin-top: 1rem;
+    margin-right: 1rem;
+    padding: 1rem;
+    background-color: #137AB1;
+    color: var(--branco);
+    border-radius: 15px;
+    height: 200px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+.evento-card div:last-child button{
+    color: var(--cinzafonte);
+    padding: 0.3rem;
+    justify-content: center;
+    width: 100%;
+    border-radius: 15px;
+    border-style: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+
 /* FORM */
 
 /* INPUT-FILE-CUSTOM */
@@ -538,6 +612,16 @@ input[type="file"]{
 
 
 /* ACABOU O FORM*/
+
+
+
+
+
+
+
+
+
+
 
 
 /*  MEDIAS  */
