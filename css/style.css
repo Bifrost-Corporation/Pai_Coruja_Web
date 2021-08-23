@@ -1,17 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@100;400;500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@100;400;500&family=Roboto:wght@100;300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@100;400;500&family=Lato:wght@300&family=Roboto:wght@100;300&display=swap');
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family:sans-serif;
-
-
+    font-family: sans-serif;
 }
-html{
-    
-}
+
+html {}
+
 :root {
     --azulnavbar: #26466D;
     --azulbtnsair: #042243;
@@ -21,20 +19,23 @@ html{
     --cinzaclaro100: #dcdcdc;
     --cinza: #5A6978;
     --cinzaescuro: #47525E;
-    --cinzafonte:#343F4B;
+    --cinzafonte: #343F4B;
     --branco: #ffffff;
 }
-h1{
+
+h1 {
     font-size: 2rem;
 }
-h2{
+
+h2 {
     font-size: 1.5rem;
 }
-p{
+
+p {
     font-size: 1rem;
 }
 
-.nav-bar{
+.nav-bar {
     position: fixed;
     z-index: 1;
     padding: 0 5%;
@@ -43,36 +44,34 @@ p{
     background-color: var(--azulnavbar);
     display: flex;
     justify-content: space-between;
-
 }
 
-.logo{
+.logo {
     align-items: center;
     width: 120px;
 }
 
-.ul-area-btn{
+.ul-area-btn {
     list-style: none;
     text-align: center;
     align-items: center;
     display: flex;
 }
 
-.nav-li{
+.nav-li {
     align-items: center;
     display: flex;
 }
 
-.btn-nav-exit{
-
+.btn-nav-exit {
     cursor: pointer;
     color: var(--cinzaclaro);
     text-decoration: none;
     border-radius: 10px;
     padding: 10px 40px;
     background-color: var(--azulbtnsair);
-    
 }
+
 
 /* TELA LOGIN */
 
@@ -83,7 +82,8 @@ p{
 
 .card-login {
     width: 500px;
-    height: 550px;
+    /*height: 550px;*/
+    height: 70%;
     margin-left: auto;
     margin-right: auto;
     background-color: var(--cinzamaisclaro);
@@ -108,7 +108,23 @@ p{
     color: var(--azulbtnsair);
 }
 
-.input-login {
+.input-email {
+    background-color: var(--cinzaclaro);
+    font-family: 'Roboto';
+    font-weight: bold;
+    width: 100%;
+    font-size: 16px;
+    color: var(--cinzaescuro);
+    margin-top: 10px;
+    padding: 13px 18px;
+    border-radius: 10px;
+    outline: 0px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--azulmenulateral);
+}
+
+.input-senha {
     background-color: var(--cinzaclaro);
     font-family: 'Roboto';
     font-weight: bold;
@@ -211,6 +227,10 @@ p{
     border-width: 0px;
 }
 
+.btn-login:active {
+    background-color: #aa4452;
+}
+
 .btn-esqueci {
     padding: 15px;
     width: 30%;
@@ -239,35 +259,68 @@ p{
     position: relative;
 }
 
+.caixa-alerta-email {
+    margin-left: 15px;
+    margin-right: 15px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    background-color: #e08e99;
+    border-style: solid;
+    border-color: #aa4452;
+    border-radius: 8px;
+    border-width: 2px;
+    display: none;
+}
+
+.caixa-alerta-senha {
+    margin-left: 15px;
+    margin-right: 15px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    background-color: #e08e99;
+    border-style: solid;
+    border-color: #aa4452;
+    border-radius: 8px;
+    border-width: 2px;
+    display: none;
+}
+
+.txt-alerta-email {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.txt-alerta-senha {
+    font-size: 14px;
+    font-weight: bold;
+}
+
 
 /* FIM TELA LOGIN */
 
 
 /* MENU LATERAL */
 
-.sidebar{
-    
-    color:var(--cinzaclaro100);
+.sidebar {
+    color: var(--cinzaclaro100);
     z-index: 2;
     margin-top: 10vh;
-    position:fixed;
+    position: fixed;
     min-height: 90vh;
     width: 20vw;
     background-color: var(--azulmenulateral);
-
-
 }
 
-nav .ul-sidebar-menu{
-    background-color:var(--azulmenulateral);
+nav .ul-sidebar-menu {
+    background-color: var(--azulmenulateral);
     width: 100%;
     height: 100%;
-    
 }
-nav .ul-sidebar-menu li{
+
+nav .ul-sidebar-menu li {
     line-height: 60px;
-    
 }
+
 nav .ul-sidebar-menu li a {
     position: relative;
     text-decoration: none;
@@ -276,13 +329,13 @@ nav .ul-sidebar-menu li a {
     padding-left: 40px;
     font-weight: 500;
     display: block;
-    border-left:3px solid transparent;
+    border-left: 3px solid transparent;
 }
 
 nav .ul-sidebar-menu li a:hover {
     opacity: 0.7;
     background-color: var(--azulbtnsair);
-    border-left:3px solid var(--cinzaclaro100);
+    border-left: 3px solid var(--cinzaclaro100);
 }
 
 nav .ul-sidebar-menu ul {
@@ -290,33 +343,30 @@ nav .ul-sidebar-menu ul {
     position: static;
 }
 
-nav .ul-sidebar-menu ul li{
+nav .ul-sidebar-menu ul li {
     line-height: 42px;
     border-bottom: none;
 }
-nav .ul-sidebar-menu ul li a{
+
+nav .ul-sidebar-menu ul li a {
     font-size: 15px;
     color: var(--cinzamaisclaro);
     background-color: var(--azulmenulateral);
     padding-left: 70px;
 }
-nav ul li a span{
-    
-    position:absolute;
+
+nav ul li a span {
+    position: absolute;
     top: 30%;
-    right:20px;
+    right: 20px;
     transform: translateX(-50%);
-    font-size:22px;
+    font-size: 22px;
     transition: transform 0.4s;
 }
 
-nav ul li a:hover span{
-    
+nav ul li a:hover span {
     transform: translateX(-50%) rotate(-180deg);
-    
 }
-
-
 
 .ul-sidebar-menu li #sub-menu {
     display: none;
@@ -330,54 +380,51 @@ nav ul li a:hover span{
     transform: var(--cinza);
 }
 
-
-
-.perfil{
+.perfil {
     width: 100%;
     height: 20vh;
     top: 0;
     z-index: 1;
-    position:relative;
+    position: relative;
     background-color: var(--azulmenulateral);
 }
-.img-perfil{
+
+.img-perfil {
     align-items: center;
     display: flex;
     flex-direction: column;
     margin: 5% auto;
     position: relative;
     width: 60px;
-
 }
 
-.img-perfil img{
-
+.img-perfil img {
     max-width: 100%;
 }
-.text-perfil{
+
+.text-perfil {
     align-items: center;
     display: flex;
     flex-direction: column;
     margin-top: 20px;
-    margin-bottom:0;
+    margin-bottom: 0;
     margin-left: auto;
     margin-right: auto;
     position: relative;
     width: 100%;
 }
-.text-perfil p{
 
-    
+.text-perfil p {
     font-weight: bold;
 }
 
 
-
 /* ACABOU O MENU AQ */
+
 
 /* Container */
 
-.container-main{
+.container-main {
     flex-wrap: wrap;
     padding-top: 10vh;
     padding-bottom: 40px;
@@ -385,75 +432,74 @@ nav ul li a:hover span{
     display: flex;
     flex-direction: column;
     margin-left: 20vw;
-    max-width:80%;
+    max-width: 80%;
     min-height: 90vh;
     background-color: var(--cinzamaisclaro);
 }
 
-.top-section{
-    
+.top-section {
     position: relative;
-    margin-top:35px;
+    margin-top: 35px;
     margin-left: 30px;
     margin-bottom: 35px;
     width: 90%;
-    align-items:center;
+    align-items: center;
     padding: 20px;
     display: flex;
     border-bottom: 1px solid var(--cinza);
     float: left;
     flex-direction: row;
-    
-    
 }
 
-.voltar{
+.voltar {
     padding: 0px 20px;
     border-right: 1px solid var(--cinza);
 }
 
-.voltar a{
+.voltar a {
     color: var(--cinza);
     font-size: 1.25rem;
     text-decoration: none;
     font-weight: 400;
 }
-.voltar a span{
+
+.voltar a span {
     margin-right: 10px;
 }
 
-.titulo-cadastrar{
-    padding:0px 20px;
+.titulo-cadastrar {
+    padding: 0px 20px;
 }
 
-.titulo-cadastrar h2{
+.titulo-cadastrar h2 {
     color: var(--cinza);
     font-size: 1.25rem;
 }
 
+
 /* HOME */
 
-.destaque-card{
-    
+.destaque-card {
     display: flex;
     width: 100%;
     height: 340px;
     padding: 2rem;
     color: var(--cinzamaisclaro);
-    background-color:var(--azulbtnsair);
+    background-color: var(--azulbtnsair);
 }
 
-.esquerda-destaque{
+.esquerda-destaque {
     display: flex;
     flex-direction: column;
-    justify-content:space-between;
+    justify-content: space-between;
 }
 
-.destaque-card h1,small:first-child{
+.destaque-card h1,
+small:first-child {
     margin-bottom: 1rem;
 }
 
-.saiba-mais-btn{
+.saiba-mais-btn {
     cursor: pointer;
     border-radius: 10px;
     border-style: none;
@@ -461,21 +507,21 @@ nav ul li a:hover span{
     font-weight: bold;
     border-radius: 15px;
     color: var(--cinzafonte);
-    background-color:var(--cinzamaisclaro);
+    background-color: var(--cinzamaisclaro);
 }
 
-.cards-eventos{
+.cards-eventos {
     padding: 2rem;
     color: var(--cinzafonte);
     width: 100%;
 }
 
-.arrumar-cards{
+.arrumar-cards {
     display: flex;
     flex-direction: row;
 }
 
-.evento-card{
+.evento-card {
     margin-top: 1rem;
     margin-right: 1rem;
     padding: 1rem;
@@ -489,8 +535,7 @@ nav ul li a:hover span{
     justify-content: space-between;
 }
 
-
-.evento-card div:last-child button{
+.evento-card div:last-child button {
     color: var(--cinzafonte);
     padding: 0.3rem;
     justify-content: center;
@@ -502,19 +547,20 @@ nav ul li a:hover span{
 }
 
 
-
 /* FORM */
+
 
 /* INPUT-FILE-CUSTOM */
 
-input[type="file"]{
+input[type="file"] {
     display: none;
-    
-} 
-.h2Adicionar{
+}
+
+.h2Adicionar {
     line-height: 50px;
 }
-.carregar-imagem-pub{
+
+.carregar-imagem-pub {
     cursor: pointer;
     color: var(--cinzaclaro);
     text-decoration: none;
@@ -523,105 +569,95 @@ input[type="file"]{
     background-color: var(--azulbtnsair);
 }
 
+
 /* ACABOU */
 
-
-
-.main-section{
+.main-section {
     margin: 0 auto;
-    width:70%;
-    
+    width: 70%;
 }
-.main-section .formulario .user-details{
+
+.main-section .formulario .user-details {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-
 }
-.formulario .user-details .input-box{
-    margin: 20px 0  12px 0;
+
+.formulario .user-details .input-box {
+    margin: 20px 0 12px 0;
     width: calc(100% / 2 - 20px);
-
 }
-.formulario .user-details .input-boxwidth30{
-    margin: 20px 0  12px 0;
+
+.formulario .user-details .input-boxwidth30 {
+    margin: 20px 0 12px 0;
     width: calc(100% / 3 - 20px);
-
 }
-.user-details .input-box-width30 input{
+
+.user-details .input-box-width30 input {
     padding: 15px 10px;
     border-radius: 15px;
     outline: 0px;
     border: 0px;
     width: 100%;
+}
 
-} 
-.user-details .input-box-width30 h2{
+.user-details .input-box-width30 h2 {
     color: var(--cinza);
     font-size: 1.25rem;
     margin-bottom: 10px;
-
-} 
-.formulario .user-details .input-box-width100{
-    margin: 20px 0  12px 0;
-    width: 100%;
-
 }
-.user-details .input-box-width100 input{
+
+.formulario .user-details .input-box-width100 {
+    margin: 20px 0 12px 0;
+    width: 100%;
+}
+
+.user-details .input-box-width100 input {
     padding: 15px 10px;
     border-radius: 15px;
     outline: 0px;
     border: 0px;
     width: 100%;
+}
 
-} 
-.user-details .input-box-width100 .text-area{
-    padding-top: 15px ;
-    padding-left:10px;
+.user-details .input-box-width100 .text-area {
+    padding-top: 15px;
+    padding-left: 10px;
     padding-right: 10px;
     padding-bottom: 35px;
     border-radius: 15px;
     outline: 0px;
     border: 0px;
     width: 100%;
+}
 
-} 
-.user-details .input-box-width100 h2{
+.user-details .input-box-width100 h2 {
     color: var(--cinza);
     font-size: 1.25rem;
     margin-bottom: 10px;
+}
 
-} 
-.user-details .input-box input{
-
+.user-details .input-box input {
     padding: 15px 10px;
     border-radius: 15px;
     outline: 0px;
     border: 0px;
     width: 100%;
 }
-.user-details .input-box h2{
+
+.user-details .input-box h2 {
     color: var(--cinza);
     font-size: 1.25rem;
     margin-bottom: 10px;
 }
-.button{
+
+.button {
     margin-top: 20px;
     width: 100%;
 }
 
 
 /* ACABOU O FORM*/
-
-
-
-
-
-
-
-
-
-
 
 
 /*  MEDIAS  */
@@ -632,31 +668,26 @@ input[type="file"]{
     }
 }
 
-@media (max-width:1080){
-
-    html{
+@media (max-width:1080) {
+    html {
         font-size: 93.73%;
     }
-    .logo{
+    .logo {
         max-width: 93.73%;
     }
-
 }
-@media (max-width:720px){
-    html{
-        font-size:87.5%;
+
+@media (max-width:720px) {
+    html {
+        font-size: 87.5%;
     }
-    .logo{
+    .logo {
         max-width: 87.5%;
     }
-    .formulario .user-details .input-box{
+    .formulario .user-details .input-box {
         width: 100%;
-    
     }
-    .formulario .user-details .input-boxwidth30{
+    .formulario .user-details .input-boxwidth30 {
         width: 100%;
-    
     }
-    
-    
 }

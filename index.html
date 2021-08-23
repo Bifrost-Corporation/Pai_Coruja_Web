@@ -19,11 +19,21 @@
                 <p class="label-login">Login</p>
             </div>
             <form>
+                <section class="caixa-alerta-email">
+                    <div>
+                        <p class="txt-alerta-email">Login Inválido</p>
+                    </div>
+                </section>
                 <div class="div-titulo2">
-                    <input type="text" class="input-login" placeholder="Digite seu email">
+                    <input type="text" class="input-email" placeholder="Digite seu email">
                 </div>
-                <div class="div-login">
-                    <input type="password" class="input-login" placeholder="Digite sua senha">
+                <section class="caixa-alerta-senha">
+                    <div>
+                        <p class="txt-alerta-senha">Login Inválido</p>
+                    </div>
+                </section>
+                <div class="div-titulo2">
+                    <input type="password" class="input-senha" placeholder="Digite sua senha">
                 </div>
                 <div class="div-login">
                     <input type="checkbox" name="checkbox" id="checkbox" class="cb-conectado">
@@ -37,6 +47,7 @@
             <div class="div-login">
                 <p class="nota-copy">Pai Coruja - BIFROST @ copyright 2021</p>
             </div>
+
         </section>
     </main>
     <footer>
@@ -44,6 +55,44 @@
             <p style="color: var(--azulnavbar);">Bifrost - Conectando Mundos</p>
         </div>
     </footer>
+
+    <!---->
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script>
+        jQuery('.btn-login').click(function() {
+            var email = $('.input-email').val();
+            var senha = $('.input-senha').val();
+            if (email.length == 0) {
+                $('.txt-alerta-email').html('Por favor, informe o email');
+                $('.caixa-alerta-email').show();
+                $('.caixa-alerta-email').fadeOut(5000);
+            } else {
+                var verificararroba = false;
+                var verificaponto = false;
+                for (var i = 0; i < email.length; i++) {
+                    if (email.charAt(i) == '@' && i + 1 < email.length) {
+                        verificararroba = true;
+                    }
+                    if (email.charAt(i) == '.' && i + 1 < email.length) {
+                        verificaponto = true;
+                    }
+                }
+                if (verificaponto == false || verificararroba == false) {
+                    $('.txt-alerta-email').html('Email inválido!');
+                    $('.caixa-alerta-email').show();
+                    $('.caixa-alerta-email').fadeOut(5000);
+                }
+            }
+            if (senha.length == 0) {
+                $('.txt-alerta-senha').html('Por favor, informe a senha!');
+                $('.caixa-alerta-senha').show();
+                $('.caixa-alerta-senha').fadeOut(5000);
+            }
+        });
+    </script>
+
 </body>
 
 </html>
