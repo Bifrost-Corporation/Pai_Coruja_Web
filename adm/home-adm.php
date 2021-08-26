@@ -14,12 +14,15 @@
 </head>
 
 <body>
+    <?php
+        include("sentinela.php");
+    ?>
     <header>
 
         <nav class="nav-bar">
-            <a href=""><img class="logo" src="../images/pai_coruja_3.jpg"></a>
+            <a href=""><img class="logo" src="../images/pai_coruja_3.png"></a>
             <ul class="ul-area-btn">
-                <li class="nav-li"><a class="btn-nav-exit" href="#">Sair</a></li>
+                <li class="nav-li"><a class="btn-nav-exit" href="logout.php">Sair</a></li>
             </ul>
         </nav>
 
