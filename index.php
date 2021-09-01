@@ -13,37 +13,37 @@
     <main class="bg-login">
         <section class="card-login">
             <div style="text-align: center;">
-                <img src="images/pai_coruja_3.jpg" class="logo-login">
+                <img src="images/pai_coruja_3.png" class="logo-login">
             </div>
             <div class="div-titulo">
                 <p class="label-login">Login</p>
             </div>
-            <form>
+            <form name="form-login" method="POST" action="DAO/consulta-login.php">
                 <section class="caixa-alerta-email">
                     <div>
                         <p class="txt-alerta-email">Login Inválido</p>
                     </div>
                 </section>
                 <div class="div-titulo2">
-                    <input type="text" class="input-email" placeholder="Digite seu email">
+                    <input type="text" class="input-email" name="txtEmail" id="txtEmail" placeholder="Digite seu email">
                 </div>
                 <section class="caixa-alerta-senha">
                     <div>
-                        <p class="txt-alerta-senha">Login Inválido</p>
+                        <p class="txt-alerta-senha">Senha Inválida</p>
                     </div>
                 </section>
                 <div class="div-titulo2">
-                    <input type="password" class="input-senha" placeholder="Digite sua senha">
+                    <input type="password" class="input-senha" name="txtSenha" id="txtSenha" placeholder="Digite sua senha">
                 </div>
                 <div class="div-login">
                     <input type="checkbox" name="checkbox" id="checkbox" class="cb-conectado">
                     <label for="checkbox" class="label-conectado">Manter-me Conectado</label>
                 </div>
+                <div class="div-login">
+                    <button class="btn-esqueci">Esqueci</button>
+                    <button class="btn-login" name="btn-login" id="btn-login" type="submit">Entrar</button>
+                </div>
             </form>
-            <div class="div-login">
-                <button class="btn-esqueci">Esqueci</button>
-                <button class="btn-login">Entrar</button>
-            </div>
             <div class="div-login">
                 <p class="nota-copy">Pai Coruja - BIFROST @ copyright 2021</p>
             </div>
@@ -56,18 +56,18 @@
         </div>
     </footer>
 
-    <!---->
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
     <script>
-        jQuery('.btn-login').click(function() {
+        jQuery('form').on('submit',function(e){
             var email = $('.input-email').val();
             var senha = $('.input-senha').val();
             if (email.length == 0) {
-                $('.txt-alerta-email').html('Por favor, informe o email');
+                $('.txt-alerta-email').html('Por favor, informe o email!');
                 $('.caixa-alerta-email').show();
                 $('.caixa-alerta-email').fadeOut(5000);
+                e.preventDefault();
             } else {
                 var verificararroba = false;
                 var verificaponto = false;
@@ -83,12 +83,15 @@
                     $('.txt-alerta-email').html('Email inválido!');
                     $('.caixa-alerta-email').show();
                     $('.caixa-alerta-email').fadeOut(5000);
+                    e.preventDefault();
                 }
             }
             if (senha.length == 0) {
                 $('.txt-alerta-senha').html('Por favor, informe a senha!');
                 $('.caixa-alerta-senha').show();
                 $('.caixa-alerta-senha').fadeOut(5000);
+                e.preventDefault();
+                
             }
         });
     </script>

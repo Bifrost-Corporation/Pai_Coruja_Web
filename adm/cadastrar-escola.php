@@ -8,18 +8,21 @@
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
 
-    <title>Cadastrar Secretária</title>
+    <title>Cadastrar Escola</title>
 
 
 </head>
 
 <body>
+    <?php
+        include("sentinela.php");
+    ?>
     <header>
 
         <nav class="nav-bar">
-            <a href=""><img class="logo" src="../images/pai_coruja_3.jpg"></a>
+            <a href=""><img class="logo" src="../images/pai_coruja_3.png"></a>
             <ul class="ul-area-btn">
-                <li class="nav-li"><a class="btn-nav-exit" href="#">Sair</a></li>
+                <li class="nav-li"><a class="btn-nav-exit" href="logout.php">Sair</a></li>
             </ul>
         </nav>
 
@@ -29,7 +32,7 @@
                     <img src="../images/usuario-de-perfil.png">
                 </div>
                 <div class="text-perfil">
-                    <p>Olá, Secretário</p>
+                    <p>Olá, Administrador</p>
                 </div>
             </div>
             <ul class="ul-sidebar-menu">
@@ -47,12 +50,12 @@
                 </li>
 
                 <li>
-                    <a href="#" onclick="openMenu2()" id="sub-menu-button-2" class="outro-btn">ADM
+                    <a href="#" onclick="openMenu2()" id="sub-menu-button-2" class="outro-btn">Administrador
                         <span class="fas fa-caret-down second"></span>
                     </a>
                     <ul id="sub-menu-2">
-                        <li><a href="cadastrar-escola.html">Cadastrar Escola</a></li>
-                        <li><a href="cadastrar-secretaria.html">Cadastrar Secretária</a></li>
+                        <li><a href="cadastrar-escola.php">Cadastrar Escola</a></li>
+                        <li><a href="cadastrar-secretaria.php">Cadastrar Secretária</a></li>
 
                     </ul>
                 </li>
@@ -67,34 +70,22 @@
 
         <section class="top-section">
             <div class="voltar">
-                <a href="#">
+                <a href="home-adm.php">
                     <span class="fas fa-arrow-left"></span>Voltar
                 </a>
             </div>
             <div class="titulo-cadastrar">
-                <h2>Cadastrar Secretária:</h2>
+                <h2>Cadastrar Escola:</h2>
             </div>
         </section>
 
 
         <section class="main-section">
-            <form class="formulario" action="#" method="#">
+            <form name="nomeEscola" class="formulario" method="POST" action="../DAO/inserir-escola.php">
                 <div class="user-details">
                     <div class="input-box-width100">
-                        <h2>Nome do Secretária:</h2>
-                        <input name="name" type="text" placeholder="Insira o nome do professor" required>
-                    </div>
-                    <div class="input-box-width100">
-                        <h2>Email Secretária:</h2>
-                        <input name="email" type="email" placeholder="Insira o email do professor" required>
-                    </div>
-                    <div class="input-box">
-                        <h2>Senha Secretária:</h2>
-                        <input name="name" type="text" placeholder="********" required>
-                    </div>
-                    <div class="input-box">
-                        <h2>Confirmar senha:</h2>
-                        <input name="name" type="text" placeholder="********" required>
+                        <h2>Nome da Escola: </h2>
+                        <input name="txtNomeEscola" id="txtNomeEscola" type="text" placeholder="Insira o nome da escola">
                     </div>
                     <div class="button">
                         <input type="submit" class="btn-nav-exit" value="Cadastrar">
@@ -105,7 +96,18 @@
     </main>
 
     <script src="../js/nav.js"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script>
+        jQuery('form').on('submit',function (e){
+            var nomeEscola = $('.txtNomeEscola').val();
+            if(nomeEscola.length == 0){
+                e.preventDefault();
+            }
+        });
+    </script>
+
 </body>
 
 

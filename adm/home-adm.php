@@ -14,12 +14,15 @@
 </head>
 
 <body>
+    <?php
+        include("sentinela.php");
+    ?>
     <header>
 
         <nav class="nav-bar">
-            <a href=""><img class="logo" src="../images/pai_coruja_3.jpg"></a>
+            <a href=""><img class="logo" src="../images/pai_coruja_3.png"></a>
             <ul class="ul-area-btn">
-                <li class="nav-li"><a class="btn-nav-exit" href="#">Sair</a></li>
+                <li class="nav-li"><a class="btn-nav-exit" href="logout.php">Sair</a></li>
             </ul>
         </nav>
 
@@ -29,7 +32,7 @@
                     <img src="../images/usuario-de-perfil.png">
                 </div>
                 <div class="text-perfil">
-                    <p>Olá, Secretário</p>
+                    <p>Olá, Administrador</p>
                 </div>
             </div>
             <ul class="ul-sidebar-menu">
@@ -42,18 +45,16 @@
                         <li><a href="#">Mural</a></li>
                         <li><a href="#">Avaliação dos Professores</a></li>
                         <li><a href="#">Eventos Programados</a></li>
-
                     </ul>
                 </li>
 
                 <li>
-                    <a href="#" onclick="openMenu2()" id="sub-menu-button-2" class="outro-btn">Secretária
+                    <a href="#" onclick="openMenu2()" id="sub-menu-button-2" class="outro-btn">Administrador
                         <span class="fas fa-caret-down second"></span>
                     </a>
                     <ul id="sub-menu-2">
-                        <li><a href="cadastrar-aluno.html">Cadastrar Aluno</a></li>
-                        <li><a href="cadastrar-responsavel.html">Cadastrar Responsável</a></li>
-                        <li><a href="nova-publicacao.html">Nova Publicação</a></li>
+                        <li><a href="cadastrar-escola.php">Cadastrar Escola</a></li>
+                        <li><a href="cadastrar-secretaria.php">Cadastrar Secretaria</a></li>
                     </ul>
                 </li>
 

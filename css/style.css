@@ -656,6 +656,46 @@ input[type="file"] {
     width: 100%;
 }
 
+.opcao-consulta {
+    padding: 6px;
+    background-color: var(--branco);
+    border-bottom-style: solid;
+    border-bottom-color: var(--cinza);
+    border-bottom-width: 1px;
+}
+
+.link-consulta {
+    text-decoration: none;
+    color: var(--cinza);
+    font-weight: bold;
+}
+
+.opcao-consulta:hover .link-consulta {
+    background-color: var(--cinzaclaro);
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+}
+
+.texto-consulta {
+    text-decoration: none;
+    color: var(--cinza);
+    font-weight: bold;
+}
+
+.erro-form {
+    border-style: solid !important;
+    border-width: 1px !important;
+    border-color: brown !important;
+    color: brown;
+}
+
+.label-erro {
+    color: brown;
+    font-size: 14px;
+    display: none;
+    margin-bottom: 500px;
+}
+
 
 /* ACABOU O FORM*/
 

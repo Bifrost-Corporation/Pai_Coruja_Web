@@ -1,0 +1,57 @@
+<?php
+
+    include_once ('../adm/sentinela.php');
+    include_once ('../classes/Secretaria.php');
+    include_once ('../classes/Escola.php');
+
+    try{
+        header('Location: ../adm/cadastrar-secretaria.php');
+        $nomeSecretaria = $_POST['txtUsuarioSecretaria'];
+        $emailSecretaria = $_POST['txtEmailSecretaria'];
+        $senhaSecretaria = $_POST['txtSenhaSecretaria'];
+        $escolaSecretaria = $_POST['txtConsultaEscola'];
+        $idAdministrador = $_SESSION['idAdministrador'];
+        $escola = new Escola();
+        $secretaria = new Secretaria();
+        $listaescola = $escola->listar();
+        $listasecretaria = $secretaria->listar();
+        $repeteemail = false;
+        $repeteescola = false;
+        foreach($listasecretaria as $linha){
+            if($emailSecretaria == $linha['emailSecretaria']){
+                $repeteemail = true;
+            }
+        }
+        foreach($listaescola as $linha){
+            if($escolaSecretaria == $linha['nomeEscola']){
+                foreach($listasecretaria as $linha2){
+                    if($linha['idEscola'] == $linha2['idEscola']){
+                        $repeteescola = true;
+                    }
+                }
+                if($repeteescola == false){
+                    $idEscola = $linha['idEscola'];
+                }
+            }
+        }
+        if($repeteemail == false && $repeteescola == false ) {
+            $secretaria->setNomeSecretaria($nomeSecretaria);
+            $secretaria->setEmailSecretaria($emailSecretaria);
+            $secretaria->setSenhaSecretaria($senhaSecretaria);
+            $secretaria->setIdEscola($idEscola);
+            $secretaria->setIdAdministrador($idAdministrador);
+            echo $secretaria->cadastrar($secretaria);
+            return 'Cadastro da secretaria realizado com sucesso!';
+        }else{
+            if($repeteemail == true){
+                echo '<p>Email já cadastrado!</p>';
+            }
+            if($repeteescola == true){
+                echo '<p>Escola já cadastrada!</p>';
+            }
+        }
+    }catch(Exception $e){
+        echo $e->getMessage();
+    }
+
+?>
