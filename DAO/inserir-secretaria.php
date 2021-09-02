@@ -44,10 +44,13 @@
             return 'Cadastro da secretaria realizado com sucesso!';
         }else{
             if($repeteemail == true){
-                echo '<p>Email já cadastrado!</p>';
+                return 'Email já cadastrado!';
             }
             if($repeteescola == true){
-                echo '<p>Escola já cadastrada!</p>';
+                return 'Escola já cadastrada!';
+                echo "<script>
+                            alert('Escola já cadastrada!');
+                      </script>";
             }
         }
     }catch(Exception $e){

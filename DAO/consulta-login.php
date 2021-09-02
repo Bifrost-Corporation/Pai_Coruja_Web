@@ -29,7 +29,10 @@
         foreach($listasecretaria as $linha){
             if($linha['emailSecretaria'] == $emailForm && $linha['senhaSecretaria'] == $senhaForm){
                 $verificalogin = true;
-                header('location: ../secretaria/home-secretaria.html');
+                $_SESSION['emailSecretaria'] = $emailForm;
+                $_SESSION['senhaSecretaria'] = $senhaForm;
+                $_SESSION['autorizacaoSecretaria'] = true;
+                header('location: ../secretaria/home-secretaria.php');
             }
         }
         $resultadoprofessor = $conexao->query($queryprofessor);
