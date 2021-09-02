@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="manifest" href="manifest.json">
     <title>Login - Pai Coruja</title>
 </head>
 
@@ -58,7 +59,9 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
+    <script async src="https://cdn.jsdelivr.net/npm/pwacompat@2.0.8/pwacompat.min.js"
+            integrity="sha384-uONtBTCBzHKF84F6XvyC8S0gL8HTkAPeCyBNvfLfsqHh+Kd6s/kaS4BdmNQ5ktp1"
+            crossorigin="anonymous"></script>
     <script>
         jQuery('form').on('submit',function(e){
             var email = $('.input-email').val();
@@ -95,6 +98,20 @@
             }
         });
     </script>
+
+<script>
+               if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('service-worker.js')
+            // ('/service-worker.js')
+            .then(function (registration) {
+                console.log("success load");
+                console.log(registration);
+            })
+            .catch(function (err) {
+                console.log(err);
+            });
+    }
+        </script>
 
 </body>
 
