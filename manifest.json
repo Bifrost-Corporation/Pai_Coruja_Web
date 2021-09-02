@@ -1,83 +1,411 @@
 {
   "short_name": "Pai Coruja",
   "name": "Pai Coruja - Comunicação Escolar",
- "icons": [
-        {
-          "src": "./img/icons/android-chrome-192x192.png",
-          "sizes": "192x192",
-          "type": "image/png"
-        },
-        {
-          "src": "./img/icons/android-chrome-512x512.png",
-          "sizes": "512x512",
-          "type": "image/png"
-        },
-        {
-          "src": "./img/icons/android-chrome-maskable-192x192.png",
-          "sizes": "192x192",
-          "type": "image/png",
-          "purpose": "maskable"
-        },
-        {
-          "src": "./img/icons/android-chrome-maskable-512x512.png",
-          "sizes": "512x512",
-          "type": "image/png",
-          "purpose": "maskable"
-        },
-        {
-          "src": "./img/icons/apple-touch-icon-60x60.png",
-          "sizes": "60x60",
-          "type": "image/png"
-        },
-        {
-          "src": "./img/icons/apple-touch-icon-76x76.png",
-          "sizes": "76x76",
-          "type": "image/png"
-        },
-        {
-          "src": "./img/icons/apple-touch-icon-120x120.png",
-          "sizes": "120x120",
-          "type": "image/png"
-        },
-        {
-          "src": "./img/icons/apple-touch-icon-152x152.png",
-          "sizes": "152x152",
-          "type": "image/png"
-        },
-        {
-          "src": "./img/icons/apple-touch-icon-180x180.png",
-          "sizes": "180x180",
-          "type": "image/png"
-        },
-        {
-          "src": "./img/icons/apple-touch-icon.png",
-          "sizes": "180x180",
-          "type": "image/png"
-        },
-        {
-          "src": "./img/icons/favicon-16x16.png",
-          "sizes": "16x16",
-          "type": "image/png"
-        },
-        {
-          "src": "./img/icons/favicon-32x32.png",
-          "sizes": "32x32",
-          "type": "image/png"
-        },
-        {
-          "src": "./img/icons/msapplication-icon-144x144.png",
-          "sizes": "144x144",
-          "type": "image/png"
-        },
-        {
-          "src": "./img/icons/mstile-150x150.png",
-          "sizes": "150x150",
-          "type": "image/png"
-        }
-  ],
   "start_url": "index.php",
   "display": "standalone",
   "orientation": "standalone",
   "theme_color": "#042243",
-  "background_color": "#282b30"
+  "background_color": "#282b30",
+  "icons": [
+    {
+      "src": "img/windows10/SmallTile.scale-100.png",
+      "sizes": "71x71"
+    },
+    {
+      "src": "img/windows10/SmallTile.scale-125.png",
+      "sizes": "89x89"
+    },
+    {
+      "src": "img/windows10/SmallTile.scale-150.png",
+      "sizes": "107x107"
+    },
+    {
+      "src": "img/windows10/SmallTile.scale-200.png",
+      "sizes": "142x142"
+    },
+    {
+      "src": "img/windows10/SmallTile.scale-400.png",
+      "sizes": "284x284"
+    },
+    {
+      "src": "img/windows10/Square150x150Logo.scale-100.png",
+      "sizes": "150x150"
+    },
+    {
+      "src": "img/windows10/Square150x150Logo.scale-125.png",
+      "sizes": "188x188"
+    },
+    {
+      "src": "img/windows10/Square150x150Logo.scale-150.png",
+      "sizes": "225x225"
+    },
+    {
+      "src": "img/windows10/Square150x150Logo.scale-200.png",
+      "sizes": "300x300"
+    },
+    {
+      "src": "img/windows10/Square150x150Logo.scale-400.png",
+      "sizes": "600x600"
+    },
+    {
+      "src": "img/windows10/Wide310x150Logo.scale-100.png",
+      "sizes": "310x150"
+    },
+    {
+      "src": "img/windows10/Wide310x150Logo.scale-125.png",
+      "sizes": "388x188"
+    },
+    {
+      "src": "img/windows10/Wide310x150Logo.scale-150.png",
+      "sizes": "465x225"
+    },
+    {
+      "src": "img/windows10/Wide310x150Logo.scale-200.png",
+      "sizes": "620x300"
+    },
+    {
+      "src": "img/windows10/Wide310x150Logo.scale-400.png",
+      "sizes": "1240x600"
+    },
+    {
+      "src": "img/windows10/LargeTile.scale-100.png",
+      "sizes": "310x310"
+    },
+    {
+      "src": "img/windows10/LargeTile.scale-125.png",
+      "sizes": "388x388"
+    },
+    {
+      "src": "img/windows10/LargeTile.scale-150.png",
+      "sizes": "465x465"
+    },
+    {
+      "src": "img/windows10/LargeTile.scale-200.png",
+      "sizes": "620x620"
+    },
+    {
+      "src": "img/windows10/LargeTile.scale-400.png",
+      "sizes": "1240x1240"
+    },
+    {
+      "src": "img/windows10/Square44x44Logo.scale-100.png",
+      "sizes": "44x44"
+    },
+    {
+      "src": "img/windows10/Square44x44Logo.scale-125.png",
+      "sizes": "55x55"
+    },
+    {
+      "src": "img/windows10/Square44x44Logo.scale-150.png",
+      "sizes": "66x66"
+    },
+    {
+      "src": "img/windows10/Square44x44Logo.scale-200.png",
+      "sizes": "88x88"
+    },
+    {
+      "src": "img/windows10/Square44x44Logo.scale-400.png",
+      "sizes": "176x176"
+    },
+    {
+      "src": "img/windows10/StoreLogo.scale-100.png",
+      "sizes": "50x50"
+    },
+    {
+      "src": "img/windows10/StoreLogo.scale-125.png",
+      "sizes": "63x63"
+    },
+    {
+      "src": "img/windows10/StoreLogo.scale-150.png",
+      "sizes": "75x75"
+    },
+    {
+      "src": "img/windows10/StoreLogo.scale-200.png",
+      "sizes": "100x100"
+    },
+    {
+      "src": "img/windows10/StoreLogo.scale-400.png",
+      "sizes": "200x200"
+    },
+    {
+      "src": "img/windows10/SplashScreen.scale-100.png",
+      "sizes": "620x300"
+    },
+    {
+      "src": "img/windows10/SplashScreen.scale-125.png",
+      "sizes": "775x375"
+    },
+    {
+      "src": "img/windows10/SplashScreen.scale-150.png",
+      "sizes": "930x450"
+    },
+    {
+      "src": "img/windows10/SplashScreen.scale-200.png",
+      "sizes": "1240x600"
+    },
+    {
+      "src": "img/windows10/SplashScreen.scale-400.png",
+      "sizes": "2480x1200"
+    },
+    {
+      "src": "img/windows10/Square44x44Logo.targetsize-16.png",
+      "sizes": "16x16"
+    },
+    {
+      "src": "img/windows10/Square44x44Logo.targetsize-20.png",
+      "sizes": "20x20"
+    },
+    {
+      "src": "img/windows10/Square44x44Logo.targetsize-24.png",
+      "sizes": "24x24"
+    },
+    {
+      "src": "img/windows10/Square44x44Logo.targetsize-30.png",
+      "sizes": "30x30"
+    },
+    {
+      "src": "img/windows10/Square44x44Logo.targetsize-32.png",
+      "sizes": "32x32"
+    },
+    {
+      "src": "img/windows10/Square44x44Logo.targetsize-36.png",
+      "sizes": "36x36"
+    },
+    {
+      "src": "img/windows10/Square44x44Logo.targetsize-40.png",
+      "sizes": "40x40"
+    },
+    {
+      "src": "img/windows10/Square44x44Logo.targetsize-44.png",
+      "sizes": "44x44"
+    },
+    {
+      "src": "img/windows10/Square44x44Logo.targetsize-48.png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "img/windows10/Square44x44Logo.targetsize-60.png",
+      "sizes": "60x60"
+    },
+    {
+      "src": "img/windows10/Square44x44Logo.targetsize-64.png",
+      "sizes": "64x64"
+    },
+    {
+      "src": "img/windows10/Square44x44Logo.targetsize-72.png",
+      "sizes": "72x72"
+    },
+    {
+      "src": "img/windows10/Square44x44Logo.targetsize-80.png",
+      "sizes": "80x80"
+    },
+    {
+      "src": "img/windows10/Square44x44Logo.targetsize-96.png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "img/windows10/Square44x44Logo.targetsize-256.png",
+      "sizes": "256x256"
+    },
+    {
+      "src": "img/windows10/Square44x44Logo.altform-unplated_targetsize-16.png",
+      "sizes": "16x16"
+    },
+    {
+      "src": "img/windows10/Square44x44Logo.altform-unplated_targetsize-20.png",
+      "sizes": "20x20"
+    },
+    {
+      "src": "img/windows10/Square44x44Logo.altform-unplated_targetsize-24.png",
+      "sizes": "24x24"
+    },
+    {
+      "src": "img/windows10/Square44x44Logo.altform-unplated_targetsize-30.png",
+      "sizes": "30x30"
+    },
+    {
+      "src": "img/windows10/Square44x44Logo.altform-unplated_targetsize-32.png",
+      "sizes": "32x32"
+    },
+    {
+      "src": "img/windows10/Square44x44Logo.altform-unplated_targetsize-36.png",
+      "sizes": "36x36"
+    },
+    {
+      "src": "img/windows10/Square44x44Logo.altform-unplated_targetsize-40.png",
+      "sizes": "40x40"
+    },
+    {
+      "src": "img/windows10/Square44x44Logo.altform-unplated_targetsize-44.png",
+      "sizes": "44x44"
+    },
+    {
+      "src": "img/windows10/Square44x44Logo.altform-unplated_targetsize-48.png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "img/windows10/Square44x44Logo.altform-unplated_targetsize-60.png",
+      "sizes": "60x60"
+    },
+    {
+      "src": "img/windows10/Square44x44Logo.altform-unplated_targetsize-64.png",
+      "sizes": "64x64"
+    },
+    {
+      "src": "img/windows10/Square44x44Logo.altform-unplated_targetsize-72.png",
+      "sizes": "72x72"
+    },
+    {
+      "src": "img/windows10/Square44x44Logo.altform-unplated_targetsize-80.png",
+      "sizes": "80x80"
+    },
+    {
+      "src": "img/windows10/Square44x44Logo.altform-unplated_targetsize-96.png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "img/windows10/Square44x44Logo.altform-unplated_targetsize-256.png",
+      "sizes": "256x256"
+    },
+    {
+      "src": "img/windows10/Square44x44Logo.altform-lightunplated_targetsize-16.png",
+      "sizes": "16x16"
+    },
+    {
+      "src": "img/windows10/Square44x44Logo.altform-lightunplated_targetsize-20.png",
+      "sizes": "20x20"
+    },
+    {
+      "src": "img/windows10/Square44x44Logo.altform-lightunplated_targetsize-24.png",
+      "sizes": "24x24"
+    },
+    {
+      "src": "img/windows10/Square44x44Logo.altform-lightunplated_targetsize-30.png",
+      "sizes": "30x30"
+    },
+    {
+      "src": "img/windows10/Square44x44Logo.altform-lightunplated_targetsize-32.png",
+      "sizes": "32x32"
+    },
+    {
+      "src": "img/windows10/Square44x44Logo.altform-lightunplated_targetsize-36.png",
+      "sizes": "36x36"
+    },
+    {
+      "src": "img/windows10/Square44x44Logo.altform-lightunplated_targetsize-40.png",
+      "sizes": "40x40"
+    },
+    {
+      "src": "img/windows10/Square44x44Logo.altform-lightunplated_targetsize-44.png",
+      "sizes": "44x44"
+    },
+    {
+      "src": "img/windows10/Square44x44Logo.altform-lightunplated_targetsize-48.png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "img/windows10/Square44x44Logo.altform-lightunplated_targetsize-60.png",
+      "sizes": "60x60"
+    },
+    {
+      "src": "img/windows10/Square44x44Logo.altform-lightunplated_targetsize-64.png",
+      "sizes": "64x64"
+    },
+    {
+      "src": "img/windows10/Square44x44Logo.altform-lightunplated_targetsize-72.png",
+      "sizes": "72x72"
+    },
+    {
+      "src": "img/windows10/Square44x44Logo.altform-lightunplated_targetsize-80.png",
+      "sizes": "80x80"
+    },
+    {
+      "src": "img/windows10/Square44x44Logo.altform-lightunplated_targetsize-96.png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "img/windows10/Square44x44Logo.altform-lightunplated_targetsize-256.png",
+      "sizes": "256x256"
+    },
+    {
+      "src": "img/msteams/msteams-192-192.png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "img/msteams/msteams-silhouette-32-32.png",
+      "sizes": "32x32"
+    },
+    {
+      "src": "img/android/android-launchericon-512-512.png",
+      "sizes": "512x512"
+    },
+    {
+      "src": "img/android/android-launchericon-192-192.png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "img/android/android-launchericon-144-144.png",
+      "sizes": "144x144"
+    },
+    {
+      "src": "img/android/android-launchericon-96-96.png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "img/android/android-launchericon-72-72.png",
+      "sizes": "72x72"
+    },
+    {
+      "src": "img/android/android-launchericon-48-48.png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "img/chrome/chrome-extensionmanagementpage-48-48.png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "img/chrome/chrome-favicon-16-16.png",
+      "sizes": "16x16"
+    },
+    {
+      "src": "img/chrome/chrome-installprocess-128-128.png",
+      "sizes": "128x128"
+    },
+    {
+      "src": "img/firefox/firefox-marketplace-512-512.png",
+      "sizes": "512x512"
+    },
+    {
+      "src": "img/firefox/firefox-marketplace-128-128.png",
+      "sizes": "128x128"
+    },
+    {
+      "src": "img/firefox/firefox-general-256-256.png",
+      "sizes": "256x256"
+    },
+    {
+      "src": "img/firefox/firefox-general-128-128.png",
+      "sizes": "128x128"
+    },
+    {
+      "src": "img/firefox/firefox-general-90-90.png",
+      "sizes": "90x90"
+    },
+    {
+      "src": "img/firefox/firefox-general-64-64.png",
+      "sizes": "64x64"
+    },
+    {
+      "src": "img/firefox/firefox-general-48-48.png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "img/firefox/firefox-general-32-32.png",
+      "sizes": "32x32"
+    },
+    {
+      "src": "img/firefox/firefox-general-16-16.png",
+      "sizes": "16x16"
+    }
+  ]
 }
