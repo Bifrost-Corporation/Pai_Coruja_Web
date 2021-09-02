@@ -25,6 +25,26 @@ self.addEventListener('fetch', function (e) {
   )
 })
 
+// Register event listener for the 'push' event.
+self.addEventListener('push', function(event) {
+  // Retrieve the textual payload from event.data (a PushMessageData object).
+  // Other formats are supported (ArrayBuffer, Blob, JSON), check out the documentation
+  // on https://developer.mozilla.org/en-US/docs/Web/API/PushMessageData.
+  const payload = event.data ? event.data.text() : 'Sem mensagem';
+
+  // Keep the service worker alive until the notification is created.
+  event.waitUntil(
+    // as the body.
+    self.registration.showNotification('Pai Coruja', {
+      body: payload,
+      icon: "img/windows10/SmallTile.scale-400.png",
+      // image: "macos.png",
+    })
+  );
+});
+
+// https://developers.google.com/web/fundamentals/push-notifications/display-a-notification
+
 // Cache resources
 self.addEventListener('install', function (e) {
   e.waitUntil(
