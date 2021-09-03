@@ -2,7 +2,7 @@
 
     class Conexao{
         public static function conectar(){
-            $conexao = new PDO("mysql:host=localhost:3306;
+            $conexao = new PDO("mysql:host=localhost:3307;
                                 dbname=bdpaicoruja",
                                 "root",
                                 "");

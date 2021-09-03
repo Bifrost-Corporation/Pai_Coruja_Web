@@ -85,6 +85,7 @@
                 <div class="user-details">
                     <div class="input-box-width100">
                         <h2>Nome da Escola: </h2>
+                        <label class="label-erro" id="label-escola"></label>
                         <input name="txtNomeEscola" id="txtNomeEscola" type="text" placeholder="Insira o nome da escola">
                     </div>
                     <div class="button">
@@ -101,8 +102,11 @@
 
     <script>
         jQuery('form').on('submit',function (e){
-            var nomeEscola = $('.txtNomeEscola').val();
+            var nomeEscola = $('#txtNomeEscola').val();
             if(nomeEscola.length == 0){
+                $('#label-escola').html('Por favor, preencha o campo de nome da escola!');
+                $('#txtNomeEscola').addClass('erro-form');
+                $('#label-escola').show();
                 e.preventDefault();
             }
         });

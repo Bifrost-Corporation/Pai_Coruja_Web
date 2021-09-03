@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
 
-    <title>Home - Secretária</title>
+    <title>Cadastro Turma</title>
 
 
 </head>
@@ -20,7 +20,7 @@
     <header>
 
         <nav class="nav-bar">
-            <a href=""><img class="logo" src="../images/pai_coruja_3.png"></a>
+            <a href="home-secretaria.php"><img class="logo" src="../images/pai_coruja_3.png"></a>
             <ul class="ul-area-btn">
                 <li class="nav-li"><a class="btn-nav-exit" href="logout.php">Sair</a></li>
             </ul>
@@ -68,77 +68,54 @@
 
 
     <main class="container-main">
-        <section class="destaque-card">
-            <div class="esquerda-destaque">
-                <h1>Novidade 1</h1>
-                <small>Subtítulo</small>
-                <p>Para mais detalhes clique abaixo</p>
 
-                <a href="#"><button class="saiba-mais-btn">Saiba Mais</button></a>
+
+        <section class="top-section">
+            <div class="voltar">
+                <a href="home-secretaria.php">
+                    <span class="fas fa-arrow-left"></span>Voltar
+                </a>
             </div>
-            <div class="direita-destaque">
-
+            <div class="titulo-cadastrar">
+                <h2>Cadastrar Turma:</h2>
             </div>
         </section>
 
-        <section class="cards-eventos">
-            <h2>Eventos</h2>
-            <div class="arrumar-cards">
 
-                <div class="evento-card">
-                    <div>
-                        <h1>Evento</h1>
-                        <small>Data: 06/06/2006</small>
+        <section class="main-section">
+            <form name="nomeTurma" class="formulario" method="POST" action="../DAO/inserir-turma.php">
+                <div class="user-details">
+                    <div class="input-box-width100">
+                        <h2>Nome da Turma:</h2>
+                        <label class="label-erro" id="label-nome"></label>
+                        <input name="txtNomeTurma" id="txtNomeTurma" type="text" placeholder="Insira o nome da turma">
                     </div>
-                    <div>
-                        <a href="#"><button>Saiba Mais</button></a>
-                    </div>
-                </div>
-
-                <div class="evento-card">
-                    <div>
-                        <h1>Evento</h1>
-                        <small>Data: 06/06/2006</small>
-                    </div>
-                    <div>
-                        <a href="#"><button>Saiba Mais</button></a>
+                    <div class="button">
+                        <input type="submit" class="btn-nav-exit" value="Cadastrar">
                     </div>
                 </div>
-                <div class="evento-card">
-                    <div>
-                        <h1>Evento</h1>
-                        <small>Data: 06/06/2006</small>
-                    </div>
-                    <div>
-                        <a href="#"><button>Saiba Mais</button></a>
-                    </div>
-                </div>
-                <div class="evento-card">
-                    <div>
-                        <h1>Evento</h1>
-                        <small>Data: 06/06/2006</small>
-                    </div>
-                    <div>
-                        <a href="#"><button>Saiba Mais</button></a>
-                    </div>
-                </div>
-                <div class="evento-card">
-                    <div>
-                        <h1>Evento</h1>
-                        <small>Data: 06/06/2006</small>
-                    </div>
-                    <div>
-                        <a href="#"><button>Saiba Mais</button></a>
-                    </div>
-                </div>
-
-
-            </div>
+            </form>
         </section>
     </main>
 
     <script src="../js/nav.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
+    <script>
+        jQuery('form').on('submit', function(e){
+            var nomeTurma = $('#txtNomeTurma').val();
+            if(nomeTurma.length == 0) {
+                $('#label-nome').html('Por favor, preencha o campo de nome para a turma!');
+                $('#txtNomeTurma').addClass('erro-form');
+                $('#label-nome').show();
+                setTimeout(function(){
+                    $('#label-nome').fadeOut(1);
+                    $('#txtNomeTurma').removeClass('erro-form');
+                },5000);
+                e.preventDefault();
+            }
+        });
+    </script>
 </body>
 
 

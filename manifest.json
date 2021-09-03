@@ -6,7 +6,6 @@
   "orientation": "standalone",
   "theme_color": "#042243",
   "background_color": "#282b30",
-  "default_size": "640x480",
   "icons": [
     {
       "src": "img/windows10/SmallTile.scale-100.png",
