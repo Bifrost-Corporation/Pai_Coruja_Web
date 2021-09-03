@@ -32,7 +32,7 @@
                     <img src="../images/usuario-de-perfil.png">
                 </div>
                 <div class="text-perfil">
-                    <p>Olá, <?php echo $_SESSION['nomeSecretaria'] ?></p>
+                    <p>Olá, Secretário</p>
                 </div>
             </div>
             <ul class="ul-sidebar-menu">
@@ -50,14 +50,13 @@
                 </li>
 
                 <li>
-                    <a href="#" onclick="openMenu2()" id="sub-menu-button-2" class="outro-btn">Cadastrar
+                    <a href="#" onclick="openMenu2()" id="sub-menu-button-2" class="outro-btn">Secretária
                         <span class="fas fa-caret-down second"></span>
                     </a>
                     <ul id="sub-menu-2">
                         <li><a href="cadastrar-aluno.html">Cadastrar Aluno</a></li>
                         <li><a href="cadastrar-professor.html">Cadastrar Professor</a></li>
                         <li><a href="cadastrar-responsavel.html">Cadastrar Responsável</a></li>
-                        <li><a href="cadastrar-turma.php">Cadastrar Turma</a></li>
                         <li><a href="nova-publicacao.html">Nova Publicação</a></li>
                     </ul>
                 </li>

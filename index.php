@@ -12,20 +12,28 @@
 
 <body>
     <main class="bg-login">
-        <section class="card-login">
-            <div style="text-align: center;">
+        <section class="card-login" >
+            <div>
                 <img src="images/pai_coruja_3.png" class="logo-login">
             </div>
-            <div class="div-titulo">
+            <div>
                 <p class="label-login">Login</p>
             </div>
             <form name="form-login" method="POST" action="DAO/consulta-login.php">
-                <div class="input-box">
-                    <label class="label-erro" id="label-email"></label>
-                    <input type="text" class="input-email" name="txtEmail" id="txtEmail" placeholder="Digite seu email">
+                <section class="caixa-alerta-email">
+                    <div>
+                        <p class="txt-alerta-email">Login Inválido</p>
+                    </div>
+                </section>
+                <div class="div-titulo2">
+                    <input type="email" class="input-email" name="txtEmail" id="txtEmail" placeholder="Digite seu email">
                 </div>
-                <div class="input-box">
-                    <label class="label-erro" id="label-senha"></label>
+                <section class="caixa-alerta-senha">
+                    <div>
+                        <p class="txt-alerta-senha">Senha Inválida</p>
+                    </div>
+                </section>
+                <div class="div-titulo2">
                     <input type="password" class="input-senha" name="txtSenha" id="txtSenha" placeholder="Digite sua senha">
                 </div>
                 <div class="div-login">
@@ -43,10 +51,7 @@
 
         </section>
     </main>
-    <footer>
-        <div class="div-footer">
-            <p style="color: var(--azulnavbar);">Bifrost - Conectando Mundos</p>
-        </div>
+    <footer class="div-footer">
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
@@ -56,53 +61,36 @@
             crossorigin="anonymous"></script>
     <script>
         jQuery('form').on('submit',function(e){
-            var email = $('#txtEmail').val();
-            var senha = $('#txtSenha').val();
+            var email = $('.input-email').val();
+            var senha = $('.input-senha').val();
             if (email.length == 0) {
-                $('#label-email').html('Informe um email!');
-                    $('#txtEmail').addClass('erro-form');
-                    $('#label-email').show();
-                    setTimeout(function(){
-                        $('#label-email').fadeOut(1);
-                        $('#txtEmail').removeClass('erro-form');
-                    },5000);
-                    e.preventDefault();
-            } 
-            else {
-                verificaarroba = false;
-                verificaponto = false;
-                for(var i = 0; i < email.length; i++){
-                    if(email.charAt(i) == '@' && i + 1 < email.length){
-                        posicaoarroba = i;
+                $('.txt-alerta-email').html('Por favor, informe o email!');
+                $('.caixa-alerta-email').show();
+                $('.caixa-alerta-email').fadeOut(5000);
+                e.preventDefault();
+            } else {
+                var verificararroba = false;
+                var verificaponto = false;
+                for (var i = 0; i < email.length; i++) {
+                    if (email.charAt(i) == '@' && i + 1 < email.length) {
+                        verificararroba = true;
                     }
-                    if(email.charAt(i) == '.' && i + 1 < email.length){
-                        posicaoponto = i;
+                    if (email.charAt(i) == '.' && i + 1 < email.length) {
+                        verificaponto = true;
                     }
                 }
-                if(posicaoponto > posicaoarroba) {
-                    verificaarroba = true;
-                    verificaponto = true;
-                }
-                if(verificaarroba == false || verificaponto == false){
-                    $('#label-email').html('Email inválido!');
-                    $('#txtEmail').addClass('erro-form');
-                    $('#label-email').show();
-                    setTimeout(function(){
-                        $('#label-email').fadeOut(1);
-                        $('#txtEmail').removeClass('erro-form');
-                    },5000);
+                if (verificaponto == false || verificararroba == false) {
+                    $('.txt-alerta-email').html('Email inválido!');
+                    $('.caixa-alerta-email').show();
+                    $('.caixa-alerta-email').fadeOut(5000);
                     e.preventDefault();
                 }
             }
             if (senha.length == 0) {
-                $('#label-senha').html('Informe uma senha!');
-                    $('#txtSenha').addClass('erro-form');
-                    $('#label-senha').show();
-                    setTimeout(function(){
-                        $('#label-senha').fadeOut(1);
-                        $('#txtSenha').removeClass('erro-form');
-                    },5000);
-                    e.preventDefault();
+                $('.txt-alerta-senha').html('Por favor, informe a senha!');
+                $('.caixa-alerta-senha').show();
+                $('.caixa-alerta-senha').fadeOut(5000);
+                e.preventDefault();
                 
             }
         });

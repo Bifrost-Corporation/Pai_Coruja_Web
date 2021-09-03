@@ -22,7 +22,7 @@
         <nav class="nav-bar">
             <a href=""><img class="logo" src="../images/pai_coruja_3.png"></a>
             <ul class="ul-area-btn">
-                <li class="nav-li"><a class="btn-nav-exit" href="logout.php">Sair</a></li>
+                <li class="nav-li"><a class="btn-nav-exit" href="#">Sair</a></li>
             </ul>
         </nav>
 
@@ -175,15 +175,11 @@
                 verificaponto = false;
                 for(var i = 0; i < email.length; i++){
                     if(email.charAt(i) == '@' && i + 1 < email.length){
-                        posicaoarroba = i;
+                        verificaarroba = true;
                     }
                     if(email.charAt(i) == '.' && i + 1 < email.length){
-                        posicaoponto = i;
+                        verificaponto = true;
                     }
-                }
-                if(posicaoponto > posicaoarroba) {
-                    verificaarroba = true;
-                    verificaponto = true;
                 }
                 if(verificaarroba == false || verificaponto == false){
                     $('#label-email').html('Email inválido!');

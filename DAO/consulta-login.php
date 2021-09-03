@@ -9,7 +9,7 @@
         $conexao = Conexao::conectar();
         $verificalogin = false;
         $queryadm = "SELECT idAdministrador, loginAdministrador, senhaAdministrador FROM tbadministrador";
-        $querysecretaria = "SELECT nomeSecretaria, emailSecretaria, senhaSecretaria, idEscola FROM tbsecretaria";
+        $querysecretaria = "SELECT emailSecretaria, senhaSecretaria FROM tbsecretaria";
         $queryprofessor = "SELECT emailProfessor, senhaProfessor FROM tbprofessor";
         $queryresponsavel = "SELECT emailResponsavel, senhaResponsavel FROM tbresponsavel";
         $resultadoadm = $conexao->query($queryadm);
@@ -29,10 +29,8 @@
         foreach($listasecretaria as $linha){
             if($linha['emailSecretaria'] == $emailForm && $linha['senhaSecretaria'] == $senhaForm){
                 $verificalogin = true;
-                $_SESSION['nomeSecretaria'] = $linha['nomeSecretaria'];
                 $_SESSION['emailSecretaria'] = $emailForm;
                 $_SESSION['senhaSecretaria'] = $senhaForm;
-                $_SESSION['idEscola'] = $linha['idEscola'];
                 $_SESSION['autorizacaoSecretaria'] = true;
                 header('location: ../secretaria/home-secretaria.php');
             }

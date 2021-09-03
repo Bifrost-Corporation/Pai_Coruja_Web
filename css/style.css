@@ -75,50 +75,55 @@ p {
 
 /* TELA LOGIN */
 
-body {
-    height: 100%;
+body{
+    background-color: var(--azulbtnsair);
 }
 
 .bg-login {
     background-color: var(--azulbtnsair);
-    padding: 6%;
-    height: 100%;
-    position: relative;
+    height: 97vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
 }
 
 .card-login {
+    /* display: none; */
     width: 500px;
-    height: 100%;
+    /*height: 550px;*/
+    /* height: 70%; */
     margin-left: auto;
     margin-right: auto;
     background-color: var(--cinzamaisclaro);
-    padding: 3%;
+    padding: 20px;
     border-radius: 15px;
     justify-content: center;
     align-items: center;
 }
 
+.card-login div:first-child{
+    text-align: center;
+}
+
 .logo-login {
-    margin-left: auto;
-    margin-right: auto;
-    width: 300px;
+    width: 70%;
 }
 
 .label-login {
+    padding: 1rem;
     font-family: 'Fira Sans';
-    font-size: 26px;
+    font-size: 2rem;
     text-align: center;
-    align-content: center;
     font-weight: bold;
     color: var(--azulbtnsair);
 }
 
-.input-email {
-    background-color: var(--cinzaclaro);
+.input-senha , .input-email {
+    background-color: var(--branco);
     font-family: 'Roboto';
     font-weight: bold;
     width: 100%;
-    font-size: 16px;
+    font-size: 1rem;
     color: var(--cinzaescuro);
     margin-top: 10px;
     padding: 13px 18px;
@@ -129,48 +134,22 @@ body {
     border-color: var(--azulmenulateral);
 }
 
-.input-senha {
-    background-color: var(--cinzaclaro);
-    font-family: 'Roboto';
-    font-weight: bold;
-    width: 100%;
-    font-size: 16px;
-    color: var(--cinzaescuro);
-    margin-top: 10px;
-    padding: 13px 18px;
-    border-radius: 10px;
-    outline: 0px;
-    border-style: solid;
-    border-width: 1px;
-    border-color: var(--azulmenulateral);
-}
-
-.div-titulo {
-    padding-top: 15px;
-    padding-left: 15px;
-    padding-right: 15px;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-}
 
 .div-titulo2 {
-    padding-bottom: 15px;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding: 0.2rem 1rem ;
     text-align: center;
     display: flex;
     justify-content: center;
 }
 
 .div-login {
-    padding: 15px;
-    text-align: center;
+    padding: 1rem;
     display: flex;
     justify-content: center;
 }
 
 .cb-conectado {
+    cursor: pointer;
     appearance: none;
     height: 20px;
     width: 20px;
@@ -216,16 +195,17 @@ body {
     font-family: 'Roboto';
     font-weight: bold;
     color: var(--azulbtnsair);
-    font-size: 15px;
+    font-size: 1rem;
 }
 
 .btn-login {
-    padding: 15px;
+    cursor: pointer;
+    padding: 1rem;
     width: 30%;
     background-color: var(--azulbtnsair);
     color: var(--branco);
     font-weight: bold;
-    font-size: 15px;
+    font-size: 1rem;
     border-radius: 10px;
     margin-left: 10px;
     margin-right: 10px;
@@ -237,12 +217,13 @@ body {
 }
 
 .btn-esqueci {
-    padding: 15px;
+    cursor: pointer;
+    padding: 1rem;
     width: 30%;
     background-color: var(--branco);
     color: var(--azulbtnsair);
     font-weight: bold;
-    font-size: 15px;
+    font-size: 1rem;
     border-radius: 10px;
     margin-left: 10px;
     margin-right: 10px;
@@ -251,7 +232,7 @@ body {
 }
 
 .nota-copy {
-    font-size: 12px;
+    font-size: 0.7rem;
     font-weight: bold;
     color: var(--cinzaescuro);
     text-align: center;
@@ -260,10 +241,7 @@ body {
 
 .div-footer {
     background-color: var(--azulnavbar);
-    width: 100%;
-    bottom: 0;
-    position: relative;
-    height: 4%;
+    height: 3vh;
 }
 
 .caixa-alerta-email {
@@ -700,6 +678,7 @@ input[type="file"] {
     color: brown;
     font-size: 14px;
     display: none;
+    margin-bottom: 500px;
 }
 
 
@@ -708,9 +687,9 @@ input[type="file"] {
 
 /*  MEDIAS  */
 
-@media (max-width:659px) {
+@media (max-width:550px) {
     .card-login {
-        width: 100%;
+        width: 90vw;
     }
 }
 
