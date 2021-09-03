@@ -20,20 +20,12 @@
                 <p class="label-login">Login</p>
             </div>
             <form name="form-login" method="POST" action="DAO/consulta-login.php">
-                <section class="caixa-alerta-email">
-                    <div>
-                        <p class="txt-alerta-email">Login Inválido</p>
-                    </div>
-                </section>
-                <div class="div-titulo2">
+                <div class="input-box">
+                    <label class="label-erro" id="label-email"></label>
                     <input type="text" class="input-email" name="txtEmail" id="txtEmail" placeholder="Digite seu email">
                 </div>
-                <section class="caixa-alerta-senha">
-                    <div>
-                        <p class="txt-alerta-senha">Senha Inválida</p>
-                    </div>
-                </section>
-                <div class="div-titulo2">
+                <div class="input-box">
+                    <label class="label-erro" id="label-senha"></label>
                     <input type="password" class="input-senha" name="txtSenha" id="txtSenha" placeholder="Digite sua senha">
                 </div>
                 <div class="div-login">
@@ -64,36 +56,53 @@
             crossorigin="anonymous"></script>
     <script>
         jQuery('form').on('submit',function(e){
-            var email = $('.input-email').val();
-            var senha = $('.input-senha').val();
+            var email = $('#txtEmail').val();
+            var senha = $('#txtSenha').val();
             if (email.length == 0) {
-                $('.txt-alerta-email').html('Por favor, informe o email!');
-                $('.caixa-alerta-email').show();
-                $('.caixa-alerta-email').fadeOut(5000);
-                e.preventDefault();
-            } else {
-                var verificararroba = false;
-                var verificaponto = false;
-                for (var i = 0; i < email.length; i++) {
-                    if (email.charAt(i) == '@' && i + 1 < email.length) {
-                        verificararroba = true;
+                $('#label-email').html('Informe um email!');
+                    $('#txtEmail').addClass('erro-form');
+                    $('#label-email').show();
+                    setTimeout(function(){
+                        $('#label-email').fadeOut(1);
+                        $('#txtEmail').removeClass('erro-form');
+                    },5000);
+                    e.preventDefault();
+            } 
+            else {
+                verificaarroba = false;
+                verificaponto = false;
+                for(var i = 0; i < email.length; i++){
+                    if(email.charAt(i) == '@' && i + 1 < email.length){
+                        posicaoarroba = i;
                     }
-                    if (email.charAt(i) == '.' && i + 1 < email.length) {
-                        verificaponto = true;
+                    if(email.charAt(i) == '.' && i + 1 < email.length){
+                        posicaoponto = i;
                     }
                 }
-                if (verificaponto == false || verificararroba == false) {
-                    $('.txt-alerta-email').html('Email inválido!');
-                    $('.caixa-alerta-email').show();
-                    $('.caixa-alerta-email').fadeOut(5000);
+                if(posicaoponto > posicaoarroba) {
+                    verificaarroba = true;
+                    verificaponto = true;
+                }
+                if(verificaarroba == false || verificaponto == false){
+                    $('#label-email').html('Email inválido!');
+                    $('#txtEmail').addClass('erro-form');
+                    $('#label-email').show();
+                    setTimeout(function(){
+                        $('#label-email').fadeOut(1);
+                        $('#txtEmail').removeClass('erro-form');
+                    },5000);
                     e.preventDefault();
                 }
             }
             if (senha.length == 0) {
-                $('.txt-alerta-senha').html('Por favor, informe a senha!');
-                $('.caixa-alerta-senha').show();
-                $('.caixa-alerta-senha').fadeOut(5000);
-                e.preventDefault();
+                $('#label-senha').html('Informe uma senha!');
+                    $('#txtSenha').addClass('erro-form');
+                    $('#label-senha').show();
+                    setTimeout(function(){
+                        $('#label-senha').fadeOut(1);
+                        $('#txtSenha').removeClass('erro-form');
+                    },5000);
+                    e.preventDefault();
                 
             }
         });

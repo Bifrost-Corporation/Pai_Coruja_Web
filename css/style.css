@@ -75,19 +75,24 @@ p {
 
 /* TELA LOGIN */
 
+body {
+    height: 100%;
+}
+
 .bg-login {
     background-color: var(--azulbtnsair);
-    padding: 50px;
+    padding: 6%;
+    height: 100%;
+    position: relative;
 }
 
 .card-login {
     width: 500px;
-    /*height: 550px;*/
-    height: 70%;
+    height: 100%;
     margin-left: auto;
     margin-right: auto;
     background-color: var(--cinzamaisclaro);
-    padding: 20px;
+    padding: 3%;
     border-radius: 15px;
     justify-content: center;
     align-items: center;
@@ -255,8 +260,10 @@ p {
 
 .div-footer {
     background-color: var(--azulnavbar);
-    height: 100%;
+    width: 100%;
+    bottom: 0;
     position: relative;
+    height: 4%;
 }
 
 .caixa-alerta-email {
@@ -693,7 +700,6 @@ input[type="file"] {
     color: brown;
     font-size: 14px;
     display: none;
-    margin-bottom: 500px;
 }
 
 
