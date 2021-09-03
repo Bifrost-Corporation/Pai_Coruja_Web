@@ -8,7 +8,18 @@
     font-family: sans-serif;
 }
 
-html {}
+::-webkit-scrollbar {
+    width: 6px;
+    background-color: var(--azulbtnsair);
+  }
+  
+  /* Add a thumb */
+::-webkit-scrollbar-thumb {
+      background-color: var(--branco);
+      border-radius: 7px;
+  }
+
+  
 
 :root {
     --azulnavbar: #26466D;
@@ -75,9 +86,6 @@ p {
 
 /* TELA LOGIN */
 
-body{
-    background-color: var(--azulbtnsair);
-}
 
 .bg-login {
     background-color: var(--azulbtnsair);
