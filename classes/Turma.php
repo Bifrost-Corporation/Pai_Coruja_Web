@@ -42,6 +42,14 @@
             return 'Cadastro da turma realizado com sucesso!';
         }
 
+        public function listar(){
+            $conexao = Conexao::conectar();
+            $queryTurma = 'SELECT idTurma, nomeTurma, idEscola FROM tbturma';
+            $resultadoTurma = $conexao->query($queryTurma);
+            $listaTurma = $resultadoTurma->fetchAll(PDO::FETCH_ASSOC);
+            return $listaTurma;
+        }
+
     }
 
 ?>

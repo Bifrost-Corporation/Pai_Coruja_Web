@@ -54,7 +54,7 @@
                         <span class="fas fa-caret-down second"></span>
                     </a>
                     <ul id="sub-menu-2">
-                        <li><a href="cadastrar-aluno.html">Cadastrar Aluno</a></li>
+                        <li><a href="cadastrar-aluno.php">Cadastrar Aluno</a></li>
                         <li><a href="cadastrar-professor.html">Cadastrar Professor</a></li>
                         <li><a href="cadastrar-responsavel.html">Cadastrar Responsável</a></li>
                         <li><a href="cadastrar-turma.php">Cadastrar Turma</a></li>

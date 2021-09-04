@@ -75,10 +75,6 @@ p {
 
 /* TELA LOGIN */
 
-body{
-    background-color: var(--azulbtnsair);
-}
-
 .bg-login {
     background-color: var(--azulbtnsair);
     height: 97vh;
@@ -101,7 +97,7 @@ body{
     align-items: center;
 }
 
-.card-login div:first-child{
+.card-login div:first-child {
     text-align: center;
 }
 
@@ -118,7 +114,8 @@ body{
     color: var(--azulbtnsair);
 }
 
-.input-senha , .input-email {
+.input-senha,
+.input-email {
     background-color: var(--branco);
     font-family: 'Roboto';
     font-weight: bold;
@@ -134,9 +131,8 @@ body{
     border-color: var(--azulmenulateral);
 }
 
-
 .div-titulo2 {
-    padding: 0.2rem 1rem ;
+    padding: 0.2rem 1rem;
     text-align: center;
     display: flex;
     justify-content: center;
