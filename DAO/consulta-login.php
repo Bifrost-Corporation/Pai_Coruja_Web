@@ -10,7 +10,7 @@
         $verificalogin = false;
         $queryadm = "SELECT idAdministrador, loginAdministrador, senhaAdministrador FROM tbadministrador";
         $querysecretaria = "SELECT nomeSecretaria, emailSecretaria, senhaSecretaria, idEscola FROM tbsecretaria";
-        $queryprofessor = "SELECT emailProfessor, senhaProfessor FROM tbprofessor";
+        $queryprofessor = "SELECT nomeProfessor, emailProfessor, senhaProfessor FROM tbprofessor";
         $queryresponsavel = "SELECT emailResponsavel, senhaResponsavel FROM tbresponsavel";
         $resultadoadm = $conexao->query($queryadm);
         $listaadm = $resultadoadm->fetchAll(PDO::FETCH_ASSOC);
@@ -42,7 +42,11 @@
         foreach($listaprofessor as $linha){
             if($linha['emailProfessor'] == $emailForm && $linha['senhaProfessor'] == $senhaForm){
                 $verificalogin = true;
-                header('location: ../professor/home-professor.html');
+                $_SESSION['nomeProfessor'] = $linha['nomeProfessor'];
+                $_SESSION['emailProfessor'] = $emailForm;
+                $_SESSION['senhaProfessor'] = $senhaForm;
+                $_SESSION['autorizacaoProfessor'] = true;
+                header('location: ../professor/home-professor.php');
             }
         }
         $resultadoresponsavel = $conexao->query($queryresponsavel);
