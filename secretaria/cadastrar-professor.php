@@ -56,7 +56,7 @@
                     <ul id="sub-menu-2">
                         <li><a href="cadastrar-aluno.php">Cadastrar Aluno</a></li>
                         <li><a href="cadastrar-professor.php">Cadastrar Professor</a></li>
-                        <li><a href="cadastrar-responsavel.html">Cadastrar Responsável</a></li>
+                        <li><a href="cadastrar-responsavel.php">Cadastrar Responsável</a></li>
                         <li><a href="cadastrar-turma.php">Cadastrar Turma</a></li>
                         <li><a href="nova-publicacao.html">Nova Publicação</a></li>
                     </ul>

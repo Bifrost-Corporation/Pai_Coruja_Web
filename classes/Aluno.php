@@ -62,6 +62,22 @@
             return 'Cadastro do aluno realizado com sucesso!';
         }
 
+        public function listar(){
+            $conexao = Conexao::conectar();
+            $queryAluno = 'SELECT idAluno, nomeAluno, dataNascAluno, idTurma, idEscola FROM tbaluno';
+            $resultadoAluno = $conexao->query($queryAluno);
+            $listaAluno = $resultadoAluno->fetchAll(PDO::FETCH_ASSOC);
+            return $listaAluno;
+        }
+
+        public function selecionarNomeTurma(){
+            $conexao = Conexao::conectar();
+            $queryNomeTurma = 'SELECT idAluno, nomeAluno, nomeTurma FROM tbaluno INNER JOIN tbturma ON tbaluno.idTurma = tbturma.idTurma WHERE tbaluno.idTurma = tbturma.idTurma';
+            $resutaldoNomeTurma = $conexao->query($queryNomeTurma);
+            $listaNomeTurma = $resutaldoNomeTurma->fetchAll(PDO::FETCH_ASSOC);
+            return $listaNomeTurma;
+        }
+
     }
 
 ?>
