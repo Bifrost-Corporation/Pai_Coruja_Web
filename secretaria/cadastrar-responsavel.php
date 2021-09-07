@@ -13,52 +13,113 @@
 </head>
 
 <body>
+    <?php
+        include ('sentinela.php');
+    ?>
     <header>
 
-        <nav class="nav-bar">
-            <a href=""><img class="logo" src="../images/pai_coruja_3.png"></a>
-            <ul class="ul-area-btn">
-                <li class="nav-li"><a class="btn-nav-exit" href="logout.php">Sair</a></li>
-            </ul>
-        </nav>
+        <!-- <nav class="nav-bar">
+    <a href=""><img class="logo" src="../img/pai_coruja_3.png"></a>
+    <ul class="ul-area-btn">
+        <li class="nav-li"><a class="btn-nav-exit" href="logout.php">Sair</a></li>
+    </ul>
+</nav> -->
 
-        <nav class="sidebar">
-            <div class="perfil">
-                <div class="img-perfil">
-                    <img src="../images/usuario-de-perfil.png">
-                </div>
-                <div class="text-perfil">
-                    <p>Olá, Secretário</p>
+        <div class="sidebar">
+            <div class="logo-content">
+                <div class="logo">
+                    <div class="logo-name"><a href=""><img src="../img/pai_coruja_branca.png"></a></div>
                 </div>
             </div>
-            <ul class="ul-sidebar-menu">
+            <ul class="nav-list">
                 <li>
-                    <a href="#" onclick="openMenu()" id="sub-menu-button" class="visao-geral-btn">Visão Geral
-                        <span class="fas fa-caret-down first"></span>
+                    <a onclick="openMenu()" id="sub-menu-button">
+                        <div>
+                            <i class="fas fa-chart-pie"></i>
+                            <span class="links-name">Visão Geral</span>
+                        </div>
+                        <i class="fas fa-caret-down" class="dropdown-icon"></i>
                     </a>
-
-                    <ul id="sub-menu">
-                        <li><a href="#">Mural</a></li>
-                        <li><a href="#">Avaliação dos Professores</a></li>
-                        <li><a href="#">Eventos Programados</a></li>
-
-                    </ul>
                 </li>
+                <div class="drop-menu" id="sub-menu">
+                    <li class="links-name drop-link">
+                        <a href="home-secretaria.php">
+                            <i class="fas fa-calendar"></i>
+                            <span class="links-name">Mural</span>
+                        </a>
+                    </li>
+                    <li class="links-name drop-link">
+                        <a href="#">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                            <span class="links-name">Avaliação dos Professores</span>
+                        </a>
+                    </li>
+                    <li class="links-name drop-link">
+                        <a href="#">
+                            <i class="fas fa-calendar-day"></i>
+                            <span class="links-name">Eventos Programados</span>
+                        </a>
+                    </li>
+                </div>
+
 
                 <li>
-                    <a href="#" onclick="openMenu2()" id="sub-menu-button-2" class="outro-btn">Secretária
-                        <span class="fas fa-caret-down second"></span>
+                    <a onclick="openMenu2()" id="sub-menu-button-2">
+                        <div>
+                            <i class="fas fa-user-shield"></i>
+                            <span class="links-name">Secretaria</span>
+                        </div>
+                        <i class="fas fa-caret-down" class="dropdown-icon"></i>
                     </a>
-                    <ul id="sub-menu-2">
-                        <li><a href="cadastrar-aluno.html">Cadastrar Aluno</a></li>
-                        <li><a href="cadastrar-professor.html">Cadastrar Professor</a></li>
-                        <li><a href="cadastrar-responsavel.html">Cadastrar Responsável</a></li>
-                        <li><a href="nova-publicacao.html">Nova Publicação</a></li>
-                    </ul>
                 </li>
+                <div class="drop-menu" id="sub-menu-2">
+                    <li class="links-name drop-link">
+                        <a href="cadastrar-aluno.php">
+                            <i class="fas fa-school"></i>
+                            <span class="links-name">Cadastrar Aluno</span>
+                        </a>
+                    </li>
+                    <li class="links-name drop-link">
+                        <a href="cadastrar-professor.php">
+                            <i class="fas fa-school"></i>
+                            <span class="links-name">Cadastrar Professor</span>
+                        </a>
+                    </li>
+                    <li class="links-name drop-link">
+                        <a href="cadastrar-responsavel.php">
+                            <i class="fas fa-school"></i>
+                            <span class="links-name">Cadastrar Responsável</span>
+                        </a>
+                    </li>
+                    <li class="links-name drop-link">
+                        <a href="cadastrar-turma.php">
+                            <i class="fas fa-school"></i>
+                            <span class="links-name">Cadastrar Turma</span>
+                        </a>
+                    </li>
+                    <li class="links-name drop-link">
+                        <a href="nova-publicacao.php">
+                            <i class="fas fa-school"></i>
+                            <span class="links-name">Nova Publicação</span>
+                        </a>
+                    </li>
+                </div>
 
             </ul>
-        </nav>
+            <div class="profile-content">
+                <div class="profile">
+                    <div class="profile-details">
+                        <img src="../img/usuario-de-perfil.png" alt="">
+                        <div class="name-job">
+                            <div class="name-menu"><?php echo $_SESSION['nomeSecretaria'] ?></div>
+                            <div class="job-menu">Olá Secretário(a)</div>
+                        </div>
+                    </div>
+                    <i class="fas fa-sign-out-alt" id="logout-user"></i>
+                </div>
+            </div>
+        </div>
+
     </header>
 
 
@@ -103,7 +164,8 @@
                     <div class="input-box">
                         <h2>Telefone do Responsável:</h2>
                         <label class="label-erro" id="label-telefone"></label>
-                        <input name="txtTelefone" id="txtTelefone" type="tel" placeholder="Insira o numero de telefone do Responsável">
+                        <input name="txtTelefone" id="txtTelefone" type="tel"
+                            placeholder="Insira o numero de telefone do Responsável">
                     </div>
                     <div class="input-box">
                         <h2>CPF Responsável:</h2>
@@ -113,12 +175,14 @@
                     <div class="input-box-width100">
                         <h2>CEP:</h2>
                         <label class="label-erro" id="label-cep"></label>
-                        <input name="txtCep" id="txtCep" type="text" placeholder="Insira o CEP do endereço do Reponsável">
+                        <input name="txtCep" id="txtCep" type="text"
+                            placeholder="Insira o CEP do endereço do Reponsável">
                     </div>
                     <div class="input-box-width100">
                         <h2>Rua:</h2>
                         <label class="label-erro" id="label-rua"></label>
-                        <input name="txtRua" id="txtRua" type="text" placeholder="Insira a rua do endereço do Responsável">
+                        <input name="txtRua" id="txtRua" type="text"
+                            placeholder="Insira a rua do endereço do Responsável">
                     </div>
                     <div class="input-box">
                         <h2>Número:</h2>
@@ -145,7 +209,7 @@
                         <label class="label-erro" id="label-aluno"></label>
                         <input name="txtAluno" id="txtAluno" type="text" placeholder="Insira o nome do aluno">
                         <div id="retornoPesquisa">
-                            
+
                         </div>
                     </div>
                     <div class="button">
@@ -160,29 +224,30 @@
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 
     <script>
-        jQuery('#txtAluno').keyup(function(){
+        jQuery('#txtAluno').keyup(function () {
             var textoInserido = $(this).val();
-            if(textoInserido != ''){
+            if (textoInserido != '') {
                 $.ajax({
                     url: '../DAO/procurar-aluno.php',
                     method: 'POST',
-                    data: {query:textoInserido},
-                    success:function(resposta){
+                    data: {
+                        query: textoInserido
+                    },
+                    success: function (resposta) {
                         $("#retornoPesquisa").html(resposta);
                     }
                 });
-            }
-            else {
+            } else {
                 $("#retornoPesquisa").html('');
             }
         });
 
-        $(document).on('click','.opcao-consulta',function(){
+        $(document).on('click', '.opcao-consulta', function () {
             $("#txtAluno").val($(this).text());
             $("#retornoPesquisa").html("");
         });
 
-        jQuery('form').on('submit', function(e){
+        jQuery('form').on('submit', function (e) {
             var nome = $('#txtNome').val();
             var email = $('#txtEmail').val();
             var senha1 = $('#txtSenha').val();
@@ -196,80 +261,79 @@
             var bairro = $('#txtBairro').val();
             var complemento = $('#txtComplemento').val();
             var aluno = $('#txtAluno').val();
-            
-            if(nome.length == 0){
+
+            if (nome.length == 0) {
                 $('#label-nome').html('Por favor, preencha o campo de nome para o responsável!');
                 $('#txtNome').addClass('erro-form');
                 $('#label-nome').show();
                 $('#txtNome').focus();
-                setTimeout(function(){
+                setTimeout(function () {
                     $('#label-nome').fadeOut(1);
                     $('#txtNome').removeClass('erro-form');
-                },5000);
+                }, 5000);
                 e.preventDefault();
             }
 
-            if(email.length == 0){
+            if (email.length == 0) {
                 $('#label-email').html('Por favor, preencha o campo de email para o responsável!');
                 $('#txtEmail').addClass('erro-form');
                 $('#label-email').show();
                 $('#txtEmail').focus();
-                setTimeout(function(){
+                setTimeout(function () {
                     $('#label-email').fadeOut(1);
                     $('#txtEmail').removeClass('erro-form');
-                },5000);
+                }, 5000);
                 e.preventDefault();
-            } 
-            else {
+            } else {
                 var verificaarroba = false;
                 var verificaponto = false;
-                for(var i = 0; i < email.length; i++){
-                    if(email.charAt(i) == '@' && i + 1 < email.length){
+                for (var i = 0; i < email.length; i++) {
+                    if (email.charAt(i) == '@' && i + 1 < email.length) {
                         var posicaoarroba = i;
                     }
-                    if(email.charAt(i) == '.' && i + 1 < email.length){
+                    if (email.charAt(i) == '.' && i + 1 < email.length) {
                         var posicaoponto = i;
                     }
                 }
-                if(posicaoponto > posicaoarroba) {
+                if (posicaoponto > posicaoarroba) {
                     verificaarroba = true;
                     verificaponto = true;
                 }
-                if(verificaarroba == false || verificaponto == false){
+                if (verificaarroba == false || verificaponto == false) {
                     $('#label-email').html('Email inválido!');
                     $('#txtEmail').addClass('erro-form');
                     $('#label-email').show();
                     $('#txtEmail').focus();
-                    setTimeout(function(){
+                    setTimeout(function () {
                         $('#label-email').fadeOut(1);
                         $('#txtEmail').removeClass('erro-form');
-                    },5000);
+                    }, 5000);
                     e.preventDefault();
                 }
             }
-            if(senha1.length == 0){
+            if (senha1.length == 0) {
                 $('#label-senha1').html('Por favor, preencha o campo de senha!');
                 $('#txtSenha').addClass('erro-form');
                 $('#label-senha1').show();
                 $('#txtSenha').focus();
-                setTimeout(function(){
+                setTimeout(function () {
                     $('#label-senha1').fadeOut(1);
                     $('#txtSenha').removeClass('erro-form');
-                },5000);
+                }, 5000);
                 e.preventDefault();
             }
-            if(senha2.length == 0){
+            if (senha2.length == 0) {
                 $('#label-senha2').html('Por favor, preencha o campo para confirmar a senha!');
                 $('#txtConfirmaSenha').addClass('erro-form');
                 $('#label-senha2').show();
                 $('#txtConfirmaSenha').focus();
-                setTimeout(function(){
+                setTimeout(function () {
                     $('#label-senha2').fadeOut(1);
                     $('#txtConfirmaSenha').removeClass('erro-form');
-                },5000);
+                }, 5000);
                 e.preventDefault();
             }
-            if(senha1 != senha2){
+            if (senha1 != senha2) {
                 $('#label-senha1').html('Senhas não correspondentes!');
                 $('#txtSenha').addClass('erro-form');
                 $('#label-senha1').show();
@@ -278,90 +342,90 @@
                 $('#txtConfirmaSenha').addClass('erro-form');
                 $('#label-senha2').show();
                 $('#txtConfirmaSenha').focus();
-                setTimeout(function(){
+                setTimeout(function () {
                     $('#label-senha1').fadeOut(1);
                     $('#txtSenha').removeClass('erro-form');
                     $('#label-senha2').fadeOut(1);
                     $('#txtConfirmaSenha').removeClass('erro-form');
-                },5000);
+                }, 5000);
                 e.preventDefault();
-                
+
             }
-            if(telefone.length <= 8){
+            if (telefone.length <= 8) {
                 $('#label-telefone').html('Número de telefone inválido!');
                 $('#txtTelefone').addClass('erro-form');
                 $('#label-telefone').show();
                 $('#txtTelefone').focus();
-                setTimeout(function(){
+                setTimeout(function () {
                     $('#label-telefone').fadeOut(1);
                     $('#txtTelefone').removeClass('erro-form');
-                },5000);
+                }, 5000);
                 e.preventDefault();
             }
-            if(cpf.length != 14){
+            if (cpf.length != 14) {
                 $('#label-cpf').html('CPF inválido!');
                 $('#txtCpf').addClass('erro-form');
                 $('#label-cpf').show();
                 $('#txtCpf').focus();
-                setTimeout(function(){
+                setTimeout(function () {
                     $('#label-cpf').fadeOut(1);
                     $('#txtCpf').removeClass('erro-form');
-                },5000);
+                }, 5000);
                 e.preventDefault();
             }
-            if(cep.length != 9){
+            if (cep.length != 9) {
                 $('#label-cep').html('CEP inválido!');
                 $('#txtCep').addClass('erro-form');
                 $('#label-cep').show();
                 $('#txtCep').focus();
-                setTimeout(function(){
+                setTimeout(function () {
                     $('#label-cep').fadeOut(1);
                     $('#txtCep').removeClass('erro-form');
-                },5000);
+                }, 5000);
                 e.preventDefault();
             }
-            if(rua.length == 0){
+            if (rua.length == 0) {
                 $('#label-rua').html('Informe a rua do responsável!');
                 $('#txtRua').addClass('erro-form');
                 $('#label-rua').show();
                 $('#txtRua').focus();
-                setTimeout(function(){
+                setTimeout(function () {
                     $('#label-rua').fadeOut(1);
                     $('#txtRua').removeClass('erro-form');
-                },5000);
+                }, 5000);
                 e.preventDefault();
             }
-            if(numero.length == 0){
+            if (numero.length == 0) {
                 $('#label-numero').html('Informe o número do responsável!');
                 $('#txtNumero').addClass('erro-form');
                 $('#label-numero').show();
                 $('#txtNumero').focus();
-                setTimeout(function(){
+                setTimeout(function () {
                     $('#label-numero').fadeOut(1);
                     $('#txtNumero').removeClass('erro-form');
-                },5000);
+                }, 5000);
                 e.preventDefault();
             }
-            if(cidade.length == 0){
+            if (cidade.length == 0) {
                 $('#label-cidade').html('Informe a cidade do responsável!');
                 $('#txtCidade').addClass('erro-form');
                 $('#label-cidade').show();
                 $('#txtCidade').focus();
-                setTimeout(function(){
+                setTimeout(function () {
                     $('#label-cidade').fadeOut(1);
                     $('#txtCidade').removeClass('erro-form');
-                },5000);
+                }, 5000);
                 e.preventDefault();
             }
-            if(bairro.length == 0){
+            if (bairro.length == 0) {
                 $('#label-bairro').html('Informe o bairro do responsável!');
                 $('#txtBairro').addClass('erro-form');
                 $('#label-bairro').show();
                 $('#txtBairro').focus();
-                setTimeout(function(){
+                setTimeout(function () {
                     $('#label-bairro').fadeOut(1);
                     $('#txtBairro').removeClass('erro-form');
-                },5000);
+                }, 5000);
                 e.preventDefault();
             }
             /* Complemento não é obrigatório
@@ -377,20 +441,20 @@
                 e.preventDefault();
             }
             */
-            if(aluno.length == 0){
+            if (aluno.length == 0) {
                 $('#label-aluno').html('Informe o aluno do responsável!');
                 $('#txtAluno').addClass('erro-form');
                 $('#label-aluno').show();
                 $('#txtAluno').focus();
-                setTimeout(function(){
+                setTimeout(function () {
                     $('#label-aluno').fadeOut(1);
                     $('#txtAluno').removeClass('erro-form');
-                },5000);
+                }, 5000);
                 e.preventDefault();
             }
 
             /* Ainda falta fazer as verificações melhor, estão muito simples */
-            
+
         });
     </script>
 

@@ -14,7 +14,7 @@
     <main class="bg-login">
         <section class="card-login" >
             <div>
-                <img src="images/pai_coruja_3.png" class="logo-login">
+                <img src="img/pai_coruja_3.png" class="logo-login">
             </div>
             <div>
                 <p class="label-login">Login</p>

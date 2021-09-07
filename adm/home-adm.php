@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
-
+    <meta name="theme-color" content="#26466D" />
     <title>Home - ADM</title>
 
 
@@ -19,52 +19,162 @@
     ?>
     <header>
 
-        <nav class="nav-bar">
-            <a href=""><img class="logo" src="../images/pai_coruja_3.png"></a>
+        <!-- <nav class="nav-bar">
+            <a href=""><img class="logo" src="../img/pai_coruja_3.png"></a>
             <ul class="ul-area-btn">
                 <li class="nav-li"><a class="btn-nav-exit" href="logout.php">Sair</a></li>
             </ul>
-        </nav>
+        </nav> -->
 
-        <nav class="sidebar">
-            <div class="perfil">
-                <div class="img-perfil">
-                    <img src="../images/usuario-de-perfil.png">
-                </div>
-                <div class="text-perfil">
-                    <p>Olá, Administrador</p>
+        <div class="sidebar">
+            <div class="logo-content">
+                <div class="logo">
+                    <div class="logo-name"><a href=""><img src="../img/pai_coruja_branca.png"></a></div>
                 </div>
             </div>
-            <ul class="ul-sidebar-menu">
+            <ul class="nav-list">
                 <li>
-                    <a href="#" onclick="openMenu()" id="sub-menu-button" class="visao-geral-btn">Visão Geral
-                        <span class="fas fa-caret-down first"></span>
+                    <a onclick="openMenu()" id="sub-menu-button">
+                        <div>
+                            <i class="fas fa-chart-pie"></i>                        
+                        <span class="links-name">Visão Geral</span>
+                        </div>
+                        <i class="fas fa-caret-down" class="dropdown-icon"></i>
                     </a>
-
-                    <ul id="sub-menu">
-                        <li><a href="#">Mural</a></li>
-                        <li><a href="#">Avaliação dos Professores</a></li>
-                        <li><a href="#">Eventos Programados</a></li>
-                    </ul>
                 </li>
+                <div class="drop-menu" id="sub-menu">
+                    <li class="links-name drop-link">
+                        <a href="#">
+                            <i class="fas fa-calendar"></i>
+                            <span class="links-name">Mural</span>
+                        </a>
+                    </li>
+                    <li class="links-name drop-link">
+                        <a href="#">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                            <span class="links-name">Avaliação dos Professores</span>
+                        </a>
+                    </li>
+                    <li class="links-name drop-link">
+                        <a href="#">
+                            <i class="fas fa-calendar-day"></i>
+                            <span class="links-name">Eventos Programados</span>
+                        </a>
+                    </li>
+                </div>
+
 
                 <li>
-                    <a href="#" onclick="openMenu2()" id="sub-menu-button-2" class="outro-btn">Administrador
-                        <span class="fas fa-caret-down second"></span>
+                    <a onclick="openMenu2()" id="sub-menu-button-2">
+                        <div>
+                            <i class="fas fa-user-shield"></i>                      
+                        <span class="links-name">Administrador</span>
+                        </div>
+                        <i class="fas fa-caret-down" class="dropdown-icon"></i>
                     </a>
-                    <ul id="sub-menu-2">
-                        <li><a href="cadastrar-escola.php">Cadastrar Escola</a></li>
-                        <li><a href="cadastrar-secretaria.php">Cadastrar Secretaria</a></li>
-                    </ul>
                 </li>
-
+                <div class="drop-menu" id="sub-menu-2">
+                    <li class="links-name drop-link">
+                        <a href="cadastrar-escola.php">
+                            <i class="fas fa-school"></i>
+                            <span class="links-name">Cadastrar Escola</span>
+                        </a>
+                    </li>
+                    <li class="links-name drop-link">
+                        <a href="cadastrar-secretaria.php">
+                            <i class="fas fa-school"></i>
+                            <span class="links-name">Cadastrar Secretária</span>
+                        </a>
+                    </li>
+                    
+                </div>
+                
             </ul>
-        </nav>
+            <div class="profile-content">
+                <div class="profile">
+                    <div class="profile-details">
+                        <img src="../img/usuario-de-perfil.png" alt="">
+                        <div class="name-job">
+                            <div class="name-menu"><?php echo $_SESSION['nomeSecretaria'] ?></div>
+                            <div class="job-menu">Olá Secretário(a)</div>
+                        </div>
+                    </div>
+                    <i class="fas fa-sign-out-alt" id="logout-user"></i>
+                </div>
+            </div>
+        </div>
+
     </header>
 
 
     <main class="container-main">
-        <h1>ADM</h1>
+        <section class="destaque-card">
+            <div class="esquerda-destaque">
+                <h1>Novidade 1</h1>
+                <small>Subtítulo</small>
+                <p>Para mais detalhes clique abaixo</p>
+
+                <a href="#"><button class="saiba-mais-btn">Saiba Mais</button></a>
+            </div>
+            <div class="direita-destaque">
+
+            </div>
+        </section>
+
+        <section class="cards-eventos">
+            <h2>Eventos</h2>
+            <div class="arrumar-cards">
+
+                <div class="evento-card">
+                    <div>
+                        <h1>Evento</h1>
+                        <small>Data: 06/06/2006</small>
+                    </div>
+                    <div>
+                        <a href="#"><button>Saiba Mais</button></a>
+                    </div>
+                </div>
+
+                <div class="evento-card">
+                    <div>
+                        <h1>Evento</h1>
+                        <small>Data: 06/06/2006</small>
+                    </div>
+                    <div>
+                        <a href="#"><button>Saiba Mais</button></a>
+                    </div>
+                </div>
+                <div class="evento-card">
+                    <div>
+                        <h1>Evento</h1>
+                        <small>Data: 06/06/2006</small>
+                    </div>
+                    <div>
+                        <a href="#"><button>Saiba Mais</button></a>
+                    </div>
+                </div>
+                <div class="evento-card">
+                    <div>
+                        <h1>Evento</h1>
+                        <small>Data: 06/06/2006</small>
+                    </div>
+                    <div>
+                        <a href="#"><button>Saiba Mais</button></a>
+                    </div>
+                </div>
+                <div class="evento-card">
+                    <div>
+                        <h1>Evento</h1>
+                        <small>Data: 06/06/2006</small>
+                    </div>
+                    <div>
+                        <a href="#"><button>Saiba Mais</button></a>
+                    </div>
+                </div>
+
+
+            </div>
+        </section>
     </main>
 
     <script src="../js/nav.js"></script>

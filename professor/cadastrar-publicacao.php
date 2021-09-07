@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
 
-    <title>Home - Professor</title>
+    <title>cadastrar - Publicação</title>
 
 
 </head>
@@ -105,10 +105,49 @@
         </div>
 
     </header>
-
+    
 
     <main class="container-main">
-        <h1>PROFESSOR</h1>
+        <section class="top-section">
+            <div class="voltar">
+                <a href="#">
+                    <span class="fas fa-arrow-left"></span>Voltar
+                </a>
+            </div>
+            <div class="titulo-cadastrar">
+                <h2>Cadastrar Publicação:</h2>
+            </div>
+        </section>
+
+
+        <section class="main-section">
+            <form class="formulario" action="#" method="#">
+                <div class="user-details">
+                    <div class="input-box-width100">
+                        <h2 class="h2Adicionar">Adicionar imagem<span>
+                                <p>Nota: não é obrigatória a imagem na publicação...</p>
+                            </span>
+                        </h2>
+                        <div>
+                            <label class="carregar-imagem-pub" for="arquivo">Arquivo</label>
+                            <input name="arquivo" id="arquivo" type="file">
+                        </div>
+                    </div>
+                    <div class="input-box-width100">
+                        <h2>Nome da Publicação:</h2>
+                        <input name="name" type="text" placeholder="Insira o nome da Publicação" required>
+                    </div>
+                    <div class="input-box-width100">
+                        <h2>Descrição da Publicação:</h2>
+                        <input name="name" type="text" placeholder="Insira a descrição..." required>
+                    </div>
+
+                    <div class="button">
+                        <input type="submit" class="btn-nav-exit">
+                    </div>
+                </div>
+            </form>
+        </section>
     </main>
 
     <script src="../js/nav.js"></script>

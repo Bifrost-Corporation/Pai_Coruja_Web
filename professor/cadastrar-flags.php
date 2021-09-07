@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
 
-    <title>Home - Professor</title>
+    <title>Cadastrar - Flags</title>
 
 
 </head>
@@ -107,8 +107,49 @@
     </header>
 
 
+    
     <main class="container-main">
-        <h1>PROFESSOR</h1>
+        <section class="top-section">
+            <div class="voltar">
+                <a href="#">
+                    <span class="fas fa-arrow-left"></span>Voltar
+                </a>
+            </div>
+            <div class="titulo-cadastrar">
+                <h2>Cadastrar Observação ao aluno:</h2>
+            </div>
+        </section>
+
+
+        <section class="main-section">
+            <form class="formulario" action="#" method="#">
+                <div class="user-details">
+                    <div class="input-box-width100">
+                        <h2>Nome do aluno:</h2>
+                        <input name="name" type="text" placeholder="Insira o nome do aluno" required>
+                    </div>
+                    <div class="input-box">
+                        <h2>Série do Aluno:</h2>
+                        <input name="name" type="text" placeholder="Insira o turma do aluno" required>
+                    </div>
+                    <div class="input-box">
+                        <h2>Turma:</h2>
+                        <input name="name" type="text" placeholder="Turma" required>
+                    </div>
+                    <div class="input-box">
+                        <h2>Dê uma nota ao acontecido:</h2>
+                        <input name="name" type="text" placeholder="de 0 a 5, quão grave foi o que aconteceu ?" required>
+                    </div>
+                    <div class="input-box-width100">
+                        <h2>Descreva o que aconteceu:</h2>
+                        <input class="text-area" name="name" type="text" placeholder="..." required>
+                    </div>
+                    <div class="button">
+                        <input type="submit" class="btn-nav-exit" value="Cadastrar">
+                    </div>
+                </div>
+            </form>
+        </section>
     </main>
 
     <script src="../js/nav.js"></script>

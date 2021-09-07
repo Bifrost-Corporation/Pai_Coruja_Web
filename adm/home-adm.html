@@ -7,17 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
-
-    <title>Home - Secretária</title>
+    <meta name="theme-color" content="#26466D" />
+    <title>Home - ADM</title>
 
 
 </head>
 
 <body>
     <?php
-        include ('sentinela.php');
+        include("sentinela.php");
     ?>
-        <header>
+    <header>
 
         <!-- <nav class="nav-bar">
             <a href=""><img class="logo" src="../img/pai_coruja_3.png"></a>
@@ -29,91 +29,48 @@
         <div class="sidebar">
             <div class="logo-content">
                 <div class="logo">
-                    <div class="logo-name"><a href=""><img src="../img/pai_coruja_branca.png"></a></div>
+                    <div class="logo-name"><a href=""><img src="../img/pai_coruja_3.png"></a></div>
                 </div>
             </div>
             <ul class="nav-list">
                 <li>
-                    <a onclick="openMenu()" id="sub-menu-button">
-                        <div>
-                            <i class="fas fa-chart-pie"></i>                        
-                        <span class="links-name">Visão Geral</span>
-                        </div>
-                        <i class="fas fa-caret-down" class="dropdown-icon"></i>
+                    <a href="#">
+                        <i class="fas fa-user"></i>
+                        <span class="links-name">User</span>
                     </a>
                 </li>
-                <div class="drop-menu" id="sub-menu">
-                    <li class="links-name drop-link">
-                        <a href="home-secretaria.php">
-                            <i class="fas fa-calendar"></i>
-                            <span class="links-name">Mural</span>
-                        </a>
-                    </li>
-                    <li class="links-name drop-link">
-                        <a href="#">
-                            <i class="fas fa-chalkboard-teacher"></i>
-                            <span class="links-name">Avaliação dos Professores</span>
-                        </a>
-                    </li>
-                    <li class="links-name drop-link">
-                        <a href="#">
-                            <i class="fas fa-calendar-day"></i>
-                            <span class="links-name">Eventos Programados</span>
-                        </a>
-                    </li>
-                </div>
-
-
                 <li>
-                    <a onclick="openMenu2()" id="sub-menu-button-2">
-                        <div>
-                            <i class="fas fa-user-shield"></i>                      
-                        <span class="links-name">Secretaria</span>
-                        </div>
-                        <i class="fas fa-caret-down" class="dropdown-icon"></i>
+                    <a href="#">
+                        <i class="fas fa-chart-pie"></i>                        
+                        <span class="links-name">Visão Geral</span>
                     </a>
                 </li>
-                <div class="drop-menu" id="sub-menu-2">
-                    <li class="links-name drop-link">
-                        <a href="cadastrar-aluno.php">
-                            <i class="fas fa-school"></i>
-                            <span class="links-name">Cadastrar Aluno</span>
-                        </a>
-                    </li>
-                    <li class="links-name drop-link">
-                        <a href="cadastrar-professor.php">
-                            <i class="fas fa-school"></i>
-                            <span class="links-name">Cadastrar Professor</span>
-                        </a>
-                    </li>
-                    <li class="links-name drop-link">
-                        <a href="cadastrar-responsavel.php">
-                            <i class="fas fa-school"></i>
-                            <span class="links-name">Cadastrar Responsável</span>
-                        </a>
-                    </li>
-                    <li class="links-name drop-link">
-                        <a href="cadastrar-turma.php">
-                            <i class="fas fa-school"></i>
-                            <span class="links-name">Cadastrar Turma</span>
-                        </a>
-                    </li>
-                    <li class="links-name drop-link">
-                        <a href="nova-publicacao.php">
-                            <i class="fas fa-school"></i>
-                            <span class="links-name">Nova Publicação</span>
-                        </a>
-                    </li>
-                </div>
-                
+                <li>
+                    <a href="#">
+                        <!-- icon -->
+                        <span class="links-name">Dashboadr</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <!-- icon -->
+                        <span class="links-name">Dashboadr</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <!-- icon -->
+                        <span class="links-name">Dashboadr</span>
+                    </a>
+                </li>
             </ul>
             <div class="profile-content">
                 <div class="profile">
                     <div class="profile-details">
-                        <img src="../img/usuario-de-perfil.png" alt="">
+                        <img src="../img/macos.png" alt="">
                         <div class="name-job">
-                            <div class="name-menu"><?php echo $_SESSION['nomeSecretaria'] ?></div>
-                            <div class="job-menu">Olá Secretário(a)</div>
+                            <div class="name-menu">Marcos Henrique</div>
+                            <div class="job-menu">Grande Jogador</div>
                         </div>
                     </div>
                     <i class="fas fa-sign-out-alt" id="logout-user"></i>
@@ -121,7 +78,7 @@
             </div>
         </div>
 
-        </header>
+    </header>
 
 
     <main class="container-main">

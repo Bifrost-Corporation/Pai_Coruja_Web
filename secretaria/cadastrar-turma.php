@@ -19,52 +19,110 @@
     ?>
     <header>
 
-        <nav class="nav-bar">
-            <a href="home-secretaria.php"><img class="logo" src="../images/pai_coruja_3.png"></a>
-            <ul class="ul-area-btn">
-                <li class="nav-li"><a class="btn-nav-exit" href="logout.php">Sair</a></li>
-            </ul>
-        </nav>
+        <!-- <nav class="nav-bar">
+    <a href=""><img class="logo" src="../img/pai_coruja_3.png"></a>
+    <ul class="ul-area-btn">
+        <li class="nav-li"><a class="btn-nav-exit" href="logout.php">Sair</a></li>
+    </ul>
+</nav> -->
 
-        <nav class="sidebar">
-            <div class="perfil">
-                <div class="img-perfil">
-                    <img src="../images/usuario-de-perfil.png">
-                </div>
-                <div class="text-perfil">
-                    <p>Olá, <?php echo $_SESSION['nomeSecretaria'] ?></p>
+        <div class="sidebar">
+            <div class="logo-content">
+                <div class="logo">
+                    <div class="logo-name"><a href=""><img src="../img/pai_coruja_branca.png"></a></div>
                 </div>
             </div>
-            <ul class="ul-sidebar-menu">
+            <ul class="nav-list">
                 <li>
-                    <a href="#" onclick="openMenu()" id="sub-menu-button" class="visao-geral-btn">Visão Geral
-                        <span class="fas fa-caret-down first"></span>
+                    <a onclick="openMenu()" id="sub-menu-button">
+                        <div>
+                            <i class="fas fa-chart-pie"></i>
+                            <span class="links-name">Visão Geral</span>
+                        </div>
+                        <i class="fas fa-caret-down" class="dropdown-icon"></i>
                     </a>
-
-                    <ul id="sub-menu">
-                        <li><a href="#">Mural</a></li>
-                        <li><a href="#">Avaliação dos Professores</a></li>
-                        <li><a href="#">Eventos Programados</a></li>
-
-                    </ul>
                 </li>
+                <div class="drop-menu" id="sub-menu">
+                    <li class="links-name drop-link">
+                        <a href="home-secretaria.php">
+                            <i class="fas fa-calendar"></i>
+                            <span class="links-name">Mural</span>
+                        </a>
+                    </li>
+                    <li class="links-name drop-link">
+                        <a href="#">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                            <span class="links-name">Avaliação dos Professores</span>
+                        </a>
+                    </li>
+                    <li class="links-name drop-link">
+                        <a href="#">
+                            <i class="fas fa-calendar-day"></i>
+                            <span class="links-name">Eventos Programados</span>
+                        </a>
+                    </li>
+                </div>
+
 
                 <li>
-                    <a href="#" onclick="openMenu2()" id="sub-menu-button-2" class="outro-btn">Cadastrar
-                        <span class="fas fa-caret-down second"></span>
+                    <a onclick="openMenu2()" id="sub-menu-button-2">
+                        <div>
+                            <i class="fas fa-user-shield"></i>
+                            <span class="links-name">Secretaria</span>
+                        </div>
+                        <i class="fas fa-caret-down" class="dropdown-icon"></i>
                     </a>
-                    <ul id="sub-menu-2">
-                        <li><a href="cadastrar-aluno.php">Cadastrar Aluno</a></li>
-                        <li><a href="cadastrar-professor.php">Cadastrar Professor</a></li>
-                        <li><a href="cadastrar-responsavel.php">Cadastrar Responsável</a></li>
-                        <li><a href="cadastrar-turma.php">Cadastrar Turma</a></li>
-                        <li><a href="nova-publicacao.html">Nova Publicação</a></li>
-                    </ul>
                 </li>
+                <div class="drop-menu" id="sub-menu-2">
+                    <li class="links-name drop-link">
+                        <a href="cadastrar-aluno.php">
+                            <i class="fas fa-school"></i>
+                            <span class="links-name">Cadastrar Aluno</span>
+                        </a>
+                    </li>
+                    <li class="links-name drop-link">
+                        <a href="cadastrar-professor.php">
+                            <i class="fas fa-school"></i>
+                            <span class="links-name">Cadastrar Professor</span>
+                        </a>
+                    </li>
+                    <li class="links-name drop-link">
+                        <a href="cadastrar-responsavel.php">
+                            <i class="fas fa-school"></i>
+                            <span class="links-name">Cadastrar Responsável</span>
+                        </a>
+                    </li>
+                    <li class="links-name drop-link">
+                        <a href="cadastrar-turma.php">
+                            <i class="fas fa-school"></i>
+                            <span class="links-name">Cadastrar Turma</span>
+                        </a>
+                    </li>
+                    <li class="links-name drop-link">
+                        <a href="nova-publicacao.php">
+                            <i class="fas fa-school"></i>
+                            <span class="links-name">Nova Publicação</span>
+                        </a>
+                    </li>
+                </div>
 
             </ul>
-        </nav>
+            <div class="profile-content">
+                <div class="profile">
+                    <div class="profile-details">
+                        <img src="../img/usuario-de-perfil.png" alt="">
+                        <div class="name-job">
+                            <div class="name-menu"><?php echo $_SESSION['nomeSecretaria'] ?></div>
+                            <div class="job-menu">Olá Secretário(a)</div>
+                        </div>
+                    </div>
+                    <i class="fas fa-sign-out-alt" id="logout-user"></i>
+                </div>
+            </div>
+        </div>
+
     </header>
+
 
 
     <main class="container-main">
@@ -102,16 +160,16 @@
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 
     <script>
-        jQuery('form').on('submit', function(e){
+        jQuery('form').on('submit', function (e) {
             var nomeTurma = $('#txtNomeTurma').val();
-            if(nomeTurma.length == 0) {
+            if (nomeTurma.length == 0) {
                 $('#label-nome').html('Por favor, preencha o campo de nome para a turma!');
                 $('#txtNomeTurma').addClass('erro-form');
                 $('#label-nome').show();
-                setTimeout(function(){
+                setTimeout(function () {
                     $('#label-nome').fadeOut(1);
                     $('#txtNomeTurma').removeClass('erro-form');
-                },5000);
+                }, 5000);
                 e.preventDefault();
             }
         });

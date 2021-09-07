@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
 
-    <title>Home - Secretária</title>
+    <title>Nova Publicação</title>
 
 
 </head>
@@ -17,14 +17,14 @@
     <?php
         include ('sentinela.php');
     ?>
-        <header>
+    <header>
 
         <!-- <nav class="nav-bar">
-            <a href=""><img class="logo" src="../img/pai_coruja_3.png"></a>
-            <ul class="ul-area-btn">
-                <li class="nav-li"><a class="btn-nav-exit" href="logout.php">Sair</a></li>
-            </ul>
-        </nav> -->
+    <a href=""><img class="logo" src="../img/pai_coruja_3.png"></a>
+    <ul class="ul-area-btn">
+        <li class="nav-li"><a class="btn-nav-exit" href="logout.php">Sair</a></li>
+    </ul>
+</nav> -->
 
         <div class="sidebar">
             <div class="logo-content">
@@ -36,8 +36,8 @@
                 <li>
                     <a onclick="openMenu()" id="sub-menu-button">
                         <div>
-                            <i class="fas fa-chart-pie"></i>                        
-                        <span class="links-name">Visão Geral</span>
+                            <i class="fas fa-chart-pie"></i>
+                            <span class="links-name">Visão Geral</span>
                         </div>
                         <i class="fas fa-caret-down" class="dropdown-icon"></i>
                     </a>
@@ -67,8 +67,8 @@
                 <li>
                     <a onclick="openMenu2()" id="sub-menu-button-2">
                         <div>
-                            <i class="fas fa-user-shield"></i>                      
-                        <span class="links-name">Secretaria</span>
+                            <i class="fas fa-user-shield"></i>
+                            <span class="links-name">Secretaria</span>
                         </div>
                         <i class="fas fa-caret-down" class="dropdown-icon"></i>
                     </a>
@@ -105,7 +105,7 @@
                         </a>
                     </li>
                 </div>
-                
+
             </ul>
             <div class="profile-content">
                 <div class="profile">
@@ -121,82 +121,58 @@
             </div>
         </div>
 
-        </header>
+    </header>
 
 
     <main class="container-main">
-        <section class="destaque-card">
-            <div class="esquerda-destaque">
-                <h1>Novidade 1</h1>
-                <small>Subtítulo</small>
-                <p>Para mais detalhes clique abaixo</p>
 
-                <a href="#"><button class="saiba-mais-btn">Saiba Mais</button></a>
+
+        <section class="top-section">
+            <div class="voltar">
+                <a href="#">
+                    <span class="fas fa-arrow-left"></span>Voltar
+                </a>
             </div>
-            <div class="direita-destaque">
-
+            <div class="titulo-cadastrar">
+                <h2>Nova Publicação:</h2>
             </div>
         </section>
 
-        <section class="cards-eventos">
-            <h2>Eventos</h2>
-            <div class="arrumar-cards">
 
-                <div class="evento-card">
-                    <div>
-                        <h1>Evento</h1>
-                        <small>Data: 06/06/2006</small>
+        <section class="main-section">
+            <form class="formulario" action="#" method="#">
+                <div class="user-details">
+                    <div class="input-box-width100">
+                        <h2 class="h2Adicionar">Adicionar imagem:</h2>
+                        <div>
+                            <label class="carregar-imagem-pub" for="arquivo">Arquivo</label>
+                            <input name="arquivo" id="arquivo" type="file" required>
+                        </div>
                     </div>
-                    <div>
-                        <a href="#"><button>Saiba Mais</button></a>
+                    <div class="input-box-width100">
+                        <h2>Nome da Publicação:</h2>
+                        <input name="name" type="text" placeholder="Insira o nome da Publicação" required>
                     </div>
-                </div>
-
-                <div class="evento-card">
-                    <div>
-                        <h1>Evento</h1>
-                        <small>Data: 06/06/2006</small>
+                    <div class="input-box-width100">
+                        <h2>Descrição da Publicação:</h2>
+                        <input name="name" type="text" placeholder="Insira a descrição..." required>
                     </div>
-                    <div>
-                        <a href="#"><button>Saiba Mais</button></a>
+                    <div class="input-box-width100">
+                        <h2>Data de inicio do evento:</h2>
+                        <input name="name" type="date" placeholder="ex:00/00/00" required>
                     </div>
-                </div>
-                <div class="evento-card">
-                    <div>
-                        <h1>Evento</h1>
-                        <small>Data: 06/06/2006</small>
-                    </div>
-                    <div>
-                        <a href="#"><button>Saiba Mais</button></a>
+                    <div class="button">
+                        <input type="submit" class="btn-nav-exit">
                     </div>
                 </div>
-                <div class="evento-card">
-                    <div>
-                        <h1>Evento</h1>
-                        <small>Data: 06/06/2006</small>
-                    </div>
-                    <div>
-                        <a href="#"><button>Saiba Mais</button></a>
-                    </div>
-                </div>
-                <div class="evento-card">
-                    <div>
-                        <h1>Evento</h1>
-                        <small>Data: 06/06/2006</small>
-                    </div>
-                    <div>
-                        <a href="#"><button>Saiba Mais</button></a>
-                    </div>
-                </div>
-
-
-            </div>
+            </form>
         </section>
     </main>
 
     <script src="../js/nav.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 </body>
+
 
 
 
