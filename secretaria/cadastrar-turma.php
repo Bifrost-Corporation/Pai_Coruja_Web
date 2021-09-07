@@ -74,37 +74,49 @@
                     </a>
                 </li>
                 <div class="drop-menu" id="sub-menu-2">
-                    <li class="links-name drop-link">
-                        <a href="cadastrar-aluno.php">
-                            <i class="fas fa-school"></i>
-                            <span class="links-name">Cadastrar Aluno</span>
-                        </a>
-                    </li>
-                    <li class="links-name drop-link">
-                        <a href="cadastrar-professor.php">
-                            <i class="fas fa-school"></i>
-                            <span class="links-name">Cadastrar Professor</span>
-                        </a>
-                    </li>
-                    <li class="links-name drop-link">
-                        <a href="cadastrar-responsavel.php">
-                            <i class="fas fa-school"></i>
-                            <span class="links-name">Cadastrar Responsável</span>
-                        </a>
-                    </li>
-                    <li class="links-name drop-link">
-                        <a href="cadastrar-turma.php">
-                            <i class="fas fa-school"></i>
-                            <span class="links-name">Cadastrar Turma</span>
-                        </a>
-                    </li>
-                    <li class="links-name drop-link">
-                        <a href="nova-publicacao.php">
-                            <i class="fas fa-school"></i>
-                            <span class="links-name">Nova Publicação</span>
-                        </a>
-                    </li>
-                </div>
+            <li class="links-name drop-link">
+                <a href="cadastrar-aluno.php">
+                    <i class="fas fa-school"></i>
+                    <span class="links-name">Cadastrar Aluno</span>
+                </a>
+            </li>
+            <li class="links-name drop-link">
+                <a href="cadastrar-professor.php">
+                    <i class="fas fa-school"></i>
+                    <span class="links-name">Cadastrar Professor</span>
+                </a>
+            </li>
+            <li class="links-name drop-link">
+                <a href="cadastrar-responsavel.php">
+                    <i class="fas fa-school"></i>
+                    <span class="links-name">Cadastrar Responsável</span>
+                </a>
+            </li>
+            <li class="links-name drop-link">
+                <a href="cadastrar-turma.php">
+                    <i class="fas fa-school"></i>
+                    <span class="links-name">Cadastrar Turma</span>
+                </a>
+            </li>
+            <li class="links-name drop-link">
+                <a href="cadastrar-disciplina.php">
+                    <i class="fas fa-school"></i>
+                    <span class="links-name">Cadastrar Disciplina</span>
+                </a>
+            </li>
+            <li class="links-name drop-link">
+                <a href="cadastrar-horario-turma.php">
+                    <i class="fas fa-school"></i>
+                    <span class="links-name">Cadastrar Horários</span>
+                </a>
+            </li>
+            <li class="links-name drop-link">
+                <a href="cadastrar-evento.php">
+                    <i class="fas fa-school"></i>
+                    <span class="links-name">Novo Evento</span>
+                </a>
+            </li>
+        </div>
 
             </ul>
             <div class="profile-content">

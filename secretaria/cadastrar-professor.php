@@ -99,9 +99,21 @@
                 </a>
             </li>
             <li class="links-name drop-link">
-                <a href="nova-publicacao.php">
+                <a href="cadastrar-disciplina.php">
                     <i class="fas fa-school"></i>
-                    <span class="links-name">Nova Publicação</span>
+                    <span class="links-name">Cadastrar Disciplina</span>
+                </a>
+            </li>
+            <li class="links-name drop-link">
+                <a href="cadastrar-horario-turma.php">
+                    <i class="fas fa-school"></i>
+                    <span class="links-name">Cadastrar Horários</span>
+                </a>
+            </li>
+            <li class="links-name drop-link">
+                <a href="cadastrar-evento.php">
+                    <i class="fas fa-school"></i>
+                    <span class="links-name">Novo Evento</span>
                 </a>
             </li>
         </div>

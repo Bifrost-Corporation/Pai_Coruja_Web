@@ -74,37 +74,49 @@
                     </a>
                 </li>
                 <div class="drop-menu" id="sub-menu-2">
-                    <li class="links-name drop-link">
-                        <a href="cadastrar-aluno.php">
-                            <i class="fas fa-school"></i>
-                            <span class="links-name">Cadastrar Aluno</span>
-                        </a>
-                    </li>
-                    <li class="links-name drop-link">
-                        <a href="cadastrar-professor.php">
-                            <i class="fas fa-school"></i>
-                            <span class="links-name">Cadastrar Professor</span>
-                        </a>
-                    </li>
-                    <li class="links-name drop-link">
-                        <a href="cadastrar-responsavel.php">
-                            <i class="fas fa-school"></i>
-                            <span class="links-name">Cadastrar Responsável</span>
-                        </a>
-                    </li>
-                    <li class="links-name drop-link">
-                        <a href="cadastrar-turma.php">
-                            <i class="fas fa-school"></i>
-                            <span class="links-name">Cadastrar Turma</span>
-                        </a>
-                    </li>
-                    <li class="links-name drop-link">
-                        <a href="nova-publicacao.php">
-                            <i class="fas fa-school"></i>
-                            <span class="links-name">Nova Publicação</span>
-                        </a>
-                    </li>
-                </div>
+            <li class="links-name drop-link">
+                <a href="cadastrar-aluno.php">
+                    <i class="fas fa-school"></i>
+                    <span class="links-name">Cadastrar Aluno</span>
+                </a>
+            </li>
+            <li class="links-name drop-link">
+                <a href="cadastrar-professor.php">
+                    <i class="fas fa-school"></i>
+                    <span class="links-name">Cadastrar Professor</span>
+                </a>
+            </li>
+            <li class="links-name drop-link">
+                <a href="cadastrar-responsavel.php">
+                    <i class="fas fa-school"></i>
+                    <span class="links-name">Cadastrar Responsável</span>
+                </a>
+            </li>
+            <li class="links-name drop-link">
+                <a href="cadastrar-turma.php">
+                    <i class="fas fa-school"></i>
+                    <span class="links-name">Cadastrar Turma</span>
+                </a>
+            </li>
+            <li class="links-name drop-link">
+                <a href="cadastrar-disciplina.php">
+                    <i class="fas fa-school"></i>
+                    <span class="links-name">Cadastrar Disciplina</span>
+                </a>
+            </li>
+            <li class="links-name drop-link">
+                <a href="cadastrar-horario-turma.php">
+                    <i class="fas fa-school"></i>
+                    <span class="links-name">Cadastrar Horários</span>
+                </a>
+            </li>
+            <li class="links-name drop-link">
+                <a href="cadastrar-evento.php">
+                    <i class="fas fa-school"></i>
+                    <span class="links-name">Novo Evento</span>
+                </a>
+            </li>
+        </div>
 
             </ul>
             <div class="profile-content">
@@ -134,32 +146,36 @@
                 </a>
             </div>
             <div class="titulo-cadastrar">
-                <h2>Nova Publicação:</h2>
+                <h2>Novo Evento:</h2>
             </div>
         </section>
 
 
         <section class="main-section">
-            <form class="formulario" action="#" method="#">
+            <form class="formulario" name="formEvento" action="../DAO//inserir-evento.php" method="POST" enctype="multipart/form-data">
                 <div class="user-details">
                     <div class="input-box-width100">
                         <h2 class="h2Adicionar">Adicionar imagem:</h2>
+                        <label class="label-erro" id="label-foto"></label>
                         <div>
                             <label class="carregar-imagem-pub" for="arquivo">Arquivo</label>
-                            <input name="arquivo" id="arquivo" type="file" required>
+                            <input name="arquivo" id="arquivo" type="file">
                         </div>
                     </div>
                     <div class="input-box-width100">
-                        <h2>Nome da Publicação:</h2>
-                        <input name="name" type="text" placeholder="Insira o nome da Publicação" required>
+                        <h2>Nome do evento:</h2>
+                        <label class="label-erro" id="label-nome"></label>
+                        <input name="txtNomeEvento" id="txtNomeEvento" type="text" placeholder="Insira o nome da Publicação">
                     </div>
                     <div class="input-box-width100">
-                        <h2>Descrição da Publicação:</h2>
-                        <input name="name" type="text" placeholder="Insira a descrição..." required>
+                        <h2>Descrição do evento:</h2>
+                        <label class="label-erro" id="label-descricao"></label>
+                        <input name="txtDescricaoEvento" id="txtDescricaoEvento" type="text" placeholder="Insira a descrição...">
                     </div>
                     <div class="input-box-width100">
-                        <h2>Data de inicio do evento:</h2>
-                        <input name="name" type="date" placeholder="ex:00/00/00" required>
+                        <h2>Data de realização do evento:</h2>
+                        <label class="label-erro" id="label-data"></label>
+                        <input name="txtData" id="txtData" type="date" placeholder="ex:00/00/00">
                     </div>
                     <div class="button">
                         <input type="submit" class="btn-nav-exit">
@@ -171,6 +187,45 @@
 
     <script src="../js/nav.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
+    <script>
+        jQuery('form').on('submit', function(e){
+            var nomeEvento = $('#txtNomeEvento').val();
+            var descricaoEvento = $('#txtDescricaoEvento').val();
+            var dataEvento = $('#txtData').val();
+            if(nomeEvento.length == 0){
+                $('#label-nome').html('Por favor, preencha o campo de nome para o evento!');
+                $('#txtNomeEvento').addClass('erro-form');
+                $('#label-nome').show();
+                setTimeout(function(){
+                    $('#label-nome').fadeOut(1);
+                    $('#txtNomeEvento').removeClass('erro-form');
+                },5000);
+                e.preventDefault();
+            }
+            if(descricaoEvento.length == 0){
+                $('#label-descricao').html('Por favor, preencha o campo de descrição para o evento!');
+                $('#txtDescricaoEvento').addClass('erro-form');
+                $('#label-descricao').show();
+                setTimeout(function(){
+                    $('#label-descricao').fadeOut(1);
+                    $('#txtDescricaoEvento').removeClass('erro-form');
+                },5000);
+                e.preventDefault();
+            }
+            if(dataEvento.length == 0){
+                $('#label-data').html('Por favor, preencha o campo de data para o evento!');
+                $('#txtData').addClass('erro-form');
+                $('#label-data').show();
+                setTimeout(function(){
+                    $('#label-data').fadeOut(1);
+                    $('#txtData').removeClass('erro-form');
+                },5000);
+                e.preventDefault();
+            }
+        });
+    </script>
+
 </body>
 
 

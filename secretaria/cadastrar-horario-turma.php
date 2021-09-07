@@ -19,53 +19,112 @@
     ?>
     <header>
 
-        <nav class="nav-bar">
-            <a href=""><img class="logo" src="../images/pai_coruja_3.png"></a>
-            <ul class="ul-area-btn">
-                <li class="nav-li"><a class="btn-nav-exit" href="logout.php">Sair</a></li>
-            </ul>
-        </nav>
-
-        <nav class="sidebar">
-            <div class="perfil">
-                <div class="img-perfil">
-                    <img src="../images/usuario-de-perfil.png">
-                </div>
-                <div class="text-perfil">
-                    <p>Olá, <?php echo $_SESSION['nomeSecretaria'] ?></p>
+    <div class="sidebar">
+            <div class="logo-content">
+                <div class="logo">
+                    <div class="logo-name"><a href=""><img src="../img/pai_coruja_branca.png"></a></div>
                 </div>
             </div>
-            <ul class="ul-sidebar-menu">
-                <li>
-                    <a href="#" onclick="openMenu()" id="sub-menu-button" class="visao-geral-btn">Visão Geral
-                        <span class="fas fa-caret-down first"></span>
-                    </a>
+    <ul class="nav-list">
+        <li>
+            <a onclick="openMenu()" id="sub-menu-button">
+                <div>
+                    <i class="fas fa-chart-pie"></i>                        
+                <span class="links-name">Visão Geral</span>
+                </div>
+                <i class="fas fa-caret-down" class="dropdown-icon"></i>
+            </a>
+        </li>
+        <div class="drop-menu" id="sub-menu">
+            <li class="links-name drop-link">
+                <a href="home-secretaria.php">
+                    <i class="fas fa-calendar"></i>
+                    <span class="links-name">Mural</span>
+                </a>
+            </li>
+            <li class="links-name drop-link">
+                <a href="#">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <span class="links-name">Avaliação dos Professores</span>
+                </a>
+            </li>
+            <li class="links-name drop-link">
+                <a href="#">
+                    <i class="fas fa-calendar-day"></i>
+                    <span class="links-name">Eventos Programados</span>
+                </a>
+            </li>
+        </div>
 
-                    <ul id="sub-menu">
-                        <li><a href="#">Mural</a></li>
-                        <li><a href="#">Avaliação dos Professores</a></li>
-                        <li><a href="#">Eventos Programados</a></li>
 
-                    </ul>
-                </li>
-
-                <li>
-                    <a href="#" onclick="openMenu2()" id="sub-menu-button-2" class="outro-btn">Cadastrar
-                        <span class="fas fa-caret-down second"></span>
-                    </a>
-                    <ul id="sub-menu-2">
-                        <li><a href="cadastrar-aluno.php">Cadastrar Aluno</a></li>
-                        <li><a href="cadastrar-professor.php">Cadastrar Professor</a></li>
-                        <li><a href="cadastrar-responsavel.php">Cadastrar Responsável</a></li>
-                        <li><a href="cadastrar-turma.php">Cadastrar Turma</a></li>
-                        <li><a href="cadastrar-disciplina.php">Cadastrar Disciplina</a></li>
-                        <li><a href="cadastrar-horario-turma.php">Cadastrar Horários</a></li>
-                        <li><a href="nova-publicacao.html">Nova Publicação</a></li>
-                    </ul>
-                </li>
-
-            </ul>
-        </nav>
+        <li>
+            <a onclick="openMenu2()" id="sub-menu-button-2">
+                <div>
+                    <i class="fas fa-user-shield"></i>                      
+                <span class="links-name">Secretaria</span>
+                </div>
+                <i class="fas fa-caret-down" class="dropdown-icon"></i>
+            </a>
+        </li>
+        <div class="drop-menu" id="sub-menu-2">
+            <li class="links-name drop-link">
+                <a href="cadastrar-aluno.php">
+                    <i class="fas fa-school"></i>
+                    <span class="links-name">Cadastrar Aluno</span>
+                </a>
+            </li>
+            <li class="links-name drop-link">
+                <a href="cadastrar-professor.php">
+                    <i class="fas fa-school"></i>
+                    <span class="links-name">Cadastrar Professor</span>
+                </a>
+            </li>
+            <li class="links-name drop-link">
+                <a href="cadastrar-responsavel.php">
+                    <i class="fas fa-school"></i>
+                    <span class="links-name">Cadastrar Responsável</span>
+                </a>
+            </li>
+            <li class="links-name drop-link">
+                <a href="cadastrar-turma.php">
+                    <i class="fas fa-school"></i>
+                    <span class="links-name">Cadastrar Turma</span>
+                </a>
+            </li>
+            <li class="links-name drop-link">
+                <a href="cadastrar-disciplina.php">
+                    <i class="fas fa-school"></i>
+                    <span class="links-name">Cadastrar Disciplina</span>
+                </a>
+            </li>
+            <li class="links-name drop-link">
+                <a href="cadastrar-horario-turma.php">
+                    <i class="fas fa-school"></i>
+                    <span class="links-name">Cadastrar Horários</span>
+                </a>
+            </li>
+            <li class="links-name drop-link">
+                <a href="cadastrar-evento.php">
+                    <i class="fas fa-school"></i>
+                    <span class="links-name">Novo Evento</span>
+                </a>
+            </li>
+        </div>
+        
+    </ul>
+    <div class="profile-content">
+        <div class="profile">
+            <div class="profile-details">
+                <img src="../img/usuario-de-perfil.png" alt="">
+                <div class="name-job">
+                    <div class="name-menu"><?php echo $_SESSION['nomeSecretaria'] ?></div>
+                    <div class="job-menu">Olá Secretário(a)</div>
+                </div>
+            </div>
+            <a href="logout.php"><i class="fas fa-sign-out-alt" id="logout-user"></i></a>
+        </div>
+    </div>
+</div>
     </header>
 
 
@@ -79,24 +138,32 @@
                 </a>
             </div>
             <div class="titulo-cadastrar">
-                <h2>Cadastrar Disciplina:</h2>
+                <h2>Cadastrar Horário:</h2>
             </div>
         </section>
 
 
         <section class="main-section">
-            <form class="formulario" name="formDisciplina" id="formDisciplina" action="../DAO/inserir-disciplina.php" method="POST">
+            <form class="formulario" name="formHorarioTurma" id="formHorarioTurma" action="../DAO//inserir-horario-turma.php" method="POST">
                 <div class="user-details">
-                    <div class="input-box-width100">
-                        <h2>Nome da disciplina:</h2>
-                        <label class="label-erro" id="label-nome"></label>
-                        <input name="txtNomeDisciplina" id="txtNomeDisciplina" type="text" placeholder="Insira o nome da disciplina">
+                    <div class="input-box">
+                        <h2>Dia da semana</h2>
+                        <label class="label-erro" id="label-dia"></label>
+                        <input name="txtDiaSemana" id="txtDiaSemana" type="text" placeholder="Dia da semana da aula">
+                    </div>
+                    <div class="input-box">
+                        <h2>Nome da Turma</h2>
+                        <label class="label-erro" id="label-turma"></label>
+                        <input name="txtTurma" id="txtTurma" type="text" placeholder="Nome da turma da aula">
+                        <div id="retornoPesquisa">
+                            
+                        </div>
                     </div>
                     <div class="input-box-width100">
-                        <h2>Professor:</h2>
-                        <label class="label-erro" id="label-professor"></label>
-                        <input name="txtProfessor" id="txtProfessor" type="text" placeholder="Insira o professor responsável pela disciplina">
-                        <div id="retornoPesquisa">
+                        <h2>Nome da Disciplina</h2>
+                        <label class="label-erro" id="label-disciplina"></label>
+                        <input name="txtDisciplina" id="txtDisciplina" type="text" placeholder="Disciplina a ser dada na aula">
+                        <div id="retornoPesquisa2">
                             
                         </div>
                     </div>
@@ -112,11 +179,11 @@
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 
     <script>
-        jQuery('#txtProfessor').keyup(function(){
+        jQuery('#txtTurma').keyup(function(){
             var textoInserido = $(this).val();
             if(textoInserido != ''){
                 $.ajax({
-                    url: '../DAO/procurar-professor.php',
+                    url: '../DAO/procurar-turma.php',
                     method: 'POST',
                     data: {query:textoInserido},
                     success:function(resposta){
@@ -130,34 +197,66 @@
         });
 
         $(document).on('click','.opcao-consulta',function(){
-            $("#txtProfessor").val($(this).text());
+            $("#txtTurma").val($(this).text());
             $("#retornoPesquisa").html("");
         });
 
-        jQuery('form').on('submit', function(e){
-            var nomeDisciplina = $('#txtNomeDisciplina').val();
-            var nomeProfessor = $('#txtProfessor').val();
-            if(nomeDisciplina.length == 0){
-                $('#label-nome').html('Por favor, preencha o campo de nome para a disciplina!');
-                $('#txtNomeDisciplina').addClass('erro-form');
-                $('#label-nome').show();
-                setTimeout(function(){
-                    $('#label-nome').fadeOut(1);
-                    $('#txtNomeDisciplina').removeClass('erro-form');
-                },5000);
+        jQuery('#txtDisciplina').keyup(function(){
+            var textoInserido = $(this).val();
+            if(textoInserido != ''){
+                $.ajax({
+                    url: '../DAO/procurar-disciplina.php',
+                    method: 'POST',
+                    data: {query:textoInserido},
+                    success:function(resposta){
+                        $("#retornoPesquisa2").html(resposta);
+                    }
+                });
+            } 
+            else {
+                $("#retornoPesquisa2").html('');
+            }
+        });
+
+        $(document).on('click','.opcao-consulta2',function(){
+            $("#txtDisciplina").val($(this).text());
+            $("#retornoPesquisa2").html("");
+        });
+
+        jQuery('form').on('submit', function (e) {
+            var diaSemana = $('#txtDiaSemana').val();
+            var nomeTurma = $('#txtTurma').val();
+            var disciplina = $('#txtDisciplina').val();
+            if(diaSemana.length == 0){
+                $('#label-dia').html('Por favor, preencha o campo de dia da semana!');
+                $('#txtDiaSemana').addClass('erro-form');
+                $('#label-dia').show();
+                setTimeout(function () {
+                    $('#label-dia').fadeOut(1);
+                    $('#txtDiaSemana').removeClass('erro-form');
+                }, 5000);
                 e.preventDefault();
             }
-            if(nomeProfessor.length == 0){
-                $('#label-professor').html('Por favor, preencha o campo de nome para o professor!');
-                $('#txtProfessor').addClass('erro-form');
-                $('#label-professor').show();
-                setTimeout(function(){
-                    $('#label-professor').fadeOut(1);
-                    $('#txtProfessor').removeClass('erro-form');
-                },5000);
+            if(nomeTurma.length == 0){
+                $('#label-turma').html('Por favor, preencha o campo de turma!');
+                $('#txtTurma').addClass('erro-form');
+                $('#label-turma').show();
+                setTimeout(function () {
+                    $('#label-turma').fadeOut(1);
+                    $('#txtTurma').removeClass('erro-form');
+                }, 5000);
                 e.preventDefault();
             }
-            
+            if(disciplina.length == 0){
+                $('#label-disciplina').html('Por favor, preencha o campo de disciplina!');
+                $('#txtDisciplina').addClass('erro-form');
+                $('#label-disciplina').show();
+                setTimeout(function () {
+                    $('#label-disciplina').fadeOut(1);
+                    $('#txtDisciplina').removeClass('erro-form');
+                }, 5000);
+                e.preventDefault();
+            }
         });
     </script>
 </body>
