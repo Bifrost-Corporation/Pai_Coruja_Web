@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
 
-    <title>Cadastro Aluno</title>
+    <title>Cadastro Disciplina</title>
 
 
 </head>
@@ -22,7 +22,7 @@
         <nav class="nav-bar">
             <a href=""><img class="logo" src="../images/pai_coruja_3.png"></a>
             <ul class="ul-area-btn">
-                <li class="nav-li"><a class="btn-nav-exit" href="#">Sair</a></li>
+                <li class="nav-li"><a class="btn-nav-exit" href="logout.php">Sair</a></li>
             </ul>
         </nav>
 
@@ -58,6 +58,7 @@
                         <li><a href="cadastrar-professor.php">Cadastrar Professor</a></li>
                         <li><a href="cadastrar-responsavel.php">Cadastrar Responsável</a></li>
                         <li><a href="cadastrar-turma.php">Cadastrar Turma</a></li>
+                        <li><a href="cadastrar-disciplina.php">Cadastrar Disciplina</a></li>
                         <li><a href="nova-publicacao.html">Nova Publicação</a></li>
                     </ul>
                 </li>
@@ -77,28 +78,23 @@
                 </a>
             </div>
             <div class="titulo-cadastrar">
-                <h2>Cadastrar Aluno:</h2>
+                <h2>Cadastrar Disciplina:</h2>
             </div>
         </section>
 
 
         <section class="main-section">
-            <form class="formulario" name="formAluno" id="formAluno" action="../DAO/inserir-aluno.php" method="POST">
+            <form class="formulario" name="formDisciplina" id="formDisciplina" action="../DAO/inserir-disciplina.php" method="POST">
                 <div class="user-details">
                     <div class="input-box-width100">
-                        <h2>Nome do aluno:</h2>
+                        <h2>Nome da disciplina:</h2>
                         <label class="label-erro" id="label-nome"></label>
-                        <input name="txtNomeAluno" id="txtNomeAluno" type="text" placeholder="Insira o nome do aluno">
+                        <input name="txtNomeDisciplina" id="txtNomeDisciplina" type="text" placeholder="Insira o nome da disciplina">
                     </div>
-                    <div class="input-box">
-                        <h2>Data de Nascimento:</h2>
-                        <label class="label-erro" id="label-dataNasc"></label>
-                        <input name="dataNasc" id="dataNasc" type="date" placeholder="Insira a idade">
-                    </div>
-                    <div class="input-box">
-                        <h2>Turma:</h2>
-                        <label class="label-erro" id="label-turma"></label>
-                        <input name="txtTurma" id="txtTurma" type="text" placeholder="Insira a turma do aluno">
+                    <div class="input-box-width100">
+                        <h2>Professor:</h2>
+                        <label class="label-erro" id="label-professor"></label>
+                        <input name="txtProfessor" id="txtProfessor" type="text" placeholder="Insira o professor responsável pela disciplina">
                         <div id="retornoPesquisa">
                             
                         </div>
@@ -115,11 +111,11 @@
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 
     <script>
-        jQuery('#txtTurma').keyup(function(){
+        jQuery('#txtProfessor').keyup(function(){
             var textoInserido = $(this).val();
             if(textoInserido != ''){
                 $.ajax({
-                    url: '../DAO/procurar-turma.php',
+                    url: '../DAO/procurar-professor.php',
                     method: 'POST',
                     data: {query:textoInserido},
                     success:function(resposta){
@@ -133,59 +129,34 @@
         });
 
         $(document).on('click','.opcao-consulta',function(){
-            $("#txtTurma").val($(this).text());
+            $("#txtProfessor").val($(this).text());
             $("#retornoPesquisa").html("");
         });
 
         jQuery('form').on('submit', function(e){
-            var nomeAluno = $('#txtNomeAluno').val();
-            var dataNasc = $('#dataNasc').val();
-            var turma = $('#txtTurma').val();
-            if(nomeAluno.length == 0){
-                $('#label-nome').html('Por favor, preencha o campo de nome para o aluno!');
-                $('#txtNomeAluno').addClass('erro-form');
+            var nomeDisciplina = $('#txtNomeDisciplina').val();
+            var nomeProfessor = $('#txtProfessor').val();
+            if(nomeDisciplina.length == 0){
+                $('#label-nome').html('Por favor, preencha o campo de nome para a disciplina!');
+                $('#txtNomeDisciplina').addClass('erro-form');
                 $('#label-nome').show();
                 setTimeout(function(){
                     $('#label-nome').fadeOut(1);
-                    $('#txtNomeAluno').removeClass('erro-form');
+                    $('#txtNomeDisciplina').removeClass('erro-form');
                 },5000);
                 e.preventDefault();
             }
-            if(dataNasc.length == 0){
-                $('#label-dataNasc').html('Por favor, preencha o campo de data de nascimento!');
-                $('#dataNasc').addClass('erro-form');
-                $('#label-dataNasc').show();
+            if(nomeProfessor.length == 0){
+                $('#label-professor').html('Por favor, preencha o campo de nome para o professor!');
+                $('#txtProfessor').addClass('erro-form');
+                $('#label-professor').show();
                 setTimeout(function(){
-                    $('#label-dataNasc').fadeOut(1);
-                    $('#dataNasc').removeClass('erro-form');
-                },5000);
-                e.preventDefault();
-            } else {
-                var dataNasc = $('#dataNasc').val().replace(/-/g, ",");
-                var dataFormatada = new Date(dataNasc);
-                var ano = dataFormatada.getFullYear();
-                var anoAtual = new Date().getFullYear();
-                if(ano >= anoAtual){
-                    $('#label-dataNasc').html('Data de nascimento inválida!');
-                    $('#dataNasc').addClass('erro-form');
-                    $('#label-dataNasc').show();
-                    setTimeout(function(){
-                        $('#label-dataNasc').fadeOut(1);
-                        $('#dataNasc').removeClass('erro-form');
-                    },5000);
-                    e.preventDefault();
-                }
-            }
-            if(turma.length == 0){
-                $('#label-turma').html('Por favor, preencha o campo de turma do aluno!');
-                $('#txtTurma').addClass('erro-form');
-                $('#label-turma').show();
-                setTimeout(function(){
-                    $('#label-turma').fadeOut(1);
-                    $('#txtTurma').removeClass('erro-form');
+                    $('#label-professor').fadeOut(1);
+                    $('#txtProfessor').removeClass('erro-form');
                 },5000);
                 e.preventDefault();
             }
+            
         });
     </script>
 </body>

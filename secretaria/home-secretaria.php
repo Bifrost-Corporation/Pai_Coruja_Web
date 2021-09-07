@@ -58,6 +58,8 @@
                         <li><a href="cadastrar-professor.php">Cadastrar Professor</a></li>
                         <li><a href="cadastrar-responsavel.php">Cadastrar Responsável</a></li>
                         <li><a href="cadastrar-turma.php">Cadastrar Turma</a></li>
+                        <li><a href="cadastrar-disciplina.php">Cadastrar Disciplina</a></li>
+                        <li><a href="cadastrar-horario-turma.php">Cadastrar Horários</a></li>
                         <li><a href="nova-publicacao.html">Nova Publicação</a></li>
                     </ul>
                 </li>

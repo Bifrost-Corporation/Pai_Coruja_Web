@@ -62,6 +62,14 @@
             return 'Cadastro do professor realizado com sucesso!';
         }
 
+        public function listar(){
+            $conexao = Conexao::conectar();
+            $queryProfessor = 'SELECT idProfessor, nomeProfessor, emailProfessor, senhaProfessor, idEscola FROM tbprofessor';
+            $respostaProfessor = $conexao->query($queryProfessor);
+            $listaProfessor = $respostaProfessor->fetchAll(PDO::FETCH_ASSOC);
+            return $listaProfessor;
+        }
+
     }
 
 ?>
