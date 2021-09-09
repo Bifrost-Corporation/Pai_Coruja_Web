@@ -81,14 +81,18 @@
                     <div class="profile-details">
                         <img src="../img/usuario-de-perfil.png" alt="">
                         <div class="name-job">
-                            <div class="name-menu"><?php echo $_SESSION['nomeResponsavel'] ?></div>
-                            <div class="job-menu">Olá Responsável(a)</div>
+                            <div class="name-menu"><?php echo $_SESSION['nomeResponsável'] ?></div>
+                            <div class="job-menu">Olá Responsável</div>
                         </div>
                     </div>
-                    <i class="fas fa-sign-out-alt" id="logout-user"></i>
+                    <div class="profile-logout">
+                        <a href="../index.php">
+                            <i class="fas fa-sign-out-alt" id="logout-user"></i></a>
+                    </div>
                 </div>
             </div>
         </div>
+
     </header>
 
 

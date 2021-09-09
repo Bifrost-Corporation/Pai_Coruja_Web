@@ -43,8 +43,6 @@
         foreach($listaprofessor as $linha){
             if($linha['emailProfessor'] == $emailForm && $linha['senhaProfessor'] == $senhaForm){
                 $verificalogin = true;
-                $_SESSION['idEscola'] = $linha['idEscola'];
-                $_SESSION['idProfessor'] = $linha['idProfessor'];
                 $_SESSION['nomeProfessor'] = $linha['nomeProfessor'];
                 $_SESSION['emailProfessor'] = $emailForm;
                 $_SESSION['senhaProfessor'] = $senhaForm;
