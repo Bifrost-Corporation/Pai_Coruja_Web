@@ -68,7 +68,7 @@
                     <a onclick="openMenu2()" id="sub-menu-button-2">
                         <div>
                             <i class="fas fa-user-shield"></i>                      
-                        <span class="links-name">Administrador</span>
+                        <span class="links-name">Cadastrar</span>
                         </div>
                         <i class="fas fa-caret-down" class="dropdown-icon"></i>
                     </a>
@@ -96,7 +96,7 @@
                         <img src="../img/usuario-de-perfil.png" alt="">
                         <div class="name-job">
                             <div class="name-menu"><?php echo $_SESSION['nomeProfessor'] ?></div>
-                            <div class="job-menu">Olá Secretário(a)</div>
+                            <div class="job-menu">Olá Professor(a)</div>
                         </div>
                     </div>
                     <i class="fas fa-sign-out-alt" id="logout-user"></i>

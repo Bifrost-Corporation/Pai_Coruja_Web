@@ -68,7 +68,7 @@
                     <a onclick="openMenu2()" id="sub-menu-button-2">
                         <div>
                             <i class="fas fa-user-shield"></i>                      
-                        <span class="links-name">Administrador</span>
+                        <span class="links-name">Cadastrar</span>
                         </div>
                         <i class="fas fa-caret-down" class="dropdown-icon"></i>
                     </a>
@@ -122,27 +122,25 @@
 
 
         <section class="main-section">
-            <form class="formulario" action="#" method="#">
+            <form class="formulario" name="formFlag" action="../DAO/inserir-observacao.php" method="POST">
                 <div class="user-details">
                     <div class="input-box-width100">
                         <h2>Nome do aluno:</h2>
-                        <input name="name" type="text" placeholder="Insira o nome do aluno" required>
+                        <label class="label-erro" id="label-aluno"></label>
+                        <input name="txtAluno" id="txtAluno" type="text" placeholder="Insira o nome do aluno">
+                        <div id="retornoPesquisa">
+
+                        </div>
                     </div>
-                    <div class="input-box">
-                        <h2>Série do Aluno:</h2>
-                        <input name="name" type="text" placeholder="Insira o turma do aluno" required>
-                    </div>
-                    <div class="input-box">
-                        <h2>Turma:</h2>
-                        <input name="name" type="text" placeholder="Turma" required>
-                    </div>
-                    <div class="input-box">
+                    <div class="input-box-width100">
                         <h2>Dê uma nota ao acontecido:</h2>
-                        <input name="name" type="text" placeholder="de 0 a 5, quão grave foi o que aconteceu ?" required>
+                        <label class="label-erro" id="label-gravidade"></label>
+                        <input name="txtGravidade" id="txtGravidade" type="number" placeholder="de 0 a 5, quão grave foi o que aconteceu ?">
                     </div>
                     <div class="input-box-width100">
                         <h2>Descreva o que aconteceu:</h2>
-                        <input class="text-area" name="name" type="text" placeholder="..." required>
+                        <label class="label-erro" id="label-ocorrido"></label>
+                        <input class="text-area" name="txtOcorrido" id="txtOcorrido" type="text" placeholder="...">
                     </div>
                     <div class="button">
                         <input type="submit" class="btn-nav-exit" value="Cadastrar">
@@ -154,6 +152,66 @@
 
     <script src="../js/nav.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script>
+        jQuery('#txtAluno').keyup(function () {
+            var textoInserido = $(this).val();
+            if (textoInserido != '') {
+                $.ajax({
+                    url: '../DAO/procurar-aluno-turma.php',
+                    method: 'POST',
+                    data: {
+                        query: textoInserido
+                    },
+                    success: function (resposta) {
+                        $("#retornoPesquisa").html(resposta);
+                    }
+                });
+            } else {
+                $("#retornoPesquisa").html('');
+            }
+        });
+
+        $(document).on('click', '.opcao-consulta', function () {
+            $("#txtAluno").val($(this).text());
+            $("#retornoPesquisa").html("");
+        });
+
+        jQuery('form').on('submit', function(e){
+            var nomeAluno = $('#txtAluno').val();
+            var gravidade = $('#txtGravidade').val();
+            var descricao = $('#txtOcorrido').val();
+            if(nomeAluno.length == 0){
+                $('#label-aluno').html('Por favor, informe o aluno sobre qual deseja fazer uma observação!');
+                $('#txtAluno').addClass('erro-form');
+                $('#label-aluno').show();
+                setTimeout(function () {
+                    $('#label-aluno').fadeOut(1);
+                    $('#txtAluno').removeClass('erro-form');
+                }, 5000);
+                e.preventDefault();
+            }
+            if(gravidade.length == 0){
+                $('#label-gravidade').html('Por favor, informe a gravidade da observação! (deixe em 0 caso seja apenas uma observação)');
+                $('#txtGravidade').addClass('erro-form');
+                $('#label-gravidade').show();
+                setTimeout(function () {
+                    $('#label-gravidade').fadeOut(1);
+                    $('#txtGravidade').removeClass('erro-form');
+                }, 5000);
+                e.preventDefault();
+            }
+            if(descricao.length == 0){
+                $('#label-ocorrido').html('Por favor, informe o que aconteceu!');
+                $('#txtOcorrido').addClass('erro-form');
+                $('#label-ocorrido').show();
+                setTimeout(function () {
+                    $('#label-ocorrido').fadeOut(1);
+                    $('#txtOcorrido').removeClass('erro-form');
+                }, 5000);
+                e.preventDefault();
+            }
+        });
+    </script>
 </body>
 
 

@@ -1,12 +1,13 @@
 <?php
 
     require_once ('../classes/Conexao.php');
-    include ('../secretaria/sentinela.php');
+    include ('../professor/sentinela.php');
 
     $conexao = Conexao::conectar();
     if(isset($_POST['query'])){
         $inputUsuario = $_POST['query'];
-        $query = "SELECT nomeAluno, nomeTurma FROM tbaluno INNER JOIN tbturma ON tbaluno.idTurma = tbturma.idTurma WHERE nomeAluno LIKE '%$inputUsuario%' OR nomeTurma LIKE '%$inputUsuario%' ORDER BY nomeAluno";
+        $idEscola = $_SESSION['idEscola'];
+        $query = "SELECT nomeAluno, nomeTurma, tbaluno.idEscola FROM tbaluno INNER JOIN tbturma ON tbaluno.idTurma = tbturma.idTurma WHERE nomeAluno LIKE '%$inputUsuario%' AND tbaluno.idEscola LIKE '$idEscola'";
         $resultadoConsulta = $conexao->query($query);
         $lista = $resultadoConsulta->fetchAll();
         if($resultadoConsulta->rowCount() > 0){

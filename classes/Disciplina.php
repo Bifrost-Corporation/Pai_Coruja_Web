@@ -50,6 +50,14 @@
             return 'Cadastro da disciplina realizado com sucesso!';
         }
 
+        public function listar(){
+            $conexao = Conexao::conectar();
+            $queryDisciplina = 'SELECT idDisciplina, nomeDisciplina, idProfessor, idEscola FROM tbdisciplina';
+            $resultadoDisciplina = $conexao->query($queryDisciplina);
+            $listaDisciplina = $resultadoDisciplina->fetchAll(PDO::FETCH_ASSOC);
+            return $listaDisciplina;
+        }
+
     }
 
 ?>

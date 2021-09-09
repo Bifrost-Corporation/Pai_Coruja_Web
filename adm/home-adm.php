@@ -95,8 +95,7 @@
                     <div class="profile-details">
                         <img src="../img/usuario-de-perfil.png" alt="">
                         <div class="name-job">
-                            <div class="name-menu"><?php echo $_SESSION['nomeSecretaria'] ?></div>
-                            <div class="job-menu">Olá Secretário(a)</div>
+                            <div class="name-menu">Olá Administrador(a)</div>
                         </div>
                     </div>
                     <i class="fas fa-sign-out-alt" id="logout-user"></i>

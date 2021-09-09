@@ -68,7 +68,7 @@
                     <a onclick="openMenu2()" id="sub-menu-button-2">
                         <div>
                             <i class="fas fa-user-shield"></i>                      
-                        <span class="links-name">Administrador</span>
+                        <span class="links-name">Cadastrar</span>
                         </div>
                         <i class="fas fa-caret-down" class="dropdown-icon"></i>
                     </a>
@@ -121,29 +121,20 @@
 
 
         <section class="main-section">
-            <form class="formulario" action="#" method="#">
+            <form class="formulario" name="formPublicacao" action="../DAO/inserir-publicacao.php" method="POST">
                 <div class="user-details">
                     <div class="input-box-width100">
-                        <h2 class="h2Adicionar">Adicionar imagem<span>
-                                <p>Nota: não é obrigatória a imagem na publicação...</p>
-                            </span>
-                        </h2>
-                        <div>
-                            <label class="carregar-imagem-pub" for="arquivo">Arquivo</label>
-                            <input name="arquivo" id="arquivo" type="file">
-                        </div>
+                        <h2>Título da Publicação:</h2>
+                        <label class="label-erro" id="label-titulo"></label>
+                        <input name="txtTitulo" id="txtTitulo" type="text" placeholder="Insira o nome da Publicação">
                     </div>
                     <div class="input-box-width100">
-                        <h2>Nome da Publicação:</h2>
-                        <input name="name" type="text" placeholder="Insira o nome da Publicação" required>
+                        <h2>Texto da Publicação:</h2>
+                        <label class="label-erro" id="label-texto"></label>
+                        <input name="txtTexto" id="txtTexto" type="text" placeholder="Insira o texto da publicação">
                     </div>
-                    <div class="input-box-width100">
-                        <h2>Descrição da Publicação:</h2>
-                        <input name="name" type="text" placeholder="Insira a descrição..." required>
-                    </div>
-
                     <div class="button">
-                        <input type="submit" class="btn-nav-exit">
+                        <input type="submit" class="btn-nav-exit" value="Cadastrar">
                     </div>
                 </div>
             </form>
@@ -152,6 +143,34 @@
 
     <script src="../js/nav.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
+    <script>
+        jQuery('form').on('submit', function(e){
+            var titulo = $('#txtTitulo').val();
+            var texto = $('#txtTexto').val();
+            if(titulo.length == 0){
+                $('#label-titulo').html('Por favor, informe o título da publicação!');
+                $('#txtTitulo').addClass('erro-form');
+                $('#label-titulo').show();
+                setTimeout(function () {
+                    $('#label-titulo').fadeOut(1);
+                    $('#txtTitulo').removeClass('erro-form');
+                }, 5000);
+                e.preventDefault();
+            }
+            if(texto.length == 0){
+                $('#label-texto').html('Por favor, insira um texto para a publicação!');
+                $('#txtTexto').addClass('erro-form');
+                $('#label-texto').show();
+                setTimeout(function () {
+                    $('#label-texto').fadeOut(1);
+                    $('#txtTexto').removeClass('erro-form');
+                }, 5000);
+                e.preventDefault();
+            }
+        });
+    </script>
+
 </body>
 
 
