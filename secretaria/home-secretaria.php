@@ -19,17 +19,21 @@
     ?>
         <header>
 
-        <!-- <nav class="nav-bar">
-            <a href=""><img class="logo" src="../img/pai_coruja_3.png"></a>
+        <nav class="nav-bar">
+            <a href=""><img class="logo-img" src="../img/pai_coruja_branca.png"></a>
             <ul class="ul-area-btn">
-                <li class="nav-li"><a class="btn-nav-exit" href="logout.php">Sair</a></li>
+                <li class="nav-li"><a class="btn-nav-open"><i class="fas fa-bars"></i></a></li>
             </ul>
-        </nav> -->
+        </nav>
 
         <div class="sidebar">
             <div class="logo-content">
                 <div class="logo">
-                    <div class="logo-name"><a href=""><img src="../img/pai_coruja_branca.png"></a></div>
+                    <div class="logo-name"><a href="home-secretaria.php"><img src="../img/pai_coruja_branca.png"></a></div>
+                    <div class="close-mobile-navbar">
+                        <span>Menu Pai Coruja</span>
+                        <a class="btn-nav-close"><i class="far fa-window-close"></i></a>
+                    </div>
                 </div>
             </div>
             <ul class="nav-list">
@@ -127,7 +131,10 @@
                             <div class="job-menu">Olá Secretário(a)</div>
                         </div>
                     </div>
-                    <i class="fas fa-sign-out-alt" id="logout-user"></i>
+                    <div class="profile-logout">
+                        <a href="../index.php">
+                            <i class="fas fa-sign-out-alt" id="logout-user"></i></a>
+                    </div>
                 </div>
             </div>
         </div>

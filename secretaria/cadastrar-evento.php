@@ -19,17 +19,22 @@
     ?>
     <header>
 
-        <!-- <nav class="nav-bar">
-    <a href=""><img class="logo" src="../img/pai_coruja_3.png"></a>
-    <ul class="ul-area-btn">
-        <li class="nav-li"><a class="btn-nav-exit" href="logout.php">Sair</a></li>
-    </ul>
-</nav> -->
+        <nav class="nav-bar">
+            <a href=""><img class="logo-img" src="../img/pai_coruja_branca.png"></a>
+            <ul class="ul-area-btn">
+                <li class="nav-li"><a class="btn-nav-open"><i class="fas fa-bars"></i></a></li>
+            </ul>
+        </nav>
 
         <div class="sidebar">
             <div class="logo-content">
                 <div class="logo">
-                    <div class="logo-name"><a href=""><img src="../img/pai_coruja_branca.png"></a></div>
+                    <div class="logo-name"><a href="home-secretaria.php"><img src="../img/pai_coruja_branca.png"></a>
+                    </div>
+                    <div class="close-mobile-navbar">
+                        <span>Menu Pai Coruja</span>
+                        <a class="btn-nav-close"><i class="far fa-window-close"></i></a>
+                    </div>
                 </div>
             </div>
             <ul class="nav-list">
@@ -63,7 +68,6 @@
                     </li>
                 </div>
 
-
                 <li>
                     <a onclick="openMenu2()" id="sub-menu-button-2">
                         <div>
@@ -74,49 +78,49 @@
                     </a>
                 </li>
                 <div class="drop-menu" id="sub-menu-2">
-            <li class="links-name drop-link">
-                <a href="cadastrar-aluno.php">
-                    <i class="fas fa-school"></i>
-                    <span class="links-name">Cadastrar Aluno</span>
-                </a>
-            </li>
-            <li class="links-name drop-link">
-                <a href="cadastrar-professor.php">
-                    <i class="fas fa-school"></i>
-                    <span class="links-name">Cadastrar Professor</span>
-                </a>
-            </li>
-            <li class="links-name drop-link">
-                <a href="cadastrar-responsavel.php">
-                    <i class="fas fa-school"></i>
-                    <span class="links-name">Cadastrar Responsável</span>
-                </a>
-            </li>
-            <li class="links-name drop-link">
-                <a href="cadastrar-turma.php">
-                    <i class="fas fa-school"></i>
-                    <span class="links-name">Cadastrar Turma</span>
-                </a>
-            </li>
-            <li class="links-name drop-link">
-                <a href="cadastrar-disciplina.php">
-                    <i class="fas fa-school"></i>
-                    <span class="links-name">Cadastrar Disciplina</span>
-                </a>
-            </li>
-            <li class="links-name drop-link">
-                <a href="cadastrar-horario-turma.php">
-                    <i class="fas fa-school"></i>
-                    <span class="links-name">Cadastrar Horários</span>
-                </a>
-            </li>
-            <li class="links-name drop-link">
-                <a href="cadastrar-evento.php">
-                    <i class="fas fa-school"></i>
-                    <span class="links-name">Novo Evento</span>
-                </a>
-            </li>
-        </div>
+                    <li class="links-name drop-link">
+                        <a href="cadastrar-aluno.php">
+                            <i class="fas fa-school"></i>
+                            <span class="links-name">Cadastrar Aluno</span>
+                        </a>
+                    </li>
+                    <li class="links-name drop-link">
+                        <a href="cadastrar-professor.php">
+                            <i class="fas fa-school"></i>
+                            <span class="links-name">Cadastrar Professor</span>
+                        </a>
+                    </li>
+                    <li class="links-name drop-link">
+                        <a href="cadastrar-responsavel.php">
+                            <i class="fas fa-school"></i>
+                            <span class="links-name">Cadastrar Responsável</span>
+                        </a>
+                    </li>
+                    <li class="links-name drop-link">
+                        <a href="cadastrar-turma.php">
+                            <i class="fas fa-school"></i>
+                            <span class="links-name">Cadastrar Turma</span>
+                        </a>
+                    </li>
+                    <li class="links-name drop-link">
+                        <a href="cadastrar-disciplina.php">
+                            <i class="fas fa-school"></i>
+                            <span class="links-name">Cadastrar Disciplina</span>
+                        </a>
+                    </li>
+                    <li class="links-name drop-link">
+                        <a href="cadastrar-horario-turma.php">
+                            <i class="fas fa-school"></i>
+                            <span class="links-name">Cadastrar Horários</span>
+                        </a>
+                    </li>
+                    <li class="links-name drop-link">
+                        <a href="nova-publicacao.php">
+                            <i class="fas fa-school"></i>
+                            <span class="links-name">Nova Publicação</span>
+                        </a>
+                    </li>
+                </div>
 
             </ul>
             <div class="profile-content">
@@ -128,7 +132,10 @@
                             <div class="job-menu">Olá Secretário(a)</div>
                         </div>
                     </div>
-                    <i class="fas fa-sign-out-alt" id="logout-user"></i>
+                    <div class="profile-logout">
+                        <a href="../index.php">
+                            <i class="fas fa-sign-out-alt" id="logout-user"></i></a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -152,7 +159,8 @@
 
 
         <section class="main-section">
-            <form class="formulario" name="formEvento" action="../DAO//inserir-evento.php" method="POST" enctype="multipart/form-data">
+            <form class="formulario" name="formEvento" action="../DAO//inserir-evento.php" method="POST"
+                enctype="multipart/form-data">
                 <div class="user-details">
                     <div class="input-box-width100">
                         <h2 class="h2Adicionar">Adicionar imagem:</h2>
@@ -165,12 +173,14 @@
                     <div class="input-box-width100">
                         <h2>Nome do evento:</h2>
                         <label class="label-erro" id="label-nome"></label>
-                        <input name="txtNomeEvento" id="txtNomeEvento" type="text" placeholder="Insira o nome da Publicação">
+                        <input name="txtNomeEvento" id="txtNomeEvento" type="text"
+                            placeholder="Insira o nome da Publicação">
                     </div>
                     <div class="input-box-width100">
                         <h2>Descrição do evento:</h2>
                         <label class="label-erro" id="label-descricao"></label>
-                        <input name="txtDescricaoEvento" id="txtDescricaoEvento" type="text" placeholder="Insira a descrição...">
+                        <input name="txtDescricaoEvento" id="txtDescricaoEvento" type="text"
+                            placeholder="Insira a descrição...">
                     </div>
                     <div class="input-box-width100">
                         <h2>Data de realização do evento:</h2>
@@ -189,38 +199,38 @@
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 
     <script>
-        jQuery('form').on('submit', function(e){
+        jQuery('form').on('submit', function (e) {
             var nomeEvento = $('#txtNomeEvento').val();
             var descricaoEvento = $('#txtDescricaoEvento').val();
             var dataEvento = $('#txtData').val();
-            if(nomeEvento.length == 0){
+            if (nomeEvento.length == 0) {
                 $('#label-nome').html('Por favor, preencha o campo de nome para o evento!');
                 $('#txtNomeEvento').addClass('erro-form');
                 $('#label-nome').show();
-                setTimeout(function(){
+                setTimeout(function () {
                     $('#label-nome').fadeOut(1);
                     $('#txtNomeEvento').removeClass('erro-form');
-                },5000);
+                }, 5000);
                 e.preventDefault();
             }
-            if(descricaoEvento.length == 0){
+            if (descricaoEvento.length == 0) {
                 $('#label-descricao').html('Por favor, preencha o campo de descrição para o evento!');
                 $('#txtDescricaoEvento').addClass('erro-form');
                 $('#label-descricao').show();
-                setTimeout(function(){
+                setTimeout(function () {
                     $('#label-descricao').fadeOut(1);
                     $('#txtDescricaoEvento').removeClass('erro-form');
-                },5000);
+                }, 5000);
                 e.preventDefault();
             }
-            if(dataEvento.length == 0){
+            if (dataEvento.length == 0) {
                 $('#label-data').html('Por favor, preencha o campo de data para o evento!');
                 $('#txtData').addClass('erro-form');
                 $('#label-data').show();
-                setTimeout(function(){
+                setTimeout(function () {
                     $('#label-data').fadeOut(1);
                     $('#txtData').removeClass('erro-form');
-                },5000);
+                }, 5000);
                 e.preventDefault();
             }
         });

@@ -10,7 +10,7 @@
         $verificalogin = false;
         $queryadm = "SELECT idAdministrador, loginAdministrador, senhaAdministrador FROM tbadministrador";
         $querysecretaria = "SELECT idSecretaria, nomeSecretaria, emailSecretaria, senhaSecretaria, idEscola FROM tbsecretaria";
-        $queryprofessor = "SELECT idEscola, idProfessor, nomeProfessor, emailProfessor, senhaProfessor FROM tbprofessor";
+        $queryprofessor = "SELECT nomeProfessor, emailProfessor, senhaProfessor FROM tbprofessor";
         $queryresponsavel = "SELECT nomeResponsavel, emailResponsavel, senhaResponsavel FROM tbresponsavel";
         $resultadoadm = $conexao->query($queryadm);
         $listaadm = $resultadoadm->fetchAll(PDO::FETCH_ASSOC);
@@ -43,8 +43,6 @@
         foreach($listaprofessor as $linha){
             if($linha['emailProfessor'] == $emailForm && $linha['senhaProfessor'] == $senhaForm){
                 $verificalogin = true;
-                $_SESSION['idEscola'] = $linha['idEscola'];
-                $_SESSION['idProfessor'] = $linha['idProfessor'];
                 $_SESSION['nomeProfessor'] = $linha['nomeProfessor'];
                 $_SESSION['emailProfessor'] = $emailForm;
                 $_SESSION['senhaProfessor'] = $senhaForm;

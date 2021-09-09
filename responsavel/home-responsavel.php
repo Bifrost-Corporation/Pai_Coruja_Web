@@ -20,46 +20,71 @@
     <header>
 
         <nav class="nav-bar">
-            <a href=""><img class="logo" src="../images/teste_branco.png"></a>
+            <a href=""><img class="logo-img" src="../img/pai_coruja_branca.png"></a>
             <ul class="ul-area-btn">
-                <li class="nav-li"><a class="btn-nav-exit" href="logout.php">Sair</a></li>
+                <li class="nav-li"><a class="btn-nav-open"><i class="fas fa-bars"></i></a></li>
             </ul>
         </nav>
 
-        <nav class="sidebar">
-            <div class="perfil">
-                <div class="img-perfil">
-                    <img src="../images/usuario-de-perfil.png">
-                </div>
-                <div class="text-perfil">
-                    <p>Olá, <?php echo $_SESSION['nomeResponsavel'] ?></p>
+        <div class="sidebar">
+            <div class="logo-content">
+                <div class="logo">
+                    <div class="logo-name"><a href="home-responsavel.php"><img src="../img/pai_coruja_branca.png"></a>
+                    </div>
+                    <div class="close-mobile-navbar">
+                        <span>Menu Pai Coruja</span>
+                        <a class="btn-nav-close"><i class="far fa-window-close"></i></a>
+                    </div>
                 </div>
             </div>
-            <ul class="ul-sidebar-menu">
+            <ul class="nav-list">
                 <li>
-                    <a href="#" onclick="openMenu()" id="sub-menu-button" class="visao-geral-btn">Visão Geral
-                        <span class="fas fa-caret-down first"></span>
+                    <a onclick="openMenu()" id="sub-menu-button">
+                        <div>
+                            <i class="fas fa-chart-pie"></i>
+                            <span class="links-name">Visão Geral</span>
+                        </div>
+                        <i class="fas fa-caret-down" class="dropdown-icon"></i>
                     </a>
-
-                    <ul id="sub-menu">
-                        <li><a href="#">Mural</a></li>
-                        <li><a href="#">Avaliação dos Professores</a></li>
-                        <li><a href="#">Eventos Programados</a></li>
-                    </ul>
                 </li>
-
-                <li>
-                    <a href="#" onclick="openMenu2()" id="sub-menu-button-2" class="outro-btn">Aluno
-                        <span class="fas fa-caret-down second"></span>
-                    </a>
-                    <ul id="sub-menu-2">
-                        <li><a href="cadastrar-flags.html">Observações</a></li>
-                        <li><a href="cadastrar-publicacao.html">Calendário</a></li>
-                    </ul>
-                </li>
-
+                <div class="drop-menu" id="sub-menu">
+                    <li class="links-name drop-link">
+                        <a href="home-responsavel.php">
+                            <i class="fas fa-calendar"></i>
+                            <span class="links-name">Mural</span>
+                        </a>
+                    </li>
+                    <li class="links-name drop-link">
+                        <a href="#">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                            <span class="links-name">Avaliação dos Professores</span>
+                        </a>
+                    </li>
+                    <li class="links-name drop-link">
+                        <a href="#">
+                            <i class="fas fa-calendar-day"></i>
+                            <span class="links-name">Eventos Programados</span>
+                        </a>
+                    </li>
+                </div>
             </ul>
-        </nav>
+            <div class="profile-content">
+                <div class="profile">
+                    <div class="profile-details">
+                        <img src="../img/usuario-de-perfil.png" alt="">
+                        <div class="name-job">
+                            <div class="name-menu"><?php echo $_SESSION['nomeResponsável'] ?></div>
+                            <div class="job-menu">Olá Responsável</div>
+                        </div>
+                    </div>
+                    <div class="profile-logout">
+                        <a href="../index.php">
+                            <i class="fas fa-sign-out-alt" id="logout-user"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </header>
 
 

@@ -1,7 +1,6 @@
 <?php
 
     require_once ('../classes/Conexao.php');
-    include ('../secretaria/sentinela.php');
 
     $conexao = Conexao::conectar();
     if(isset($_POST['query'])){

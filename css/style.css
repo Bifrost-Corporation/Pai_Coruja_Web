@@ -46,42 +46,6 @@ p {
     font-size: 1rem;
 }
 
-.nav-bar {
-    position: fixed;
-    z-index: 1;
-    padding: 0 5%;
-    width: 100%;
-    height: 10vh;
-    background-color: var(--azulnavbar);
-    display: flex;
-    justify-content: space-between;
-}
-
-.logo {
-    align-items: center;
-    width: 120px;
-}
-
-.ul-area-btn {
-    list-style: none;
-    text-align: center;
-    align-items: center;
-    display: flex;
-}
-
-.nav-li {
-    align-items: center;
-    display: flex;
-}
-
-.btn-nav-exit {
-    cursor: pointer;
-    color: var(--cinzaclaro);
-    text-decoration: none;
-    border-radius: 10px;
-    padding: 10px 40px;
-    background-color: var(--azulbtnsair);
-}
 
 
 /* TELA LOGIN */
@@ -293,6 +257,48 @@ p {
 
 /* MENU LATERAL */
 
+
+/* MENU MOBILE */
+
+.nav-bar {
+    display:none;
+    position: fixed;
+    z-index: 1;
+    padding: 0 5%;
+    width: 100%;
+    height: 10vh;
+    background-color: var(--azulnavbar);
+    flex-direction: row-reverse;
+    justify-content: space-between;
+}
+
+.logo-img {
+    align-items: center;
+    width: 120px;
+}
+
+.ul-area-btn {
+    list-style: none;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    font-size: 30px;
+}
+
+.nav-li {
+    align-items: center;
+    display: flex;
+}
+
+.btn-nav-exit {
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: 10px;
+    padding: 10px 40px;
+}
+
+/* MENU PC */
+
 .sidebar{
     height: 100vh;
     width: 240px;
@@ -302,35 +308,39 @@ p {
     overflow-y: scroll;
     overflow-x: hidden;
 }
-.sidebar .logo-content .logo{
-    color: #fff;
-    display: flex;
-    height: 50px;
-    width: 100%;
-    align-items: center;  
+
+.active-nav{
+    display:block
 }
+
 .sidebar .logo-content i{
     font-size: 28px;
     font-weight: 400;
 }
 
 .logo-content .logo{
+    color: var(--cinzamaisclaro);
+    display: flex;
+    height: 50px;
+    width: 100%;
     margin-top: 10px;
     justify-content: center;
     align-items: center;
     font-size: 20px;
     font-weight: 400;
-    display: flex;
 }
 .logo-content .logo .logo-name a img{
-    
     width: 120px;
     font-size: 20px;
     font-weight: 400;
 }
 
+.close-mobile-navbar{
+    display: none;
+}
+
 .sidebar #menu-btn{
-    color: #fff;
+    color: var(--cinzamaisclaro);
     position: fixed;
     left: 90%;
     top:6px;
@@ -340,7 +350,7 @@ p {
 }
 
 .sidebar ul{
-    margin-top: 40px;
+    margin-top: 30px;
     margin-bottom: 60px;
     display: flex;
     flex-direction: column;
@@ -359,7 +369,7 @@ p {
 
 .sidebar ul li a{
     border-radius: 15px;
-    color: var(--branco);
+    color: var(--cinzamaisclaro);
     display: flex;
     align-items: center;
     text-decoration: none;
@@ -375,7 +385,12 @@ p {
     user-select: none;
     cursor: pointer;
     justify-content: space-between;
+    margin-bottom: 10px;
+}
 
+.button-drop-opened{
+    background-color: var(--azulmenulateral);
+    border-radius: 15px 15px 0px 0px ;
 }
 
 .dropdown-icon{
@@ -384,8 +399,8 @@ p {
 
 .sidebar ul li a:hover{
     border-radius: 15px;
-    color: var(--azulbtnsair);
-    background-color: var(--branco);
+    color: var(--cinzafonte);
+    background-color: var(--cinzamaisclaro);
     font-weight: bold;
     transition: 200ms;
 }
@@ -400,21 +415,19 @@ p {
 
 .drop-menu{
     display: none;
-    padding: 10px 0;
-    border-radius: 0 0 15px 15px;
+    padding: 15px 0;
+    border-radius: 5px 5px 15px 15px;
     position: relative;
     background: #123256;
-    margin: 5px 5px;
+    margin: 5px 5px 7px 5px;
+
 }
 
 .drop-link{
     padding: 0 15px;
-    color: var(--branco);
+    color: var(--cinzamaisclaro);
 }
 
-#sub-menu-button{
-    
-}
 
 .opened-drop{
     border-radius: 15px 15px 0 0;
@@ -423,7 +436,7 @@ p {
 }
 
 .sidebar .profile-content{
-    color: var(--branco);
+    color: var(--cinzamaisclaro);
     position: fixed;
     bottom: 0;
     left:0;
@@ -480,6 +493,31 @@ p {
     font-size: 20px;
     border-radius: 12px;
 }
+
+.profile-logout a{
+    color: var(--cinzamaisclaro);
+    transition: 200ms;
+}
+/* 
+.profile-logout span{
+    isso aq é pra um span pro botão de logout
+    position: fixed;
+    z-index: 400000000;
+    left: 220px;
+    bottom: 20px;
+    color: var(--azulbtnsair);
+    font-weight: bold;
+
+    background: var(--branco);
+    padding: 10px;
+} */
+
+.profile-logout a i:hover{
+    transition: 200ms;
+    transform: scale(0.9);
+    color: var(--cinza);
+}
+
 
 
 
@@ -575,9 +613,10 @@ small:first-child {
 }
 
 .cards-eventos {
+    overflow: hidden;
     padding: 2rem;
     color: var(--cinzafonte);
-    width: 100%;
+    width: 100%; /*tirar isso aq pros cars ficarem do tamanho certo*/
 }
 
 .arrumar-cards {
@@ -776,7 +815,7 @@ input[type="file"] {
     html {
         font-size: 93.73%;
     }
-    .logo {
+    .logo-img {
         max-width: 93.73%;
     }
 }
@@ -785,7 +824,7 @@ input[type="file"] {
     html {
         font-size: 87.5%;
     }
-    .logo {
+    .logo-img {
         max-width: 87.5%;
     }
     .formulario .user-details .input-box {
@@ -794,4 +833,83 @@ input[type="file"] {
     .formulario .user-details .input-boxwidth30 {
         width: 100%;
     }
+}
+
+@media (min-width:720px){
+    .sidebar {
+        display: block !important;
+    }
+}
+
+@media (max-width:720px) {
+    .nav-bar{
+        display:flex;
+    }
+    .nav-bar a{
+        display:flex;
+        align-items: center;
+    }
+    .sidebar{
+        display: none;
+        z-index: 100000;
+    }
+
+    .sidebar ul{
+        margin-top: 10px;
+    }
+    .container-main{
+        padding-top: 10vh;
+        margin-left: 0px;
+    }
+    .nav-open.active{
+        display: block;
+        transform: translateX(0);
+    }
+    .logo-content .logo{
+        color: var(--cinzamaisclaro);
+        display: block;
+        height: 50px;
+        width: 100%;
+        font-size: 30px;
+        font-weight: 400;
+    }
+    
+    .logo-name{
+        display: none;
+    }
+
+    .close-mobile-navbar{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        font-size: 15px;
+        color: var(--cinzamaisclaro);
+    }
+    .btn-nav-open{
+        margin-left: 10px;
+        color: var(--cinzamaisclaro);
+        transition: 200ms;
+        cursor: pointer;
+        user-select: none;
+    }
+    .btn-nav-open:hover{
+        transform: scale(0.9);
+        color: var(--cinzamaisclaro);
+        transition: 200ms;
+        cursor: pointer;
+        user-select: none;
+    }
+
+    .btn-nav-close{
+        transition: 200ms;
+        cursor: pointer;
+        user-select: none;
+    }
+    .btn-nav-close:hover{
+        transition: 200ms;
+        cursor: pointer;
+        user-select: none;
+        color: #aa4452;
+    }
+    
 }
