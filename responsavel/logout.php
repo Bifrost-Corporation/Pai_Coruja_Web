@@ -1,6 +1,7 @@
 <?php
 
     session_start();
+    unset($_SESSION['idResponsavel']);
     unset($_SESSION['nomeResponsavel']);
     unset($_SESSION['emailResponsavel']);
     unset($_SESSION['senhaResponsavel']);

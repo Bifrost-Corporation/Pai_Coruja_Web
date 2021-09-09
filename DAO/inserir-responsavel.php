@@ -6,6 +6,7 @@
     include_once ('../classes/Turma.php');
     include_once ('../classes/EnderecoResponsavel.php');
     include_once ('../classes/TelefoneResponsavel.php');
+    include_once ('../classes/Usuario.php');
 
     try{
         header('Location: ../secretaria/cadastrar-responsavel.php');
@@ -77,6 +78,9 @@
             $contato->setNumTelefoneResponsavel($telefone);
             $contato->setIdResponsavel($idResponsavel);
             $contato->cadastrar($contato);
+            $usuario = new Usuario();
+            $usuario->setIdResponsavel($idResponsavel);
+            echo $usuario->cadastrar($usuario);
             return 'Dados cadastrados com sucesso!';
         } else {
             return 'Dados já cadastrados';

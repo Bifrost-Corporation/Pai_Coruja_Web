@@ -86,6 +86,12 @@
                             <span class="links-name">Cadastrar Publicação</span>
                         </a>
                     </li>
+                    <li class="links-name drop-link">
+                        <a href="cadastrar-imagem-perfil.php">
+                            <i class="fas fa-school"></i>
+                            <span class="links-name">Alterar Imagem Perfil</span>
+                        </a>
+                    </li>
                     
                 </div>
                 

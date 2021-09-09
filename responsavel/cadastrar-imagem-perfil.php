@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
 
-    <title>Home - Responsável</title>
+    <title>Cadastrar - Imagem Perfil</title>
 
 
 </head>
@@ -19,7 +19,14 @@
     ?>
     <header>
 
-    <div class="sidebar">
+        <!-- <nav class="nav-bar">
+            <a href=""><img class="logo" src="../img/pai_coruja_3.png"></a>
+            <ul class="ul-area-btn">
+                <li class="nav-li"><a class="btn-nav-exit" href="logout.php">Sair</a></li>
+            </ul>
+        </nav> -->
+
+        <div class="sidebar">
             <div class="logo-content">
                 <div class="logo">
                     <div class="logo-name"><a href=""><img src="../img/pai_coruja_branca.png"></a></div>
@@ -90,14 +97,47 @@
             </div>
         </div>
     </header>
-
+    
 
     <main class="container-main">
-        <h1>Responsável</h1>
+        <section class="top-section">
+            <div class="voltar">
+                <a href="home-responsavel.php">
+                    <span class="fas fa-arrow-left"></span>Voltar
+                </a>
+            </div>
+            <div class="titulo-cadastrar">
+                <h2>Alterar Imagem:</h2>
+            </div>
+        </section>
+
+
+        <section class="main-section">
+            <form class="formulario" name="formPublicacao" action="../DAO/inserir-imagem-responsavel.php" method="POST" enctype="multipart/form-data">
+                <div class="user-details">
+                    <div class="input-box-width100">
+                        <h2 class="h2Adicionar">Adicionar imagem:</h2>
+                        <label class="label-erro" id="label-foto"></label>
+                        <div>
+                            <label class="carregar-imagem-pub" for="arquivo">Carregar Imagem Perfil</label>
+                            <input name="arquivo" id="arquivo" type="file">
+                        </div>
+                    </div>
+                    <div class="button">
+                        <input type="submit" class="btn-nav-exit" value="Cadastrar">
+                    </div>
+                </div>
+            </form>
+        </section>
     </main>
 
     <script src="../js/nav.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
+    <script>
+        //Fazer tratamento mais tarde especifico pra imagens
+    </script>
+
 </body>
 
 

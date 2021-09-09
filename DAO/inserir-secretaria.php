@@ -3,6 +3,7 @@
     include_once ('../adm/sentinela.php');
     include_once ('../classes/Secretaria.php');
     include_once ('../classes/Escola.php');
+    include_once ('../classes/Usuario.php');
 
     try{
         header('Location: ../adm/cadastrar-secretaria.php');
@@ -41,6 +42,13 @@
             $secretaria->setIdEscola($idEscola);
             $secretaria->setIdAdministrador($idAdministrador);
             echo $secretaria->cadastrar($secretaria);
+            $listaSecretaria = $secretaria->selecionarUltimoSecretaria();
+            foreach($listaSecretaria as $linha2){
+                $idSecretaria = $linha2['idSecretaria'];
+            }
+            $usuario = new Usuario();
+            $usuario->setIdSecretaria($idSecretaria);
+            echo $usuario->cadastrar($usuario);
             return 'Cadastro da secretaria realizado com sucesso!';
         }else{
             if($repeteemail == true){

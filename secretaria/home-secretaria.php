@@ -110,9 +110,9 @@
                         </a>
                     </li>
                     <li class="links-name drop-link">
-                        <a href="nova-publicacao.php">
+                        <a href="cadastrar-evento.php">
                             <i class="fas fa-school"></i>
-                            <span class="links-name">Nova Publicação</span>
+                            <span class="links-name">Novo Evento</span>
                         </a>
                     </li>
                 </div>

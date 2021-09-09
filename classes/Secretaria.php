@@ -80,6 +80,14 @@
             return $listaSecretaria;
         }
 
+        public function selecionarUltimoSecretaria(){
+            $conexao = Conexao::conectar();
+            $querySecretaria = "SELECT idSecretaria FROM tbsecretaria WHERE idSecretaria = (SELECT MAX(idSecretaria) FROM tbsecretaria)";
+            $resultadoSecretaria = $conexao->query($querySecretaria);
+            $listaSecretaria = $resultadoSecretaria->fetchAll(PDO::FETCH_ASSOC);
+            return $listaSecretaria;
+        }
+
     }
 
 ?>
