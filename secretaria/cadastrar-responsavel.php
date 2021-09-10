@@ -114,9 +114,9 @@
                         </a>
                     </li>
                     <li class="links-name drop-link">
-                        <a href="nova-publicacao.php">
+                        <a href="cadastrar-evento.php">
                             <i class="fas fa-school"></i>
-                            <span class="links-name">Nova Publicação</span>
+                            <span class="links-name">Novo Evento</span>
                         </a>
                     </li>
                 </div>
@@ -241,8 +241,60 @@
 
     <script src="../js/nav.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="../js/jquery.mask.js"></script>
 
     <script>
+
+        $('#txtCpf').mask("000.000.000-00");
+        $('#txtTelefone').mask("(00) 0000-00009");
+        $('#txtCep').mask("00000-000");
+
+
+        $(document).ready(function() {
+            $("#txtCep").keyup(function() {
+                var tamanhoCep = $(this).val().length;
+                if(tamanhoCep == 9){
+                    var cep = $(this).val().replace(/\D/g, '');
+                    if (cep != "") {
+                        var validacep = /^[0-9]{8}$/;
+                        if(validacep.test(cep)) {
+                            $("#txtRua").val("...");
+                            $("#txtBairro").val("...");
+                            $("#txtCidade").val("...");
+                            $.getJSON("https://viacep.com.br/ws/"+ cep +"/json/?callback=?", function(dados) {
+                                if (!("erro" in dados)) {
+                                    $("#txtRua").val(dados.logradouro);
+                                    $("#txtBairro").val(dados.bairro);
+                                    $("#txtCidade").val(dados.localidade);
+                                } else {
+                                    $('#label-cep').html('CEP inválido!');
+                                    $('#txtCep').addClass('erro-form');
+                                    $('#label-cep').show();
+                                    $('#txtCep').focus();
+                                    setTimeout(function () {
+                                        $('#label-cep').fadeOut(1);
+                                        $('#txtCep').removeClass('erro-form');
+                                    }, 5000);
+                                    e.preventDefault();
+                                } 
+                            });
+                        }
+                        else {
+                            $('#label-cep').html('CEP inválido!');
+                            $('#txtCep').addClass('erro-form');
+                            $('#label-cep').show();
+                            $('#txtCep').focus();
+                            setTimeout(function () {
+                                $('#label-cep').fadeOut(1);
+                                $('#txtCep').removeClass('erro-form');
+                            }, 5000);
+                            e.preventDefault();
+                        }
+                    }
+                }
+            });
+        });
+
         jQuery('#txtAluno').keyup(function () {
             var textoInserido = $(this).val();
             if (textoInserido != '') {
@@ -391,6 +443,62 @@
                     $('#txtCpf').removeClass('erro-form');
                 }, 5000);
                 e.preventDefault();
+            } else {
+                var cpfValido = true;
+                var arrayCpf = cpf.split("");
+                var digito1 = parseInt(arrayCpf[0]);
+                var digito2 = parseInt(arrayCpf[1]);
+                var digito3 = parseInt(arrayCpf[2]);
+                var digito4 = parseInt(arrayCpf[4]);
+                var digito5 = parseInt(arrayCpf[5]);
+                var digito6 = parseInt(arrayCpf[6]);
+                var digito7 = parseInt(arrayCpf[8]);
+                var digito8 = parseInt(arrayCpf[9]);
+                var digito9 = parseInt(arrayCpf[10]);
+                var digito10 = parseInt(arrayCpf[12]);
+                var digito11 = parseInt(arrayCpf[13]);
+                if(digito1 == digito2 && digito2 == digito3 && digito3 == digito4 && digito4 == digito5 && digito5 == digito6 &&
+                digito6 == digito7 && digito7 == digito8 && digito8 == digito9 && digito9 == digito10 && digito10 == digito11){
+                    $('#label-cpf').html('CPF inválido!');
+                    $('#txtCpf').addClass('erro-form');
+                    $('#label-cpf').show();
+                    $('#txtCpf').focus();
+                    setTimeout(function () {
+                        $('#label-cpf').fadeOut(1);
+                        $('#txtCpf').removeClass('erro-form');
+                    }, 5000);
+                        e.preventDefault();
+                }else{
+                    var teste1 = (digito1 * 10) + (digito2 * 9) + (digito3 * 8) + (digito4 * 7) + (digito5 * 6) + (digito6 * 5) + (digito7 * 4) + (digito8 * 3) + (digito9 * 2);
+                    var resto1 = (teste1 * 10) % 11;
+                    if(resto1 == 10 || resto1 == 11){
+                        resto1 = 0;
+                    }
+                    if(resto1 != digito10){
+                        cpfValido = false;
+                    }
+                    if(cpfValido != false){
+                        var teste2 = (digito1 * 11) + (digito2 * 10) + (digito3 * 9) + (digito4 * 8) + (digito5 * 7) + (digito6 * 6) + (digito7 * 5) + (digito8 * 4) + (digito9 * 3) + (digito10 * 2);
+                        var resto2 = (teste2 * 10) % 11;
+                        if(resto2 == 10 || resto2 == 11){
+                            resto2 = 0;
+                        }
+                        if(resto2 != digito11){
+                            cpfValido = false;
+                        }
+                    }
+                    if(cpfValido == false){
+                        $('#label-cpf').html('CPF inválido!');
+                        $('#txtCpf').addClass('erro-form');
+                        $('#label-cpf').show();
+                        $('#txtCpf').focus();
+                        setTimeout(function () {
+                            $('#label-cpf').fadeOut(1);
+                            $('#txtCpf').removeClass('erro-form');
+                        }, 5000);
+                        e.preventDefault();
+                    }
+                }
             }
             if (cep.length != 9) {
                 $('#label-cep').html('CEP inválido!');
@@ -472,7 +580,7 @@
                 e.preventDefault();
             }
 
-            /* Ainda falta fazer as verificações melhor, estão muito simples */
+            /* Ainda falta fazer a verificação do CPF */
 
         });
     </script>
