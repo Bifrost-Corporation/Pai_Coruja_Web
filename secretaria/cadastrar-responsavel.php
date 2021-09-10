@@ -241,8 +241,60 @@
 
     <script src="../js/nav.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="../js/jquery.mask.js"></script>
 
     <script>
+
+        $('#txtCpf').mask("000.000.000-00");
+        $('#txtTelefone').mask("(00) 0000-00009");
+        $('#txtCep').mask("00000-000");
+
+
+        $(document).ready(function() {
+            $("#txtCep").keyup(function() {
+                var tamanhoCep = $(this).val().length;
+                if(tamanhoCep == 9){
+                    var cep = $(this).val().replace(/\D/g, '');
+                    if (cep != "") {
+                        var validacep = /^[0-9]{8}$/;
+                        if(validacep.test(cep)) {
+                            $("#txtRua").val("...");
+                            $("#txtBairro").val("...");
+                            $("#txtCidade").val("...");
+                            $.getJSON("https://viacep.com.br/ws/"+ cep +"/json/?callback=?", function(dados) {
+                                if (!("erro" in dados)) {
+                                    $("#txtRua").val(dados.logradouro);
+                                    $("#txtBairro").val(dados.bairro);
+                                    $("#txtCidade").val(dados.localidade);
+                                } else {
+                                    $('#label-cep').html('CEP inválido!');
+                                    $('#txtCep').addClass('erro-form');
+                                    $('#label-cep').show();
+                                    $('#txtCep').focus();
+                                    setTimeout(function () {
+                                        $('#label-cep').fadeOut(1);
+                                        $('#txtCep').removeClass('erro-form');
+                                    }, 5000);
+                                    e.preventDefault();
+                                } 
+                            });
+                        }
+                        else {
+                            $('#label-cep').html('CEP inválido!');
+                            $('#txtCep').addClass('erro-form');
+                            $('#label-cep').show();
+                            $('#txtCep').focus();
+                            setTimeout(function () {
+                                $('#label-cep').fadeOut(1);
+                                $('#txtCep').removeClass('erro-form');
+                            }, 5000);
+                            e.preventDefault();
+                        }
+                    }
+                }
+            });
+        });
+
         jQuery('#txtAluno').keyup(function () {
             var textoInserido = $(this).val();
             if (textoInserido != '') {
@@ -472,7 +524,7 @@
                 e.preventDefault();
             }
 
-            /* Ainda falta fazer as verificações melhor, estão muito simples */
+            /* Ainda falta fazer a verificação do CPF */
 
         });
     </script>
