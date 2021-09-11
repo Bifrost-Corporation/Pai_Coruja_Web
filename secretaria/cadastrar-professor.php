@@ -133,7 +133,7 @@
                         </div>
                     </div>
                     <div class="profile-logout">
-                        <a href="../index.php">
+                        <a href="logout.php">
                             <i class="fas fa-sign-out-alt" id="logout-user"></i></a>
                     </div>
                 </div>

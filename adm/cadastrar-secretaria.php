@@ -102,7 +102,7 @@
                         </div>
                     </div>
                     <div class="profile-logout">
-                        <a href="../index.php">
+                        <a href="logout.php">
                             <i class="fas fa-sign-out-alt" id="logout-user"></i></a>
                     </div>
                 </div>
@@ -141,7 +141,9 @@
                         <h2>Email Secretária:</h2>
                         <label class="label-erro" id="label-email"></label>
                         <input name="txtEmailSecretaria" id="txtEmailSecretaria" type="text"
-                            placeholder="Insira o email da secretaria">
+                            placeholder="Insira o email da secretaria" value="<?php if(isset($_SESSION['emailSecretaria'])){
+                                                                                                                                echo $_SESSION['emailSecretaria'];
+                                                                                                                            } ?>">
                     </div>
                     <div class="input-box">
                         <h2>Senha Secretária:</h2>
@@ -158,7 +160,9 @@
                         <h2>A qual escola essa conta de secretaria pertence?</h2>
                         <label class="label-erro" id="label-escola"></label>
                         <input name="txtConsultaEscola" id="txtConsultaEscola" type="text"
-                            placeholder="Pesquise aqui o nome da escola">
+                            placeholder="Pesquise aqui o nome da escola" value="<?php if(isset($_SESSION['escolaSecretaria'])){
+                                                                                                                                echo $_SESSION['escolaSecretaria'];
+                                                                                                                            } ?>">
                         <div id="retornoPesquisa">
 
                         </div>
@@ -175,6 +179,40 @@
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 
     <script>
+
+        $(document).ready(function(){
+            var valueEscola = $('#txtConsultaEscola').val();
+            var valueEmail = $('#txtEmailSecretaria').val();
+            if(valueEscola.length > 0){
+                $('#label-escola').html('Escola já cadastrada!');
+                $('#txtConsultaEscola').addClass('erro-form');
+                $('#label-escola').show();
+                setTimeout(function () {
+                    $('#label-escola').fadeOut(1);
+                    $('#txtConsultaEscola').removeClass('erro-form');
+                    $('#txtConsultaEscola').val('');
+                }, 5000);
+                <?php
+                    unset($_SESSION['escolaSecretaria']);
+                ?>
+                e.preventDefault();
+            }
+            if(valueEmail.length > 0){
+                $('#label-email').html('Email já cadastrado!');
+                $('#txtEmailSecretaria').addClass('erro-form');
+                $('#label-email').show();
+                setTimeout(function () {
+                    $('#label-email').fadeOut(1);
+                    $('#txtEmailSecretaria').removeClass('erro-form');
+                    $('#txtEmailSecretaria').val('');
+                }, 5000);
+                <?php
+                    unset($_SESSION['emailSecretaria']);
+                ?>
+                e.preventDefault();
+            }
+        });
+
         jQuery('#txtConsultaEscola').keyup(function () {
             var textoInserido = $(this).val();
             if (textoInserido != '') {

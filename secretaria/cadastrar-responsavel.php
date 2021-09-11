@@ -132,7 +132,7 @@
                         </div>
                     </div>
                     <div class="profile-logout">
-                        <a href="../index.php">
+                        <a href="logout.php">
                             <i class="fas fa-sign-out-alt" id="logout-user"></i></a>
                     </div>
                 </div>
@@ -245,10 +245,16 @@
 
     <script>
 
-        $('#txtCpf').mask("000.000.000-00");
-        $('#txtTelefone').mask("(00) 0000-00009");
-        $('#txtCep').mask("00000-000");
+        $('#txtTelefone').keyup(function (){
+            if($(this).val().length > 14){
+                $('#txtTelefone').mask("(00) 00000-0000");
+            } else {
+                $('#txtTelefone').mask("(00) 0000-00009");
+            }
+        });
 
+        $('#txtCpf').mask("000.000.000-00");
+        $('#txtCep').mask("00000-000");
 
         $(document).ready(function() {
             $("#txtCep").keyup(function() {

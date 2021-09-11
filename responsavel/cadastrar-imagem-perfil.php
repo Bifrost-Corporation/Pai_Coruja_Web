@@ -92,7 +92,10 @@
                             <div class="job-menu">Olá Responsável(a)</div>
                         </div>
                     </div>
-                    <i class="fas fa-sign-out-alt" id="logout-user"></i>
+                    <div class="profile-logout">
+                        <a href="logout.php">
+                            <i class="fas fa-sign-out-alt" id="logout-user"></i></a>
+                    </div>
                 </div>
             </div>
         </div>

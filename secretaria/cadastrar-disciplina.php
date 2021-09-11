@@ -133,7 +133,7 @@
                         </div>
                     </div>
                     <div class="profile-logout">
-                        <a href="../index.php">
+                        <a href="logout.php">
                             <i class="fas fa-sign-out-alt" id="logout-user"></i></a>
                     </div>
                 </div>
@@ -226,7 +226,7 @@
                 e.preventDefault();
             }
             if (nomeProfessor.length == 0) {
-                $('#label-professor').html('Por favor, preencha o campo de nome para o professor!');
+                $('#label-professor').html('Por favor, preencha o campo de nome para o professor responsável pela disciplina!');
                 $('#txtProfessor').addClass('erro-form');
                 $('#label-professor').show();
                 setTimeout(function () {

@@ -133,7 +133,7 @@
                         </div>
                     </div>
                     <div class="profile-logout">
-                        <a href="../index.php">
+                        <a href="logout.php">
                             <i class="fas fa-sign-out-alt" id="logout-user"></i></a>
                     </div>
                 </div>
@@ -148,7 +148,7 @@
 
         <section class="top-section">
             <div class="voltar">
-                <a href="logout.php">
+                <a href="home-secretaria.php">
                     <span class="fas fa-arrow-left"></span>Voltar
                 </a>
             </div>

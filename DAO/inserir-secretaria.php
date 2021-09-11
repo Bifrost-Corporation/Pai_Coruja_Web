@@ -7,6 +7,8 @@
 
     try{
         header('Location: ../adm/cadastrar-secretaria.php');
+        unset($_SESSION['emailSecretaria']);
+        unset($_SESSION['escolaSecretaria']);
         $nomeSecretaria = $_POST['txtUsuarioSecretaria'];
         $emailSecretaria = $_POST['txtEmailSecretaria'];
         $senhaSecretaria = $_POST['txtSenhaSecretaria'];
@@ -52,13 +54,10 @@
             return 'Cadastro da secretaria realizado com sucesso!';
         }else{
             if($repeteemail == true){
-                return 'Email já cadastrado!';
+                $_SESSION['emailSecretaria'] = $emailSecretaria;
             }
             if($repeteescola == true){
-                return 'Escola já cadastrada!';
-                echo "<script>
-                            alert('Escola já cadastrada!');
-                      </script>";
+                $_SESSION['escolaSecretaria'] = $escolaSecretaria;
             }
         }
     }catch(Exception $e){
