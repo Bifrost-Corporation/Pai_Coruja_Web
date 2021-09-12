@@ -170,7 +170,9 @@
                     <div class="input-box">
                         <h2>Nome da Turma</h2>
                         <label class="label-erro" id="label-turma"></label>
-                        <input name="txtTurma" id="txtTurma" type="text" placeholder="Nome da turma da aula">
+                        <input name="txtTurma" id="txtTurma" type="text" placeholder="Nome da turma da aula" value="<?php if(isset($_SESSION['nomeTurma'])){
+                                                                                                                                                                echo $_SESSION['nomeTurma'];
+                                                                                                                                                            } ?>">
                         <div id="retornoPesquisa">
 
                         </div>
@@ -178,8 +180,9 @@
                     <div class="input-box-width100">
                         <h2>Nome da Disciplina</h2>
                         <label class="label-erro" id="label-disciplina"></label>
-                        <input name="txtDisciplina" id="txtDisciplina" type="text"
-                            placeholder="Disciplina a ser dada na aula">
+                        <input name="txtDisciplina" id="txtDisciplina" type="text" placeholder="Disciplina a ser dada na aula"  value="<?php if(isset($_SESSION['nomeDisciplina'])){
+                                                                                                                                                                                        echo $_SESSION['nomeDisciplina'];
+                                                                                                                                                                                    } ?>">
                         <div id="retornoPesquisa2">
 
                         </div>
@@ -196,6 +199,39 @@
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 
     <script>
+        $(document).ready(function(){
+            var valueTurma = $('#txtTurma').val();
+            var valueDisciplina = $('#txtDisciplina').val();
+            if(valueTurma.length > 0){
+                $('#label-turma').html('Turma inválida!');
+                $('#txtTurma').addClass('erro-form');
+                $('#label-turma').show();
+                setTimeout(function () {
+                    $('#label-turma').fadeOut(1);
+                    $('#txtTurma').removeClass('erro-form');
+                    $('#txtTurma').val('');
+                }, 5000);
+                <?php
+                    unset($_SESSION['nomeTurma']);
+                ?>
+                e.preventDefault();
+            }
+            if(valueDisciplina.length > 0){
+                $('#label-disciplina').html('Turma inválida!');
+                $('#txtDisciplina').addClass('erro-form');
+                $('#label-disciplina').show();
+                setTimeout(function () {
+                    $('#label-disciplina').fadeOut(1);
+                    $('#txtDisciplina').removeClass('erro-form');
+                    $('#txtDisciplina').val('');
+                }, 5000);
+                <?php
+                    unset($_SESSION['nomeDisciplina']);
+                ?>
+                e.preventDefault();
+            }
+        });
+
         jQuery('#txtTurma').keyup(function () {
             var textoInserido = $(this).val();
             if (textoInserido != '') {
@@ -246,7 +282,10 @@
             var diaSemana = $('#txtDiaSemana').val();
             var nomeTurma = $('#txtTurma').val();
             var disciplina = $('#txtDisciplina').val();
-            if (diaSemana.length == 0) {
+            var diaSemanaSemEspaco = diaSemana.trim();
+            var nomeTurmaSemEspaco = nomeTurma.trim();
+            var disciplinaSemEspaco = disciplina.trim();
+            if (diaSemana.length == 0 || diaSemanaSemEspaco == '') {
                 $('#label-dia').html('Por favor, preencha o campo de dia da semana!');
                 $('#txtDiaSemana').addClass('erro-form');
                 $('#label-dia').show();
@@ -256,7 +295,7 @@
                 }, 5000);
                 e.preventDefault();
             }
-            if (nomeTurma.length == 0) {
+            if (nomeTurma.length == 0 || nomeTurmaSemEspaco == '') {
                 $('#label-turma').html('Por favor, preencha o campo de turma!');
                 $('#txtTurma').addClass('erro-form');
                 $('#label-turma').show();
@@ -266,7 +305,7 @@
                 }, 5000);
                 e.preventDefault();
             }
-            if (disciplina.length == 0) {
+            if (disciplina.length == 0 || disciplinaSemEspaco == '') {
                 $('#label-disciplina').html('Por favor, preencha o campo de disciplina!');
                 $('#txtDisciplina').addClass('erro-form');
                 $('#label-disciplina').show();

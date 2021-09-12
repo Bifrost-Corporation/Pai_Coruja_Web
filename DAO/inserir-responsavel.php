@@ -83,7 +83,15 @@
             echo $usuario->cadastrar($usuario);
             return 'Dados cadastrados com sucesso!';
         } else {
-            return 'Dados já cadastrados';
+            if($repeteAluno == true){
+                $_SESSION['nomeAluno'] = $nomeAluno;
+            }
+            if($repeteCpf == true){
+                $_SESSION['cpfResponsavel'] = $cpfResponsavel;
+            }
+            if($repeteEmail == true){
+                $_SESSION['emailResponsavel'] = $emailResponsavel;
+            }
         }
 
         

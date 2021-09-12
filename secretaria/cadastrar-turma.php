@@ -177,12 +177,16 @@
 
     <script src="../js/nav.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="../js/jquery.mask.js"></script>
 
     <script>
+        
+        $('#txtNomeTurma').mask("0ºS");
+
         jQuery('form').on('submit', function (e) {
             var nomeTurma = $('#txtNomeTurma').val();
-            if (nomeTurma.length == 0) {
-                $('#label-nome').html('Por favor, preencha o campo de nome para a turma!');
+            if (nomeTurma.length != 3) {
+                $('#label-nome').html('Por favor, preencha o campo de nome para a turma corretamente!');
                 $('#txtNomeTurma').addClass('erro-form');
                 $('#label-nome').show();
                 setTimeout(function () {

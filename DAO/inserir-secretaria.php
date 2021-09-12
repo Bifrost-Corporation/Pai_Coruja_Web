@@ -37,7 +37,7 @@
                 }
             }
         }
-        if($repeteemail == false && $repeteescola == false ) {
+        if($repeteemail == false && $repeteescola == false && $idEscola != null) {
             $secretaria->setNomeSecretaria($nomeSecretaria);
             $secretaria->setEmailSecretaria($emailSecretaria);
             $secretaria->setSenhaSecretaria($senhaSecretaria);
@@ -52,13 +52,15 @@
             $usuario->setIdSecretaria($idSecretaria);
             echo $usuario->cadastrar($usuario);
             return 'Cadastro da secretaria realizado com sucesso!';
-        }else{
+        }else if($idEscola != null){
             if($repeteemail == true){
                 $_SESSION['emailSecretaria'] = $emailSecretaria;
             }
             if($repeteescola == true){
                 $_SESSION['escolaSecretaria'] = $escolaSecretaria;
             }
+        }else{
+            $_SESSION['escolaSecretaria'] = $escolaSecretaria;
         }
     }catch(Exception $e){
         echo $e->getMessage();

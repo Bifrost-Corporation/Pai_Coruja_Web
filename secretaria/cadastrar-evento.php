@@ -166,8 +166,10 @@
                         <h2 class="h2Adicionar">Adicionar imagem:</h2>
                         <label class="label-erro" id="label-foto"></label>
                         <div>
-                            <label class="carregar-imagem-pub" for="arquivo">Arquivo</label>
-                            <input name="arquivo" id="arquivo" type="file">
+                            <label class="carregar-imagem-pub" for="arquivo">Carregar Imagem Perfil</label>
+                            <input name="arquivo" id="arquivo" type="file" accept="image/*">
+                            <label class="label-erro" id="label-arquivo"></label>
+                            <span id="nome-arquivo"></span>
                         </div>
                     </div>
                     <div class="input-box-width100">
@@ -199,11 +201,22 @@
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 
     <script>
+
+        var $input = document.getElementById('arquivo'),
+        $fileName = document.getElementById('nome-arquivo');
+
+        $input.addEventListener('change', function(){
+            $fileName.textContent = this.value;
+        });
+
         jQuery('form').on('submit', function (e) {
             var nomeEvento = $('#txtNomeEvento').val();
             var descricaoEvento = $('#txtDescricaoEvento').val();
             var dataEvento = $('#txtData').val();
-            if (nomeEvento.length == 0) {
+            var nomeEventoSemEspaco = nomeEvento.trim();
+            var descricaoEventoSemEspaco = descricaoEvento.trim();
+            var dataEventoSemEspaco = dataEvento.trim();
+            if (nomeEvento.length == 0 || nomeEventoSemEspaco == '') {
                 $('#label-nome').html('Por favor, preencha o campo de nome para o evento!');
                 $('#txtNomeEvento').addClass('erro-form');
                 $('#label-nome').show();
@@ -213,7 +226,7 @@
                 }, 5000);
                 e.preventDefault();
             }
-            if (descricaoEvento.length == 0) {
+            if (descricaoEvento.length == 0 || descricaoEventoSemEspaco == '') {
                 $('#label-descricao').html('Por favor, preencha o campo de descrição para o evento!');
                 $('#txtDescricaoEvento').addClass('erro-form');
                 $('#label-descricao').show();
@@ -223,7 +236,7 @@
                 }, 5000);
                 e.preventDefault();
             }
-            if (dataEvento.length == 0) {
+            if (dataEvento.length == 0 || dataEventoSemEspaco == '') {
                 $('#label-data').html('Por favor, preencha o campo de data para o evento!');
                 $('#txtData').addClass('erro-form');
                 $('#label-data').show();

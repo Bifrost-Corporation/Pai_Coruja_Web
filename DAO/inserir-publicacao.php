@@ -5,8 +5,8 @@
 
     try{
         header("location: ../professor/cadastrar-publicacao.php");
-        $tituloPublicacao = $_POST['txtTitulo'];
-        $descPublicacao = $_POST['txtTexto'];
+        $tituloPublicacao = $_POST['txtNome'];
+        $descPublicacao = $_POST['txtDescricao'];
         $idProfessor = $_SESSION['idProfessor'];
         $publicacao = new Publicacao();
         $publicacao->setTituloPublicacao($tituloPublicacao);

@@ -18,33 +18,37 @@
         include("sentinela.php");
     ?>
     <header>
-
-        <!-- <nav class="nav-bar">
-            <a href=""><img class="logo" src="../img/pai_coruja_3.png"></a>
+    <nav class="nav-bar">
+            <a href=""><img class="logo-img" src="../img/pai_coruja_branca.png"></a>
             <ul class="ul-area-btn">
-                <li class="nav-li"><a class="btn-nav-exit" href="logout.php">Sair</a></li>
+                <li class="nav-li"><a class="btn-nav-open"><i class="fas fa-bars"></i></a></li>
             </ul>
-        </nav> -->
+        </nav>
 
         <div class="sidebar">
             <div class="logo-content">
                 <div class="logo">
-                    <div class="logo-name"><a href=""><img src="../img/pai_coruja_branca.png"></a></div>
+                    <div class="logo-name"><a href="home-responsavel.php"><img src="../img/pai_coruja_branca.png"></a>
+                    </div>
+                    <div class="close-mobile-navbar">
+                        <span>Menu Pai Coruja</span>
+                        <a class="btn-nav-close"><i class="far fa-window-close"></i></a>
+                    </div>
                 </div>
             </div>
             <ul class="nav-list">
                 <li>
                     <a onclick="openMenu()" id="sub-menu-button">
                         <div>
-                            <i class="fas fa-chart-pie"></i>                        
-                        <span class="links-name">Visão Geral</span>
+                            <i class="fas fa-chart-pie"></i>
+                            <span class="links-name">Visão Geral</span>
                         </div>
                         <i class="fas fa-caret-down" class="dropdown-icon"></i>
                     </a>
                 </li>
                 <div class="drop-menu" id="sub-menu">
                     <li class="links-name drop-link">
-                        <a href="#">
+                        <a href="home-secretaria.php">
                             <i class="fas fa-calendar"></i>
                             <span class="links-name">Mural</span>
                         </a>
@@ -63,12 +67,11 @@
                     </li>
                 </div>
 
-
                 <li>
                     <a onclick="openMenu2()" id="sub-menu-button-2">
                         <div>
-                            <i class="fas fa-user-shield"></i>                      
-                        <span class="links-name">Outras Opções</span>
+                            <i class="fas fa-user-shield"></i>
+                            <span class="links-name">Outras Opções</span>
                         </div>
                         <i class="fas fa-caret-down" class="dropdown-icon"></i>
                     </a>
@@ -79,9 +82,9 @@
                             <i class="fas fa-school"></i>
                             <span class="links-name">Alterar Imagem Perfil</span>
                         </a>
-                    </li>                    
+                    </li>
                 </div>
-                
+
             </ul>
             <div class="profile-content">
                 <div class="profile">
@@ -89,7 +92,7 @@
                         <img src="../img/usuario-de-perfil.png" alt="">
                         <div class="name-job">
                             <div class="name-menu"><?php echo $_SESSION['nomeResponsavel'] ?></div>
-                            <div class="job-menu">Olá Responsável(a)</div>
+                            <div class="job-menu">Olá Responsável</div>
                         </div>
                     </div>
                     <div class="profile-logout">
@@ -123,7 +126,9 @@
                         <label class="label-erro" id="label-foto"></label>
                         <div>
                             <label class="carregar-imagem-pub" for="arquivo">Carregar Imagem Perfil</label>
-                            <input name="arquivo" id="arquivo" type="file">
+                            <input name="arquivo" id="arquivo" type="file" accept="image/*">
+                            <label class="label-erro" id="label-arquivo"></label>
+                            <span id="nome-arquivo"></span>
                         </div>
                     </div>
                     <div class="button">
@@ -138,7 +143,29 @@
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 
     <script>
-        //Fazer tratamento mais tarde especifico pra imagens
+
+        var $input = document.getElementById('arquivo'),
+        $fileName = document.getElementById('nome-arquivo');
+
+        $input.addEventListener('change', function(){
+            $fileName.textContent = this.value;
+        });
+
+        jQuery('form').on('submit', function(e){
+            var nomeArquivo = $('#nome-arquivo').val();
+            var nomeArquivoSemEspaco = nomeArquivo.trim();
+            if(nomeArquivo.length == 0 || nomeArquivoSemEspaco == ''){
+                $('#label-arquivo').html('Selecione um arquivo!');
+                $('#arquivo').addClass('erro-form');
+                $('#label-arquivo').show();
+                setTimeout(function () {
+                    $('#label-arquivo').fadeOut(1);
+                    $('#arquivo').removeClass('erro-form');
+                }, 5000);
+                e.preventDefault();
+            }
+        });
+        
     </script>
 
 </body>

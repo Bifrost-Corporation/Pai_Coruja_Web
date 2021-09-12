@@ -152,10 +152,16 @@
     <script>
         jQuery('form').on('submit', function (e) {
             var nomeEscola = $('#txtNomeEscola').val();
-            if (nomeEscola.length == 0) {
+            var nomeEscolaSemEspaco = nomeEscola.trim();
+            if (nomeEscolaSemEspaco.length == 0) {
                 $('#label-escola').html('Por favor, preencha o campo de nome da escola!');
                 $('#txtNomeEscola').addClass('erro-form');
                 $('#label-escola').show();
+                setTimeout(function () {
+                    $('#label-escola').fadeOut(1);
+                    $('#txtNomeEscola').removeClass('erro-form');
+                    $('#txtNomeEscola').val('');
+                }, 5000);
                 e.preventDefault();
             }
         });

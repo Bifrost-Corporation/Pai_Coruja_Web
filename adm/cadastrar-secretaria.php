@@ -184,7 +184,7 @@
             var valueEscola = $('#txtConsultaEscola').val();
             var valueEmail = $('#txtEmailSecretaria').val();
             if(valueEscola.length > 0){
-                $('#label-escola').html('Escola já cadastrada!');
+                $('#label-escola').html('Escola inexistente ou já cadastrada!');
                 $('#txtConsultaEscola').addClass('erro-form');
                 $('#label-escola').show();
                 setTimeout(function () {
@@ -241,7 +241,12 @@
             var senha1 = $('#txtSenhaSecretaria').val();
             var senha2 = $('#txtConfirmaSenhaSecretaria').val();
             var escola = $('#txtConsultaEscola').val();
-            if (nome.length == 0) {
+            var nomeSemEspaco = nome.trim();
+            var emailSemEspaco = email.trim();
+            var senha1SemEspaco = senha1.trim();
+            var senha2SemEspaco = senha2.trim();
+            var nomeEscolaSemEspaco = escola.trim();
+            if (nomeSemEspaco.length == 0) {
                 $('#label-usuario').html('Por favor, preencha o campo de nome para a secretaria!');
                 $('#txtUsuarioSecretaria').addClass('erro-form');
                 $('#label-usuario').show();
@@ -251,7 +256,7 @@
                 }, 5000);
                 e.preventDefault();
             }
-            if (email.length == 0) {
+            if (emailSemEspaco.length == 0) {
                 $('#label-email').html('Por favor, preencha o campo de email para a secretaria!');
                 $('#txtEmailSecretaria').addClass('erro-form');
                 $('#label-email').show();
@@ -260,15 +265,16 @@
                     $('#txtEmailSecretaria').removeClass('erro-form');
                 }, 5000);
                 e.preventDefault();
-            } else {
-                verificaarroba = false;
-                verificaponto = false;
+            } 
+            else {
+                var verificaarroba = false;
+                var verificaponto = false;
                 for (var i = 0; i < email.length; i++) {
                     if (email.charAt(i) == '@' && i + 1 < email.length) {
-                        posicaoarroba = i;
+                        var posicaoarroba = i;
                     }
                     if (email.charAt(i) == '.' && i + 1 < email.length) {
-                        posicaoponto = i;
+                        var posicaoponto = i;
                     }
                 }
                 if (posicaoponto > posicaoarroba) {
@@ -286,7 +292,7 @@
                     e.preventDefault();
                 }
             }
-            if (senha1.length == 0) {
+            if (senha1SemEspaco.length == 0) {
                 $('#label-senha1').html('Por favor, insira uma senha!');
                 $('#txtSenhaSecretaria').addClass('erro-form');
                 $('#label-senha1').show();
@@ -296,7 +302,7 @@
                 }, 5000);
                 e.preventDefault();
             }
-            if (senha2.length == 0) {
+            if (senha2SemEspaco.length == 0) {
                 $('#label-senha2').html('Por favor, confirme a senha!');
                 $('#txtConfirmaSenhaSecretaria').addClass('erro-form');
                 $('#label-senha2').show();
@@ -323,7 +329,7 @@
                 }, 5000);
                 e.preventDefault();
             }
-            if (escola.length == 0) {
+            if (nomeEscolaSemEspaco.length == 0) {
                 $('#label-escola').html('Por favor, informe à qual escola essa conta pertence!');
                 $('#txtConsultaEscola').addClass('erro-form');
                 $('#label-escola').show();

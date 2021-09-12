@@ -215,7 +215,9 @@
         jQuery('form').on('submit', function (e) {
             var nomeDisciplina = $('#txtNomeDisciplina').val();
             var nomeProfessor = $('#txtProfessor').val();
-            if (nomeDisciplina.length == 0) {
+            var nomeDisciplinaSemEspaco = nomeDisciplina.trim();
+            var nomeProfessorSemEspaco = nomeProfessor.trim();
+            if (nomeDisciplina.length == 0 || nomeDisciplinaSemEspaco == '') {
                 $('#label-nome').html('Por favor, preencha o campo de nome para a disciplina!');
                 $('#txtNomeDisciplina').addClass('erro-form');
                 $('#label-nome').show();
@@ -225,7 +227,7 @@
                 }, 5000);
                 e.preventDefault();
             }
-            if (nomeProfessor.length == 0) {
+            if (nomeProfessor.length == 0 || nomeProfessorSemEspaco == '') {
                 $('#label-professor').html('Por favor, preencha o campo de nome para o professor responsável pela disciplina!');
                 $('#txtProfessor').addClass('erro-form');
                 $('#label-professor').show();

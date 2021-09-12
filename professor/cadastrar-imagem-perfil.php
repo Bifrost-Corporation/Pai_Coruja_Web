@@ -134,10 +134,11 @@
                 <div class="user-details">
                     <div class="input-box-width100">
                         <h2 class="h2Adicionar">Adicionar imagem:</h2>
-                        <label class="label-erro" id="label-foto"></label>
                         <div>
                             <label class="carregar-imagem-pub" for="arquivo">Carregar Imagem Perfil</label>
-                            <input name="arquivo" id="arquivo" type="file">
+                            <input name="arquivo" id="arquivo" type="file" accept="image/*">
+                            <label class="label-erro" id="label-arquivo"></label>
+                            <span id="nome-arquivo"></span>
                         </div>
                     </div>
                     <div class="button">
@@ -152,7 +153,29 @@
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 
     <script>
-        //Fazer tratamento mais tarde especifico pra imagens
+
+        var $input = document.getElementById('arquivo'),
+        $fileName = document.getElementById('nome-arquivo');
+
+        $input.addEventListener('change', function(){
+            $fileName.textContent = this.value;
+        });
+
+        jQuery('form').on('submit', function(e){
+            var nomeArquivo = $('#nome-arquivo').val();
+            var nomeArquivoSemEspaco = nomeArquivo.trim();
+            if(nomeArquivo.length == 0 || nomeArquivoSemEspaco == ''){
+                $('#label-arquivo').html('Selecione um arquivo!');
+                $('#arquivo').addClass('erro-form');
+                $('#label-arquivo').show();
+                setTimeout(function () {
+                    $('#label-arquivo').fadeOut(1);
+                    $('#arquivo').removeClass('erro-form');
+                }, 5000);
+                e.preventDefault();
+            }
+        });
+        
     </script>
 
 </body>

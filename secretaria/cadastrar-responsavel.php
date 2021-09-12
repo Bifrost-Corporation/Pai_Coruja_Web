@@ -168,7 +168,9 @@
                     <div class="input-box-width100">
                         <h2>Email Responsável</h2>
                         <label class="label-erro" id="label-email"></label>
-                        <input name="txtEmail" id="txtEmail" type="text" placeholder="Insira o email do Responsável">
+                        <input name="txtEmail" id="txtEmail" type="text" placeholder="Insira o email do Responsável" value="<?php if(isset($_SESSION['emailResponsavel'])){
+                                                                                                                                                                            echo $_SESSION['emailResponsavel'];
+                                                                                                                                                                        } ?>">
                     </div>
                     <div class="input-box">
                         <h2>Senha Responsável</h2>
@@ -189,7 +191,9 @@
                     <div class="input-box">
                         <h2>CPF Responsável:</h2>
                         <label class="label-erro" id="label-cpf"></label>
-                        <input name="txtCpf" id="txtCpf" type="tel" placeholder="Insira CPF do Responsável">
+                        <input name="txtCpf" id="txtCpf" type="tel" placeholder="Insira CPF do Responsável" value="<?php if(isset($_SESSION['cpfResponsavel'])){
+                                                                                                                                                                        echo $_SESSION['cpfResponsavel'];
+                                                                                                                                                                    } ?>">
                     </div>
                     <div class="input-box-width100">
                         <h2>CEP:</h2>
@@ -226,7 +230,9 @@
                     <div class="input-box-width100">
                         <h2>De qual aluno você é responsável:</h2>
                         <label class="label-erro" id="label-aluno"></label>
-                        <input name="txtAluno" id="txtAluno" type="text" placeholder="Insira o nome do aluno">
+                        <input name="txtAluno" id="txtAluno" type="text" placeholder="Insira o nome do aluno"  value="<?php if(isset($_SESSION['nomeAluno'])){
+                                                                                                                                                                echo $_SESSION['nomeAluno'];
+                                                                                                                                                            } ?>">
                         <div id="retornoPesquisa">
 
                         </div>
@@ -244,6 +250,54 @@
     <script src="../js/jquery.mask.js"></script>
 
     <script>
+
+        $(document).ready(function(){
+            var valueEmail = $('#txtEmail').val();
+            var valueCpf = $('#txtCpf').val();
+            var valueAluno = $('#txtAluno').val();
+            if(valueEmail.length > 0){
+                $('#label-email').html('Email já cadastrado!');
+                $('#txtEmail').addClass('erro-form');
+                $('#label-email').show();
+                setTimeout(function () {
+                    $('#label-email').fadeOut(1);
+                    $('#txtEmail').removeClass('erro-form');
+                    $('#txtEmail').val('');
+                }, 5000);
+                <?php
+                    unset($_SESSION['emailResponsavel']);
+                ?>
+                e.preventDefault();
+            }
+            if(valueCpf.length > 0){
+                $('#label-cpf').html('CPF já cadastrado!');
+                $('#txtCpf').addClass('erro-form');
+                $('#label-cpf').show();
+                setTimeout(function () {
+                    $('#label-cpf').fadeOut(1);
+                    $('#txtCpf').removeClass('erro-form');
+                    $('#txtCpf').val('');
+                }, 5000);
+                <?php
+                    unset($_SESSION['cpfResponsavel']);
+                ?>
+                e.preventDefault();
+            }
+            if(valueAluno.length > 0){
+                $('#label-aluno').html('Aluno já tem responsável cadastrado!');
+                $('#txtAluno').addClass('erro-form');
+                $('#label-aluno').show();
+                setTimeout(function () {
+                    $('#label-aluno').fadeOut(1);
+                    $('#txtAluno').removeClass('erro-form');
+                    $('#txtAluno').val('');
+                }, 5000);
+                <?php
+                    unset($_SESSION['nomeAluno']);
+                ?>
+                e.preventDefault();
+            }
+        });
 
         $('#txtTelefone').keyup(function (){
             if($(this).val().length > 14){
@@ -338,8 +392,17 @@
             var bairro = $('#txtBairro').val();
             var complemento = $('#txtComplemento').val();
             var aluno = $('#txtAluno').val();
+            var nomeSemEspaco = nome.trim();
+            var emailSemEspaco = email.trim();
+            var senha1SemEspaco = senha1.trim();
+            var senha2SemEspaco = senha2.trim();
+            var ruaSemEspaco = rua.trim();
+            var numeroSemEspaco = numero.trim();
+            var cidadeSemEspaco = cidade.trim();
+            var bairroSemEspaco = bairro.trim();
+            var alunoSemEspaco = aluno.trim();
 
-            if (nome.length == 0) {
+            if (nome.length == 0 || nomeSemEspaco == '') {
                 $('#label-nome').html('Por favor, preencha o campo de nome para o responsável!');
                 $('#txtNome').addClass('erro-form');
                 $('#label-nome').show();
@@ -351,7 +414,7 @@
                 e.preventDefault();
             }
 
-            if (email.length == 0) {
+            if (email.length == 0 || emailSemEspaco == '') {
                 $('#label-email').html('Por favor, preencha o campo de email para o responsável!');
                 $('#txtEmail').addClass('erro-form');
                 $('#label-email').show();
@@ -388,7 +451,7 @@
                     e.preventDefault();
                 }
             }
-            if (senha1.length == 0) {
+            if (senha1.length == 0 || senha1SemEspaco == '') {
                 $('#label-senha1').html('Por favor, preencha o campo de senha!');
                 $('#txtSenha').addClass('erro-form');
                 $('#label-senha1').show();
@@ -399,7 +462,7 @@
                 }, 5000);
                 e.preventDefault();
             }
-            if (senha2.length == 0) {
+            if (senha2.length == 0 || senha2SemEspaco == '') {
                 $('#label-senha2').html('Por favor, preencha o campo para confirmar a senha!');
                 $('#txtConfirmaSenha').addClass('erro-form');
                 $('#label-senha2').show();
@@ -517,7 +580,7 @@
                 }, 5000);
                 e.preventDefault();
             }
-            if (rua.length == 0) {
+            if (rua.length == 0 || ruaSemEspaco == '') {
                 $('#label-rua').html('Informe a rua do responsável!');
                 $('#txtRua').addClass('erro-form');
                 $('#label-rua').show();
@@ -528,7 +591,7 @@
                 }, 5000);
                 e.preventDefault();
             }
-            if (numero.length == 0) {
+            if (numero.length == 0 || numeroSemEspaco == '') {
                 $('#label-numero').html('Informe o número do responsável!');
                 $('#txtNumero').addClass('erro-form');
                 $('#label-numero').show();
@@ -539,7 +602,7 @@
                 }, 5000);
                 e.preventDefault();
             }
-            if (cidade.length == 0) {
+            if (cidade.length == 0 || cidadeSemEspaco == '') {
                 $('#label-cidade').html('Informe a cidade do responsável!');
                 $('#txtCidade').addClass('erro-form');
                 $('#label-cidade').show();
@@ -550,7 +613,7 @@
                 }, 5000);
                 e.preventDefault();
             }
-            if (bairro.length == 0) {
+            if (bairro.length == 0 || bairroSemEspaco == '') {
                 $('#label-bairro').html('Informe o bairro do responsável!');
                 $('#txtBairro').addClass('erro-form');
                 $('#label-bairro').show();
@@ -574,7 +637,7 @@
                 e.preventDefault();
             }
             */
-            if (aluno.length == 0) {
+            if (aluno.length == 0 || alunoSemEspaco == '') {
                 $('#label-aluno').html('Informe o aluno do responsável!');
                 $('#txtAluno').addClass('erro-form');
                 $('#label-aluno').show();
@@ -585,8 +648,6 @@
                 }, 5000);
                 e.preventDefault();
             }
-
-            /* Ainda falta fazer a verificação do CPF */
 
         });
     </script>

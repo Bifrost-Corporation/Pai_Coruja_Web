@@ -171,7 +171,9 @@
                         <h2>Email Professor:</h2>
                         <label class="label-erro" id="label-email"></label>
                         <input name="txtEmailProfessor" id="txtEmailProfessor" type="email"
-                            placeholder="Insira o email do professor">
+                            placeholder="Insira o email do professor" value="<?php if(isset($_SESSION['emailProfessor'])){
+                                                                                                                        echo $_SESSION['emailProfessor'];
+                                                                                                                    } ?>">
                     </div>
                     <div class="input-box">
                         <h2>Senha Professor:</h2>
@@ -196,12 +198,34 @@
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 
     <script>
+        $(document).ready(function(){
+            var valueEmail = $('#txtEmailProfessor').val();
+            if(valueEmail.length > 0){
+                $('#label-email').html('Turma inválida!');
+                $('#txtEmailProfessor').addClass('erro-form');
+                $('#label-email').show();
+                setTimeout(function () {
+                    $('#label-email').fadeOut(1);
+                    $('#txtEmailProfessor').removeClass('erro-form');
+                    $('#txtEmailProfessor').val('');
+                }, 5000);
+                <?php
+                    unset($_SESSION['emailProfessor']);
+                ?>
+                e.preventDefault();
+            }
+        });
+
         jQuery('form').on('submit', function (e) {
             var nome = $('#txtNomeProfessor').val();
             var email = $('#txtEmailProfessor').val();
             var senha1 = $('#txtSenhaProfessor').val();
             var senha2 = $('#txtConfirmarSenhaProfessor').val();
-            if (nome.length == 0) {
+            var nomeSemEspaco = nome.trim();
+            var emailSemEspaco = email.trim();
+            var senha1SemEspaco = senha1.trim();
+            var senha2SemEspaco = senha2.trim();
+            if (nome.length == 0 || nomeSemEspaco == '') {
                 $('#label-nome').html('Por favor, preencha o campo de nome para o professor!');
                 $('#txtNomeProfessor').addClass('erro-form');
                 $('#label-nome').show();
@@ -211,7 +235,7 @@
                 }, 5000);
                 e.preventDefault();
             }
-            if (email.length == 0) {
+            if (email.length == 0 || emailSemEspaco == '') {
                 $('#label-email').html('Por favor, preencha o campo de email para o professor!');
                 $('#txtEmailProfessor').addClass('erro-form');
                 $('#label-email').show();
@@ -246,7 +270,7 @@
                     e.preventDefault();
                 }
             }
-            if (senha1.length == 0) {
+            if (senha1.length == 0 || senha1SemEspaco == '') {
                 $('#label-senha1').html('Por favor, preencha o campo de senha!');
                 $('#txtSenhaProfessor').addClass('erro-form');
                 $('#label-senha1').show();
@@ -256,7 +280,7 @@
                 }, 5000);
                 e.preventDefault();
             }
-            if (senha2.length == 0) {
+            if (senha2.length == 0 || senha2SemEspaco == '') {
                 $('#label-senha2').html('Por favor, confirme a senha!');
                 $('#txtConfirmarSenhaProfessor').addClass('erro-form');
                 $('#label-senha2').show();

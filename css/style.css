@@ -47,7 +47,6 @@ p {
 }
 
 
-
 /* TELA LOGIN */
 
 .bg-login {
@@ -261,7 +260,7 @@ p {
 /* MENU MOBILE */
 
 .nav-bar {
-    display:none;
+    display: none;
     position: fixed;
     z-index: 1;
     padding: 0 5%;
@@ -297,9 +296,10 @@ p {
     padding: 10px 40px;
 }
 
+
 /* MENU PC */
 
-.sidebar{
+.sidebar {
     height: 100vh;
     width: 240px;
     background: #042243;
@@ -309,16 +309,16 @@ p {
     overflow-x: hidden;
 }
 
-.active-nav{
-    display:block
+.active-nav {
+    display: block
 }
 
-.sidebar .logo-content i{
+.sidebar .logo-content i {
     font-size: 28px;
     font-weight: 400;
 }
 
-.logo-content .logo{
+.logo-content .logo {
     color: var(--cinzamaisclaro);
     display: flex;
     height: 50px;
@@ -329,27 +329,28 @@ p {
     font-size: 20px;
     font-weight: 400;
 }
-.logo-content .logo .logo-name a img{
+
+.logo-content .logo .logo-name a img {
     width: 120px;
     font-size: 20px;
     font-weight: 400;
 }
 
-.close-mobile-navbar{
+.close-mobile-navbar {
     display: none;
 }
 
-.sidebar #menu-btn{
+.sidebar #menu-btn {
     color: var(--cinzamaisclaro);
     position: fixed;
     left: 90%;
-    top:6px;
+    top: 6px;
     text-align: center;
     line-height: 50px;
     transform: translateX(-50%);
 }
 
-.sidebar ul{
+.sidebar ul {
     margin-top: 30px;
     margin-bottom: 60px;
     display: flex;
@@ -357,7 +358,7 @@ p {
     justify-content: center;
 }
 
-.sidebar ul li{
+.sidebar ul li {
     position: relative;
     height: 50px;
     width: 100%;
@@ -367,7 +368,7 @@ p {
     line-height: 50px;
 }
 
-.sidebar ul li a{
+.sidebar ul li a {
     border-radius: 15px;
     color: var(--cinzamaisclaro);
     display: flex;
@@ -376,28 +377,29 @@ p {
     font-weight: bold;
 }
 
-.sidebar ul li a span{
+.sidebar ul li a span {
     font-size: 12px;
     line-height: 15px;
 }
 
-#sub-menu-button, #sub-menu-button-2{
+#sub-menu-button,
+#sub-menu-button-2 {
     user-select: none;
     cursor: pointer;
     justify-content: space-between;
     margin-bottom: 10px;
 }
 
-.button-drop-opened{
+.button-drop-opened {
     background-color: var(--azulmenulateral);
-    border-radius: 15px 15px 0px 0px ;
+    border-radius: 15px 15px 0px 0px;
 }
 
-.dropdown-icon{
+.dropdown-icon {
     transform: rotateY(-50);
 }
 
-.sidebar ul li a:hover{
+.sidebar ul li a:hover {
     border-radius: 15px;
     color: var(--cinzafonte);
     background-color: var(--cinzamaisclaro);
@@ -405,7 +407,8 @@ p {
     transition: 200ms;
 }
 
-.sidebar ul li a i, .drop-link i{
+.sidebar ul li a i,
+.drop-link i {
     height: 50px;
     min-width: 50px;
     line-height: 50px;
@@ -413,54 +416,52 @@ p {
     text-align: center;
 }
 
-.drop-menu{
+.drop-menu {
     display: none;
     padding: 15px 0;
     border-radius: 5px 5px 15px 15px;
     position: relative;
     background: #123256;
     margin: 5px 5px 7px 5px;
-
 }
 
-.drop-link{
+.drop-link {
     padding: 0 15px;
     color: var(--cinzamaisclaro);
 }
 
-
-.opened-drop{
+.opened-drop {
     border-radius: 15px 15px 0 0;
     background-color: var(--azulnavbar);
     color: var(--azulbtnsair);
 }
 
-.sidebar .profile-content{
+.sidebar .profile-content {
     color: var(--cinzamaisclaro);
     position: fixed;
     bottom: 0;
-    left:0;
+    left: 0;
     width: 234px;
 }
 
-.sidebar .profile-content .profile{
+.sidebar .profile-content .profile {
     position: relative;
     padding: 10px 14px;
     height: 60px;
     /* background: var(--); */
 }
 
-.profile-content .profile{
+.profile-content .profile {
     background-color: var(--azulnavbar);
 }
 
-.profile-content .profile .profile-details{
+.profile-content .profile .profile-details {
     background-color: var(--azulnavbar);
     display: flex;
     align-items: center;
 }
 
-.profile .profile-details img{
+.profile .profile-details img {
     border-style: solid;
     border-width: 3px;
     border-color: var(--cinza);
@@ -470,20 +471,21 @@ p {
     border-radius: 20px;
 }
 
-.profile .profile-details .name-job{
+.profile .profile-details .name-job {
     margin-left: 10px;
 }
 
-.profile .profile-details .name-menu{
+.profile .profile-details .name-menu {
     font-size: 15px;
     font-weight: 400;
 }
-.profile .profile-details .job-menu{
+
+.profile .profile-details .job-menu {
     font-size: 12px;
     font-weight: 400;
 }
 
-.profile #logout-user{
+.profile #logout-user {
     position: absolute;
     left: 88%;
     bottom: 3px;
@@ -494,10 +496,12 @@ p {
     border-radius: 12px;
 }
 
-.profile-logout a{
+.profile-logout a {
     color: var(--cinzamaisclaro);
     transition: 200ms;
 }
+
+
 /* 
 .profile-logout span{
     isso aq é pra um span pro botão de logout
@@ -512,13 +516,11 @@ p {
     padding: 10px;
 } */
 
-.profile-logout a i:hover{
+.profile-logout a i:hover {
     transition: 200ms;
     transform: scale(0.9);
     color: var(--cinza);
 }
-
-
 
 
 /* ACABOU O MENU AQ */
@@ -616,7 +618,8 @@ small:first-child {
     overflow: hidden;
     padding: 2rem;
     color: var(--cinzafonte);
-    width: 100%; /*tirar isso aq pros cars ficarem do tamanho certo*/
+    width: 100%;
+    /*tirar isso aq pros cars ficarem do tamanho certo*/
 }
 
 .arrumar-cards {
@@ -767,6 +770,14 @@ input[type="file"] {
     border-bottom-width: 1px;
 }
 
+.opcao-consulta2 {
+    padding: 6px;
+    background-color: var(--branco);
+    border-bottom-style: solid;
+    border-bottom-color: var(--cinza);
+    border-bottom-width: 1px;
+}
+
 .link-consulta {
     text-decoration: none;
     color: var(--cinza);
@@ -835,37 +846,36 @@ input[type="file"] {
     }
 }
 
-@media (min-width:720px){
+@media (min-width:720px) {
     .sidebar {
         display: block !important;
     }
 }
 
 @media (max-width:720px) {
-    .nav-bar{
-        display:flex;
+    .nav-bar {
+        display: flex;
     }
-    .nav-bar a{
-        display:flex;
+    .nav-bar a {
+        display: flex;
         align-items: center;
     }
-    .sidebar{
+    .sidebar {
         display: none;
         z-index: 100000;
     }
-
-    .sidebar ul{
+    .sidebar ul {
         margin-top: 10px;
     }
-    .container-main{
+    .container-main {
         padding-top: 10vh;
         margin-left: 0px;
     }
-    .nav-open.active{
+    .nav-open.active {
         display: block;
         transform: translateX(0);
     }
-    .logo-content .logo{
+    .logo-content .logo {
         color: var(--cinzamaisclaro);
         display: block;
         height: 50px;
@@ -873,43 +883,39 @@ input[type="file"] {
         font-size: 30px;
         font-weight: 400;
     }
-    
-    .logo-name{
+    .logo-name {
         display: none;
     }
-
-    .close-mobile-navbar{
+    .close-mobile-navbar {
         display: flex;
         justify-content: space-around;
         align-items: center;
         font-size: 15px;
         color: var(--cinzamaisclaro);
     }
-    .btn-nav-open{
+    .btn-nav-open {
         margin-left: 10px;
         color: var(--cinzamaisclaro);
         transition: 200ms;
         cursor: pointer;
         user-select: none;
     }
-    .btn-nav-open:hover{
+    .btn-nav-open:hover {
         transform: scale(0.9);
         color: var(--cinzamaisclaro);
         transition: 200ms;
         cursor: pointer;
         user-select: none;
     }
-
-    .btn-nav-close{
+    .btn-nav-close {
         transition: 200ms;
         cursor: pointer;
         user-select: none;
     }
-    .btn-nav-close:hover{
+    .btn-nav-close:hover {
         transition: 200ms;
         cursor: pointer;
         user-select: none;
         color: #aa4452;
     }
-    
 }

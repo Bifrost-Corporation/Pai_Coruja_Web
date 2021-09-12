@@ -122,7 +122,7 @@
     <main class="container-main">
         <section class="top-section">
             <div class="voltar">
-                <a href="#">
+                <a href="home-professor.php">
                     <span class="fas fa-arrow-left"></span>Voltar
                 </a>
             </div>
@@ -133,25 +133,17 @@
 
 
         <section class="main-section">
-            <form class="formulario" action="#" method="#">
+            <form class="formulario" action="../DAO/inserir-publicacao.php" method="POST">
                 <div class="user-details">
                     <div class="input-box-width100">
-                        <h2 class="h2Adicionar">Adicionar imagem<span>
-                                <p>Nota: não é obrigatória a imagem na publicação...</p>
-                            </span>
-                        </h2>
-                        <div>
-                            <label class="carregar-imagem-pub" for="arquivo">Arquivo</label>
-                            <input name="arquivo" id="arquivo" type="file">
-                        </div>
-                    </div>
-                    <div class="input-box-width100">
-                        <h2>Nome da Publicação:</h2>
-                        <input name="name" type="text" placeholder="Insira o nome da Publicação" required>
+                        <h2>Título da Publicação:</h2>
+                        <label class="label-erro" id="label-nome"></label>
+                        <input name="txtNome" id="txtNome" type="text" placeholder="Insira o nome da Publicação">
                     </div>
                     <div class="input-box-width100">
                         <h2>Descrição da Publicação:</h2>
-                        <input name="name" type="text" placeholder="Insira a descrição..." required>
+                        <label class="label-erro" id="label-descricao"></label>
+                        <input name="txtDescricao" id="txtDescricao" type="text" placeholder="Insira a descrição...">
                     </div>
 
                     <div class="button">
@@ -164,6 +156,37 @@
 
     <script src="../js/nav.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
+    <script>
+        jQuery('form').on('submit', function(e){
+            var nome = $('#txtNome').val();
+            var descricao = $('#txtDescricao').val();
+            var nomeSemEspaco = nome.trim();
+            var descricaoSemEspaco = descricao.trim();
+            if(nome.length == 0 || nomeSemEspaco == ''){
+                $('#label-nome').html('De um título a publicação!');
+                $('#txtNome').addClass('erro-form');
+                $('#label-nome').show();
+                setTimeout(function () {
+                    $('#label-nome').fadeOut(1);
+                    $('#txtNome').removeClass('erro-form');
+                }, 5000);
+                e.preventDefault();
+            }
+            if(descricao.length == 0 || descricaoSemEspaco == ''){
+                $('#label-descricao').html('Escreva uma descrição para a publicação!');
+                $('#txtDescricao').addClass('erro-form');
+                $('#label-descricao').show();
+                setTimeout(function () {
+                    $('#label-descricao').fadeOut(1);
+                    $('#txtDescricao').removeClass('erro-form');
+                }, 5000);
+                e.preventDefault();
+            }
+            
+        });
+    </script>
+
 </body>
 
 

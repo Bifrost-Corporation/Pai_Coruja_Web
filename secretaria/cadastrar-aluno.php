@@ -174,7 +174,9 @@
                     <div class="input-box">
                         <h2>Turma:</h2>
                         <label class="label-erro" id="label-turma"></label>
-                        <input name="txtTurma" id="txtTurma" type="text" placeholder="Insira a turma do aluno">
+                        <input name="txtTurma" id="txtTurma" type="text" placeholder="Insira a turma do aluno" value="<?php if(isset($_SESSION['turmaInvalida'])){
+                                                                                                                                                                echo $_SESSION['turmaInvalida'];
+                                                                                                                                                            } ?>">
                         <div id="retornoPesquisa">
 
                         </div>
@@ -191,6 +193,25 @@
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 
     <script>
+
+        $(document).ready(function(){
+            var valueTurma = $('#txtTurma').val();
+            if(valueTurma.length > 0){
+                $('#label-turma').html('Turma inválida!');
+                $('#txtTurma').addClass('erro-form');
+                $('#label-turma').show();
+                setTimeout(function () {
+                    $('#label-turma').fadeOut(1);
+                    $('#txtTurma').removeClass('erro-form');
+                    $('#txtTurma').val('');
+                }, 5000);
+                <?php
+                    unset($_SESSION['nomeTurma']);
+                ?>
+                e.preventDefault();
+            }
+        });                                                                                                                                                 
+
         jQuery('#txtTurma').keyup(function () {
             var textoInserido = $(this).val();
             if (textoInserido != '') {
@@ -218,7 +239,10 @@
             var nomeAluno = $('#txtNomeAluno').val();
             var dataNasc = $('#dataNasc').val();
             var turma = $('#txtTurma').val();
-            if (nomeAluno.length == 0) {
+            var nomeAlunoSemEspaco = nomeAluno.trim();
+            var dataNascSemEspaco = dataNasc.trim();
+            var turmaSemEspaco = turma.trim();
+            if (nomeAluno.length == 0 || nomeAlunoSemEspaco == '') {
                 $('#label-nome').html('Por favor, preencha o campo de nome para o aluno!');
                 $('#txtNomeAluno').addClass('erro-form');
                 $('#label-nome').show();
@@ -228,7 +252,7 @@
                 }, 5000);
                 e.preventDefault();
             }
-            if (dataNasc.length == 0) {
+            if (dataNasc.length == 0 || dataNascSemEspaco == '') {
                 $('#label-dataNasc').html('Por favor, preencha o campo de data de nascimento!');
                 $('#dataNasc').addClass('erro-form');
                 $('#label-dataNasc').show();
@@ -253,7 +277,7 @@
                     e.preventDefault();
                 }
             }
-            if (turma.length == 0) {
+            if (turma.length == 0 || turmaSemEspaco == '') {
                 $('#label-turma').html('Por favor, preencha o campo de turma do aluno!');
                 $('#txtTurma').addClass('erro-form');
                 $('#label-turma').show();
