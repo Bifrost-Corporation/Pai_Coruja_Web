@@ -152,7 +152,7 @@
         });
 
         jQuery('form').on('submit', function(e){
-            var nomeArquivo = $('#nome-arquivo').val();
+            var nomeArquivo = $('#arquivo').val();
             var nomeArquivoSemEspaco = nomeArquivo.trim();
             if(nomeArquivo.length == 0 || nomeArquivoSemEspaco == ''){
                 $('#label-arquivo').html('Selecione um arquivo!');

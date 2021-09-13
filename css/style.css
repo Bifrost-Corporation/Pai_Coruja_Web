@@ -532,7 +532,7 @@ p {
     color: var(--cinzafonte);
     flex-wrap: wrap;
     /* padding-top: 10vh; */
-    /* padding-bottom: 40px; */
+    padding-bottom: 40px;
     position: relative;
     display: flex;
     flex-direction: column;

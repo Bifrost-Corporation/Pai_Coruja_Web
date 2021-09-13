@@ -160,7 +160,7 @@
 
         <section class="main-section">
             <form class="formulario" name="formHorarioTurma" id="formHorarioTurma"
-                action="../DAO//inserir-horario-turma.php" method="POST">
+                action="../DAO/inserir-horario-turma.php" method="POST">
                 <div class="user-details">
                     <div class="input-box">
                         <h2>Dia da semana</h2>

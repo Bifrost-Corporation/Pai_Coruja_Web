@@ -198,7 +198,7 @@
                 e.preventDefault();
             }
             if(valueAluno.length > 0){
-                $('#label-aluno').html('Email já cadastrado!');
+                $('#label-aluno').html('Aluno não encontrado!');
                 $('#txtAluno').addClass('erro-form');
                 $('#label-aluno').show();
                 setTimeout(function () {

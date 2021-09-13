@@ -159,14 +159,14 @@
 
 
         <section class="main-section">
-            <form class="formulario" name="formEvento" action="../DAO//inserir-evento.php" method="POST"
+            <form class="formulario" name="formEvento" action="../DAO/inserir-evento.php" method="POST"
                 enctype="multipart/form-data">
                 <div class="user-details">
                     <div class="input-box-width100">
                         <h2 class="h2Adicionar">Adicionar imagem:</h2>
                         <label class="label-erro" id="label-foto"></label>
                         <div>
-                            <label class="carregar-imagem-pub" for="arquivo">Carregar Imagem Perfil</label>
+                            <label class="carregar-imagem-pub" for="arquivo">Carregar Imagem Evento</label>
                             <input name="arquivo" id="arquivo" type="file" accept="image/*">
                             <label class="label-erro" id="label-arquivo"></label>
                             <span id="nome-arquivo"></span>
