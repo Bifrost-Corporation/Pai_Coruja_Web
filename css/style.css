@@ -70,8 +70,31 @@ p {
     justify-content: center;
     align-items: center;
 }
-
-.card-login div:first-child {
+.card-login .ReturnToLogin{
+    text-align: left;
+    
+}
+.card-login .ReturnToLogin a{
+    text-decoration: none;
+    color: var(--cinzaescuro);
+    padding: 5px;
+    font-weight: bold;
+    gap:2rem;
+    
+    margin-right: 0.5rem;
+    transition: 0.3s ease;
+    
+}
+.card-login .ReturnToLogin a:hover{
+    opacity: 0.7;
+    border-bottom: 4px solid var(--cinzaclaro100);
+    
+}
+.card-login .ReturnToLogin a span{
+    margin-right: 0.5rem;
+    
+}
+.card-login .content-logoPaiCoruja {
     text-align: center;
 }
 
