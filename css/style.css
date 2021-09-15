@@ -7,7 +7,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: sans-serif;
+    font-family: 'Poppins';
 }
 
 ::-webkit-scrollbar {
@@ -111,7 +111,6 @@ p {
 
 .label-login {
     padding: 1rem;
-    font-family: 'Fira Sans';
     font-size: 2rem;
     text-align: center;
     font-weight: bold;
@@ -121,7 +120,6 @@ p {
 .input-senha,
 .input-email {
     background-color: var(--branco);
-    font-family: 'Roboto';
     font-weight: bold;
     width: 100%;
     font-size: 1rem;
@@ -192,7 +190,6 @@ p {
 .label-conectado {
     margin-top: 2px;
     margin-left: 10px;
-    font-family: 'Roboto';
     font-weight: bold;
     color: var(--azulbtnsair);
     font-size: 1rem;
@@ -236,7 +233,6 @@ p {
     font-weight: bold;
     color: var(--cinzaescuro);
     text-align: center;
-    font-family: 'Lato';
 }
 
 .div-footer {
@@ -656,7 +652,6 @@ small:first-child {
 }
 
 .saiba-mais-btn {
-    font-family: 'Poppins';
     cursor: pointer;
     border-radius: 10px;
     border-style: none;
