@@ -13,7 +13,7 @@
 <body>
     <main class="bg-login">
         <section class="card-login" >
-            <div class="content-logoPaiCoruja">
+        <div class="content-logoPaiCoruja">
                 <img src="img/pai_coruja_3.png" class="logo-login">
             </div>
             <div>

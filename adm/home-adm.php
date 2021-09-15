@@ -5,8 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.css">
+
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
     <meta name="theme-color" content="#26466D" />
     <title>Home - ADM</title>
 
@@ -16,6 +18,7 @@
 <body>
     <?php
         include("sentinela.php");
+    
     ?>
     <header>
 
@@ -110,25 +113,60 @@
         </div>
 
     </header>
-
-
+        
     <main class="container-main">
-        <section class="destaque-card">
-            <div class="esquerda-destaque">
-                <h1>Novidade 1</h1>
-                <small>Subtítulo</small>
-                <p>Para mais detalhes clique abaixo</p>
+        <div class="carousel">
+            <div class=" carousel-destaque">
+                <div class="destaque-card">
+                <div class="esquerda-destaque">
+                    <h1>Titulo<!--<?php echo $linha['tituloPublicacao'] ?>--></h1>
+                    <small>Subtitulo<!--<?php echo $linha['descPublicacao'] ?>--></small>
+                    <p>Para mais detalhes clique abaixo</p>
 
-                <a href="#"><button class="saiba-mais-btn">Saiba Mais</button></a>
-            </div>
-            <div class="direita-destaque">
+                    <a href="#"><button class="saiba-mais-btn">Saiba Mais</button></a>
+                </div>
+                <div class="direita-destaque">
 
+                </div> 
             </div>
-        </section>
+            
+            <div class="destaque-card">
+                <div class="esquerda-destaque">
+                    <h1>Titulo<!--<?php echo $linha['tituloPublicacao'] ?>--></h1>
+                    <small>Subtitulo<!--<?php echo $linha['descPublicacao'] ?>--></small>
+                    <p>Para mais detalhes clique abaixo</p>
+
+                    <a href="#"><button class="saiba-mais-btn">Saiba Mais</button></a>
+                </div>
+                <div class="direita-destaque">
+
+                </div> 
+            </div>
+            <div class="destaque-card">
+                <div class="esquerda-destaque">
+                    <h1>Titulo<!--<?php echo $linha['tituloPublicacao'] ?>--></h1>
+                    <small>Subtitulo<!--<?php echo $linha['descPublicacao'] ?>--></small>
+                    <p>Para mais detalhes clique abaixo</p>
+
+                    <a href="#"><button class="saiba-mais-btn">Saiba Mais</button></a>
+                </div>
+                <div class="direita-destaque">
+                    
+                </div> 
+            </div>
+            </div>
+            <div class="indicadors-bar">
+            <i aria-label="Previous" class="fa fa-chevron-left carousel-destaque-prev"></i>
+            <div role="tablist" class="carousel-destaque-dots"></div>
+            <i aria-label="Next" class="fa fa-chevron-right carousel-destaque-next"></i>
+            
+            </div>
+        </div>
+       
 
         <section class="cards-eventos">
             <h2>Eventos</h2>
-            <div class="arrumar-cards">
+            <div class="arrumar-cards carousel-evento">
 
                 <div class="evento-card">
                     <div>
@@ -178,12 +216,19 @@
                 </div>
 
 
+            </div>
+            <div class="indicadors-bar">
+            <i aria-label="Previous" class="fa fa-chevron-left carousel-evento-prev"></i>
+            <div role="tablist" class="carousel-evento-dots"></div>
+            <i aria-label="Next" class="fa fa-chevron-right carousel-evento-next"></i>
             </div>
         </section>
     </main>
 
     <script src="../js/nav.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.js"></script>
+    <script src="../js/carousel.js"></script>
 </body>
 
 
