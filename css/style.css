@@ -94,6 +94,7 @@ p {
     margin-right: 0.5rem;
     
 }
+
 .card-login .content-logoPaiCoruja {
     text-align: center;
 }
@@ -326,7 +327,7 @@ p {
     height: 100vh;
     width: 240px;
     background: #042243;
-    padding: 6px 14px;
+   
     position: fixed;
     overflow-y: scroll;
     overflow-x: hidden;
@@ -374,8 +375,9 @@ p {
 }
 
 .sidebar ul {
-    margin-top: 30px;
-    margin-bottom: 60px;
+    padding: 6px 14px;
+    /* margin-top: 30px; */
+    /* margin-bottom: 60px; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -459,85 +461,92 @@ p {
     color: var(--azulbtnsair);
 }
 
-.sidebar .profile-content {
-    color: var(--cinzamaisclaro);
-    position: fixed;
+.user-details-menu{
+    position: absolute;
     bottom: 0;
-    left: 0;
-    width: 234px;
+    width: 200px;
+    background-color: var(--azulmenulateral);
+    color: var(--branco);
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 15px;
 }
 
-.sidebar .profile-content .profile {
-    position: relative;
-    padding: 10px 14px;
-    height: 60px;
-    /* background: var(--); */
-}
-
-.profile-content .profile {
-    background-color: var(--azulnavbar);
-}
-
-.profile-content .profile .profile-details {
-    background-color: var(--azulnavbar);
-    display: flex;
-    align-items: center;
-}
-
-.profile .profile-details img {
-    border-style: solid;
-    border-width: 3px;
-    border-color: var(--cinza);
-    height: 40px;
-    width: 40px;
-    object-fit: cover;
-    border-radius: 20px;
-}
-
-.profile .profile-details .name-job {
-    margin-left: 10px;
-}
-
-.profile .profile-details .name-menu {
-    font-size: 15px;
-    font-weight: 400;
-}
-
-.profile .profile-details .job-menu {
+.user-details-menu p{
     font-size: 12px;
-    font-weight: 400;
+}
+.user-details-menu h5{
+    margin-top: 5px;
+}
+
+/* MOBILE PERFIL */
+
+.profile-content{
+    display: none;
+}
+
+.sidebar .profile-content .profile{
+    color: var(--cinzamaisclaro);
+    background-color: var(--azulmenulateral);
+    height: 10vh;
+}
+
+
+.profile-content .profile .profile-img {
+    display: flex;
+    justify-content: center;
+}
+
+.profile .profile-img img {
+    position: absolute;
+    top: 3vh;
+    height: 80px;
+    width: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.profile-content .profile-details{
+    margin-top: 45px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.profile-content .profile-details .name-menu{
+    color: var(--cinzamaisclaro);
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.profile-content .profile-details .job-menu{
+    color: var(--cinzamaisclaro);
+    /* font-weight: 700; */
+}
+
+.profile-buttons{
+    margin-top: 10px;
+    font-size: 25px;
+    text-decoration: none;
 }
 
 .profile #logout-user {
-    position: absolute;
-    left: 88%;
-    bottom: 3px;
-    transform: translateX(-10%);
     min-width: 50px;
     line-height: 50px;
-    font-size: 20px;
+    
     border-radius: 12px;
 }
 
 .profile-logout a {
+    margin: 10px;
     color: var(--cinzamaisclaro);
     transition: 200ms;
+    text-decoration: none;
 }
 
 
-/* 
-.profile-logout span{
-    isso aq é pra um span pro botão de logout
-    position: fixed;
-    z-index: 400000000;
-    left: 220px;
-    bottom: 20px;
-    color: var(--azulbtnsair);
-    font-weight: bold;
-
-    background: var(--branco);
-    padding: 10px;
-} */
 
 .profile-logout a i:hover {
     transition: 200ms;
@@ -674,6 +683,64 @@ small:first-child {
     font-weight: bold;
     cursor: pointer;
 }
+
+/* NAV FOOTER */
+
+@media (max-width:720px) {
+    .nav-footer{
+        position: fixed;
+        z-index: 10;
+        bottom: 0px;
+        height: 70px;
+        width: 100vw;
+        background: var(--branco);
+    }
+    
+    .nav-footer ul{
+        border-top-color: var(--cinza);
+        border-top-width: 1px;
+        border-top-style: solid;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+    
+    .nav-footer ul li{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        list-style: none;
+    }
+    .nav-footer ul li .links-name{
+        /* display: none; */
+    }
+    .nav-footer ul li a{
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        color: var(--azulbtnsair);
+        text-decoration: none;
+        font-weight: 700;
+    }
+
+    .nav-footer ul .active a{
+        padding: 15px;
+        border-radius: 15px;
+        display: flex;
+        background: var(--azulbtnsair);
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        color: var(--cinzamaisclaro);
+        text-decoration: none;
+        font-weight: 700;
+    }
+    
+}
+
 
 
 /* FORM */
@@ -910,10 +977,11 @@ input[type="file"] {
         display: none;
     }
     .close-mobile-navbar {
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        font-size: 15px;
+        display: block;
+        position:absolute;
+        left: 80%;
+        top: 3vh;
+        font-size: 25px;
         color: var(--cinzamaisclaro);
     }
     .btn-nav-open {
@@ -940,5 +1008,13 @@ input[type="file"] {
         cursor: pointer;
         user-select: none;
         color: #aa4452;
+    }
+
+    .profile-content{
+        display: block;
+    }
+
+    .web-pc{
+        display: none !important;
     }
 }

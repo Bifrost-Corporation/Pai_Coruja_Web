@@ -48,7 +48,7 @@
                 </li>
                 <div class="drop-menu" id="sub-menu">
                     <li class="links-name drop-link">
-                        <a href="home-secretaria.php">
+                        <a href="home-responsavel.php">
                             <i class="fas fa-calendar"></i>
                             <span class="links-name">Mural</span>
                         </a>

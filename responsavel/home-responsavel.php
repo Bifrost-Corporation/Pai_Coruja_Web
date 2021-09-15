@@ -19,25 +19,53 @@
     ?>
     <header>
 
-    <nav class="nav-bar">
+        <nav class="nav-bar">
             <a href=""><img class="logo-img" src="../img/pai_coruja_branca.png"></a>
             <ul class="ul-area-btn">
                 <li class="nav-li"><a class="btn-nav-open"><i class="fas fa-bars"></i></a></li>
             </ul>
         </nav>
 
-        <div class="sidebar">
-            <div class="logo-content">
-                <div class="logo">
-                    <div class="logo-name"><a href="home-responsavel.php"><img src="../img/pai_coruja_branca.png"></a>
-                    </div>
+    <div class="sidebar">
+
+        <div class="profile-content">
+                <div class="profile">
                     <div class="close-mobile-navbar">
-                        <span>Menu Pai Coruja</span>
-                        <a class="btn-nav-close"><i class="far fa-window-close"></i></a>
+                        <a class="btn-nav-close"><i class="fas fa-arrow-left"></i></a>
+                    </div>
+                    <div class="profile-img">
+                        <img src="../img/macos.png" alt="">
+                    </div>
+                    
+                </div>
+                <div class="profile-details">
+                    <div class="name-job">
+                        <div class="name-menu"><?php echo $_SESSION['nomeResponsavel'] ?></div>
+                        <div class="job-menu">Olá Responsável</div>
+                    </div>
+                    <div class="profile-buttons">
+                        <div class="profile-logout">
+                            <a href="logout.php">
+                                <i class="fas fa-sign-out-alt" id="logout-user"></i>
+                            </a>
+                            <a href="cadastrar-imagem-perfil.php">
+                                <i class="fas fa-camera"></i>
+                            </a>
+
+                        </div>
                     </div>
                 </div>
+                
             </div>
-            <ul class="nav-list">
+
+            <div class="logo-content web-pc">
+                <div class="logo">
+                    <div class="logo-name "><a href="home-responsavel.php"><img src="../img/pai_coruja_branca.png"></a>
+                    </div>
+                    
+                </div>
+            </div>
+            <ul class="nav-list web-pc">
                 <li>
                     <a onclick="openMenu()" id="sub-menu-button">
                         <div>
@@ -49,7 +77,7 @@
                 </li>
                 <div class="drop-menu" id="sub-menu">
                     <li class="links-name drop-link">
-                        <a href="home-secretaria.php">
+                        <a href="home-responsavel.php">
                             <i class="fas fa-calendar"></i>
                             <span class="links-name">Mural</span>
                         </a>
@@ -67,7 +95,8 @@
                         </a>
                     </li>
                 </div>
-
+            </ul>
+            <ul class="nav-list web-pc">  
                 <li>
                     <a onclick="openMenu2()" id="sub-menu-button-2">
                         <div>
@@ -87,29 +116,117 @@
                 </div>
 
             </ul>
-            <div class="profile-content">
-                <div class="profile">
-                    <div class="profile-details">
-                        <img src="../img/usuario-de-perfil.png" alt="">
-                        <div class="name-job">
-                            <div class="name-menu"><?php echo $_SESSION['nomeResponsavel'] ?></div>
-                            <div class="job-menu">Olá Responsável</div>
-                        </div>
-                    </div>
-                    <div class="profile-logout">
-                        <a href="logout.php">
-                            <i class="fas fa-sign-out-alt" id="logout-user"></i></a>
-                    </div>
-                </div>
+            <div class="user-details-menu">
+                <h5>Responsável por:</h5>
+                <p>Larissa dos Santos</p>
+                <p>Douglas Nascimento</p>
+
+                <h5>Email:</h5>
+                <p>pai@gmail.com</p>
+
+                <h5>Endereço</h5>
+                <p>papapapapp rua dos og 777</p>
             </div>
         </div>
+       
+    </div>
 
     </header>
 
 
     <main class="container-main">
-        <h1>Responsável</h1>
+        <section class="destaque-card">
+            <div class="esquerda-destaque">
+                <h1>Novidade 1</h1>
+                <small>Subtítulo</small>
+                <p>Para mais detalhes clique abaixo</p>
+
+                <a href="#"><button class="saiba-mais-btn">Saiba Mais</button></a>
+            </div>
+            <div class="direita-destaque">
+
+            </div>
+        </section>
+
+        <section class="cards-eventos">
+            <h2>Eventos</h2>
+            <div class="arrumar-cards">
+
+                <div class="evento-card">
+                    <div>
+                        <h1>Evento</h1>
+                        <small>Data: 06/06/2006</small>
+                    </div>
+                    <div>
+                        <a href="#"><button>Saiba Mais</button></a>
+                    </div>
+                </div>
+
+                <div class="evento-card">
+                    <div>
+                        <h1>Evento</h1>
+                        <small>Data: 06/06/2006</small>
+                    </div>
+                    <div>
+                        <a href="#"><button>Saiba Mais</button></a>
+                    </div>
+                </div>
+                <div class="evento-card">
+                    <div>
+                        <h1>Evento</h1>
+                        <small>Data: 06/06/2006</small>
+                    </div>
+                    <div>
+                        <a href="#"><button>Saiba Mais</button></a>
+                    </div>
+                </div>
+                <div class="evento-card">
+                    <div>
+                        <h1>Evento</h1>
+                        <small>Data: 06/06/2006</small>
+                    </div>
+                    <div>
+                        <a href="#"><button>Saiba Mais</button></a>
+                    </div>
+                </div>
+                <div class="evento-card">
+                    <div>
+                        <h1>Evento</h1>
+                        <small>Data: 06/06/2006</small>
+                    </div>
+                    <div>
+                        <a href="#"><button>Saiba Mais</button></a>
+                    </div>
+                </div>
+
+
+            </div>
+        </section>
     </main>
+
+
+    <div class="nav-footer">
+        <ul>
+            <li class="active">
+                <a href="home-responsavel.php">
+                    <i class="fas fa-calendar"></i>
+                    <span class="links-name">Mural</span>
+                </a>
+            </li>
+            <li class="">
+                <a href="#">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <span class="links-name">Avaliação</span>
+                </a>
+            </li>
+            <li class="">
+                <a href="#">
+                    <i class="fas fa-calendar-day"></i>
+                    <span class="links-name">Eventos</span>
+                </a>
+            </li>
+        </ul>
+    </div>
 
     <script src="../js/nav.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
