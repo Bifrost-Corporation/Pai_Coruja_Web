@@ -118,7 +118,7 @@
             </ul>
             <div class="user-details-menu">
                 <h5>Responsável por:</h5>
-                <p>Larissa dos Santos</p>
+                <p>Vinciso mararal</p>
                 <p>Douglas Nascimento</p>
 
                 <h5>Email:</h5>

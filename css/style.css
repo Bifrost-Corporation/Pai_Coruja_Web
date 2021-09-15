@@ -738,6 +738,14 @@ small:first-child {
         text-decoration: none;
         font-weight: 700;
     }
+
+    .nav-footer ul a:hover{
+        color: var(--azulnavbar);
+    }
+
+    .nav-footer ul .active a{
+        color: var(--branco);
+    }
     
 }
 
