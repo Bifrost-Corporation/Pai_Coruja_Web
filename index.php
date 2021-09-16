@@ -41,7 +41,7 @@
                     <label for="checkbox" class="label-conectado">Manter-me Conectado</label>
                 </div>
                 <div class="div-login">
-                    <button class="btn-esqueci">Esqueci</button>
+                    <button class="btn-esqueci"><a href="forgetPassword.php">Esqueci</a></button>
                     <button class="btn-login" name="btn-login" id="btn-login" type="submit">Entrar</button>
                 </div>
             </form>

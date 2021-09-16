@@ -2,7 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@100;400;500&family=Roboto:wght@100;300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@100;400;500&family=Lato:wght@300&family=Roboto:wght@100;300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap');
-
 * {
     margin: 0;
     padding: 0;
@@ -44,7 +43,6 @@ h1 {
 h2 {
     font-family: 'Poppins', Arial, Helvetica, sans-serif;
     font-size: 1.5rem;
-
 }
 
 p {
@@ -77,30 +75,29 @@ p {
     align-items: center;
 }
 
-.card-login .ReturnToLogin{
+.card-login .ReturnToLogin {
     text-align: left;
-    
 }
-.card-login .ReturnToLogin a{
+
+.card-login .ReturnToLogin a {
     text-decoration: none;
     color: var(--cinzaescuro);
     padding: 5px;
     font-weight: bold;
-    gap:2rem;
-    
+    gap: 2rem;
     margin-right: 0.5rem;
     transition: 0.3s ease;
-    
 }
-.card-login .ReturnToLogin a:hover{
+
+.card-login .ReturnToLogin a:hover {
     opacity: 0.7;
     border-bottom: 4px solid var(--cinzaclaro100);
-    
 }
-.card-login .ReturnToLogin a span{
+
+.card-login .ReturnToLogin a span {
     margin-right: 0.5rem;
-    
 }
+
 .card-login .content-logoPaiCoruja {
     text-align: center;
 }
@@ -137,6 +134,12 @@ p {
     padding: 0.2rem 1rem;
     text-align: center;
     display: flex;
+    justify-content: center;
+}
+
+.div-titulo3 {
+    padding: 0.2rem 1rem;
+    text-align: center;
     justify-content: center;
 }
 
@@ -612,42 +615,46 @@ p {
 .destaque-card:nth-child(1) {
     display: flex;
     justify-content: space-between;
-    width: 100% ;
+    width: 100%;
     height: 340px !important;
     padding: 2rem;
     color: var(--cinzafonte);
     background-color: var(--cinzaclaro);
 }
+
 .destaque-card:nth-child(2) {
     display: flex;
     justify-content: space-between;
-    width: 100% ;
+    width: 100%;
     height: 340px !important;
     padding: 2rem;
     color: var(--cinzaclaro);
     background-color: var(--azulnavbar);
 }
+
 .destaque-card:nth-child(3) {
     display: flex;
     justify-content: space-between;
-    width: 100% ;
+    width: 100%;
     height: 340px !important;
     padding: 2rem;
     color: var(--cinzafonte);
     background-color: var(--cinzaclaro100);
 }
+
 .esquerda-destaque {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
-.esquerda-destaque h1{
+
+.esquerda-destaque h1 {
     font-weight: bold;
     font-size: 3rem;
 }
+
 .destaque-card h1,
 small:first-child {
-    
     margin-bottom: 1rem;
 }
 
@@ -691,21 +698,27 @@ small:first-child {
     flex-direction: column;
     justify-content: space-between;
 }
-.evento-card:nth-child(1){
+
+.evento-card:nth-child(1) {
     background-color: #137AB1;
 }
-.evento-card:nth-child(2){
+
+.evento-card:nth-child(2) {
     background-color: #1d1d1d;
 }
-.evento-card:nth-child(3){
+
+.evento-card:nth-child(3) {
     background-color: orange;
 }
-.evento-card:nth-child(4){
+
+.evento-card:nth-child(4) {
     background-color: pink;
 }
-.evento-card:nth-child(5){
+
+.evento-card:nth-child(5) {
     background-color: var(--cinzaescuro);
 }
+
 .evento-card div:last-child button {
     color: var(--cinzafonte);
     padding: 0.3rem;
@@ -717,24 +730,27 @@ small:first-child {
     cursor: pointer;
 }
 
+
 /* CAROUSEL */
 
+
 /*Carousel Destaque */
-.carousel{
+
+.carousel {
     width: 100%;
     flex-wrap: wrap;
     overflow: hidden;
     position: relative;
 }
-.carousel-destaque{
+
+.carousel-destaque {
     position: relative;
     width: 100%;
     display: flex;
     align-items: center;
 }
 
-.carousel-destaque-prev{
-
+.carousel-destaque-prev {
     position: absolute;
     z-index: 1;
     padding: 20px;
@@ -743,17 +759,18 @@ small:first-child {
     top: 30%;
     font-size: 3rem;
     padding: 20px;
-    background-color:transparent;
+    background-color: transparent;
     transform: translateX(0%);
     transition: 0.7s ease;
     opacity: 0.4;
 }
-.carousel-destaque-prev:hover{
-   opacity: 1;
+
+.carousel-destaque-prev:hover {
+    opacity: 1;
     transform: translateX(-10%);
-    
 }
-.carousel-destaque-next{
+
+.carousel-destaque-next {
     position: absolute;
     z-index: 1;
     opacity: 0.4;
@@ -764,27 +781,28 @@ small:first-child {
     position: absolute;
     font-size: 3rem;
     padding: 20px;
-    background-color:transparent;
+    background-color: transparent;
     transform: translateX(-10%);
     transition: 0.7s ease;
 }
-.carousel-destaque-next:hover{
-   
+
+.carousel-destaque-next:hover {
     transform: translateX(0%);
     opacity: 1;
 }
+
+
 /* FIM */
+
 
 /* Carousel Eventos */
 
-.carousel-evento{
+.carousel-evento {
     position: relative;
-    border:0;
-
+    border: 0;
 }
 
-.carousel-evento-prev{
-
+.carousel-evento-prev {
     position: absolute;
     z-index: 1;
     border-radius: 150px;
@@ -794,17 +812,18 @@ small:first-child {
     top: 70%;
     font-size: 2.8rem;
     padding: 20px;
-    background-color:#5A6978;
+    background-color: #5A6978;
     transform: translateX(0%);
     transition: 0.7s ease;
     opacity: 0.4;
 }
-.carousel-evento-prev:hover{
-   opacity: 1;
+
+.carousel-evento-prev:hover {
+    opacity: 1;
     transform: translateX(-10%);
-    
 }
-.carousel-evento-next{
+
+.carousel-evento-next {
     border-radius: 150px;
     position: absolute;
     z-index: 1;
@@ -816,17 +835,20 @@ small:first-child {
     position: absolute;
     font-size: 2.8rem;
     padding: 20px;
-    background-color:#5A6978;
+    background-color: #5A6978;
     transform: translateX(-10%);
     transition: 0.7s ease;
 }
-.carousel-evento-next:hover{
-   
+
+.carousel-evento-next:hover {
     transform: translateX(0%);
     opacity: 1;
 }
 
+
 /* ACABOU */
+
+
 /* FORM */
 
 
@@ -981,7 +1003,6 @@ input[type="file"] {
     color: brown;
     font-size: 14px;
     display: none;
-    margin-bottom: 500px;
 }
 
 

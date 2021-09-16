@@ -9,12 +9,19 @@
     <link rel="manifest" href="manifest.json">
 
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <title>Login - Pai Coruja</title>
+    <title>Código para recuperar a senha - Pai Coruja</title>
 </head>
 
 <body>
     <?php
         session_start();
+        if($_SESSION['permissao'] != true){
+            unset($_SESSION['permissao']);
+            unset($_SESSION['idUsuario']);
+            unset($_SESSION['codRecuperacao']);
+            session_destroy();
+            header("Location: index.php");
+        }
     ?>
     <main class="bg-login">
         <section class="card-login">
@@ -27,15 +34,14 @@
                 <img src="img/pai_coruja_3.png" class="logo-login">
             </div>-->
             <div>
-                <p class="label-login">Esqueceu sua senha?</p>
+                <p class="label-login">Informe o código que foi enviado ao seu email:</p>
             </div>
-            <form name="form-login" method="POST" action="DAO/consulta-email.php">
+            <form name="form-login" method="POST" action="DAO/consulta-codigoSenha.php">
                 <div class="div-titulo3">
-                    <label class="label-erro" id="label-email"></label>
-                    <input type="email" class="input-email" name="txtEmail" id="txtEmail"
-                        placeholder="Digite seu email para recuperar sua conta..." value="<?php if(isset($_SESSION['email'])){
-                                                                                                                                    echo $_SESSION['email'];
-                                                                                                                                } ?>">
+                    <input type="hidden" id="idUsuario" name="idUsuario" value="<?php echo $_SESSION['idUsuario'] ?>">
+                    <label class="label-erro" id="label-codigo"></label>
+                    <input type="text" class="input-email" name="txtCodigo" id="txtCodigo"
+                        placeholder="Informe o código de recuperação">
                 </div>
                 <div class="div-login">
                     <button class="btn-login" name="btn-login" id="btn-login" type="submit">Enviar</button>
@@ -53,35 +59,21 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script async src="https://cdn.jsdelivr.net/npm/pwacompat@2.0.8/pwacompat.min.js" integrity="sha384-uONtBTCBzHKF84F6XvyC8S0gL8HTkAPeCyBNvfLfsqHh+Kd6s/kaS4BdmNQ5ktp1" crossorigin="anonymous"></script>
+    <script src="js/jquery.mask.js"></script>
+
     <script>
-        $(document).ready(function(){
-            var valueEmail = $('#txtEmail').val();
-            if(valueEmail.length > 0){
-                $('#label-email').html('Email inválido!');
-                $('#txtEmail').addClass('erro-form');
-                $('#label-email').show();
-                setTimeout(function () {
-                    $('#label-email').fadeOut(1);
-                    $('#txtEmail').removeClass('erro-form');
-                    $('#txtEmail').val('');
-                }, 5000);
-                <?php
-                    unset($_SESSION['email']);
-                ?>
-                e.preventDefault();
-            }
-        });
+        $('#txtCodigo').mask("AAAAAAAAAA");
 
         jQuery('form').on('submit', function(e){
-            var email = $('#txtEmail').val();
-            var emailSemEspaco = email.trim();
-            if(email.length == 0 || emailSemEspaco == ''){
-                $('#label-email').html('Informe um email!');
-                $('#txtEmail').addClass('erro-form');
-                $('#label-email').show();
+            var codigo = $('#txtCodigo').val();
+            var codigoSemEspaco = codigo.trim();
+            if(codigoSemEspaco.length != 10){
+                $('#label-codigo').html('Código Inválido!');
+                $('#txtCodigo').addClass('erro-form');
+                $('#label-codigo').show();
                 setTimeout(function () {
-                    $('#label-email').fadeOut(1);
-                    $('#txtEmail').removeClass('erro-form');
+                    $('#label-codigo').fadeOut(1);
+                    $('#txtCodigo').removeClass('erro-form');
                 }, 5000);
                 e.preventDefault();
             }

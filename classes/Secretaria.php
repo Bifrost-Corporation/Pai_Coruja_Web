@@ -10,6 +10,7 @@
         private $senhaSecretaria;
         private $idEscola;
         private $idAdministrador;
+        private $codNovaSenha;
 
         public function getIdSecretaria(){
             return $this->idSecretaria;
@@ -59,6 +60,14 @@
             $this->idAdministrador = $idAdministrador;
         }
 
+        public function getCodNovaSenha(){
+            return $this->codNovaSenha;
+        }
+
+        public function setCodNovaSenha($codNovaSenha){
+            $this->codNovaSenha = $codNovaSenha;
+        }
+
         public function cadastrar($secretaria){
             $conexao = Conexao::conectar();
             $stmt = $conexao->prepare("INSERT INTO tbsecretaria (nomeSecretaria, emailSecretaria, senhaSecretaria, idEscola, idAdministrador)
@@ -74,7 +83,7 @@
 
         public function listar(){
             $conexao = Conexao::conectar();
-            $querySecretaria = 'SELECT idSecretaria, nomeSecretaria, emailSecretaria, senhaSecretaria, idEscola, idAdministrador FROM tbsecretaria';
+            $querySecretaria = 'SELECT idSecretaria, nomeSecretaria, emailSecretaria, senhaSecretaria, idEscola, idAdministrador, codNovaSenha FROM tbsecretaria';
             $resultadoSecretaria = $conexao->query($querySecretaria);
             $listaSecretaria = $resultadoSecretaria->fetchAll(PDO::FETCH_ASSOC);
             return $listaSecretaria;
@@ -86,6 +95,24 @@
             $resultadoSecretaria = $conexao->query($querySecretaria);
             $listaSecretaria = $resultadoSecretaria->fetchAll(PDO::FETCH_ASSOC);
             return $listaSecretaria;
+        }
+
+        public function updateCodSenha($secretaria){
+            $conexao = Conexao::conectar();
+            $stmt = $conexao->prepare("UPDATE tbsecretaria SET codNovaSenha = ? WHERE idSecretaria = ?");
+            $stmt->bindParam(1, $secretaria->getCodNovaSenha());
+            $stmt->bindParam(2, $secretaria->getIdSecretaria());
+            $stmt->execute();
+            return 'Update realizado com sucesso!';
+        }
+
+        public function updateSenha($secretaria){
+            $conexao = Conexao::conectar();
+            $stmt = $conexao->prepare("UPDATE tbsecretaria SET senhaSecretaria = ?, codNovaSenha = '' WHERE idSecretaria = ?");
+            $stmt->bindParam(1, $secretaria->getSenhaSecretaria());
+            $stmt->bindParam(2, $secretaria->getIdSecretaria());
+            $stmt->execute();
+            return 'Update da senha realizado com sucesso!';
         }
 
     }

@@ -9,6 +9,7 @@
         private $emailProfessor;
         private $senhaProfessor;
         private $idEscola;
+        private $codNovaSenha;
 
         public function getIdProfessor(){
             return $this->idProfessor;
@@ -50,6 +51,14 @@
             $this->idEscola = $idEscola;
         }
 
+        public function getCodNovaSenha(){
+            return $this->codNovaSenha;
+        }
+
+        public function setCodNovaSenha($codNovaSenha){
+            $this->codNovaSenha = $codNovaSenha;
+        }
+
         public function cadastrar($professor){
             $conexao = Conexao::conectar();
             $stmt = $conexao->prepare("INSERT INTO tbprofessor (nomeProfessor, emailProfessor, senhaProfessor, idEscola)
@@ -64,7 +73,7 @@
 
         public function listar(){
             $conexao = Conexao::conectar();
-            $queryProfessor = 'SELECT idProfessor, nomeProfessor, emailProfessor, senhaProfessor, idEscola FROM tbprofessor';
+            $queryProfessor = 'SELECT idProfessor, nomeProfessor, emailProfessor, senhaProfessor, idEscola, codNovaSenha FROM tbprofessor';
             $respostaProfessor = $conexao->query($queryProfessor);
             $listaProfessor = $respostaProfessor->fetchAll(PDO::FETCH_ASSOC);
             return $listaProfessor;
@@ -76,6 +85,24 @@
             $resultadoProfessor = $conexao->query($queryProfessor);
             $listaProfessor = $resultadoProfessor->fetchAll(PDO::FETCH_ASSOC);
             return $listaProfessor;
+        }
+
+        public function updateCodSenha($professor){
+            $conexao = Conexao::conectar();
+            $stmt = $conexao->prepare("UPDATE tbprofessor SET codNovaSenha = ? WHERE idProfessor = ?");
+            $stmt->bindParam(1, $professor->getCodNovaSenha());
+            $stmt->bindParam(2, $professor->getIdProfessor());
+            $stmt->execute();
+            return 'Update realizado com sucesso!';
+        }
+
+        public function updateSenha($professor){
+            $conexao = Conexao::conectar();
+            $stmt = $conexao->prepare("UPDATE tbprofessor SET senhaProfessor = ?, codNovaSenha = '' WHERE idProfessor = ?");
+            $stmt->bindParam(1, $professor->getSenhaProfessor());
+            $stmt->bindParam(2, $professor->getIdProfessor());
+            $stmt->execute();
+            return 'Update da senha realizado com sucesso!';
         }
 
     }

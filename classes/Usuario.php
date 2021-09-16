@@ -52,6 +52,14 @@
             return 'Cadastro de usuário realizado com sucesso!';
         }
 
+        public function listar(){
+            $conexao = Conexao::conectar();
+            $queryUsuario = "SELECT idUsuario, idProfessor, idResponsavel, idSecretaria FROM tbusuario";
+            $resultadoUsuario = $conexao->query($queryUsuario);
+            $listaUsuario = $resultadoUsuario->fetchAll(PDO::FETCH_ASSOC);
+            return $listaUsuario;
+        }
+
     }
 
 ?>

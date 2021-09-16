@@ -10,6 +10,7 @@
         private $emailResponsavel;
         private $senhaResponsavel;
         private $idAluno;
+        private $codNovaSenha;
 
         public function getIdResponsavel(){
             return $this->idResponsavel;
@@ -59,6 +60,14 @@
             $this->idAluno = $idAluno;
         }
 
+        public function getCodNovaSenha(){
+            return $this->codNovaSenha;
+        }
+
+        public function setCodNovaSenha($codNovaSenha){
+            $this->codNovaSenha = $codNovaSenha;
+        }
+
         public function cadastrar($responsavel){
             $conexao = Conexao::conectar();
             $stmt = $conexao->prepare("INSERT INTO tbresponsavel (nomeResponsavel, cpfResponsavel, emailResponsavel, senhaResponsavel, idAluno)
@@ -74,7 +83,7 @@
 
         public function listar(){
             $conexao = Conexao::conectar();
-            $queryResponsavel = "SELECT idResponsavel, nomeResponsavel, cpfResponsavel, emailResponsavel, senhaResponsavel, idAluno FROM tbresponsavel";
+            $queryResponsavel = "SELECT idResponsavel, nomeResponsavel, cpfResponsavel, emailResponsavel, senhaResponsavel, idAluno, codNovaSenha FROM tbresponsavel";
             $resultadoResponsavel = $conexao->query($queryResponsavel);
             $listaResponsavel = $resultadoResponsavel->fetchAll(PDO::FETCH_ASSOC);
             return $listaResponsavel;
@@ -86,6 +95,24 @@
             $resultadoResponsavel = $conexao->query($queryResponsavel);
             $listaResponsavel = $resultadoResponsavel->fetchAll(PDO::FETCH_ASSOC);
             return $listaResponsavel;
+        }
+
+        public function updateCodSenha($responsavel){
+            $conexao = Conexao::conectar();
+            $stmt = $conexao->prepare("UPDATE tbresponsavel SET codNovaSenha = ? WHERE idResponsavel = ?");
+            $stmt->bindParam(1, $responsavel->getCodNovaSenha());
+            $stmt->bindParam(2, $responsavel->getIdResponsavel());
+            $stmt->execute();
+            return 'Update realizado com sucesso!';
+        }
+
+        public function updateSenha($responsavel){
+            $conexao = Conexao::conectar();
+            $stmt = $conexao->prepare("UPDATE tbresponsavel SET senhaResponsavel = ?, codNovaSenha = '' WHERE idResponsavel = ?");
+            $stmt->bindParam(1, $responsavel->getSenhaResponsavel());
+            $stmt->bindParam(2, $responsavel->getIdResponsavel());
+            $stmt->execute();
+            return 'Update da senha realizado com sucesso!';
         }
 
     }
