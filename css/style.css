@@ -7,7 +7,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: sans-serif;
+    font-family: 'Poppins';
     scroll-behavior: smooth;
 }
 
@@ -113,7 +113,7 @@ p {
 
 .label-login {
     padding: 1rem;
-    font-family: 'Fira Sans';
+    font-family: 'Poppins';
     font-size: 2rem;
     text-align: center;
     font-weight: bold;
@@ -123,7 +123,7 @@ p {
 .input-senha,
 .input-email {
     background-color: var(--branco);
-    font-family: 'Roboto';
+    font-family: 'Poppins';
     font-weight: bold;
     width: 100%;
     font-size: 1rem;
@@ -194,7 +194,7 @@ p {
 .label-conectado {
     margin-top: 2px;
     margin-left: 10px;
-    font-family: 'Roboto';
+    font-family: 'Poppins';
     font-weight: bold;
     color: var(--azulbtnsair);
     font-size: 1rem;
@@ -238,7 +238,7 @@ p {
     font-weight: bold;
     color: var(--cinzaescuro);
     text-align: center;
-    font-family: 'Lato';
+    font-family: 'Poppins';
 }
 
 .div-footer {
@@ -350,18 +350,18 @@ p {
 
 /* MENU PC */
 
-.sidebar {
+.sidebar{
     height: 100vh;
     width: 240px;
-    background: #042243;
+    background: var(--azulumpoucosaturado);
     padding: 6px 14px;
     position: fixed;
     overflow-y: scroll;
     overflow-x: hidden;
 }
 
-.active-nav {
-    display: block
+.sidebar .logo-content{
+    margin-bottom: 40px;
 }
 
 .sidebar .logo-content i {
@@ -392,6 +392,7 @@ p {
 }
 
 .sidebar #menu-btn {
+    
     color: var(--cinzamaisclaro);
     position: fixed;
     left: 90%;
@@ -402,52 +403,49 @@ p {
 }
 
 .sidebar ul {
-    margin-top: 30px;
-    margin-bottom: 60px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin: 0;
 }
+
+.sidebar ul hr{
+    border: 1px solid #9aa9b1;
+}
+
+.menu-container{
+    padding-top:1rem;
+    padding-bottom:1rem;
+    border-color:#9da9b6;
+    border-width: 1px;
+}
+
 
 .sidebar ul li {
     position: relative;
-    height: 50px;
     width: 100%;
-    /* margin: 0 5px; */
     list-style: none;
     list-style: none;
     line-height: 50px;
 }
 
 .sidebar ul li a {
+    margin: 0.3rem;
+    padding: 1rem;
     border-radius: 15px;
-    color: var(--cinzamaisclaro);
+    color: var(--cinzaclaro100);
     display: flex;
     align-items: center;
     text-decoration: none;
     font-weight: bold;
 }
 
-.sidebar ul li a span {
-    font-size: 12px;
-    line-height: 15px;
-}
-
-#sub-menu-button,
-#sub-menu-button-2 {
-    user-select: none;
-    cursor: pointer;
-    justify-content: space-between;
-    margin-bottom: 10px;
-}
-
-.button-drop-opened {
-    background-color: var(--azulmenulateral);
-    border-radius: 15px 15px 0px 0px;
-}
-
-.dropdown-icon {
-    transform: rotateY(-50);
+.sidebar ul li .active-nav {
+    border-radius: 15px;
+    color: var(--branco);
+    background-color: var(--azulbtnsair);
+    font-weight: bold;
+    transition: 200ms;
 }
 
 .sidebar ul li a:hover {
@@ -458,61 +456,49 @@ p {
     transition: 200ms;
 }
 
-.sidebar ul li a i,
-.drop-link i {
-    height: 50px;
-    min-width: 50px;
-    line-height: 50px;
-    border-radius: 12px;
-    text-align: center;
+.sidebar ul li a span {
+    margin-left: 2.5rem;
+    font-size: 12px;
+    line-height: 15px;
 }
 
-.drop-menu {
-    display: none;
-    padding: 15px 0;
-    border-radius: 5px 5px 15px 15px;
-    position: relative;
-    background: #123256;
-    margin: 5px 5px 7px 5px;
+.sidebar ul li a i{
+    width: 10px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
 }
 
-.drop-link {
-    padding: 0 15px;
-    color: var(--cinzamaisclaro);
-}
 
-.opened-drop {
-    border-radius: 15px 15px 0 0;
-    background-color: var(--azulnavbar);
-    color: var(--azulbtnsair);
-}
 
 .sidebar .profile-content {
-    color: var(--cinzamaisclaro);
     position: fixed;
     bottom: 0;
     left: 0;
-    width: 234px;
+    width: 235px;
 }
 
 .sidebar .profile-content .profile {
     position: relative;
     padding: 10px 14px;
     height: 60px;
-    /* background: var(--); */
+    background: var(--cinzamaisclaro);
 }
 
 .profile-content .profile {
-    background-color: var(--azulnavbar);
+    color: var(--cinzafonte);
+    margin: 1rem;
+    border-radius: 15px;
 }
 
 .profile-content .profile .profile-details {
-    background-color: var(--azulnavbar);
+    background-color: var(--cinzamaisclaro);
     display: flex;
     align-items: center;
 }
 
 .profile .profile-details img {
+    background-color: #042243;
     border-style: solid;
     border-width: 3px;
     border-color: var(--cinza);
@@ -528,11 +514,11 @@ p {
 
 .profile .profile-details .name-menu {
     font-size: 15px;
-    font-weight: 400;
+    font-weight: bold;
 }
 
 .profile .profile-details .job-menu {
-    font-size: 12px;
+    font-size: 10px;
     font-weight: 400;
 }
 
@@ -1175,6 +1161,65 @@ input[type="file"] {
 /* ACabo */
 
 /* ACABOU O FORM*/
+
+/* NAV FOOTER */
+
+
+@media (max-width:720px) {
+    .nav-footer{
+        position: fixed;
+        z-index: 10;
+        bottom: 0px;
+        height: 70px;
+        width: 100vw;
+        background: var(--branco);
+    }
+
+    .nav-footer ul{
+        border-top-color: var(--cinza);
+        border-top-width: 1px;
+        border-top-style: solid;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+
+    .nav-footer ul li{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        list-style: none;
+    }
+    .nav-footer ul li .links-name{
+        /* display: none; */
+    }
+    .nav-footer ul li a{
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        color: var(--azulbtnsair);
+        text-decoration: none;
+        font-weight: 700;
+    }
+
+    .nav-footer ul .active a{
+        padding: 15px;
+        border-radius: 15px;
+        display: flex;
+        background: var(--azulbtnsair);
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        color: var(--cinzamaisclaro);
+        text-decoration: none;
+        font-weight: 700;
+    }
+
+}
+
 
 
 /*  MEDIAS  */

@@ -16,7 +16,7 @@ function Navbar(botaoAbrir, menu, botaoFechar) {
 
 }
 
-const mobileMenu = new Navbar(".btn-nav-open", ".sidebar", ".btn-nav-close")
+// const mobileMenu = new Navbar(".btn-nav-open", ".sidebar", ".btn-nav-close")
 
 // DROPDOWN AINDA N FUNFA COM A FUNCTION, MAS VAI FUNFAR
 
