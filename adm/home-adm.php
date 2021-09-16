@@ -20,6 +20,7 @@
         include("sentinela.php");
     
     ?>
+    
     <header>
 
         <nav class="nav-bar">

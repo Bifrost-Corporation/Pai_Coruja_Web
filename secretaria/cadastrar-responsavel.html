@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+    <title>Cadastro Responsavel</title>
+
+
+</head>
+
+<body>
+    <header>
+
+        <nav class="nav-bar">
+            <a href=""><img class="logo" src="../images/pai_coruja_3.jpg"></a>
+            <ul class="ul-area-btn">
+                <li class="nav-li"><a class="btn-nav-exit" href="#">Sair</a></li>
+            </ul>
+        </nav>
+
+        <nav class="sidebar">
+            <div class="perfil">
+                <div class="img-perfil">
+                    <img src="../images/usuario-de-perfil.png">
+                </div>
+                <div class="text-perfil">
+                    <p>Olá, Secretário</p>
+                </div>
+            </div>
+            <ul class="ul-sidebar-menu">
+                <li>
+                    <a href="#" onclick="openMenu()" id="sub-menu-button" class="visao-geral-btn">Visão Geral
+                        <span class="fas fa-caret-down first"></span>
+                    </a>
+
+                    <ul id="sub-menu">
+                        <li><a href="#">Mural</a></li>
+                        <li><a href="#">Avaliação dos Professores</a></li>
+                        <li><a href="#">Eventos Programados</a></li>
+
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#" onclick="openMenu2()" id="sub-menu-button-2" class="outro-btn">Secretária
+                        <span class="fas fa-caret-down second"></span>
+                    </a>
+                    <ul id="sub-menu-2">
+                        <li><a href="cadastrar-aluno.html">Cadastrar Aluno</a></li>
+                        <li><a href="cadastrar-professor.html">Cadastrar Professor</a></li>
+                        <li><a href="cadastrar-responsavel.html">Cadastrar Responsável</a></li>
+                        <li><a href="nova-publicacao.html">Nova Publicação</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+        </nav>
+
+    </header>
+    <nav class="footer-menu">
+        <ul>
+            <li><a href=""><img src="../images/usuario-de-perfil.png" width="18px">Inicio</a></li>
+
+            <li><a href=""><img src="../images/usuario-de-perfil.png" width="18px">Eventos</a></li>
+            <li><a href=""><img src="../images/usuario-de-perfil.png" width="18px">Mural</a></li>
+            <li><a href=""><img src="../images/usuario-de-perfil.png" width="18px">Avaliação</a></li>
+
+        </ul>
+    </nav>
+
+
+    <main class="container-main">
+
+
+        <section class="top-section">
+            <div class="voltar">
+                <a href="#">
+                    <span class="fas fa-arrow-left"></span>Voltar
+                </a>
+            </div>
+            <div class="titulo-cadastrar">
+                <h2>Cadastrar Responsável:</h2>
+            </div>
+        </section>
+
+
+        <section class="main-section">
+            <form class="formulario" action="#" method="#">
+                <div class="user-details">
+                    <div class="input-box-width100">
+                        <h2>Nome Responsável</h2>
+                        <input name="name" type="text" placeholder="Insira o nome do Responsável" required>
+                    </div>
+
+                    <div class="input-box-width100">
+                        <h2>Email Responsável</h2>
+                        <input name="email" type="email" placeholder="Insira o email do Responsável" required>
+                    </div>
+                    <div class="input-box">
+                        <h2>Senha Responsável</h2>
+                        <input name="name" type="text" placeholder="********" required>
+                    </div>
+                    <div class="input-box">
+                        <h2>Confirmar senha:</h2>
+                        <input name="name" type="text" placeholder="********" required>
+                    </div>
+                    <div class="input-box">
+                        <h2>Telefone do Responsável</h2>
+                        <input name="text" type="text" placeholder="Insira o numero de telefone do Responsável"
+                            required>
+                    </div>
+                    <div class="input-box">
+                        <h2>Endereço:</h2>
+                        <input name="name" type="text" placeholder="Insira o endereço do Responsável" required>
+                    </div>
+                    <div class="input-box">
+                        <h2>Número</h2>
+                        <input name="name" type="text" placeholder="Insira o número da residência" required>
+                    </div>
+                    <div class="input-box">
+                        <h2>Cidade:</h2>
+                        <input name="name" type="text" placeholder="Insira a cidade" required>
+                    </div>
+                    <div class="input-box">
+                        <h2>Bairro:</h2>
+                        <input name="name" type="text" placeholder="Insira o bairro" required>
+                    </div>
+
+                    <div class="input-box">
+                        <h2>Complemento:</h2>
+                        <input name="name" type="text" placeholder="Insira o complemento" required>
+                    </div>
+                    <div class="input-box">
+                        <h2>CEP:</h2>
+                        <input name="name" type="text" placeholder="Insira o CEP" required>
+                    </div>
+                    <div class="input-box-width100">
+                        <h2>De qual aluno você é responsável:</h2>
+                        <input name="name" type="text" placeholder="Insira o nome do aluno" required>
+                    </div>
+                    <div class="input-box">
+                        <h2>RA do aluno:</h2>
+                        <input name="name" type="text" placeholder="Insira o RA do aluno" required>
+                    </div>
+
+                    <div class="button">
+                        <input type="submit" class="btn-nav-exit" value="Cadastrar">
+                    </div>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <script src="../js/nav.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
+</body>
+
+
+
+
+</html>

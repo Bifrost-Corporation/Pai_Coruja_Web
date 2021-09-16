@@ -112,13 +112,13 @@
     </header>
 
 
-    <main class="container-main">
+    <main class="container-main area-cadastro">
 
 
-        <section class="top-section">
+        <section class="top-section"  id="Topo">
             <div class="voltar">
                 <a href="home-adm.php">
-                    <span class="fas fa-arrow-left"></span>Voltar
+                    <span class="fas fa-arrow-left"></span>
                 </a>
             </div>
             <div class="titulo-cadastrar">
@@ -173,11 +173,50 @@
                 </div>
             </form>
         </section>
+        <section class="container-controlers">
+            <div id="btn-show-div-exibir-dados" class="content-card-link1" checked>
+                <div class="side-left">
+                    <h1>2</h1>
+                    <p>Secretárias</p>
+                </div>
+                <div class="side-right">    
+                <a class="btn-ver-dados-tabela"><i class="fas fa-school" aria-hidden="true"></i><p> ver todos</p></a>
+                
+                </div>
+
+            </div>
+            <a href="#Topo" class="content-card-link2">
+                <div class="side-left">
+                    <h1>+</h1>
+                    <p>Adicionar Secretária</p>
+                </div>
+                <div class="side-right">
+                <i class="btn-adicionar-aluno fas fa-school" aria-hidden="true"></i>
+                
+                </div>
+            </a>
+            
+        </section>
+        <div class="container-exibir-dados">
+            <h1>Secretárias Cadastradas</h1>
+            <div class="dropdown-dados">
+                <p>Usuario: Miau <i class="fas fa-caret-down" class="dropdown-icon"></i></p>
+                <div class="itens-dropdown-dados">
+                <i class="icons-dropdown fas fa-cog" aria-hidden="true"></i>
+                <i class="icons-dropdown fas fa-times" aria-hidden="true"></i> 
+                </div>
+            </div>
+            <div class="dropdown-dados-lista">
+                dfg
+            </div>
+        </div>
     </main>
 
     <script src="../js/nav.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-
+    <script src="../js/showDiv.js">
+        
+        </script>                                                                                                                       
     <script>
 
         $(document).ready(function(){
