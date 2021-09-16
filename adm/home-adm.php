@@ -20,6 +20,7 @@
         include("sentinela.php");
     
     ?>
+    
     <header>
 
         <nav class="nav-bar">
@@ -36,58 +37,41 @@
                     </div>
                     <div class="close-mobile-navbar">
                         <span>Menu Pai Coruja</span>
-                        <a class="btn-nav-close"><i class="far fa-window-close"></i></a>
+                        <a class="fas fa-arrow-left"><i class="far fa-window-close"></i></a>
                     </div>
                 </div>
             </div>
             <ul class="nav-list">
-                <li>
-                    <a onclick="openMenu()" id="sub-menu-button">
-                        <div>
-                            <i class="fas fa-chart-pie"></i>
-                            <span class="links-name">Visão Geral</span>
-                        </div>
-                        <i class="fas fa-caret-down" class="dropdown-icon"></i>
-                    </a>
-                </li>
-                <div class="drop-menu" id="sub-menu">
-                    <li class="links-name drop-link">
-                        <a href="home-adm.php">
+                <div class="menu-container">
+                    <!-- <span>fernfjk</span> -->
+                    <li class="links-name">
+                        <a href="home-adm.php" class="active-nav">
                             <i class="fas fa-calendar"></i>
                             <span class="links-name">Mural</span>
                         </a>
                     </li>
-                    <li class="links-name drop-link">
+                    <li class="links-name">
                         <a href="#">
                             <i class="fas fa-chalkboard-teacher"></i>
                             <span class="links-name">Avaliação dos Professores</span>
                         </a>
                     </li>
-                    <li class="links-name drop-link">
+                    <li class="links-name">
                         <a href="#">
                             <i class="fas fa-calendar-day"></i>
                             <span class="links-name">Eventos Programados</span>
                         </a>
                     </li>
                 </div>
-
-                <li>
-                    <a onclick="openMenu2()" id="sub-menu-button-2">
-                        <div>
-                            <i class="fas fa-user-shield"></i>
-                            <span class="links-name">Administrador</span>
-                        </div>
-                        <i class="fas fa-caret-down" class="dropdown-icon"></i>
-                    </a>
-                </li>
-                <div class="drop-menu" id="sub-menu-2">
-                    <li class="links-name drop-link">
+                <hr>
+                <div class="menu-container">
+                    <li class="links-name">
                         <a href="cadastrar-escola.php">
                             <i class="fas fa-school"></i>
                             <span class="links-name">Cadastrar Escola</span>
                         </a>
                     </li>
-                    <li class="links-name drop-link">
+                    <li class="links-name">
                         <a href="cadastrar-secretaria.php">
                             <i class="fas fa-school"></i>
                             <span class="links-name">Cadastrar Secretária</span>
@@ -224,6 +208,31 @@
             </div>
         </section>
     </main>
+
+    <div class="nav-footer">
+        <ul>
+            <li class="active">
+                <a href="home-responsavel.php">
+                    <i class="fas fa-calendar"></i>
+                    <span class="links-name">Mural</span>
+                </a>
+            </li>
+            <li class="">
+                <a href="#">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <span class="links-name">Avaliação</span>
+                </a>
+            </li>
+            <li class="">
+                <a href="#">
+                    <i class="fas fa-calendar-day"></i>
+                    <span class="links-name">Eventos</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+
 
     <script src="../js/nav.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>

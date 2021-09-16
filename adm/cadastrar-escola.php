@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
 
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
     <title>Cadastrar Escola</title>
 
 
@@ -112,13 +112,13 @@
     </header>
 
 
-    <main class="container-main">
+    <main class="container-main area-cadastro">
 
 
-        <section class="top-section">
+        <section class="top-section" id="Topo">
             <div class="voltar">
                 <a href="home-adm.php">
-                    <span class="fas fa-arrow-left"></span>Voltar
+                    <span class="fas fa-arrow-left"></span>
                 </a>
             </div>
             <div class="titulo-cadastrar">
@@ -137,11 +137,48 @@
                             placeholder="Insira o nome da escola">
                     </div>
                     <div class="button">
-                        <input type="submit" class="btn-nav-exit" value="Cadastrar">
+                    <input type="submit" class="btn-nav-exit" value="Cadastrar >">
                     </div>
                 </div>
             </form>
         </section>
+        <section class="container-controlers">
+            <div id="btn-show-div-exibir-dados" class="content-card-link1" checked>
+                <div class="side-left">
+                    <h1>2</h1>
+                    <p>Escolas</p>
+                </div>
+                <div class="side-right">    
+                <a class="btn-ver-dados-tabela"><i class="fas fa-school" aria-hidden="true"></i><p> ver todos</p></a>
+                
+                </div>
+
+            </div>
+            <a href="#Topo" class="content-card-link2">
+                <div class="side-left">
+                    <h1>+</h1>
+                    <p>Adicionar Escola</p>
+                </div>
+                <div class="side-right">
+                <i class="btn-adicionar-aluno fas fa-school" aria-hidden="true"></i>
+                
+                </div>
+            </a>
+            
+        </section>
+        <div class="container-exibir-dados">
+            <h1>Escolas Cadastradas</h1>
+            <div class="dropdown-dados">
+                <p>Name: E. E. Prof Saturnino Pereira</p>
+                <div class="itens-dropdown-dados">
+                <i class="icons-dropdown fa fa-cog"></i>
+                
+                <i class="icons-dropdown fas fa-times" aria-hidden="true"></i> 
+                
+                </div>
+            </div>
+        </div>
+        
     </main>
 
     <script src="../js/nav.js"></script>
@@ -165,6 +202,9 @@
                 e.preventDefault();
             }
         });
+    </script>
+    <script src="../js/showDiv.js">
+        
     </script>
 
 </body>
