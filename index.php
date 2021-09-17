@@ -46,7 +46,7 @@
                 </div>
             </form>
             <div class="div-login">
-                <p class="nota-copy">Pai Coruja - BIFROST @ copyright 2021</p>
+                <p class="nota-copy">Pai Coruja - BIFROST © Copyright 2021</p>
             </div>
 
         </section>

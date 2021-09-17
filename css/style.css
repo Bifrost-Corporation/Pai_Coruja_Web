@@ -65,17 +65,13 @@ p {
 }
 
 .card-login {
-    /* display: none; */
     width: 500px;
-    /*height: 550px;*/
-    /* height: 70%; */
+    height: auto;
     margin-left: auto;
     margin-right: auto;
     background-color: var(--cinzamaisclaro);
-    padding: 20px;
-    border-radius: 15px;
-    justify-content: center;
-    align-items: center;
+    padding: 1rem;
+    border-radius: 1rem;
 }
 
 .card-login .ReturnToLogin {
@@ -106,16 +102,16 @@ p {
 }
 
 .logo-login {
-    width: 70%;
+    width: 65%;
 }
 
 .label-login {
-    padding: 1rem;
-    font-family: 'Poppins';
+    color: var(--azulbtnsair);
+    padding: 0.5rem;
     font-size: 2rem;
     text-align: center;
     font-weight: bold;
-    color: var(--azulbtnsair);
+    
 }
 
 .input-senha,
@@ -149,7 +145,7 @@ p {
 }
 
 .div-login {
-    padding: 1rem;
+    padding: 0.5rem;
     display: flex;
     justify-content: center;
 }
@@ -188,15 +184,16 @@ p {
 
 .cb-conectado:checked::after {
     content: '\2714';
-    font-size: 18px;
+    font-size: 16px;
     position: relative;
     top: -3px;
-    left: 1px;
+    left: 2px;
     color: var(--cinzamaisclaro);
 }
 
 .label-conectado {
-    margin-top: 2px;
+    cursor: pointer;
+    margin-top: -2px;
     margin-left: 10px;
     font-family: 'Poppins';
     font-weight: bold;
@@ -205,6 +202,7 @@ p {
 }
 
 .btn-login {
+    transition: 200ms;
     cursor: pointer;
     padding: 1rem;
     width: 30%;
@@ -212,7 +210,7 @@ p {
     color: var(--branco);
     font-weight: bold;
     font-size: 1rem;
-    border-radius: 10px;
+    border-radius: 1rem;
     margin-left: 10px;
     margin-right: 10px;
     border-width: 0px;
@@ -223,26 +221,38 @@ p {
 }
 
 .btn-esqueci {
+    transition: 200ms;
+    user-select: none;
     cursor: pointer;
     padding: 1rem;
     width: 30%;
     background-color: var(--branco);
-    color: var(--azulbtnsair);
+    text-decoration: none;
     font-weight: bold;
     font-size: 1rem;
-    border-radius: 10px;
+    border-radius: 1rem;
     margin-left: 10px;
     margin-right: 10px;
     border-width: 1px;
     border-color: var(--azulbtnsair);
 }
 
+.btn-esqueci a{
+    text-decoration: none;
+    color: var(--cinzafonte);
+}
+
+.btn-esqueci:hover,
+.btn-login:hover{
+    transition: 200ms;
+    transform: scale(0.94);
+}
+
 .nota-copy {
-    font-size: 0.7rem;
+    font-size: 0.6rem;
     font-weight: bold;
     color: var(--cinzaescuro);
     text-align: center;
-    font-family: 'Poppins';
 }
 
 .div-footer {
@@ -498,6 +508,7 @@ p {
 }
 
 .profile .profile-details img {
+    box-shadow: 0rem 0.5rem 2rem #9aa9b1;
     background-color: #042243;
     border-style: solid;
     border-width: 3px;

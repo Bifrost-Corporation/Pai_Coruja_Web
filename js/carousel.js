@@ -4,7 +4,7 @@ new Glider($carouselDestaque, {
     slidesToShow: 1,
     slidesToScroll: 1,
     itemHeight: 'auto',
-
+    duration: .1,
     dots: '.carousel-destaque-dots',
 
     scrollLock: true,
