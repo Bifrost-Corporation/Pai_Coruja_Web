@@ -533,20 +533,50 @@ p {
     font-weight: 400;
 }
 
-.profile #logout-user {
-    position: absolute;
-    left: 87%;
-    bottom: 5px;
-    transform: translateX(-10%);
-    min-width: 50px;
-    line-height: 50px;
-    font-size: 20px;
-    border-radius: 12px;
+.profile-content .profile-menu{
+    /* transform:translateY(200px); */
+    margin: -0.6rem 1rem ;
+    display: flex;
+    padding: 1rem;
+    border-radius: 1rem;
+    height: auto;
+    background-color: var(--cinzamaisclaro);
+    flex-direction: column;
+    font-size: 13px;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 200ms ease-out;
+
 }
 
-.profile-logout a {
+.profile-content:hover .profile-menu{
+    transition: 200ms ease-out;
+    display: flex;
+    opacity: 1;
+    pointer-events:all;
+    transform:translateY(0px);
+}
+
+
+
+.profile-menu a {
+    text-decoration: none;
+    margin: 0.1rem;
+    padding: 0.5rem 1.0rem;
     color: var(--cinzafonte);
     transition: 200ms;
+}
+.profile-menu a:hover {
+    text-decoration: none;
+    border-radius: 3.5rem;
+    margin: 0.1rem;
+    padding: 0.5rem 1rem;
+    color: var(--branco);
+    background-color: var(--azulnavbar);
+    transition: 200ms;
+}
+.profile-menu a span {
+    width: 100%;
 }
 
 
@@ -696,7 +726,7 @@ small:first-child {
     border-style: none;
     padding: 0.5rem 2.5rem;
     font-weight: bold;
-    border-radius: 15px;
+    border-radius: 20px;
     color: var(--cinzamaisclaro);
     background-color: var(--azulnavbar);
 }
@@ -1146,7 +1176,6 @@ input[type="file"] {
 
 .container-exibir-dados {
     width: 80%;
-    height: 50vh;
     margin: 0 auto;
     background: var(--cinzamaisclaro);
     padding: 30px;
@@ -1188,7 +1217,6 @@ input[type="file"] {
 }
 
 .dropdown-dados-lista {
-    display: none;
     margin: 0rem 2rem;
     padding: 1rem 2rem;
     background-color: var(--cinzaclaro);
@@ -1237,7 +1265,7 @@ input[type="file"] {
         flex-direction: column;
         justify-content: center;
         text-align: center;
-        color: var(--azulbtnsair);
+        color: var(--azulnavbar);
         text-decoration: none;
         font-weight: 700;
     }
@@ -1245,7 +1273,7 @@ input[type="file"] {
         padding: 15px;
         border-radius: 15px;
         display: flex;
-        background: var(--azulbtnsair);
+        background: var(--azulnavbar);
         flex-direction: column;
         justify-content: center;
         text-align: center;

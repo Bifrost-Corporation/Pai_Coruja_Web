@@ -80,6 +80,16 @@
                 </div>
             </ul>
             <div class="profile-content">
+                <div class="profile-menu">
+                    <a href="logout.php">
+                        <i class="fas fa-sign-out-alt" id="logout-user"></i>
+                        <span>Logout</span>
+                    </a>
+                    <a href="logout.php">
+                        <i class="fas fa-cog"></i>
+                        <span>Configurações</span>
+                    </a>
+                </div>
                 <div class="profile">
                     <div class="profile-details">
                         <img src="../img/usuario-de-perfil.png" alt="">
@@ -88,11 +98,8 @@
                             <div class="job-menu">Olá Administrador(a)</div>
                         </div>
                     </div>
-                    <div class="profile-logout">
-                        <a href="logout.php">
-                            <i class="fas fa-sign-out-alt" id="logout-user"></i></a>
-                    </div>
                 </div>
+                
             </div>
         </div>
 
