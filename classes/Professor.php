@@ -79,6 +79,26 @@
             return $listaProfessor;
         }
 
+        public function atualizar($professor){
+            $conexao = Conexao::conectar();
+            $stmt = $conexao->prepare('UPDATE tbprofessor SET nomeProfessor = ?, emailProfessor = ?, senhaProfessor = ?, idEscola = ? WHERE idProfessor = ?');
+            $stmt->bindParam(1, $professor->getNomeProfessor());
+            $stmt->bindParam(2, $professor->getEmailProfessor());
+            $stmt->bindParam(3, $professor->getSenhaProfessor());
+            $stmt->bindParam(4, $professor->getIdEscola());
+            $stmt->bindParam(5, $professor->getIdProfessor());
+            $stmt->execute();
+            return 'Dados do professor atualizados com sucesso!';
+        }
+
+        public function excluir($professor){
+            $conexao = Conexao::conectar();
+            $stmt = $conexao->prepare('DELETE FROM tbprofessor WHERE idProfessor = ?');
+            $stmt->bindParam(1, $professor->getIdProfessor());
+            $stmt->execute();
+            return 'Professor excluido com sucesso!';;
+        }
+
         public function selecionarUltimoProfessor(){
             $conexao = Conexao::conectar();
             $queryProfessor = "SELECT idProfessor FROM tbprofessor WHERE idProfessor = (SELECT MAX(idProfessor) FROM tbprofessor)";

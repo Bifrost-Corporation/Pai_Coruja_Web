@@ -89,6 +89,27 @@
             return $listaSecretaria;
         }
 
+        public function atualizar($secretaria){
+            $conexao = Conexao::conectar();
+            $stmt = $conexao->prepare('UPDATE tbsecretaria SET nomeSecretaria = ?, emailSecretaria = ?, senhaSecretaria = ?, idEscola = ?, idAdministrador = ? WHERE idSecretaria = ?');
+            $stmt->bindParam(1, $secretaria->getNomeSecretaria());
+            $stmt->bindParam(2, $secretaria->getEmailSecretaria());
+            $stmt->bindParam(3, $secretaria->getSenhaSecretaria());
+            $stmt->bindParam(4, $secretaria->getIdEscola());
+            $stmt->bindParam(5, $secretaria->getIdAdministrador());
+            $stmt->bindParam(6, $secretaria->getIdSecretaria());
+            $stmt->execute();
+            return 'Dados da secretaria atualizados com sucesso!';
+        }
+
+        public function excluir($secretaria){
+            $conexao = Conexao::conectar();
+            $stmt = $conexao->prepare('DELETE FROM tbsecretaria WHERE idSecretaria = ?');
+            $stmt->bindParam(1, $secretaria->getIdSecretaria());
+            $stmt->execute();
+            return 'Secretaria excluida com sucesso!';
+        }
+
         public function selecionarUltimoSecretaria(){
             $conexao = Conexao::conectar();
             $querySecretaria = "SELECT idSecretaria FROM tbsecretaria WHERE idSecretaria = (SELECT MAX(idSecretaria) FROM tbsecretaria)";

@@ -60,6 +60,25 @@
             return $listaUsuario;
         }
 
+        public function atualizar($usuario){
+            $conexao = Conexao::conectar();
+            $stmt = $conexao->prepare('UPDATE tbusuario SET idProfessor = ?, idResponsavel = ?, idSecretaria = ? WHERE idUsuario = ?');
+            $stmt->bindParam(1, $usuario->getIdProfessor());
+            $stmt->bindParam(2, $usuario->getIdResponsavel());
+            $stmt->bindParam(3, $usuario->getIdSecretaria());
+            $stmt->bindParam(4, $usuario->getIdUsuario());
+            $stmt->execute();
+            return 'Dados do usuário atualizados com sucesso!';
+        }
+
+        public function excluir($usuario){
+            $conexao = Conexao::conectar();
+            $stmt = $conexao->prepare('DELETE FROM tbusuario WHERE idUsuario = ?');
+            $stmt->bindParam(1, $usuario->getIdUsuario());
+            $stmt->execute();
+            return 'Usuário excluido com sucesso';
+        }
+
     }
 
 ?>

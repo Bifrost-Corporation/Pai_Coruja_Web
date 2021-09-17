@@ -92,6 +92,29 @@
             return 'Cadastro do endereço do responsável realizado com sucesso!';
         }
 
+        public function atualizar($enderecoResponsavel){
+            $conexao = Conexao::conectar();
+            $stmt = $conexao->prepare('UPDATE tbenderecoresponsavel SET logradouroEnderecoResponsavel = ?, numCasaEnderecoResponsavel = ?, complementoEnderecoResponsavel = ?, cepEnderecoResponsavel = ?, bairroEnderecoResponsavel = ?, cidadeEnderecoResponsavel = ?, idResponsavel = ? WHERE idEnderecoResponsavel = ?');
+            $stmt->bindParam(1, $enderecoResponsavel->getLogradouroEnderecoResponsavel());
+            $stmt->bindParam(2, $enderecoResponsavel->getNumCasaEnderecoResponsavel());
+            $stmt->bindParam(3, $enderecoResponsavel->getComplementoEnderecoResponsavel());
+            $stmt->bindParam(4, $enderecoResponsavel->getCepEnderecoResponsavel());
+            $stmt->bindParam(5, $enderecoResponsavel->getBairroEnderecoResponsavel());
+            $stmt->bindParam(6, $enderecoResponsavel->getCidadeEnderecoResponsavel());
+            $stmt->bindParam(7, $enderecoResponsavel->getIdResponsavel);
+            $stmt->bindParam(8, $enderecoResponsavel->getIdEnderecoResponsavel());
+            $stmt->execute();
+            return 'Dados do endereço do responsável atualizados com sucesso!';
+        }
+
+        public function excluir($enderecoResponsavel){
+            $conexao = Conexao::conectar();
+            $stmt = $conexao->prepare('DELETE FROM tbenderecoresponsavel WHERE idEnderecoResponsavel = ?');
+            $stmt->bindParam(1, $enderecoResponsavel->getIdEnderecoResponsavel());
+            $stmt->execute();
+            return 'Endereço do responsável excluido com sucesso!';
+        }
+
     }
 
 ?>

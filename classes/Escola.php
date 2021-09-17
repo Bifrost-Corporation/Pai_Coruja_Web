@@ -49,6 +49,24 @@
             return $listaEscola;
         }
 
+        public function atualizar($escola){
+            $conexao = Conexao::conectar();
+            $stmt = $conexao->prepare('UPDATE tbescola SET nomeEscola = ?, idAdministrador = ? WHERE idEscola = ?');
+            $stmt->bindParam(1, $escola->getNomeEscola());
+            $stmt->bindParam(2, $escola->getIdAdministrador());
+            $stmt->bindParam(3, $escola->getIdEscola());
+            $stmt->execute();
+            return 'Dados da escola atualizados com sucesso!';
+        }
+
+        public function excluir($escola){
+            $conexao = Conexao::conectar();
+            $stmt = $conexao->prepare('DELETE FROM tbescola WHERE idEscola = ?');
+            $stmt->bindParam(1, $escola->getIdEscola());
+            $stmt->execute();
+            return 'Escola excluída com sucesso!';
+        }
+
     }
 
 ?>

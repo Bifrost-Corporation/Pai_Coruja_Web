@@ -58,6 +58,25 @@
             return $listaDisciplina;
         }
 
+        public function atualizar($disciplina){
+            $conexao = Conexao::conectar();
+            $stmt = $conexao->prepare('UPDATE tbdisciplina SET nomeDisciplina = ?, idProfessor = ?, idEscola = ? WHERE idDisciplina = ?');
+            $stmt->bindParam(1, $disciplina->getNomeDisciplina());
+            $stmt->bindParam(2, $disciplina->getIdProfessor());
+            $stmt->bindParam(3, $disciplina->getIdEscola());
+            $stmt->bindParam(4, $disciplina->getIdDisciplina());
+            $stmt->execute();
+            return 'Dados da disciplina atualizados com sucesso!';
+        }
+
+        public function excluir($disciplina){
+            $conexao = Conexao::conectar();
+            $stmt = $conexao->prepare('DELETE FROM tbdisciplina WHERE idDisciplina = ?');
+            $stmt->bindParam(1, $disciplina->getIdDisciplina());
+            $stmt->execute();
+            return 'Disciplina excluida com sucesso!';
+        }
+
     }
 
 ?>

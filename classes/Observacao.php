@@ -62,6 +62,26 @@
             return 'Cadastro da observação realizado com sucesso!';
         }
 
+        public function atualizar($observacao){
+            $conexao = Conexao::conectar();
+            $stmt = $conexao->prepare('UPDATE tbobservacao SET qtdePontosObservacao = ?, descObservacao = ?, idProfessor = ?, idAluno = ? WHERE idObservacao = ?');
+            $stmt->bindParam(1, $observacao->getQtdePontosObservacao());
+            $stmt->bindParam(2, $observacao->getDescObservacao());
+            $stmt->bindParam(3, $observacao->getIdProfessor());
+            $stmt->bindParam(4, $observacao->getIdAluno());
+            $stmt->bindParam(5, $observacao->getIdObservacao());
+            $stmt->execute();
+            return 'Obersavação atualizada com sucesso!';
+        }
+
+        public function excluir($observacao){
+            $conexao = Conexao::conectar();
+            $stmt = $conexao->prepare('DELETE FROM tbobservacao WHERE idObservacao = ?');
+            $stmt->bindParam(1, $observacao->getIdObservacao());
+            $stmt->execute();
+            return 'Observação excluida com sucesso!';
+        }
+
     }
 
 ?>

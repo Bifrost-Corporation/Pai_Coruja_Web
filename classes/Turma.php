@@ -50,6 +50,24 @@
             return $listaTurma;
         }
 
+        public function atualizar($turma){
+            $conexao = Conexao::conectar();
+            $stmt = $conexao->prepare('UPDATE tbturma SET nomeTurma = ?, idEscola = ? WHERE idTurma = ?');
+            $stmt->bindParam(1, $turma->getNomeTurma());
+            $stmt->bindParam(2, $turma->getIdEscola());
+            $stmt->bindParam(3, $turma->getIdTurma());
+            $stmt->execute();
+            return 'Turma atualizada com sucesso!';
+        }
+
+        public function excluir($turma){
+            $conexao = Conexao::conectar();
+            $stmt = $conexao->prepare('DELETE FROM tbturma WHERE idTurma = ?');
+            $stmt->bindParam(1, $turma->getIdTurma());
+            $stmt->execute();
+            return 'Turma deletada com sucesso!';
+        }
+
     }
 
 ?>
