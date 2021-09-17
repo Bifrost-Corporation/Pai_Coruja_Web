@@ -59,7 +59,7 @@
             $responsavel->setNomeResponsavel($nomeResponsavel);
             $responsavel->setCpfResponsavel($cpfResponsavel);
             $responsavel->setEmailResponsavel($emailResponsavel);
-            $responsavel->setSenhaResponsavel($senhaResponsavel);
+            $responsavel->setSenhaResponsavel(md5($senhaResponsavel));
             $responsavel->setIdAluno($idAluno);
             $responsavel->cadastrar($responsavel);
             $listaIdResponsavel = $responsavel->selecionarUltimoResponsavel();

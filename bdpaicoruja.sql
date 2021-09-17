@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3307
--- Generation Time: Sep 01, 2021 at 11:59 PM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.1
+-- Tempo de geração: 18/09/2021 às 01:04
+-- Versão do servidor: 10.4.11-MariaDB
+-- Versão do PHP: 7.4.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `bdpaicoruja`
+-- Banco de dados: `bdpaicoruja`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbadministrador`
+-- Estrutura para tabela `tbadministrador`
 --
 
 CREATE TABLE `tbadministrador` (
@@ -35,16 +35,16 @@ CREATE TABLE `tbadministrador` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbadministrador`
+-- Despejando dados para a tabela `tbadministrador`
 --
 
 INSERT INTO `tbadministrador` (`idAdministrador`, `loginAdministrador`, `senhaAdministrador`) VALUES
-(1, 'adm.bifrost.paicoruja@gmail.com', 'dcdadogdkpmprdvd');
+(1, 'adm.bifrost.paicoruja@gmail.com', 'aa0754437f2c96d0b64bb9710bbb3c62');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbaluno`
+-- Estrutura para tabela `tbaluno`
 --
 
 CREATE TABLE `tbaluno` (
@@ -58,7 +58,7 @@ CREATE TABLE `tbaluno` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbdisciplina`
+-- Estrutura para tabela `tbdisciplina`
 --
 
 CREATE TABLE `tbdisciplina` (
@@ -71,7 +71,7 @@ CREATE TABLE `tbdisciplina` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbenderecoresponsavel`
+-- Estrutura para tabela `tbenderecoresponsavel`
 --
 
 CREATE TABLE `tbenderecoresponsavel` (
@@ -88,7 +88,7 @@ CREATE TABLE `tbenderecoresponsavel` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbescola`
+-- Estrutura para tabela `tbescola`
 --
 
 CREATE TABLE `tbescola` (
@@ -97,19 +97,10 @@ CREATE TABLE `tbescola` (
   `idAdministrador` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `tbescola`
---
-
-INSERT INTO `tbescola` (`idEscola`, `nomeEscola`, `idAdministrador`) VALUES
-(1, 'Etec de Guaianazes', 1),
-(2, 'EMEF Profª Clotilde Rosa Henriques Elias', 1),
-(3, 'Escola Estadual Jardim Pedra Branca', 1);
-
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbevento`
+-- Estrutura para tabela `tbevento`
 --
 
 CREATE TABLE `tbevento` (
@@ -123,7 +114,7 @@ CREATE TABLE `tbevento` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbhorarioturma`
+-- Estrutura para tabela `tbhorarioturma`
 --
 
 CREATE TABLE `tbhorarioturma` (
@@ -137,7 +128,7 @@ CREATE TABLE `tbhorarioturma` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbimagemevento`
+-- Estrutura para tabela `tbimagemevento`
 --
 
 CREATE TABLE `tbimagemevento` (
@@ -150,7 +141,7 @@ CREATE TABLE `tbimagemevento` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbimagemperfilprofessor`
+-- Estrutura para tabela `tbimagemperfilprofessor`
 --
 
 CREATE TABLE `tbimagemperfilprofessor` (
@@ -163,7 +154,7 @@ CREATE TABLE `tbimagemperfilprofessor` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbimagemperfilresponsavel`
+-- Estrutura para tabela `tbimagemperfilresponsavel`
 --
 
 CREATE TABLE `tbimagemperfilresponsavel` (
@@ -176,7 +167,7 @@ CREATE TABLE `tbimagemperfilresponsavel` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbobservacao`
+-- Estrutura para tabela `tbobservacao`
 --
 
 CREATE TABLE `tbobservacao` (
@@ -190,7 +181,7 @@ CREATE TABLE `tbobservacao` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbprofessor`
+-- Estrutura para tabela `tbprofessor`
 --
 
 CREATE TABLE `tbprofessor` (
@@ -198,13 +189,14 @@ CREATE TABLE `tbprofessor` (
   `nomeProfessor` varchar(50) NOT NULL,
   `emailProfessor` varchar(150) NOT NULL,
   `senhaProfessor` varchar(150) NOT NULL,
-  `idEscola` int(11) DEFAULT NULL
+  `idEscola` int(11) DEFAULT NULL,
+  `codNovaSenha` char(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbpublicacao`
+-- Estrutura para tabela `tbpublicacao`
 --
 
 CREATE TABLE `tbpublicacao` (
@@ -217,7 +209,7 @@ CREATE TABLE `tbpublicacao` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbresponsavel`
+-- Estrutura para tabela `tbresponsavel`
 --
 
 CREATE TABLE `tbresponsavel` (
@@ -226,13 +218,14 @@ CREATE TABLE `tbresponsavel` (
   `cpfResponsavel` char(14) NOT NULL,
   `emailResponsavel` varchar(150) NOT NULL,
   `senhaResponsavel` varchar(150) NOT NULL,
-  `idAluno` int(11) DEFAULT NULL
+  `idAluno` int(11) DEFAULT NULL,
+  `codNovaSenha` char(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbsecretaria`
+-- Estrutura para tabela `tbsecretaria`
 --
 
 CREATE TABLE `tbsecretaria` (
@@ -241,21 +234,14 @@ CREATE TABLE `tbsecretaria` (
   `emailSecretaria` varchar(150) NOT NULL,
   `senhaSecretaria` varchar(150) NOT NULL,
   `idEscola` int(11) DEFAULT NULL,
-  `idAdministrador` int(11) DEFAULT NULL
+  `idAdministrador` int(11) DEFAULT NULL,
+  `codNovaSenha` char(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `tbsecretaria`
---
-
-INSERT INTO `tbsecretaria` (`idSecretaria`, `nomeSecretaria`, `emailSecretaria`, `senhaSecretaria`, `idEscola`, `idAdministrador`) VALUES
-(1, 'Regiane da Silva', 'se.clotilde1998@hotmail.com', 'senhateste', 2, 1),
-(2, 'Regiane da Silva', 'se.clotilde2000@hotmail.com', 'senhateste', 1, 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbtelefoneresponsavel`
+-- Estrutura para tabela `tbtelefoneresponsavel`
 --
 
 CREATE TABLE `tbtelefoneresponsavel` (
@@ -267,7 +253,7 @@ CREATE TABLE `tbtelefoneresponsavel` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbturma`
+-- Estrutura para tabela `tbturma`
 --
 
 CREATE TABLE `tbturma` (
@@ -279,7 +265,7 @@ CREATE TABLE `tbturma` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbusuario`
+-- Estrutura para tabela `tbusuario`
 --
 
 CREATE TABLE `tbusuario` (
@@ -290,24 +276,25 @@ CREATE TABLE `tbusuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Indexes for dumped tables
+-- Índices de tabelas apagadas
 --
 
 --
--- Indexes for table `tbadministrador`
+-- Índices de tabela `tbadministrador`
 --
 ALTER TABLE `tbadministrador`
   ADD PRIMARY KEY (`idAdministrador`);
 
 --
--- Indexes for table `tbaluno`
+-- Índices de tabela `tbaluno`
 --
 ALTER TABLE `tbaluno`
   ADD PRIMARY KEY (`idAluno`),
-  ADD KEY `fk_aluno_turma` (`idTurma`);
+  ADD KEY `fk_aluno_turma` (`idTurma`),
+  ADD KEY `fk_aluno_escola` (`idEscola`);
 
 --
--- Indexes for table `tbdisciplina`
+-- Índices de tabela `tbdisciplina`
 --
 ALTER TABLE `tbdisciplina`
   ADD PRIMARY KEY (`idDisciplina`),
@@ -315,28 +302,28 @@ ALTER TABLE `tbdisciplina`
   ADD KEY `fk_disciplina_escola` (`idEscola`);
 
 --
--- Indexes for table `tbenderecoresponsavel`
+-- Índices de tabela `tbenderecoresponsavel`
 --
 ALTER TABLE `tbenderecoresponsavel`
   ADD PRIMARY KEY (`idEnderecoResponsavel`),
   ADD KEY `fk_endereco_responsavel` (`idResponsavel`);
 
 --
--- Indexes for table `tbescola`
+-- Índices de tabela `tbescola`
 --
 ALTER TABLE `tbescola`
   ADD PRIMARY KEY (`idEscola`),
   ADD KEY `fk_escola_administrador` (`idAdministrador`);
 
 --
--- Indexes for table `tbevento`
+-- Índices de tabela `tbevento`
 --
 ALTER TABLE `tbevento`
   ADD PRIMARY KEY (`idEvento`),
   ADD KEY `fk_evento_secretaria` (`idSecretaria`);
 
 --
--- Indexes for table `tbhorarioturma`
+-- Índices de tabela `tbhorarioturma`
 --
 ALTER TABLE `tbhorarioturma`
   ADD PRIMARY KEY (`idHorarioTurma`),
@@ -345,28 +332,28 @@ ALTER TABLE `tbhorarioturma`
   ADD KEY `fk_horario_escola` (`idEscola`);
 
 --
--- Indexes for table `tbimagemevento`
+-- Índices de tabela `tbimagemevento`
 --
 ALTER TABLE `tbimagemevento`
   ADD PRIMARY KEY (`idImagemEvento`),
   ADD KEY `fk_imagemEvento_evento` (`idEvento`);
 
 --
--- Indexes for table `tbimagemperfilprofessor`
+-- Índices de tabela `tbimagemperfilprofessor`
 --
 ALTER TABLE `tbimagemperfilprofessor`
   ADD PRIMARY KEY (`idImagemPerfilProfessor`),
   ADD KEY `fk_imagemPerfilProfessor_professor` (`idProfessor`);
 
 --
--- Indexes for table `tbimagemperfilresponsavel`
+-- Índices de tabela `tbimagemperfilresponsavel`
 --
 ALTER TABLE `tbimagemperfilresponsavel`
   ADD PRIMARY KEY (`idImagemPerfilResponsavel`),
   ADD KEY `fk_imagemPerfilResponsavel_responsavel` (`idResponsavel`);
 
 --
--- Indexes for table `tbobservacao`
+-- Índices de tabela `tbobservacao`
 --
 ALTER TABLE `tbobservacao`
   ADD PRIMARY KEY (`idObservacao`),
@@ -374,28 +361,28 @@ ALTER TABLE `tbobservacao`
   ADD KEY `fk_observacao_professor` (`idProfessor`);
 
 --
--- Indexes for table `tbprofessor`
+-- Índices de tabela `tbprofessor`
 --
 ALTER TABLE `tbprofessor`
   ADD PRIMARY KEY (`idProfessor`),
   ADD KEY `fk_professor_escola` (`idEscola`);
 
 --
--- Indexes for table `tbpublicacao`
+-- Índices de tabela `tbpublicacao`
 --
 ALTER TABLE `tbpublicacao`
   ADD PRIMARY KEY (`idPublicacao`),
   ADD KEY `fk_publicacao_professor` (`idProfessor`);
 
 --
--- Indexes for table `tbresponsavel`
+-- Índices de tabela `tbresponsavel`
 --
 ALTER TABLE `tbresponsavel`
   ADD PRIMARY KEY (`idResponsavel`),
   ADD KEY `fk_responsavel_aluno` (`idAluno`);
 
 --
--- Indexes for table `tbsecretaria`
+-- Índices de tabela `tbsecretaria`
 --
 ALTER TABLE `tbsecretaria`
   ADD PRIMARY KEY (`idSecretaria`),
@@ -403,20 +390,21 @@ ALTER TABLE `tbsecretaria`
   ADD KEY `fk_secretaria_administrador` (`idAdministrador`);
 
 --
--- Indexes for table `tbtelefoneresponsavel`
+-- Índices de tabela `tbtelefoneresponsavel`
 --
 ALTER TABLE `tbtelefoneresponsavel`
   ADD PRIMARY KEY (`idTelefoneResponsavel`),
   ADD KEY `fk_telefoneResponsavel_responsavel` (`idResponsavel`);
 
 --
--- Indexes for table `tbturma`
+-- Índices de tabela `tbturma`
 --
 ALTER TABLE `tbturma`
-  ADD PRIMARY KEY (`idTurma`);
+  ADD PRIMARY KEY (`idTurma`),
+  ADD KEY `fk_turma_escola` (`idEscola`);
 
 --
--- Indexes for table `tbusuario`
+-- Índices de tabela `tbusuario`
 --
 ALTER TABLE `tbusuario`
   ADD PRIMARY KEY (`idUsuario`),
@@ -425,225 +413,225 @@ ALTER TABLE `tbusuario`
   ADD KEY `fk_usuario_secretaria` (`idSecretaria`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de tabelas apagadas
 --
 
 --
--- AUTO_INCREMENT for table `tbadministrador`
+-- AUTO_INCREMENT de tabela `tbadministrador`
 --
 ALTER TABLE `tbadministrador`
   MODIFY `idAdministrador` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `tbaluno`
+-- AUTO_INCREMENT de tabela `tbaluno`
 --
 ALTER TABLE `tbaluno`
   MODIFY `idAluno` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tbdisciplina`
+-- AUTO_INCREMENT de tabela `tbdisciplina`
 --
 ALTER TABLE `tbdisciplina`
   MODIFY `idDisciplina` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tbenderecoresponsavel`
+-- AUTO_INCREMENT de tabela `tbenderecoresponsavel`
 --
 ALTER TABLE `tbenderecoresponsavel`
   MODIFY `idEnderecoResponsavel` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tbescola`
+-- AUTO_INCREMENT de tabela `tbescola`
 --
 ALTER TABLE `tbescola`
-  MODIFY `idEscola` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idEscola` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tbevento`
+-- AUTO_INCREMENT de tabela `tbevento`
 --
 ALTER TABLE `tbevento`
   MODIFY `idEvento` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tbhorarioturma`
+-- AUTO_INCREMENT de tabela `tbhorarioturma`
 --
 ALTER TABLE `tbhorarioturma`
   MODIFY `idHorarioTurma` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tbimagemevento`
+-- AUTO_INCREMENT de tabela `tbimagemevento`
 --
 ALTER TABLE `tbimagemevento`
   MODIFY `idImagemEvento` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tbimagemperfilprofessor`
+-- AUTO_INCREMENT de tabela `tbimagemperfilprofessor`
 --
 ALTER TABLE `tbimagemperfilprofessor`
   MODIFY `idImagemPerfilProfessor` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tbimagemperfilresponsavel`
+-- AUTO_INCREMENT de tabela `tbimagemperfilresponsavel`
 --
 ALTER TABLE `tbimagemperfilresponsavel`
   MODIFY `idImagemPerfilResponsavel` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tbobservacao`
+-- AUTO_INCREMENT de tabela `tbobservacao`
 --
 ALTER TABLE `tbobservacao`
   MODIFY `idObservacao` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tbprofessor`
+-- AUTO_INCREMENT de tabela `tbprofessor`
 --
 ALTER TABLE `tbprofessor`
   MODIFY `idProfessor` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tbpublicacao`
+-- AUTO_INCREMENT de tabela `tbpublicacao`
 --
 ALTER TABLE `tbpublicacao`
   MODIFY `idPublicacao` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tbresponsavel`
+-- AUTO_INCREMENT de tabela `tbresponsavel`
 --
 ALTER TABLE `tbresponsavel`
   MODIFY `idResponsavel` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tbsecretaria`
+-- AUTO_INCREMENT de tabela `tbsecretaria`
 --
 ALTER TABLE `tbsecretaria`
-  MODIFY `idSecretaria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idSecretaria` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tbtelefoneresponsavel`
+-- AUTO_INCREMENT de tabela `tbtelefoneresponsavel`
 --
 ALTER TABLE `tbtelefoneresponsavel`
   MODIFY `idTelefoneResponsavel` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tbturma`
+-- AUTO_INCREMENT de tabela `tbturma`
 --
 ALTER TABLE `tbturma`
   MODIFY `idTurma` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tbusuario`
+-- AUTO_INCREMENT de tabela `tbusuario`
 --
 ALTER TABLE `tbusuario`
   MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- Constraints for dumped tables
+-- Restrições para dumps de tabelas
 --
 
 --
--- Constraints for table `tbaluno`
+-- Restrições para tabelas `tbaluno`
 --
 ALTER TABLE `tbaluno`
-  ADD CONSTRAINT `fk_aluno_turma` FOREIGN KEY (`idTurma`) REFERENCES `tbturma` (`idTurma`),
-  ADD CONSTRAINT `fk_aluno_escola` FOREIGN KEY (`idEscola`) REFERENCES `tbescola` (`idEscola`);
+  ADD CONSTRAINT `fk_aluno_escola` FOREIGN KEY (`idEscola`) REFERENCES `tbescola` (`idEscola`),
+  ADD CONSTRAINT `fk_aluno_turma` FOREIGN KEY (`idTurma`) REFERENCES `tbturma` (`idTurma`);
 
 --
--- Constraints for table `tbdisciplina`
+-- Restrições para tabelas `tbdisciplina`
 --
 ALTER TABLE `tbdisciplina`
-  ADD CONSTRAINT `fk_disciplina_professor` FOREIGN KEY (`idProfessor`) REFERENCES `tbprofessor` (`idProfessor`),
-  ADD CONSTRAINT `fk_disciplina_escola` FOREIGN KEY (`idEscola`) REFERENCES `tbescola` (`idEscola`);
+  ADD CONSTRAINT `fk_disciplina_escola` FOREIGN KEY (`idEscola`) REFERENCES `tbescola` (`idEscola`),
+  ADD CONSTRAINT `fk_disciplina_professor` FOREIGN KEY (`idProfessor`) REFERENCES `tbprofessor` (`idProfessor`);
 
 --
--- Constraints for table `tbenderecoresponsavel`
+-- Restrições para tabelas `tbenderecoresponsavel`
 --
 ALTER TABLE `tbenderecoresponsavel`
   ADD CONSTRAINT `fk_endereco_responsavel` FOREIGN KEY (`idResponsavel`) REFERENCES `tbresponsavel` (`idResponsavel`);
 
 --
--- Constraints for table `tbescola`
+-- Restrições para tabelas `tbescola`
 --
 ALTER TABLE `tbescola`
   ADD CONSTRAINT `fk_escola_administrador` FOREIGN KEY (`idAdministrador`) REFERENCES `tbadministrador` (`idAdministrador`);
 
 --
--- Constraints for table `tbevento`
+-- Restrições para tabelas `tbevento`
 --
 ALTER TABLE `tbevento`
   ADD CONSTRAINT `fk_evento_secretaria` FOREIGN KEY (`idSecretaria`) REFERENCES `tbsecretaria` (`idSecretaria`);
 
 --
--- Constraints for table `tbhorarioturma`
+-- Restrições para tabelas `tbhorarioturma`
 --
 ALTER TABLE `tbhorarioturma`
   ADD CONSTRAINT `fk_horario_disciplina` FOREIGN KEY (`idDisciplina`) REFERENCES `tbdisciplina` (`idDisciplina`),
-  ADD CONSTRAINT `fk_horario_turma` FOREIGN KEY (`idTurma`) REFERENCES `tbturma` (`idTurma`),
-  ADD CONSTRAINT `fk_horario_escola` FOREIGN KEY (`idEscola`) REFERENCES `tbescola` (`idEscola`);
+  ADD CONSTRAINT `fk_horario_escola` FOREIGN KEY (`idEscola`) REFERENCES `tbescola` (`idEscola`),
+  ADD CONSTRAINT `fk_horario_turma` FOREIGN KEY (`idTurma`) REFERENCES `tbturma` (`idTurma`);
 
 --
--- Constraints for table `tbimagemevento`
+-- Restrições para tabelas `tbimagemevento`
 --
 ALTER TABLE `tbimagemevento`
   ADD CONSTRAINT `fk_imagemEvento_evento` FOREIGN KEY (`idEvento`) REFERENCES `tbevento` (`idEvento`);
 
 --
--- Constraints for table `tbimagemperfilprofessor`
+-- Restrições para tabelas `tbimagemperfilprofessor`
 --
 ALTER TABLE `tbimagemperfilprofessor`
   ADD CONSTRAINT `fk_imagemPerfilProfessor_professor` FOREIGN KEY (`idProfessor`) REFERENCES `tbprofessor` (`idProfessor`);
 
 --
--- Constraints for table `tbimagemperfilresponsavel`
+-- Restrições para tabelas `tbimagemperfilresponsavel`
 --
 ALTER TABLE `tbimagemperfilresponsavel`
   ADD CONSTRAINT `fk_imagemPerfilResponsavel_responsavel` FOREIGN KEY (`idResponsavel`) REFERENCES `tbresponsavel` (`idResponsavel`);
 
 --
--- Constraints for table `tbobservacao`
+-- Restrições para tabelas `tbobservacao`
 --
 ALTER TABLE `tbobservacao`
   ADD CONSTRAINT `fk_observacao_aluno` FOREIGN KEY (`idAluno`) REFERENCES `tbaluno` (`idAluno`),
   ADD CONSTRAINT `fk_observacao_professor` FOREIGN KEY (`idProfessor`) REFERENCES `tbprofessor` (`idProfessor`);
 
 --
--- Constraints for table `tbprofessor`
+-- Restrições para tabelas `tbprofessor`
 --
 ALTER TABLE `tbprofessor`
   ADD CONSTRAINT `fk_professor_escola` FOREIGN KEY (`idEscola`) REFERENCES `tbescola` (`idEscola`);
 
 --
--- Constraints for table `tbpublicacao`
+-- Restrições para tabelas `tbpublicacao`
 --
 ALTER TABLE `tbpublicacao`
   ADD CONSTRAINT `fk_publicacao_professor` FOREIGN KEY (`idProfessor`) REFERENCES `tbprofessor` (`idProfessor`);
 
 --
--- Constraints for table `tbresponsavel`
+-- Restrições para tabelas `tbresponsavel`
 --
 ALTER TABLE `tbresponsavel`
   ADD CONSTRAINT `fk_responsavel_aluno` FOREIGN KEY (`idAluno`) REFERENCES `tbaluno` (`idAluno`);
 
 --
--- Constraints for table `tbsecretaria`
+-- Restrições para tabelas `tbsecretaria`
 --
 ALTER TABLE `tbsecretaria`
   ADD CONSTRAINT `fk_secretaria_administrador` FOREIGN KEY (`idAdministrador`) REFERENCES `tbadministrador` (`idAdministrador`),
   ADD CONSTRAINT `fk_secretaria_escola` FOREIGN KEY (`idEscola`) REFERENCES `tbescola` (`idEscola`);
 
 --
--- Constraints for table `tbtelefoneresponsavel`
+-- Restrições para tabelas `tbtelefoneresponsavel`
 --
 ALTER TABLE `tbtelefoneresponsavel`
   ADD CONSTRAINT `fk_telefoneResponsavel_responsavel` FOREIGN KEY (`idResponsavel`) REFERENCES `tbresponsavel` (`idResponsavel`);
 
 --
--- Constraints for table `tbturma`
+-- Restrições para tabelas `tbturma`
 --
 ALTER TABLE `tbturma`
   ADD CONSTRAINT `fk_turma_escola` FOREIGN KEY (`idEscola`) REFERENCES `tbescola` (`idEscola`);
- 
+
 --
--- Constraints for table `tbusuario`
+-- Restrições para tabelas `tbusuario`
 --
 ALTER TABLE `tbusuario`
   ADD CONSTRAINT `fk_usuario_professor` FOREIGN KEY (`idProfessor`) REFERENCES `tbprofessor` (`idProfessor`),

@@ -15,7 +15,7 @@
         $resultadoadm = $conexao->query($queryadm);
         $listaadm = $resultadoadm->fetchAll(PDO::FETCH_ASSOC);
         foreach($listaadm as $linha){
-            if($linha['loginAdministrador'] == $emailForm && $linha['senhaAdministrador'] == $senhaForm){
+            if($linha['loginAdministrador'] == $emailForm && $linha['senhaAdministrador'] == md5($senhaForm)){
                 $verificalogin = true;
                 $_SESSION['idAdministrador'] = $linha['idAdministrador'];
                 $_SESSION['emailAdm'] = $emailForm;
@@ -27,7 +27,7 @@
         $resultadosecretaria = $conexao->query($querysecretaria);
         $listasecretaria = $resultadosecretaria->fetchAll(PDO::FETCH_ASSOC);
         foreach($listasecretaria as $linha){
-            if($linha['emailSecretaria'] == $emailForm && $linha['senhaSecretaria'] == $senhaForm){
+            if($linha['emailSecretaria'] == $emailForm && $linha['senhaSecretaria'] == md5($senhaForm)){
                 $verificalogin = true;
                 $_SESSION['idSecretaria'] = $linha['idSecretaria'];
                 $_SESSION['nomeSecretaria'] = $linha['nomeSecretaria'];
@@ -41,7 +41,7 @@
         $resultadoprofessor = $conexao->query($queryprofessor);
         $listaprofessor = $resultadoprofessor->fetchAll(PDO::FETCH_ASSOC);
         foreach($listaprofessor as $linha){
-            if($linha['emailProfessor'] == $emailForm && $linha['senhaProfessor'] == $senhaForm){
+            if($linha['emailProfessor'] == $emailForm && $linha['senhaProfessor'] == md5($senhaForm)){
                 $verificalogin = true;
                 $_SESSION['idProfessor'] = $linha['idProfessor'];
                 $_SESSION['idEscola'] = $linha['idEscola'];
@@ -55,7 +55,7 @@
         $resultadoresponsavel = $conexao->query($queryresponsavel);
         $listaresponsavel = $resultadoresponsavel->fetchAll(PDO::FETCH_ASSOC);
         foreach($listaresponsavel as $linha){
-            if($linha['emailResponsavel'] == $emailForm && $linha['senhaResponsavel'] == $senhaForm){
+            if($linha['emailResponsavel'] == $emailForm && $linha['senhaResponsavel'] == md5($senhaForm)){
                 $verificalogin = true;
                 $_SESSION['idResponsavel'] = $linha['idResponsavel'];
                 $_SESSION['nomeResponsavel'] = $linha['nomeResponsavel'];

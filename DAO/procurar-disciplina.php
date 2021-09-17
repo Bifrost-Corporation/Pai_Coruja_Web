@@ -1,10 +1,11 @@
 <?php
 
     require_once ('../classes/Conexao.php');
+    session_start();
     $conexao = Conexao::conectar();
     if(isset($_POST['query'])){
         $inputUsuario = $_POST['query'];
-        $query = "SELECT nomeDisciplina FROM tbdisciplina WHERE nomeDisciplina LIKE '%$inputUsuario%'";
+        $query = "SELECT nomeDisciplina FROM tbdisciplina WHERE nomeDisciplina LIKE '%$inputUsuario%' AND idEscola LIKE '$_SESSION[idEscola]'";
         $resultadoConsulta = $conexao->query($query);
         $lista = $resultadoConsulta->fetchAll();
         if($resultadoConsulta->rowCount() > 0){

@@ -20,20 +20,12 @@
                 <p class="label-login">Login</p>
             </div>
             <form name="form-login" method="POST" action="DAO/consulta-login.php">
-                <section class="caixa-alerta-email">
-                    <div>
-                        <p class="txt-alerta-email">Login Inválido</p>
-                    </div>
-                </section>
-                <div class="div-titulo2">
+                <div class="div-titulo3">
+                    <label class="label-erro" id="label-email"></label>
                     <input type="email" class="input-email" name="txtEmail" id="txtEmail" placeholder="Digite seu email">
                 </div>
-                <section class="caixa-alerta-senha">
-                    <div>
-                        <p class="txt-alerta-senha">Senha Inválida</p>
-                    </div>
-                </section>
-                <div class="div-titulo2">
+                <div class="div-titulo3">
+                    <label class="label-erro" id="label-senha"></label>
                     <input type="password" class="input-senha" name="txtSenha" id="txtSenha" placeholder="Digite sua senha">
                 </div>
                 <div class="div-login">
@@ -63,10 +55,16 @@
         jQuery('form').on('submit',function(e){
             var email = $('.input-email').val();
             var senha = $('.input-senha').val();
-            if (email.length == 0) {
-                $('.txt-alerta-email').html('Por favor, informe o email!');
-                $('.caixa-alerta-email').show();
-                $('.caixa-alerta-email').fadeOut(5000);
+            var emailSemEspaco = email.trim();
+            var senhaSemEspaco = senha.trim();
+            if (email.length == 0 || email == '') {
+                $('#label-email').html('Informe um email!');
+                $('#txtEmail').addClass('erro-form');
+                $('#label-email').show();
+                setTimeout(function () {
+                    $('#label-email').fadeOut(1);
+                    $('#txtEmail').removeClass('erro-form');
+                }, 5000);
                 e.preventDefault();
             } else {
                 var verificararroba = false;
@@ -80,18 +78,25 @@
                     }
                 }
                 if (verificaponto == false || verificararroba == false) {
-                    $('.txt-alerta-email').html('Email inválido!');
-                    $('.caixa-alerta-email').show();
-                    $('.caixa-alerta-email').fadeOut(5000);
+                    $('#label-email').html('Email inválido!');
+                    $('#txtEmail').addClass('erro-form');
+                    $('#label-email').show();
+                    setTimeout(function () {
+                        $('#label-email').fadeOut(1);
+                        $('#txtEmail').removeClass('erro-form');
+                    }, 5000);
                     e.preventDefault();
                 }
             }
-            if (senha.length == 0) {
-                $('.txt-alerta-senha').html('Por favor, informe a senha!');
-                $('.caixa-alerta-senha').show();
-                $('.caixa-alerta-senha').fadeOut(5000);
+            if (senha.length == 0 || senhaSemEspaco == '') {
+                $('#label-senha').html('Informe uma senha!');
+                $('#txtSenha').addClass('erro-form');
+                $('#label-senha').show();
+                setTimeout(function () {
+                    $('#label-senha').fadeOut(1);
+                    $('#txtSenha').removeClass('erro-form');
+                }, 5000);
                 e.preventDefault();
-                
             }
         });
     </script>
