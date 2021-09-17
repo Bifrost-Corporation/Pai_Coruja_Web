@@ -27,7 +27,8 @@
     --azulnavbar: #26466D;
     --azulbtnsair: #042243;
     --azulmenulateral: #123256;
-    --azulumpoucosaturado: #163677;
+    --azulumpoucosaturado:#163677;
+    --azulsaturado: #0d2591;
     --cinzamaisclaro: #f7f7f7;
     --cinzaclaro: #f3f3f3;
     --cinzaclaro100: #dcdcdc;
@@ -356,7 +357,7 @@ p {
 .sidebar {
     height: 100vh;
     width: 240px;
-    background: linear-gradient(#2b1677, #1352b1);
+    background: var(--azulumpoucosaturado);
     padding: 6px 14px;
     position: fixed;
     overflow-y: scroll;
@@ -523,8 +524,8 @@ p {
 
 .profile #logout-user {
     position: absolute;
-    left: 88%;
-    bottom: 3px;
+    left: 87%;
+    bottom: 5px;
     transform: translateX(-10%);
     min-width: 50px;
     line-height: 50px;
@@ -533,7 +534,7 @@ p {
 }
 
 .profile-logout a {
-    color: var(--cinzamaisclaro);
+    color: var(--cinzafonte);
     transition: 200ms;
 }
 
@@ -622,6 +623,14 @@ p {
 
 
 /* HOME */
+.destaque-card{
+    display: flex;
+    justify-content: space-between;
+    width: 100% ;
+    height: 340px !important;
+    padding: 2rem;
+
+}
 
 .destaque-card:nth-child(1) {
     display: flex;
@@ -1336,6 +1345,7 @@ input[type="file"] {
         user-select: none;
     }
     .btn-nav-close {
+        display: block;
         transition: 200ms;
         cursor: pointer;
         user-select: none;

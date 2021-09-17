@@ -1,9 +1,9 @@
 
 function ShowElement(botaoAbrir, divSection, botaoFechar) {
     const btnOpen = document.querySelector(botaoAbrir)
-    console.log(btnOpen)
     const divSectionContainer = document.querySelector(divSection)
     const btnClose = document.querySelector(botaoFechar)
+    
 
     btnOpen.addEventListener("click", function () {
         if (divSectionContainer.style.display === "flex" || divSectionContainer.style.display === "block") {
@@ -32,4 +32,7 @@ const ExibirSubDadosSecretaria = new ShowElement(
     '.dropdown-dados',
     '.dropdown-dados-lista'
 )
+
+
+
 

@@ -37,7 +37,7 @@
                     </div>
                     <div class="close-mobile-navbar">
                         <span>Menu Pai Coruja</span>
-                        <a class="fas fa-arrow-left"><i class="far fa-window-close"></i></a>
+                        <a class="btn-nav-close"><i class="far fa-window-close"></i></a>
                     </div>
                 </div>
             </div>
