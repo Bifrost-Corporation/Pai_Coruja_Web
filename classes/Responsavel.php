@@ -89,6 +89,19 @@
             return $listaResponsavel;
         }
 
+        public function atualizar($responsavel){
+            $conexao = Conexao::conectar();
+            $stmt = $conexao->prepare('UPDATE tbresponsavel SET nomeResponsavel = ?, cpfResponsavel = ?, emailResponsavel = ?, senhaResponsavel = ?, idAluno = ? WHERE idResponsavel = ?');
+            $stmt->bindParam(1, $responsavel->getNomeResponsavel());
+            $stmt->bindParam(2, $responsavel->getCpfResponsavel());
+            $stmt->bindParam(3, $responsavel->getEmailResponsavel());
+            $stmt->bindParam(4, $responsavel->getSenhaResponsavel());
+            $stmt->bindParam(5, $responsavel->getIdAluno());
+            $stmt->bindParam(6, $responsavel->getIdResponsavel());
+            $stmt->execute();
+            return 'Dados do responsável atualizados com sucesso!';
+        }
+
         public function selecionarUltimoResponsavel(){
             $conexao = Conexao::conectar();
             $queryResponsavel = "SELECT idResponsavel FROM tbresponsavel WHERE idResponsavel = (SELECT MAX(idResponsavel) FROM tbResponsavel)";

@@ -52,6 +52,17 @@
             return 'Cadastro da imagem do evento realizado com sucesso!';
         }
 
+        public function atualizar($imagemEvento){
+            $conexao = Conexao::conectar();
+            $stmt = $conexao->prepare('UPDATE tbimagemevento SET nomeImagemEvento = ?, caminhoImagemEvento = ?, idEvento = ? WHERE idImagemEvento = ?');
+            $stmt->bindParam(1, $imagemEvento->getNomeImagemEvento());
+            $stmt->bindParam(2, $imagemEvento->getCaminhoImagemEvento());
+            $stmt->bindParam(3, $imagemEvento->getIdEvento());
+            $stmt->bindParam(4, $imagemEvento->getIdImagemEvento());
+            $stmt->execute();
+            return 'Imagem do evento atualizada com sucesso!';
+        }
+
     }
 
 ?>

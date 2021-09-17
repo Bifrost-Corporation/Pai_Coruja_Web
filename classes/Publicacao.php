@@ -52,6 +52,17 @@
             return 'Cadastro da publicação realizado com sucesso!';
         }
 
+        public function atualizar($publicaco){
+            $conexao = Conexao::conectar();
+            $stmt = $conexao->prepare('UPDATE tbpublicacao SET tituloPublicacao = ?, descPublicacao = ?, idProfessor = ? WHERE idPublicacao = ?');
+            $stmt->bindParam(1, $publicaco->getTituloPublicacao());
+            $stmt->bindParam(2, $publicaco->getDescPublicacao());
+            $stmt->bindParam(3, $publicaco->getIdProfessor());
+            $stmt->bindParam(4, $publicaco->getIdPublicacao());
+            $stmt->execute();
+            return 'Publicação atualizada com sucesso!';
+        }
+
     }
 
 ?>

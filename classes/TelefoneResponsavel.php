@@ -42,6 +42,16 @@
             return 'Cadastro do telefone do responsável realizado com sucesso!';
         }
 
+        public function atualizar($telefoneResponsavel){
+            $conexao = Conexao::conectar();
+            $stmt = $conexao->prepare('UPDATE tbtelefoneresponsavel SET numTelefoneResponsavel = ?, idResponsavel = ? WHERE idTelefoneResponsavel = ?');
+            $stmt->bindParam(1, $telefoneResponsavel->getNumTelefoneResponsavel());
+            $stmt->bindParam(2, $telefoneResponsavel->getIdResponsavel());
+            $stmt->bindParam(3, $telefoneResponsavel->getIdTelefoneResponsavel());
+            $stmt->execute();
+            return 'Telefone do responsável atualizado!';
+        }
+
     }
 
 ?>

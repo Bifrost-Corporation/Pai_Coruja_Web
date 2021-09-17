@@ -78,6 +78,18 @@
             return $listaNomeTurma;
         }
 
+        public function atualizar($aluno){
+            $conexao = Conexao::conectar();
+            $stmt = $conexao->prepare('UPDATE tbaluno SET nomeAluno = ?, dataNascAluno = ?, idTurma = ?, idEscola = ? WHERE idAluno  = ?');
+            $stmt->bindParam(1, $aluno->getNomeAluno());
+            $stmt->bindParam(2, $aluno->getDataNascAluno());
+            $stmt->bindParam(3, $aluno->getIdTurma());
+            $stmt->bindParam(4, $aluno->getIdEscola());
+            $stmt->bindParam(5, $aluno->getIdAluno());
+            $stmt->execute();
+            return 'Dados do aluno atualizados com sucesso!';
+        }
+
     }
 
 ?>

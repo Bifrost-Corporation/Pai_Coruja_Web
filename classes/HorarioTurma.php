@@ -60,6 +60,18 @@
             return 'Cadastro do horário da turma realizado com sucesso!';
         }
 
+        public function atualizar($horarioTurma){
+            $conexao = Conexao::conectar();
+            $stmt = $conexao->prepare('UPDATE tbhorarioturma SET diaSemana = ?, idTurma = ?, idDisciplina = ?, idEscola = ? WHERE idHorarioTurma = ?');
+            $stmt->bindParam(1, $horarioTurma->getDiaSemana());
+            $stmt->bindParam(2, $horarioTurma->getIdTurma());
+            $stmt->bindParam(3, $horarioTurma->getIdDisciplina());
+            $stmt->bindParam(4, $horarioTurma->getIdEscola());
+            $stmt->bindParam(5, $horarioTurma->getIdHorarioTurma());
+            $stmt->execute();
+            return 'Dados do horário da turma atualizados com sucesso!';
+        }
+
     }
 
 ?>

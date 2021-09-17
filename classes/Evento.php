@@ -70,6 +70,18 @@
             return $listaEvento;
         }
 
+        public function atualizar($evento){
+            $conexao = Conexao::conectar();
+            $stmt = $conexao->prepare('UPDATE tbevento SET tituloEvento = ?, descEvento = ?, dataEvento = ?, idSecretaria = ? WHERE idEvento = ?');
+            $stmt->bindParam(1, $evento->getTituloEvento());
+            $stmt->bindParam(2, $evento->getDescEvento());
+            $stmt->bindParam(3, $evento->getDataEvento());
+            $stmt->bindParam(4, $evento->getIdSecretaria());
+            $stmt->bindParam(5, $evento->getIdEvento());
+            $stmt->execute();
+            return 'Dados do evento atualizados com sucesso!';
+        }
+
     }
 
 ?>

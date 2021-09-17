@@ -52,6 +52,17 @@
             return 'Cadastro da imagem do perfil do responsável realizado com sucesso!';
         }
 
+        public function atualizar($imagemResponsavel){
+            $conexao = Conexao::conectar();
+            $stmt = $conexao->prepare('UPDATE tbimagemperfilresponsavel SET nomeImagemPerfilResponsael = ?, caminhoImagemPerfilResponsavel = ?, idResponsavel = ? WHERE idImagemPerfilResponsavel = ?');
+            $stmt->bindParam(1, $imagemResponsavel->getNomeImagemResponsavel());
+            $stmt->bindParam(2, $imagemResponsavel->getCaminhoImagemResponsavel());
+            $stmt->bindParam(3, $imagemResponsavel->getIdResponsavel());
+            $stmt->bindParam(4, $imagemResponsavel->getIdImagemResponsavel());
+            $stmt->execute();
+            return 'Imagem de perfil do responsável atualizada com sucesso!';
+        }
+
     }
 
 ?>

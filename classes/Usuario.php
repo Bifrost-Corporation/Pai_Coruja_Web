@@ -60,6 +60,17 @@
             return $listaUsuario;
         }
 
+        public function atualizar($usuario){
+            $conexao = Conexao::conectar();
+            $stmt = $conexao->prepare('UPDATE tbusuario SET idProfessor = ?, idResponsavel = ?, idSecretaria = ? WHERE idUsuario = ?');
+            $stmt->bindParam(1, $usuario->getIdProfessor());
+            $stmt->bindParam(2, $usuario->getIdResponsavel());
+            $stmt->bindParam(3, $usuario->getIdSecretaria());
+            $stmt->bindParam(4, $usuario->getIdUsuario());
+            $stmt->execute();
+            return 'Dados do usuário atualizados com sucesso!';
+        }
+
     }
 
 ?>

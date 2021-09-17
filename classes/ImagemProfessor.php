@@ -52,6 +52,17 @@
             return 'Cadastro de imagem de perfil do professor realizado com sucesso!';
         }
 
+        public function atualizar($imagemProfessor){
+            $conexao = Conexao::conectar();
+            $stmt = $conexao->prepare('UPDATE tbimagemperfilprofessor SET nomeImagemPerfilProfessor = ?, caminhoImagemPerfilProfessor = ?, idProfessor = ? WHERE idImagemPerfilProfessor = ?');
+            $stmt->bindParam(1, $imagemProfessor->getNomeImagemProfessor());
+            $stmt->bindParam(2, $imagemProfessor->getCaminhoImagemProfessor());
+            $stmt->bindParam(3, $imagemProfessor->getIdProfessor());
+            $stmt->bindParam(4, $imagemProfessor->getIdImagemProfessor());
+            $stmt->execute();
+            return 'Imagem de perfil do professor atualizada com sucesso!';
+        }
+
     }
 
 ?>
