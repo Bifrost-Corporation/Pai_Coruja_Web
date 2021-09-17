@@ -40,7 +40,7 @@
         if($repeteemail == false && $repeteescola == false && $idEscola != null) {
             $secretaria->setNomeSecretaria($nomeSecretaria);
             $secretaria->setEmailSecretaria($emailSecretaria);
-            $secretaria->setSenhaSecretaria($senhaSecretaria);
+            $secretaria->setSenhaSecretaria(md5($senhaSecretaria));
             $secretaria->setIdEscola($idEscola);
             $secretaria->setIdAdministrador($idAdministrador);
             echo $secretaria->cadastrar($secretaria);

@@ -6,7 +6,7 @@
     $conexao = Conexao::conectar();
     if(isset($_POST['query'])){
         $inputUsuario = $_POST['query'];
-        $query = "SELECT nomeProfessor, idEscola FROM tbprofessor WHERE idEscola LIKE '$_SESSION[idEscola]'";
+        $query = "SELECT nomeProfessor, idEscola FROM tbprofessor WHERE nomeProfessor LIKE '%$inputUsuario%' AND idEscola LIKE '$_SESSION[idEscola]'";
         $resultadoConsulta = $conexao->query($query);
         $lista = $resultadoConsulta->fetchAll();
         if($resultadoConsulta->rowCount() > 0){
@@ -17,7 +17,7 @@
             }
         }
         else {
-            echo "<div class='opcao-consulta'>";
+            echo "<div class='opcao-consulta2'>";
                     echo "<p class='texto-consulta'> Professor não encontrado! </p>";
                 echo "</div>";
         }
