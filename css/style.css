@@ -580,6 +580,7 @@ p {
 }
 
 
+
 /* 
 .profile-logout span{
     isso aq é pra um span pro botão de logout
@@ -1176,6 +1177,7 @@ input[type="file"] {
 
 .container-exibir-dados {
     width: 80%;
+    min-height: 50vh;
     margin: 0 auto;
     background: var(--cinzamaisclaro);
     padding: 30px;
@@ -1195,33 +1197,61 @@ input[type="file"] {
     opacity: 1;
 }
 
-.dropdown-dados {
-    display: flex;
-    margin-top: 10px;
-    justify-content: space-between;
+.box-titulo-bar-search{
+    width:100%;
     align-items: center;
-    width: 100%;
-    border-radius: 18px;
-    padding: 20px;
-    background: var(--cinzamaisclaro);
-}
+    padding:15px 0px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
 
-.dropdown-dados:hover {
-    background: var(--cinzaclaro100);
-    opacity: 0.8;
 }
-
-.icons-dropdown {
+.box-titulo-bar-search h1{
     font-size: 1.5rem;
-    color: var(--azulumpoucosaturado);
+    color: var(--cinzafonte);
+
+}
+.box-search{
+    padding: 10px;
+    border-radius: 18px;
+    background-color: var(--branco);
+}
+.box-search input[type=text]{
+    outline: none;
+    border: none;
+    color: var(--cinzafonte);
+
+    background-color: transparent;
 }
 
-.dropdown-dados-lista {
-    margin: 0rem 2rem;
-    padding: 1rem 2rem;
-    background-color: var(--cinzaclaro);
-    border-radius: 10px;
+.btn-search{
+    margin-right: 5px;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
 }
+.table-dados{
+    width:100%;
+    overflow-x: auto;
+}
+.table-dados table{
+    border-collapse: collapse;
+    width: 100%;
+    
+}
+.table-dados table thead tr{
+    border-top: 1px solid var(--cinzaclaro100);
+    border-bottom: 1px solid var(--cinzaclaro100);
+}
+.table-dados thead td{
+    font-weight: 700;
+}
+.table-dados td{
+    font-size: .9rem;
+    padding: .5rem;
+}
+
 
 
 /* ACabo */
@@ -1420,5 +1450,11 @@ input[type="file"] {
     .container-controlers {
         width: 100%;
         gap: 0;
+    }
+    .container-exibir-dados {
+        width: 100%;
+    }
+    .box-search{
+        width: 100%;
     }
 }

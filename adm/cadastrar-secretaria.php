@@ -159,7 +159,7 @@
         <section class="container-controlers">
             <div id="btn-show-div-exibir-dados" class="content-card-link1" checked>
                 <div class="side-left">
-                    <h1>2</h1>
+                    <h1>10</h1>
                     <p>Secretárias</p>
                 </div>
                 <div class="side-right">    
@@ -181,64 +181,109 @@
             
         </section>
         <div class="container-exibir-dados">
-        <h1>Secretárias Cadastradas</h1>
-            <div class="dropdown-dados" id="123">
-                <p>Usuario: Claudia <i class="fas fa-caret-down" class="dropdown-icon"></i></p>
-                <div class="itens-dropdown-dados">
-                <i class="icons-dropdown fas fa-cog" aria-hidden="true"></i>
-                <i class="icons-dropdown fas fa-times" aria-hidden="true"></i> 
-                </div>
+            <div class="box-titulo-bar-search">
+                <h1>Secretárias Cadastradas</h1> 
+                <form action="#" class="box-search">
+                    <button class="btn-search"><i class="fa fa-search" aria-hidden="true"></i></button>
+                    <input type="text" name="search" placeholder="Busque..">
+                </form>                                                                                                            
             </div>
-            <div class="dropdown-dados-lista">
-                <div class="item-dados-lista">
-                    <p><strong>Email:</strong> UAU@gmail.com</p>
-                    <p><strong>Senha:</strong> Teste</p>
-                    <p><strong>Escola:</strong> E. E. UAU</p>
-                </div>
+            <div class="table-dados">
+               <table>
+                   <thead>
+                       <tr>
+                           <td>Usuario:</td>
+                           <td>Email:</td>
+                           <td>Senha:</td>
+                           <td>Escola:</td>
+                           <td>Alterar</td>
+                           <td>Excluir</td>
+                       </tr>
+                   </thead>
+                   <tbody>
+                      <tr>
+                          <td>Danylo</td>
+                          <td>Danylouau@gmail.com</td>
+                          <td>senha1234</td>
+                          <td>E E UAU</td>
+                          <td><i class="icons-table fa fa-cog"></i></td>
+                          <td><i class="icons-table fas fa-times" aria-hidden="true"></i></td>
+                      </tr>
+                      <tr>
+                          <td>Danylo</td>
+                          <td>Danylouau@gmail.com</td>
+                          <td>senha1234</td>
+                          <td>E E UAU</td>
+                          <td><i class="icons-dropdown fa fa-cog"></i></td>
+                          <td><i class="icons-dropdown fas fa-times" aria-hidden="true"></i></td>
+                      </tr>
+                      <tr>
+                          <td>Danylo</td>
+                          <td>Danylouau@gmail.com</td>
+                          <td>senha1234</td>
+                          <td>E E UAU</td>
+                          <td><i class="icons-dropdown fa fa-cog"></i></td>
+                          <td><i class="icons-dropdown fas fa-times" aria-hidden="true"></i></td>
+                      </tr>
+                      <tr>
+                          <td>Danylo</td>
+                          <td>Danylouau@gmail.com</td>
+                          <td>senha1234</td>
+                          <td>E E UAU</td>
+                          <td><i class="icons-dropdown fa fa-cog"></i></td>
+                          <td><i class="icons-dropdown fas fa-times" aria-hidden="true"></i></td>
+                      </tr>
+                      <tr>
+                          <td>Danylo</td>
+                          <td>Danylouau@gmail.com</td>
+                          <td>senha1234</td>
+                          <td>E E UAU</td>
+                          <td><i class="icons-dropdown fa fa-cog"></i></td>
+                          <td><i class="icons-dropdown fas fa-times" aria-hidden="true"></i></td>
+                      </tr>
+                      <tr>
+                          <td>Danylo</td>
+                          <td>Danylouau@gmail.com</td>
+                          <td>senha1234</td>
+                          <td>E E UAU</td>
+                          <td><i class="icons-dropdown fa fa-cog"></i></td>
+                          <td><i class="icons-dropdown fas fa-times" aria-hidden="true"></i></td>
+                      </tr>
+                      <tr>
+                          <td>Danylo</td>
+                          <td>Danylouau@gmail.com</td>
+                          <td>senha1234</td>
+                          <td>E E UAU</td>
+                          <td><i class="icons-dropdown fa fa-cog"></i></td>
+                          <td><i class="icons-dropdown fas fa-times" aria-hidden="true"></i></td>
+                      </tr>
+                      <tr>
+                          <td>Danylo</td>
+                          <td>Danylouau@gmail.com</td>
+                          <td>senha1234</td>
+                          <td>E E UAU</td>
+                          <td><i class="icons-dropdown fa fa-cog"></i></td>
+                          <td><i class="icons-dropdown fas fa-times" aria-hidden="true"></i></td>
+                      </tr>
+                      <tr>
+                          <td>Danylo</td>
+                          <td>Danylouau@gmail.com</td>
+                          <td>senha1234</td>
+                          <td>E E UAU</td>
+                          <td><i class="icons-dropdown fa fa-cog"></i></td>
+                          <td><i class="icons-dropdown fas fa-times" aria-hidden="true"></i></td>
+                      </tr>
+                      <tr>
+                          <td>Danylo</td>
+                          <td>Danylouau@gmail.com</td>
+                          <td>senha1234</td>
+                          <td>E E UAU</td>
+                          <td><i class="icons-dropdown fa fa-cog"></i></td>
+                          <td><i class="icons-dropdown fas fa-times" aria-hidden="true"></i></td>
+                      </tr>
+                   </tbody>
+               </table>
             </div>
-            <div class="dropdown-dados" id="1223">
-                <p>Usuario: Claudio <i class="fas fa-caret-down" class="dropdown-icon"></i></p>
-                <div class="itens-dropdown-dados">
-                <i class="icons-dropdown fas fa-cog" aria-hidden="true"></i>
-                <i class="icons-dropdown fas fa-times" aria-hidden="true"></i> 
-                </div>
-            </div>
-            <div class="dropdown-dados-lista">
-                <div class="item-dados-lista">
-                    <p><strong>Email:</strong> UAU@gmail.com</p>
-                    <p><strong>Senha:</strong> Teste</p>
-                    <p><strong>Escola:</strong> E. E. UAU</p>
-                </div>
-            </div>
-            <div class="dropdown-dados" id="1238">
-                <p>Usuario: Douglas <i class="fas fa-caret-down" class="dropdown-icon"></i></p>
-                <div class="itens-dropdown-dados">
-                <i class="icons-dropdown fas fa-cog" aria-hidden="true"></i>
-                <i class="icons-dropdown fas fa-times" aria-hidden="true"></i> 
-                </div>
-            </div>
-            <div class="dropdown-dados-lista" id="13">
-                <div class="item-dados-lista">
-                    <p><strong>Email:</strong> UAU@gmail.com</p>
-                    <p><strong>Senha:</strong> Teste</p>
-                    <p><strong>Escola:</strong> E. E. UAU</p>
-                </div>
-            </div>
-            <div class="dropdown-dados">
-                <p>Usuario: Douglas <i class="fas fa-caret-down" class="dropdown-icon"></i></p>
-                <div class="itens-dropdown-dados">
-                <i class="icons-dropdown fas fa-cog" aria-hidden="true"></i>
-                <i class="icons-dropdown fas fa-times" aria-hidden="true"></i> 
-                </div>
-            </div>
-            <div class="dropdown-dados-lista" id="1243">
-                <div class="item-dados-lista">
-                    <p><strong>Email:</strong> UAU@gmail.com</p>
-                    <p><strong>Senha:</strong> Teste</p>
-                    <p><strong>Escola:</strong> E. E. UAU</p>
-                </div>
-            </div>
-        
         </div>
     </main>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

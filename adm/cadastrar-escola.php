@@ -150,15 +150,30 @@
             
         </section>
         <div class="container-exibir-dados">
-            <h1>Escolas Cadastradas</h1>
-            <div class="dropdown-dados">
-                <p>Name: E. E. Prof Saturnino Pereira</p>
-                <div class="itens-dropdown-dados">
-                <i class="icons-dropdown fa fa-cog"></i>
-                
-                <i class="icons-dropdown fas fa-times" aria-hidden="true"></i> 
-                
-                </div>
+            <div class="box-titulo-bar-search">
+                <h1>Secretárias Cadastradas</h1> 
+                <form action="#" class="box-search">
+                    <button class="btn-search"><i class="fa fa-search" aria-hidden="true"></i></button>
+                    <input type="text" name="search" placeholder="Busque..">
+                </form>                                                                                                            
+            </div>
+            <div class="table-dados">
+               <table>
+                   <thead>
+                       <tr>
+                           <td>Nome:</td>
+                           <td>Alterar</td>
+                           <td>Excluir</td>
+                       </tr>
+                   </thead>
+                   <tbody>
+                      <tr>
+                          <td>E E Prof UAU</td>
+                          <td><i class="icons-table fa fa-cog"></i></td>
+                          <td><i class="icons-table fas fa-times" aria-hidden="true"></i></td>
+                      </tr>
+                   </tbody>
+               </table>
             </div>
         </div>
         
