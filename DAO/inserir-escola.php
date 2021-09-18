@@ -4,12 +4,22 @@
 
     try{
         header("location: ../adm/cadastrar-escola.php");
+        $idEscola = $_POST['idEscola'];
+        $idAdministrador = $_POST['idAdministrador'];
         $nomeEscola = $_POST['txtNomeEscola'];
-        $idAdministrador = $_SESSION['idAdministrador'];
         $escola = new Escola();
         $escola->setNomeEscola($nomeEscola);
-        $escola->setIdAdministrador($idAdministrador);
-        echo $escola->cadastrar($escola);
+        if($idEscola > 0 && $idAdministrador > 0){
+            $escola->setIdEscola($idEscola);
+            $escola->setIdAdministrador($idAdministrador);
+            echo $escola->atualizar($escola);
+            return 'Escola atualizada com sucesso!';
+        }else{
+            $idAdministrador = $_SESSION['idAdministrador'];
+            $escola->setIdAdministrador($idAdministrador);
+            echo $escola->cadastrar($escola);
+            return 'Escola cadastrada com sucesso!';
+        }
     }catch(Exception $e){
         echo $e->getMessage();
     }

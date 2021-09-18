@@ -16,6 +16,7 @@
 <body>
     <?php
         include("sentinela.php");
+        include("globalAdm.php");
     ?>
     <header>
 
@@ -113,12 +114,14 @@
         <section class="main-section">
             <form name="nomeEscola" class="formulario" method="POST" action="../DAO/inserir-escola.php">
                 <div class="user-details">
+                    <input type="hidden" value="<?php echo @$_GET['idEscola']; ?>" id="idEscola" name="idEscola">
                     <div class="input-box-width100">
                         <h2>Nome da Escola: </h2>
                         <label class="label-erro" id="label-escola"></label>
-                        <input name="txtNomeEscola" id="txtNomeEscola" type="text"
+                        <input name="txtNomeEscola" value="<?php echo @$_GET['nomeEscola'];?>" id="txtNomeEscola" type="text"
                             placeholder="Insira o nome da escola">
                     </div>
+                    <input type="hidden" value="<?php echo @$_GET['idAdministrador'] ?>" id="idAdministrador" name="idAdministrador">
                     <div class="button">
                     <input type="submit" class="btn-nav-exit" value="Cadastrar >">
                     </div>
@@ -126,13 +129,21 @@
             </form>
         </section>
         <section class="container-controlers">
-            <div id="btn-show-div-exibir-dados" class="content-card-link1" checked>
+            <div class="content-card-link1" checked>
                 <div class="side-left">
-                    <h1>2</h1>
+                    <h1>
+                        <?php
+                            $escolaqtde = new Escola();
+                            $listaEscolaQtde = $escolaqtde->contar();
+                            foreach($listaEscolaQtde as $linha){
+                                echo $linha['qtdeEscola'];
+                            }
+                        ?>
+                    </h1>
                     <p>Escolas</p>
                 </div>
                 <div class="side-right">    
-                <a class="btn-ver-dados-tabela"><i class="fas fa-school" aria-hidden="true"></i><p> ver todos</p></a>
+                <a class="btn-ver-dados-tabela" id="btn-show-div-exibir-dados"><i class="fas fa-school" aria-hidden="true"></i><p> ver todos</p></a>
                 
                 </div>
 
@@ -151,27 +162,36 @@
         </section>
         <div class="container-exibir-dados">
             <div class="box-titulo-bar-search">
-                <h1>Secretárias Cadastradas</h1> 
+                <h1>Escolas Cadastradas</h1> 
                 <form action="#" class="box-search">
                     <button class="btn-search"><i class="fa fa-search" aria-hidden="true"></i></button>
                     <input type="text" name="search" placeholder="Busque..">
                 </form>                                                                                                            
             </div>
             <div class="table-dados">
-               <table>
-                   <thead>
-                       <tr>
-                           <td>Nome:</td>
-                           <td>Alterar</td>
-                           <td>Excluir</td>
-                       </tr>
-                   </thead>
-                   <tbody>
-                      <tr>
-                          <td>E E Prof UAU</td>
-                          <td><i class="icons-table fa fa-cog"></i></td>
-                          <td><i class="icons-table fas fa-times" aria-hidden="true"></i></td>
-                      </tr>
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Nome:</td>
+                            <td>Alterar</td>
+                            <td>Excluir</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <?php
+                        $escola = new Escola();
+                        $listaEscola = $escola->listar();
+                        foreach($listaEscola as $linha){
+                    ?>
+                        <tr>
+                          <td><?php echo $linha['nomeEscola'] ?></td>
+                          <td><?php echo "<a class'opcao-icone' href='?idEscola={$linha['idEscola']}&nomeEscola={$linha['nomeEscola']}&idAdministrador={$linha['idAdministrador']}'>"?><i class="icons-table fa fa-cog opcao-icone"></i><?php echo "</a>" ?></td>
+                          <td><?php echo "<a href='../DAO/excluir-escola.php?idEscola={$linha['idEscola']}'"?> onclick="return confirm('Você está prestes a excluir a escola: <?php echo $linha['nomeEscola'] ?>, tem certeza?')"><i class="icons-table fas fa-times" aria-hidden="true"></i></td>
+                        </tr>
+                    <?php
+                       }
+                    ?>
+                      
                    </tbody>
                </table>
             </div>

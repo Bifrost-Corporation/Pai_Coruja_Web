@@ -27,7 +27,7 @@
     --azulnavbar: #26466D;
     --azulbtnsair: #042243;
     --azulmenulateral: #123256;
-    --azulumpoucosaturado:#163677;
+    --azulumpoucosaturado: #163677;
     --azulsaturado: #0d2591;
     --cinzamaisclaro: #f7f7f7;
     --cinzaclaro: #f3f3f3;
@@ -111,7 +111,6 @@ p {
     font-size: 2rem;
     text-align: center;
     font-weight: bold;
-    
 }
 
 .input-senha,
@@ -237,13 +236,13 @@ p {
     border-color: var(--azulbtnsair);
 }
 
-.btn-esqueci a{
+.btn-esqueci a {
     text-decoration: none;
     color: var(--cinzafonte);
 }
 
 .btn-esqueci:hover,
-.btn-login:hover{
+.btn-login:hover {
     transition: 200ms;
     transform: scale(0.94);
 }
@@ -533,9 +532,9 @@ p {
     font-weight: 400;
 }
 
-.profile-content .profile-menu{
+.profile-content .profile-menu {
     /* transform:translateY(200px); */
-    margin: -0.6rem 1rem ;
+    margin: -0.6rem 1rem;
     display: flex;
     padding: 1rem;
     border-radius: 1rem;
@@ -546,18 +545,15 @@ p {
     opacity: 0;
     pointer-events: none;
     transition: all 200ms ease-out;
-
 }
 
-.profile-content:hover .profile-menu{
+.profile-content:hover .profile-menu {
     transition: 200ms ease-out;
     display: flex;
     opacity: 1;
-    pointer-events:all;
-    transform:translateY(0px);
+    pointer-events: all;
+    transform: translateY(0px);
 }
-
-
 
 .profile-menu a {
     text-decoration: none;
@@ -566,6 +562,7 @@ p {
     color: var(--cinzafonte);
     transition: 200ms;
 }
+
 .profile-menu a:hover {
     text-decoration: none;
     border-radius: 3.5rem;
@@ -575,10 +572,10 @@ p {
     background-color: var(--azulnavbar);
     transition: 200ms;
 }
+
 .profile-menu a span {
     width: 100%;
 }
-
 
 
 /* 
@@ -665,13 +662,13 @@ p {
 
 
 /* HOME */
-.destaque-card{
+
+.destaque-card {
     display: flex;
     justify-content: space-between;
-    width: 100% ;
+    width: 100%;
     height: 340px !important;
     padding: 2rem;
-
 }
 
 .destaque-card:nth-child(1) {
@@ -1197,61 +1194,64 @@ input[type="file"] {
     opacity: 1;
 }
 
-.box-titulo-bar-search{
-    width:100%;
+.box-titulo-bar-search {
+    width: 100%;
     align-items: center;
-    padding:15px 0px;
+    padding: 15px 0px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-between;
-
 }
-.box-titulo-bar-search h1{
+
+.box-titulo-bar-search h1 {
     font-size: 1.5rem;
     color: var(--cinzafonte);
-
 }
-.box-search{
+
+.box-search {
     padding: 10px;
     border-radius: 18px;
     background-color: var(--branco);
 }
-.box-search input[type=text]{
+
+.box-search input[type=text] {
     outline: none;
     border: none;
     color: var(--cinzafonte);
-
     background-color: transparent;
 }
 
-.btn-search{
+.btn-search {
     margin-right: 5px;
     cursor: pointer;
     border: none;
     background-color: transparent;
 }
-.table-dados{
-    width:100%;
+
+.table-dados {
+    width: 100%;
     overflow-x: auto;
 }
-.table-dados table{
+
+.table-dados table {
     border-collapse: collapse;
     width: 100%;
-    
 }
-.table-dados table thead tr{
+
+.table-dados table thead tr {
     border-top: 1px solid var(--cinzaclaro100);
     border-bottom: 1px solid var(--cinzaclaro100);
 }
-.table-dados thead td{
+
+.table-dados thead td {
     font-weight: 700;
 }
-.table-dados td{
+
+.table-dados td {
     font-size: .9rem;
     padding: .5rem;
 }
-
 
 
 /* ACabo */
@@ -1454,7 +1454,7 @@ input[type="file"] {
     .container-exibir-dados {
         width: 100%;
     }
-    .box-search{
+    .box-search {
         width: 100%;
     }
 }

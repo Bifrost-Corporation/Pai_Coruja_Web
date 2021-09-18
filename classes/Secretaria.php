@@ -83,7 +83,7 @@
 
         public function listar(){
             $conexao = Conexao::conectar();
-            $querySecretaria = 'SELECT idSecretaria, nomeSecretaria, emailSecretaria, senhaSecretaria, idEscola, idAdministrador, codNovaSenha FROM tbsecretaria';
+            $querySecretaria = 'SELECT idSecretaria, nomeSecretaria, emailSecretaria, senhaSecretaria, tbsecretaria.idEscola, tbsecretaria.idAdministrador, codNovaSenha, nomeEscola FROM tbsecretaria INNER JOIN tbescola ON tbsecretaria.idEscola = tbescola.idEscola';
             $resultadoSecretaria = $conexao->query($querySecretaria);
             $listaSecretaria = $resultadoSecretaria->fetchAll(PDO::FETCH_ASSOC);
             return $listaSecretaria;
@@ -134,6 +134,14 @@
             $stmt->bindParam(2, $secretaria->getIdSecretaria());
             $stmt->execute();
             return 'Update da senha realizado com sucesso!';
+        }
+
+        public function contar(){
+            $conexao = Conexao::conectar();
+            $querySecretaria = "SELECT COUNT(idSecretaria) AS 'qtdeSecretaria' FROM tbsecretaria";
+            $resultadoSecretaria = $conexao->query($querySecretaria);
+            $listaSecretaria = $resultadoSecretaria->fetchAll(PDO::FETCH_ASSOC);
+            return $listaSecretaria;
         }
 
     }

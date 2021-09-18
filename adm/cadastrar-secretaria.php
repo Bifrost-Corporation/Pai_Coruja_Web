@@ -16,6 +16,7 @@
 <body>
     <?php
         include("sentinela.php");
+        include("globalAdm.php");
     ?>
     <header>
 
@@ -114,11 +115,12 @@
             <form class="formulario" name="formCadastrarSecretaria" method="POST"
                 action="../DAO/inserir-secretaria.php">
                 <div class="user-details">
+                    <input type="hidden" id="idSecretaria" name="idSecretaria" value="<?php echo @$_GET['idSecretaria']; ?>">
                     <div class="input-box-width100">
                         <h2>Nome de usuário da Secretária:</h2>
                         <label class="label-erro" id="label-usuario"></label>
                         <input name="txtUsuarioSecretaria" id="txtUsuarioSecretaria" type="text"
-                            placeholder="Insira o nome de usuário para a secretaria">
+                            placeholder="Insira o nome de usuário para a secretaria" value="<?php echo @$_GET['nomeSecretaria']; ?>">
                     </div>
                     <div class="input-box-width100">
                         <h2>Email Secretária:</h2>
@@ -126,7 +128,9 @@
                         <input name="txtEmailSecretaria" id="txtEmailSecretaria" type="text"
                             placeholder="Insira o email da secretaria" value="<?php if(isset($_SESSION['emailSecretaria'])){
                                                                                                                                 echo $_SESSION['emailSecretaria'];
-                                                                                                                            } ?>">
+                                                                                                                            }else{
+                                                                                                                                echo @$_GET['emailSecretaria'];
+                                                                                                                            }  ?>">
                     </div>
                     <div class="input-box">
                         <h2>Senha Secretária:</h2>
@@ -145,7 +149,9 @@
                         <input name="txtConsultaEscola" id="txtConsultaEscola" type="text"
                             placeholder="Pesquise aqui o nome da escola" value="<?php if(isset($_SESSION['escolaSecretaria'])){
                                                                                                                                 echo $_SESSION['escolaSecretaria'];
-                                                                                                                            } ?>">
+                                                                                                                            }else{
+                                                                                                                                echo @$_GET['nomeEscola'];
+                                                                                                                            }  ?>">
                         <div id="retornoPesquisa">
 
                         </div>
@@ -157,13 +163,21 @@
             </form>
         </section>
         <section class="container-controlers">
-            <div id="btn-show-div-exibir-dados" class="content-card-link1" checked>
+            <div class="content-card-link1" checked>
                 <div class="side-left">
-                    <h1>10</h1>
-                    <p>Secretárias</p>
+                    <h1>
+                        <?php 
+                            $secretaria = new Secretaria();
+                            $listaSecretaria = $secretaria->contar();
+                            foreach($listaSecretaria as $linha){
+                                echo $linha['qtdeSecretaria'];
+                            }
+                        ?>
+                    </h1>
+                    <p>Secretarias</p>
                 </div>
                 <div class="side-right">    
-                <a class="btn-ver-dados-tabela"><i class="fas fa-school" aria-hidden="true"></i><p> ver todos</p></a>
+                <a class="btn-ver-dados-tabela" id="btn-show-div-exibir-dados"><i class="fas fa-school" aria-hidden="true"></i><p> ver todos</p></a>
                 
                 </div>
 
@@ -189,98 +203,31 @@
                 </form>                                                                                                            
             </div>
             <div class="table-dados">
-               <table>
-                   <thead>
-                       <tr>
-                           <td>Usuario:</td>
-                           <td>Email:</td>
-                           <td>Senha:</td>
-                           <td>Escola:</td>
-                           <td>Alterar</td>
-                           <td>Excluir</td>
-                       </tr>
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Usuario:</td>
+                            <td>Email:</td>
+                            <td>Escola:</td>
+                            <td>Alterar</td>
+                            <td>Excluir</td>
+                        </tr>
                    </thead>
                    <tbody>
-                      <tr>
-                          <td>Danylo</td>
-                          <td>Danylouau@gmail.com</td>
-                          <td>senha1234</td>
-                          <td>E E UAU</td>
-                          <td><i class="icons-table fa fa-cog"></i></td>
-                          <td><i class="icons-table fas fa-times" aria-hidden="true"></i></td>
-                      </tr>
-                      <tr>
-                          <td>Danylo</td>
-                          <td>Danylouau@gmail.com</td>
-                          <td>senha1234</td>
-                          <td>E E UAU</td>
-                          <td><i class="icons-dropdown fa fa-cog"></i></td>
-                          <td><i class="icons-dropdown fas fa-times" aria-hidden="true"></i></td>
-                      </tr>
-                      <tr>
-                          <td>Danylo</td>
-                          <td>Danylouau@gmail.com</td>
-                          <td>senha1234</td>
-                          <td>E E UAU</td>
-                          <td><i class="icons-dropdown fa fa-cog"></i></td>
-                          <td><i class="icons-dropdown fas fa-times" aria-hidden="true"></i></td>
-                      </tr>
-                      <tr>
-                          <td>Danylo</td>
-                          <td>Danylouau@gmail.com</td>
-                          <td>senha1234</td>
-                          <td>E E UAU</td>
-                          <td><i class="icons-dropdown fa fa-cog"></i></td>
-                          <td><i class="icons-dropdown fas fa-times" aria-hidden="true"></i></td>
-                      </tr>
-                      <tr>
-                          <td>Danylo</td>
-                          <td>Danylouau@gmail.com</td>
-                          <td>senha1234</td>
-                          <td>E E UAU</td>
-                          <td><i class="icons-dropdown fa fa-cog"></i></td>
-                          <td><i class="icons-dropdown fas fa-times" aria-hidden="true"></i></td>
-                      </tr>
-                      <tr>
-                          <td>Danylo</td>
-                          <td>Danylouau@gmail.com</td>
-                          <td>senha1234</td>
-                          <td>E E UAU</td>
-                          <td><i class="icons-dropdown fa fa-cog"></i></td>
-                          <td><i class="icons-dropdown fas fa-times" aria-hidden="true"></i></td>
-                      </tr>
-                      <tr>
-                          <td>Danylo</td>
-                          <td>Danylouau@gmail.com</td>
-                          <td>senha1234</td>
-                          <td>E E UAU</td>
-                          <td><i class="icons-dropdown fa fa-cog"></i></td>
-                          <td><i class="icons-dropdown fas fa-times" aria-hidden="true"></i></td>
-                      </tr>
-                      <tr>
-                          <td>Danylo</td>
-                          <td>Danylouau@gmail.com</td>
-                          <td>senha1234</td>
-                          <td>E E UAU</td>
-                          <td><i class="icons-dropdown fa fa-cog"></i></td>
-                          <td><i class="icons-dropdown fas fa-times" aria-hidden="true"></i></td>
-                      </tr>
-                      <tr>
-                          <td>Danylo</td>
-                          <td>Danylouau@gmail.com</td>
-                          <td>senha1234</td>
-                          <td>E E UAU</td>
-                          <td><i class="icons-dropdown fa fa-cog"></i></td>
-                          <td><i class="icons-dropdown fas fa-times" aria-hidden="true"></i></td>
-                      </tr>
-                      <tr>
-                          <td>Danylo</td>
-                          <td>Danylouau@gmail.com</td>
-                          <td>senha1234</td>
-                          <td>E E UAU</td>
-                          <td><i class="icons-dropdown fa fa-cog"></i></td>
-                          <td><i class="icons-dropdown fas fa-times" aria-hidden="true"></i></td>
-                      </tr>
+                   <?php
+                        $listaSecretaria = $secretaria->listar();
+                        foreach($listaSecretaria as $linha){
+                   ?>
+                        <tr>
+                            <td><?php echo $linha['nomeSecretaria'] ?></td>
+                            <td><?php echo $linha['emailSecretaria'] ?></td>
+                            <td><?php echo $linha['nomeEscola'] ?></td>
+                            <td><?php echo "<a class'opcao-icone' href='?idSecretaria={$linha['idSecretaria']}&nomeSecretaria={$linha['nomeSecretaria']}&emailSecretaria={$linha['emailSecretaria']}&senhaSecretaria={$linha['senhaSecretaria']}&idEscola={$linha['idEscola']}&nomeEscola={$linha['nomeEscola']}&idAdministrador={$linha['idAdministrador']}'>"?><i class="icons-table fa fa-cog opcao-icone"></i><?php echo "</a>" ?></td>
+                            <td><?php echo "<a href='../DAO/excluir-secretaria.php?idSecretaria={$linha['idSecretaria']}'"?> onclick="return confirm('Você está prestes a excluir a conta de secretaria: <?php echo $linha['emailSecretaria'] ?> da escola: <?php echo $linha['nomeEscola'] ?>, tem certeza?')"><i class="icons-table fas fa-times" aria-hidden="true"></i></td>
+                        </tr>
+                   <?php
+                        }
+                   ?>
                    </tbody>
                </table>
             </div>
@@ -294,9 +241,11 @@
     <script>
 
         $(document).ready(function(){
+            var repeteEmail = "<?php if(isset($_SESSION['repeteEmail'])){echo true;}else{echo false;} ?>";
+            var repeteEscola = "<?php if(isset($_SESSION['repeteEscola'])){echo true;}else{echo false;} ?>";
             var valueEscola = $('#txtConsultaEscola').val();
             var valueEmail = $('#txtEmailSecretaria').val();
-            if(valueEscola.length > 0){
+            if(valueEscola.length > 0 && repeteEscola == true){
                 $('#label-escola').html('Escola inexistente ou já cadastrada!');
                 $('#txtConsultaEscola').addClass('erro-form');
                 $('#label-escola').show();
@@ -307,10 +256,11 @@
                 }, 5000);
                 <?php
                     unset($_SESSION['escolaSecretaria']);
+                    unset($_SESSION['repeteEscola']);
                 ?>
                 e.preventDefault();
             }
-            if(valueEmail.length > 0){
+            if(valueEmail.length > 0 && repeteEmail == true){
                 $('#label-email').html('Email já cadastrado!');
                 $('#txtEmailSecretaria').addClass('erro-form');
                 $('#label-email').show();
@@ -321,6 +271,7 @@
                 }, 5000);
                 <?php
                     unset($_SESSION['emailSecretaria']);
+                    unset($_SESSION['repeteEmail']);
                 ?>
                 e.preventDefault();
             }

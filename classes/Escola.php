@@ -67,6 +67,14 @@
             return 'Escola excluída com sucesso!';
         }
 
+        public function contar(){
+            $conexao = Conexao::conectar();
+            $queryEscola = "SELECT COUNT(idEscola) AS 'qtdeEscola' FROM tbescola";
+            $resultadoEscola = $conexao->query($queryEscola);
+            $listaEscola = $resultadoEscola->fetchAll(PDO::FETCH_ASSOC);
+            return $listaEscola;
+        }
+
     }
 
 ?>
