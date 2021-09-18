@@ -20,80 +20,85 @@
     ?>
     <header>
 
-<nav class="nav-bar">
-    <a href=""><img class="logo-img" src="../img/pai_coruja_branca.png"></a>
-    <ul class="ul-area-btn">
-        <li class="nav-li"><a class="btn-nav-open"><i class="fas fa-bars"></i></a></li>
-    </ul>
-</nav>
+        <nav class="nav-bar">
+            <a href=""><img class="logo-img" src="../img/pai_coruja_branca.png"></a>
+            <ul class="ul-area-btn">
+                <li class="nav-li"><a class="btn-nav-open"><i class="fas fa-bars"></i></a></li>
+            </ul>
+        </nav>
 
-<div class="sidebar">
-    <div class="logo-content">
-        <div class="logo">
-            <div class="logo-name"><a href="home-adm.php"><img src="../img/pai_coruja_branca.png"></a>
-            </div>
-            <div class="close-mobile-navbar">
-                <span>Menu Pai Coruja</span>
-                <a class="btn-nav-close"><i class="far fa-window-close"></i></a>
-            </div>
-        </div>
-    </div>
-    <ul class="nav-list">
-        <div class="menu-container">
-            <!-- <span>fernfjk</span> -->
-            <li class="links-name">
-                <a href="home-adm.php">
-                    <i class="fas fa-calendar"></i>
-                    <span class="links-name">Mural</span>
-                </a>
-            </li>
-            <li class="links-name">
-                <a href="#">
-                    <i class="fas fa-chalkboard-teacher"></i>
-                    <span class="links-name">Avaliação dos Professores</span>
-                </a>
-            </li>
-            <li class="links-name">
-                <a href="#">
-                    <i class="fas fa-calendar-day"></i>
-                    <span class="links-name">Eventos Programados</span>
-                </a>
-            </li>
-        </div>
-        <hr>
-        <div class="menu-container">
-            <li class="links-name">
-                <a href="cadastrar-escola.php" class="active-nav">
-                    <i class="fas fa-school"></i>
-                    <span class="links-name">Cadastrar Escola</span>
-                </a>
-            </li>
-            <li class="links-name">
-                <a href="cadastrar-secretaria.php">
-                    <i class="fas fa-school"></i>
-                    <span class="links-name">Cadastrar Secretária</span>
-                </a>
-            </li>
-        </div>
-    </ul>
-    <div class="profile-content">
-        <div class="profile">
-            <div class="profile-details">
-                <img src="../img/usuario-de-perfil.png" alt="">
-                <div class="name-job">
-                    <div class="name-menu">Admin</div>
-                    <div class="job-menu">Olá Administrador(a)</div>
+        <div class="sidebar">
+            <div class="logo-content">
+                <div class="logo">
+                    <div class="logo-name"><a href="home-adm.php"><img src="../img/pai_coruja_branca.png"></a>
+                    </div>
+                    <div class="close-mobile-navbar">
+                        <span>Menu Pai Coruja</span>
+                        <a class="btn-nav-close"><i class="far fa-window-close"></i></a>
+                    </div>
                 </div>
             </div>
-            <div class="profile-logout">
-                <a href="logout.php">
-                    <i class="fas fa-sign-out-alt" id="logout-user"></i></a>
+            <ul class="nav-list">
+                <div class="menu-container">
+                    <!-- <span>fernfjk</span> -->
+                    <li class="links-name">
+                        <a href="home-adm.php" class="active-nav">
+                            <i class="fas fa-calendar"></i>
+                            <span class="links-name">Mural</span>
+                        </a>
+                    </li>
+                    <li class="links-name">
+                        <a href="#">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                            <span class="links-name">Avaliação dos Professores</span>
+                        </a>
+                    </li>
+                    <li class="links-name">
+                        <a href="#">
+                            <i class="fas fa-calendar-day"></i>
+                            <span class="links-name">Eventos Programados</span>
+                        </a>
+                    </li>
+                </div>
+                <hr>
+                <div class="menu-container">
+                    <li class="links-name">
+                        <a href="cadastrar-escola.php">
+                            <i class="fas fa-school"></i>
+                            <span class="links-name">Cadastrar Escola</span>
+                        </a>
+                    </li>
+                    <li class="links-name">
+                        <a href="cadastrar-secretaria.php">
+                            <i class="fas fa-school"></i>
+                            <span class="links-name">Cadastrar Secretária</span>
+                        </a>
+                    </li>
+                </div>
+            </ul>
+            <div class="profile-content">
+                <div class="profile-menu">
+                    <a href="logout.php">
+                        <i class="fas fa-sign-out-alt" id="logout-user"></i>
+                        <span>Logout</span>
+                    </a>
+                    <a href="logout.php">
+                        <i class="fas fa-user-cog"></i>
+                        <span>Configurações</span>
+                    </a>
+                </div>
+                <div class="profile">
+                    <div class="profile-details">
+                        <img src="../img/usuario-de-perfil.png" alt="">
+                        <div class="name-job">
+                            <div class="name-menu">Admin</div>
+                            <div class="job-menu">Olá Administrador(a)</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
-
-</header>
+    </header>
 
 
     <main class="container-main area-cadastro">
@@ -123,7 +128,7 @@
                     </div>
                     <input type="hidden" value="<?php echo @$_GET['idAdministrador'] ?>" id="idAdministrador" name="idAdministrador">
                     <div class="button">
-                    <input type="submit" class="btn-nav-exit" value="Cadastrar >">
+                        <input type="submit" class="btn-nav-exit" value="Cadastrar >">
                     </div>
                 </div>
             </form>
@@ -154,11 +159,11 @@
                     <p>Adicionar Escola</p>
                 </div>
                 <div class="side-right">
-                <i class="btn-adicionar-aluno fas fa-school" aria-hidden="true"></i>
-                
+                    <i class="btn-adicionar-aluno fas fa-school" aria-hidden="true"></i>
+
                 </div>
             </a>
-            
+
         </section>
         <div class="container-exibir-dados">
             <div class="box-titulo-bar-search">
@@ -166,7 +171,7 @@
                 <form action="#" class="box-search">
                     <button class="btn-search"><i class="fa fa-search" aria-hidden="true"></i></button>
                     <input type="text" name="search" placeholder="Busque..">
-                </form>                                                                                                            
+                </form>
             </div>
             <div class="table-dados">
                 <table>
@@ -196,7 +201,7 @@
                </table>
             </div>
         </div>
-        
+
     </main>
 
     <script src="../js/nav.js"></script>
@@ -222,7 +227,7 @@
         });
     </script>
     <script src="../js/showDiv.js">
-        
+
     </script>
 
 </body>

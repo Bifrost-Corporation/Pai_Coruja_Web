@@ -34,7 +34,8 @@
             <div class="logo-content">
                 <div class="logo">
                     <div class="logo-name"><a href="home-adm.php"><img src="../img/pai_coruja_branca.png"></a>
-                    </div>
+                    <i class="fas fa-arrow-left"></i>
+                </div>
                     <div class="close-mobile-navbar">
                         <span>Menu Pai Coruja</span>
                         <a class="btn-nav-close"><i class="far fa-window-close"></i></a>
@@ -86,7 +87,7 @@
                         <span>Logout</span>
                     </a>
                     <a href="logout.php">
-                        <i class="fas fa-cog"></i>
+                        <i class="fas fa-user-cog"></i>
                         <span>Configurações</span>
                     </a>
                 </div>
@@ -101,7 +102,6 @@
                 </div>
             </div>
         </div>
-
     </header>
         
     <main class="container-main">
