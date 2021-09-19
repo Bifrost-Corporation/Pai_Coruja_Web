@@ -198,7 +198,7 @@
             var textoInserido = $(this).val();
             if (textoInserido != '') {
                 $.ajax({
-                    url: '../DAO/procurar-turma-aluno.php',
+                    url: '../DAO/procurar-turma-aluno2.php',
                     method: 'POST',
                     data: {
                         query: textoInserido

@@ -29,7 +29,7 @@
 <div class="sidebar">
     <div class="logo-content">
         <div class="logo">
-            <div class="logo-name"><a href="home-adm.php"><img src="../img/pai_coruja_branca.png"></a>
+            <div class="logo-name"><a href="home-responsavel.php"><img src="../img/pai_coruja_branca.png"></a>
             <i class="fas fa-arrow-left"></i>
         </div>
             <div class="close-mobile-navbar">

@@ -20,7 +20,7 @@
             $professor->setIdProfessor($idProfessor);
             $professor->setNomeProfessor($nomeProfessor);
             $professor->setEmailProfessor($emailProfessor);
-            $professor->setSenhaProfessor($senhaProfessor);
+            $professor->setSenhaProfessor(md5($senhaProfessor));
             $professor->setIdEscola($idEscola);
             echo $professor->atualizar($professor);
         }else{
