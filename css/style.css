@@ -419,6 +419,7 @@ p {
     flex-direction: column;
     justify-content: center;
     margin: 0;
+    margin-bottom: 100px;
 }
 
 .sidebar ul hr {
