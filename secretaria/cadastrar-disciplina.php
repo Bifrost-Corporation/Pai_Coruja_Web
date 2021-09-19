@@ -16,6 +16,7 @@
 <body>
     <?php
         include ('sentinela.php');
+        include ('globalSecretaria.php');
     ?>
     <header>
 
@@ -174,7 +175,7 @@
                         <input name="txtProfessor" id="txtProfessor" type="text"
                             placeholder="Insira o professor responsável pela disciplina">
                         <div id="retornoPesquisa">
-
+                            
                         </div>
                     </div>
                     <div class="button">
@@ -183,10 +184,81 @@
                 </div>
             </form>
         </section>
+        <section class="container-controlers">
+            <div class="content-card-link1" checked>
+                <div class="side-left">
+                    <h1>
+                        <?php 
+                            $secretaria = new Secretaria();
+                            $listaSecretaria = $secretaria->contar();
+                            foreach($listaSecretaria as $linha){
+                                echo $linha['qtdeSecretaria'];
+                            }
+                        ?>
+                    </h1>
+                    <p>Disciplinas</p>
+                </div>
+                <div class="side-right">    
+                <a class="btn-ver-dados-tabela" id="btn-show-div-exibir-dados"><i class="fas fa-book-open" aria-hidden="true"></i></i><p> ver todos</p></a>
+                
+                </div>
+
+            </div>
+            <a href="#Topo" class="content-card-link2">
+                <div class="side-left">
+                    <h1>+</h1>
+                    <p>Adicionar Disciplina</p>
+                </div>
+                <div class="side-right">
+                    <i class="btn-adicionar-aluno fas fa-book-open" aria-hidden="true"></i> 
+                </div>
+            </a>
+
+        </section>
+        <div class="container-exibir-dados">
+            <div class="box-titulo-bar-search">
+                <h1>Secretárias Cadastradas</h1>
+                <form action="#" class="box-search">
+                    <button class="btn-search"><i class="fa fa-search" aria-hidden="true"></i></button>
+                    <input type="text" name="search" placeholder="Busque..">
+                </form>
+            </div>
+            <div class="table-dados">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Usuario:</td>
+                            <td>Email:</td>
+                            <td>Escola:</td>
+                            <td>Alterar</td>
+                            <td>Excluir</td>
+                        </tr>
+                   </thead>
+                   <tbody>
+                   <?php
+                        $listaSecretaria = $secretaria->listar();
+                        foreach($listaSecretaria as $linha){
+                   ?>
+                        <tr>
+                            <td><?php echo $linha['nomeSecretaria'] ?></td>
+                            <td><?php echo $linha['emailSecretaria'] ?></td>
+                            <td><?php echo $linha['nomeEscola'] ?></td>
+                            <td><?php echo "<a class'opcao-icone' href='?idSecretaria={$linha['idSecretaria']}&nomeSecretaria={$linha['nomeSecretaria']}&emailSecretaria={$linha['emailSecretaria']}&senhaSecretaria={$linha['senhaSecretaria']}&idEscola={$linha['idEscola']}&nomeEscola={$linha['nomeEscola']}&idAdministrador={$linha['idAdministrador']}'>"?><i class="icons-table fa fa-cog opcao-icone"></i><?php echo "</a>" ?></td>
+                            <td><?php echo "<a href='../DAO/excluir-secretaria.php?idSecretaria={$linha['idSecretaria']}'"?> onclick="return confirm('Você está prestes a excluir a conta de secretaria: <?php echo $linha['emailSecretaria'] ?> da escola: <?php echo $linha['nomeEscola'] ?>, tem certeza?')"><i class="icons-table fas fa-times" aria-hidden="true"></i></td>
+                        </tr>
+                   <?php
+                        }
+                   ?>
+                   </tbody>
+               </table>
+            </div>
+        </div>
     </main>
 
     <script src="../js/nav.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="../js/showDiv.js"></script>
+    <script src="../js/jquery-dropdown.js"></script>
 
     <script>
         jQuery('#txtProfessor').keyup(function () {

@@ -60,6 +60,14 @@
             return 'Telefone do responsável deletado com sucesso!';
         }
 
+        public function listar(){
+            $conexao = Conexao::conectar();
+            $queryTelefone = "SELECT idTelefoneResponsavel, numTelefoneResponsavel, idResponsavel FROM tbtelefoneresponsavel";
+            $resultadoTelefore = $conexao->query($queryTelefone);
+            $listaTelefone = $resultadoTelefore->fetchAll(PDO::FETCH_ASSOC);
+            return $listaTelefone;
+        }
+
     }
 
 ?>

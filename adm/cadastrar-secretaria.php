@@ -82,7 +82,7 @@
                         <i class="fas fa-sign-out-alt" id="logout-user"></i>
                         <span>Logout</span>
                     </a>
-                    <a href="logout.php">
+                    <a href="#">
                         <i class="fas fa-user-cog"></i>
                         <span>Configurações</span>
                     </a>
@@ -183,7 +183,7 @@
                     <p>Secretarias</p>
                 </div>
                 <div class="side-right">    
-                <a class="btn-ver-dados-tabela" id="btn-show-div-exibir-dados"><i class="fas fa-school" aria-hidden="true"></i><p> ver todos</p></a>
+                <a class="btn-ver-dados-tabela" id="btn-show-div-exibir-dados"><i class="fas fa-user-cog" aria-hidden="true"></i><p> ver todos</p></a>
                 
                 </div>
 
@@ -194,8 +194,7 @@
                     <p>Adicionar Secretária</p>
                 </div>
                 <div class="side-right">
-                    <i class="btn-adicionar-aluno fas fa-school" aria-hidden="true"></i>
-
+                    <i class="btn-adicionar-aluno fas fa-user-cog" aria-hidden="true"></i>
                 </div>
             </a>
 

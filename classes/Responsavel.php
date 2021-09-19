@@ -83,7 +83,7 @@
 
         public function listar(){
             $conexao = Conexao::conectar();
-            $queryResponsavel = "SELECT idResponsavel, nomeResponsavel, cpfResponsavel, emailResponsavel, senhaResponsavel, idAluno, codNovaSenha FROM tbresponsavel";
+            $queryResponsavel = "SELECT tbresponsavel.idResponsavel, nomeResponsavel, cpfResponsavel, emailResponsavel, senhaResponsavel, tbresponsavel.idAluno, tbturma.nomeTurma AS 'turmaAluno', codNovaSenha, nomeAluno, tbtelefoneresponsavel.idTelefoneResponsavel, tbtelefoneresponsavel.numTelefoneResponsavel, tbtelefoneresponsavel.idResponsavel, tbenderecoresponsavel.idEnderecoResponsavel, tbenderecoresponsavel.logradouroEnderecoResponsavel, tbenderecoresponsavel.numCasaEnderecoResponsavel, tbenderecoresponsavel.complementoEnderecoResponsavel, tbenderecoresponsavel.cepEnderecoResponsavel, tbenderecoresponsavel.bairroEnderecoResponsavel, tbenderecoresponsavel.cidadeEnderecoResponsavel, tbenderecoresponsavel.idResponsavel FROM tbresponsavel INNER JOIN tbaluno ON tbaluno.idAluno = tbresponsavel.idAluno INNER JOIN tbturma ON tbturma.idTurma = tbaluno.idTurma INNER JOIN tbtelefoneresponsavel ON tbtelefoneresponsavel.idResponsavel = tbresponsavel.idResponsavel INNER JOIN tbenderecoresponsavel ON tbenderecoresponsavel.idResponsavel = tbresponsavel.idResponsavel WHERE tbaluno.idAluno = tbresponsavel.idAluno AND tbtelefoneresponsavel.idResponsavel = tbresponsavel.idResponsavel AND tbenderecoresponsavel.idResponsavel = tbresponsavel.idResponsavel";
             $resultadoResponsavel = $conexao->query($queryResponsavel);
             $listaResponsavel = $resultadoResponsavel->fetchAll(PDO::FETCH_ASSOC);
             return $listaResponsavel;
@@ -108,6 +108,14 @@
             $stmt->bindParam(1, $responsavel->getIdResponsavel());
             $stmt->execute();
             return 'Responsável excluido com sucesso!';
+        }
+
+        public function contar($idEscola){
+            $conexao = Conexao::conectar();
+            $queryResponsavel = "SELECT COUNT(idResponsavel) AS 'qtdeResponsavel' FROM tbresponsavel INNER JOIN tbaluno ON tbresponsavel.idAluno = tbaluno.idAluno WHERE tbaluno.idEscola LIKE '$idEscola'";
+            $resultadoResponsavel = $conexao->query($queryResponsavel);
+            $listaResponsavel = $resultadoResponsavel->fetchAll(PDO::FETCH_ASSOC);
+            return $listaResponsavel;
         }
 
         public function selecionarUltimoResponsavel(){

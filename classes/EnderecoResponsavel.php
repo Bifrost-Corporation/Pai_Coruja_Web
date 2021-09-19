@@ -115,6 +115,14 @@
             return 'Endereço do responsável excluido com sucesso!';
         }
 
+        public function listar(){
+            $conexao = Conexao::conectar();
+            $queryEndereco = "SELECT idEnderecoResponsavel, logradouroEnderecoResponsavel, numCasaEnderecoResponsavel, complementoEnderecoResponsavel, cepEnderecoResponsavel, bairroEnderecoResponsavel, cidadeEnderecoResponsavel, idResponsavel FROM tbenderecoresponsavel";
+            $resultadoQuery = $conexao->query($queryEndereco);
+            $listaEndereco = $resultadoQuery->fetchAll(PDO::FETCH_ASSOC);
+            return $listaEndereco;
+        }
+
     }
 
 ?>

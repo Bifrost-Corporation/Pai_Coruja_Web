@@ -64,7 +64,7 @@
 
         public function listar(){
             $conexao = Conexao::conectar();
-            $queryAluno = 'SELECT idAluno, nomeAluno, dataNascAluno, idTurma, idEscola FROM tbaluno';
+            $queryAluno = "SELECT idAluno, nomeAluno, DATE(dataNascAluno) AS 'dataNascAluno', tbaluno.idTurma, tbaluno.idEscola, nomeTurma FROM tbaluno INNER JOIN tbturma ON tbturma.idTurma = tbaluno.idTurma";
             $resultadoAluno = $conexao->query($queryAluno);
             $listaAluno = $resultadoAluno->fetchAll(PDO::FETCH_ASSOC);
             return $listaAluno;
@@ -96,6 +96,14 @@
             $stmt->bindParam(1, $aluno->getIdAluno());
             $stmt->execute();
             return 'Aluno excluido com sucesso!';
+        }
+
+        public function contar($idEscola){
+            $conexao = Conexao::conectar();
+            $queryAluno = "SELECT COUNT(idAluno) AS 'qtdeAluno' FROM tbaluno WHERE idEscola LIKE '$idEscola'";
+            $resultadoAluno = $conexao->query($queryAluno);
+            $listaAluno = $resultadoAluno->fetchAll(PDO::FETCH_ASSOC);
+            return $listaAluno;
         }
 
     }

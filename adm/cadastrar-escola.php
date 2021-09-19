@@ -82,7 +82,7 @@
                         <i class="fas fa-sign-out-alt" id="logout-user"></i>
                         <span>Logout</span>
                     </a>
-                    <a href="logout.php">
+                    <a href="#">
                         <i class="fas fa-user-cog"></i>
                         <span>Configurações</span>
                     </a>

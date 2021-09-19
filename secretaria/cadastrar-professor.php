@@ -16,6 +16,7 @@
 <body>
     <?php
         include ('sentinela.php');
+        include ('globalSecretaria.php');
     ?>
     <header>
 
@@ -146,7 +147,7 @@
     <main class="container-main">
 
 
-        <section class="top-section">
+        <section class="top-section" id="Topo">
             <div class="voltar">
                 <a href="home-secretaria.php">
                     <span class="fas fa-arrow-left"></span>Voltar
@@ -161,11 +162,12 @@
         <section class="main-section">
             <form class="formulario" name="form-professor" action="../DAO/inserir-professor.php" method="POST">
                 <div class="user-details">
+                    <input id="idProfessor" name="idProfessor" type="hidden" value="<?php echo@$_GET['idProfessor'] ?>">
                     <div class="input-box-width100">
                         <h2>Nome do Professor:</h2>
                         <label class="label-erro" id="label-nome"></label>
                         <input name="txtNomeProfessor" id="txtNomeProfessor" type="text"
-                            placeholder="Insira o nome do professor">
+                            placeholder="Insira o nome do professor" value="<?php echo @$_GET['nomeProfessor'] ?>">
                     </div>
                     <div class="input-box-width100">
                         <h2>Email Professor:</h2>
@@ -173,6 +175,8 @@
                         <input name="txtEmailProfessor" id="txtEmailProfessor" type="email"
                             placeholder="Insira o email do professor" value="<?php if(isset($_SESSION['emailProfessor'])){
                                                                                                                         echo $_SESSION['emailProfessor'];
+                                                                                                                    }else{
+                                                                                                                        echo @$_GET['emailProfessor'];
                                                                                                                     } ?>">
                     </div>
                     <div class="input-box">
@@ -192,16 +196,86 @@
                 </div>
             </form>
         </section>
+        <section class="container-controlers">
+            <div class="content-card-link1" checked>
+                <div class="side-left">
+                    <h1>
+                        <?php 
+                            $professor = new Professor();
+                            $listaProfessor = $professor->contar($_SESSION['idEscola']);
+                            foreach($listaProfessor as $linha){
+                                echo $linha['qtdeProfessor'];
+                            }
+                        ?>
+                    </h1>
+                    <p>Professores</p>
+                </div>
+                <div class="side-right">    
+                <a class="btn-ver-dados-tabela" id="btn-show-div-exibir-dados"><i class="fas fa-chalkboard-teacher" aria-hidden="true"></i><p> ver todos</p></a>
+                
+                </div>
+
+            </div>
+            <a href="#Topo" class="content-card-link2">
+                <div class="side-left">
+                    <h1>+</h1>
+                    <p>Adicionar Professor(a)</p>
+                </div>
+                <div class="side-right">
+                    <i class="btn-adicionar-aluno fas fa-chalkboard-teacher" aria-hidden="true"></i>
+                </div>
+            </a>
+
+        </section>
+        <div class="container-exibir-dados">
+            <div class="box-titulo-bar-search">
+                <h1>Professores Cadastrados</h1>
+                <form action="#" class="box-search">
+                    <button class="btn-search"><i class="fa fa-search" aria-hidden="true"></i></button>
+                    <input type="text" name="search" placeholder="Busque..">
+                </form>
+            </div>
+            <div class="table-dados">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Nome:</td>
+                            <td>Email:</td>
+                            <td>Alterar</td>
+                            <td>Excluir</td>
+                        </tr>
+                   </thead>
+                   <tbody>
+                   <?php
+                        $listaProfessor = $professor->listarEscola($_SESSION['idEscola']);
+                        foreach($listaProfessor as $linha){
+                   ?>
+                        <tr>
+                            <td><?php echo $linha['nomeProfessor'] ?></td>
+                            <td><?php echo $linha['emailProfessor'] ?></td>
+                            <td><?php echo "<a class'opcao-icone' href='?idProfessor={$linha['idProfessor']}&nomeProfessor={$linha['nomeProfessor']}&emailProfessor={$linha['emailProfessor']}&idEscola={$linha['idEscola']}'>"; ?><i class="icons-table fa fa-cog opcao-icone"></i><?php echo "</a>" ?></td>
+                            <td><?php echo "<a href='../DAO/excluir-professor.php?idProfessor={$linha['idProfessor']}'"?> onclick="return confirm('Você está prestes a excluir a conta do professor: <?php echo $linha['nomeProfessor'] ?> da escola, tem certeza?')"><i class="icons-table fas fa-times" aria-hidden="true"></i></td>
+                        </tr>
+                   <?php
+                        }
+                   ?>
+                   </tbody>
+               </table>
+            </div>
+        </div>
     </main>
 
     <script src="../js/nav.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="../js/showDiv.js"></script>
+    <script src="../js/jquery-dropdown.js"></script>
 
     <script>
         $(document).ready(function(){
+            var repeteEmail = "<?php if(isset($_SESSION['repeteEmail'])){echo true;}else{echo false;} ?>" 
             var valueEmail = $('#txtEmailProfessor').val();
-            if(valueEmail.length > 0){
-                $('#label-email').html('Turma inválida!');
+            if(valueEmail.length > 0 && repeteEmail == true){
+                $('#label-email').html('Email já cadastrado!');
                 $('#txtEmailProfessor').addClass('erro-form');
                 $('#label-email').show();
                 setTimeout(function () {
@@ -211,6 +285,7 @@
                 }, 5000);
                 <?php
                     unset($_SESSION['emailProfessor']);
+                    unset($_SERVER['repeteEmail']);
                 ?>
                 e.preventDefault();
             }

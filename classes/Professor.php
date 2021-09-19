@@ -79,6 +79,14 @@
             return $listaProfessor;
         }
 
+        public function listarEscola($idEscola){
+            $conexao = Conexao::conectar();
+            $queryProfessor = "SELECT idProfessor, nomeProfessor, emailProfessor, senhaProfessor, idEscola, codNovaSenha FROM tbprofessor WHERE idEscola LIKE '$idEscola'";
+            $respostaProfessor = $conexao->query($queryProfessor);
+            $listaProfessor = $respostaProfessor->fetchAll(PDO::FETCH_ASSOC);
+            return $listaProfessor;
+        }
+
         public function atualizar($professor){
             $conexao = Conexao::conectar();
             $stmt = $conexao->prepare('UPDATE tbprofessor SET nomeProfessor = ?, emailProfessor = ?, senhaProfessor = ?, idEscola = ? WHERE idProfessor = ?');
@@ -97,6 +105,14 @@
             $stmt->bindParam(1, $professor->getIdProfessor());
             $stmt->execute();
             return 'Professor excluido com sucesso!';;
+        }
+
+        public function contar($idEscola){
+            $conexao = Conexao::conectar();
+            $queryProfessor = "SELECT COUNT(idProfessor) AS 'qtdeProfessor' FROM tbprofessor WHERE idEscola LIKE '$idEscola'";
+            $resultadoProfessor = $conexao->query($queryProfessor);
+            $listaProfessor = $resultadoProfessor->fetchAll(PDO::FETCH_ASSOC);
+            return $listaProfessor;
         }
 
         public function selecionarUltimoProfessor(){

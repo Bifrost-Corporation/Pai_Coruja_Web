@@ -16,6 +16,7 @@
 <body>
     <?php
         include ('sentinela.php');
+        include ('globalSecretaria.php');
     ?>
     <header>
 
@@ -161,21 +162,24 @@
         <section class="main-section">
             <form class="formulario" name="formAluno" id="formAluno" action="../DAO/inserir-aluno.php" method="POST">
                 <div class="user-details">
+                    <input type="hidden" id="idAluno" name="idAluno" value="<?php echo @$_GET['idAluno']; ?>">
                     <div class="input-box-width100">
                         <h2>Nome do aluno:</h2>
                         <label class="label-erro" id="label-nome"></label>
-                        <input name="txtNomeAluno" id="txtNomeAluno" type="text" placeholder="Insira o nome do aluno">
+                        <input name="txtNomeAluno" id="txtNomeAluno" type="text" placeholder="Insira o nome do aluno" value="<?php echo @$_GET['nomeAluno']; ?>">
                     </div>
                     <div class="input-box">
                         <h2>Data de Nascimento:</h2>
                         <label class="label-erro" id="label-dataNasc"></label>
-                        <input name="dataNasc" id="dataNasc" type="date" placeholder="Insira a idade">
+                        <input name="dataNasc" id="dataNasc" type="date" placeholder="Insira a data de nascimento do aluno" value="<?php echo @$_GET['dataNascAluno']; ?>">
                     </div>
                     <div class="input-box">
                         <h2>Turma:</h2>
                         <label class="label-erro" id="label-turma"></label>
                         <input name="txtTurma" id="txtTurma" type="text" placeholder="Insira a turma do aluno" value="<?php if(isset($_SESSION['turmaInvalida'])){
                                                                                                                                                                 echo $_SESSION['turmaInvalida'];
+                                                                                                                                                            }else{
+                                                                                                                                                                echo @$_GET['nomeTurma'];
                                                                                                                                                             } ?>">
                         <div id="retornoPesquisa">
 
@@ -187,16 +191,94 @@
                 </div>
             </form>
         </section>
+        <section class="container-controlers">
+            <div class="content-card-link1" checked>
+                <div class="side-left">
+                    <h1>
+                        <?php
+                            $aluno = new Aluno();
+                            $listaAluno = $aluno->contar($_SESSION['idEscola']);
+                            foreach($listaAluno as $linha){
+                                echo $linha['qtdeAluno'];
+                            }
+                        ?>
+                    </h1>
+                    <p>Alunos</p>
+                </div>
+                <div class="side-right">    
+                <a class="btn-ver-dados-tabela" id="btn-show-div-exibir-dados"><i class="fas fa-user" aria-hidden="true"></i><p> ver todos</p></a>
+                
+                </div>
+
+            </div>
+            <a href="#Topo" class="content-card-link2">
+                <div class="side-left">
+                    <h1>+</h1>
+                    <p>Adicionar Aluno(a)</p>
+                </div>
+                <div class="side-right">
+                    <i class="btn-adicionar-aluno fas fa-user" aria-hidden="true"></i>
+
+                </div>
+            </a>
+
+        </section>
+        <div class="container-exibir-dados">
+            <div class="box-titulo-bar-search">
+                <h1>Alunos Cadastrados</h1> 
+                <form action="#" class="box-search">
+                    <button class="btn-search"><i class="fa fa-search" aria-hidden="true"></i></button>
+                    <input type="text" name="search" placeholder="Busque..">
+                </form>
+            </div>
+            <div class="table-dados">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Nome:</td>
+                            <td>Data de Nascimento:</td>
+                            <td>Turma:</td>
+                            <td>Alterar</td>
+                            <td>Excluir</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <?php
+                        $listaAluno = $aluno->listar();
+                        foreach($listaAluno as $linha){
+                    ?>
+                        <tr>
+                          <td><?php echo $linha['nomeAluno'] ?></td>
+                          <td><?php echo $linha['dataNascAluno'] ?></td>
+                          <td><?php echo $linha['nomeTurma'] ?></td>
+                          <td><?php echo "<a class'opcao-icone' href='?idAluno={$linha['idAluno']}&nomeAluno={$linha['nomeAluno']}&dataNascAluno={$linha['dataNascAluno']}&idTurma={$linha['idTurma']}&idEscola={$linha['idEscola']}&nomeTurma={$linha['nomeTurma']}'>"?><i class="icons-table fa fa-cog opcao-icone"></i><?php echo "</a>" ?></td>
+                          <td><?php echo "<a href='../DAO/excluir-aluno.php?idAluno={$linha['idAluno']}'"?> onclick="return confirm('Você está prestes a excluir o aluno: <?php echo $linha['nomeAluno'] ?>, da série: <?php echo $linha['nomeTurma'] ?>, tem certeza?')"><i class="icons-table fas fa-times" aria-hidden="true"></i></td>
+                        </tr>
+                    <?php
+                       }
+                    ?>
+                      
+                   </tbody>
+               </table>
+            </div>
+        </div>
+
+        <script src="../js/nav.js"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+        <script src="../js/showDiv.js"></script>
+        <script src="../js/jquery.mask.js"></script>
+
     </main>
 
-    <script src="../js/nav.js"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    
 
     <script>
+        $('#dataNasc').mask('0000-00-00');
 
         $(document).ready(function(){
+            var turmaInvalida = "<?php if(isset($_SESSION['turmaInvalida'])){echo true;}else{echo false;} ?>"
             var valueTurma = $('#txtTurma').val();
-            if(valueTurma.length > 0){
+            if(valueTurma.length > 0 && turmaInvalida == true){
                 $('#label-turma').html('Turma inválida!');
                 $('#txtTurma').addClass('erro-form');
                 $('#label-turma').show();
@@ -207,6 +289,7 @@
                 }, 5000);
                 <?php
                     unset($_SESSION['nomeTurma']);
+                    unset($_SESSION['turmaInvalida']);
                 ?>
                 e.preventDefault();
             }

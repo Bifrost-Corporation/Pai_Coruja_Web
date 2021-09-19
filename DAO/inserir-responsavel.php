@@ -10,6 +10,7 @@
 
     try{
         header('Location: ../secretaria/cadastrar-responsavel.php');
+        $idResponsavel = $_POST['idResponsavel'];
         $nomeResponsavel = $_POST['txtNome'];
         $emailResponsavel = $_POST['txtEmail'];
         $senhaResponsavel = $_POST['txtSenha'];
@@ -30,43 +31,21 @@
         $listaResponsavel = $responsavel->listar();
         $listaAluno = $aluno->listar();
         $listaTurma = $turma->listar();
-        $nomeTurma = $aluno->selecionarNomeTurma();
-        $repeteEmail = false;
-        $repeteCpf = false;
-        $repeteAluno = false;
-        foreach($nomeTurma as $linha){
-            $nomeBanco = $linha['nomeAluno'] . ' ' . $linha['nomeTurma'];
-            if($nomeAluno == $nomeBanco){
-                foreach($listaResponsavel as $linha2){
-                    if($linha2['idAluno'] == $linha['idAluno']){
-                        $repeteAluno = true;
-                    }
-                }
-                if($repeteAluno == false){
+        if($idResponsavel > 0){
+            $nomeTurma = $aluno->selecionarNomeTurma();
+            foreach($nomeTurma as $linha){
+                $nomeBanco = $linha['nomeAluno'] . ' ' . $linha['nomeTurma'];
+                if($nomeAluno == $nomeBanco){
                     $idAluno = $linha['idAluno'];
                 }
             }
-        }
-        foreach($listaResponsavel as $linha){
-            if($emailResponsavel == $linha['emailResponsavel']){
-                $repeteEmail = true;
-            }
-            if($cpfResponsavel == $linha['cpfResponsavel']){
-                $repeteCpf = true;
-            }
-        }
-        if($repeteAluno == false && $repeteEmail == false && $repeteCpf == false){
+            $responsavel->setIdResponsavel($idResponsavel);
             $responsavel->setNomeResponsavel($nomeResponsavel);
             $responsavel->setCpfResponsavel($cpfResponsavel);
             $responsavel->setEmailResponsavel($emailResponsavel);
             $responsavel->setSenhaResponsavel(md5($senhaResponsavel));
             $responsavel->setIdAluno($idAluno);
-            $responsavel->cadastrar($responsavel);
-            $listaIdResponsavel = $responsavel->selecionarUltimoResponsavel();
-            $idResponsavel;
-            foreach($listaIdResponsavel as $linha){
-                $idResponsavel = $linha['idResponsavel'];
-            }
+            $responsavel->atualizar($responsavel);
             $endereco->setLogradouroEnderecoResponsavel($logradouro);
             $endereco->setNumCasaEnderecoResponsavel($numCasa);
             $endereco->setComplementoEnderecoResponsavel($complemento);
@@ -74,23 +53,91 @@
             $endereco->setBairroEnderecoResponsavel($bairro);
             $endereco->setCidadeEnderecoResponsavel($cidade);
             $endereco->setIdResponsavel($idResponsavel);
-            $endereco->cadastrar($endereco);
+            $endereco->atualizar($endereco);
+            $listaContato = $contato->listar();
+            foreach($listaContato as $linha2){
+                if($linha2['idResponsavel'] == $idResponsavel){
+                    $idContato = $linha2['idTelefoneResponsavel'];
+                }
+            }
+            $contato->setIdTelefoneResponsavel($idContato);
             $contato->setNumTelefoneResponsavel($telefone);
             $contato->setIdResponsavel($idResponsavel);
-            $contato->cadastrar($contato);
+            $contato->atualizar($contato);
             $usuario = new Usuario();
+            $listausuario = $usuario->listar();
+            foreach($listausuario as $linha2){
+                if($linha2['idResponsavel'] == $idResponsavel){
+                    $idUsuario = $linha2['idUsuario'];
+                }
+            }
+            $usuario->setIdUsuario($idUsuario);
             $usuario->setIdResponsavel($idResponsavel);
-            echo $usuario->cadastrar($usuario);
-            return 'Dados cadastrados com sucesso!';
-        } else {
-            if($repeteAluno == true){
-                $_SESSION['nomeAluno'] = $nomeAluno;
+            echo $usuario->atualizar($usuario);
+            return 'Dados atualizados com sucesso!';
+        }else{
+            $nomeTurma = $aluno->selecionarNomeTurma();
+            $repeteEmail = false;
+            $repeteCpf = false;
+            $repeteAluno = false;
+            foreach($nomeTurma as $linha){
+                $nomeBanco = $linha['nomeAluno'] . ' ' . $linha['nomeTurma'];
+                if($nomeAluno == $nomeBanco){
+                    foreach($listaResponsavel as $linha2){
+                        if($linha2['idAluno'] == $linha['idAluno']){
+                            $repeteAluno = true;
+                        }
+                    }
+                    if($repeteAluno == false){
+                        $idAluno = $linha['idAluno'];
+                    }
+                }
             }
-            if($repeteCpf == true){
-                $_SESSION['cpfResponsavel'] = $cpfResponsavel;
+            foreach($listaResponsavel as $linha){
+                if($emailResponsavel == $linha['emailResponsavel']){
+                    $repeteEmail = true;
+                }
+                if($cpfResponsavel == $linha['cpfResponsavel']){
+                    $repeteCpf = true;
+                }
             }
-            if($repeteEmail == true){
-                $_SESSION['emailResponsavel'] = $emailResponsavel;
+            if($repeteAluno == false && $repeteEmail == false && $repeteCpf == false){
+                $responsavel->setNomeResponsavel($nomeResponsavel);
+                $responsavel->setCpfResponsavel($cpfResponsavel);
+                $responsavel->setEmailResponsavel($emailResponsavel);
+                $responsavel->setSenhaResponsavel(md5($senhaResponsavel));
+                $responsavel->setIdAluno($idAluno);
+                $responsavel->cadastrar($responsavel);
+                $listaIdResponsavel = $responsavel->selecionarUltimoResponsavel();
+                $idResponsavel;
+                foreach($listaIdResponsavel as $linha){
+                    $idResponsavel = $linha['idResponsavel'];
+                }
+                $endereco->setLogradouroEnderecoResponsavel($logradouro);
+                $endereco->setNumCasaEnderecoResponsavel($numCasa);
+                $endereco->setComplementoEnderecoResponsavel($complemento);
+                $endereco->setCepEnderecoResponsavel($cep);
+                $endereco->setBairroEnderecoResponsavel($bairro);
+                $endereco->setCidadeEnderecoResponsavel($cidade);
+                $endereco->setIdResponsavel($idResponsavel);
+                $endereco->cadastrar($endereco);
+                $contato->setNumTelefoneResponsavel($telefone);
+                $contato->setIdResponsavel($idResponsavel);
+                $contato->cadastrar($contato);
+                $usuario = new Usuario();
+                $usuario->setIdResponsavel($idResponsavel);
+                echo $usuario->cadastrar($usuario);
+                return 'Dados cadastrados com sucesso!';
+            } else {
+                if($repeteAluno == true){
+                    $_SESSION['nomeAluno'] = $nomeAluno;
+                }
+                if($repeteCpf == true){
+                    $_SESSION['cpfResponsavel'] = $cpfResponsavel;
+                }
+                if($repeteEmail == true){
+                    $_SESSION['emailResponsavel'] = $emailResponsavel;
+                }
             }
         }
 

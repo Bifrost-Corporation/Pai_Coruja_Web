@@ -15,6 +15,7 @@
 <body>
     <?php
         include ('sentinela.php');
+        include ('globalSecretaria.php');
     ?>
     <header>
 
@@ -160,16 +161,19 @@
         <section class="main-section">
             <form class="formulario" name="formResponsavel" action="../DAO/inserir-responsavel.php" method="POST">
                 <div class="user-details">
+                    <input type="hidden" id="idResponsavel" name="idResponsavel" value="<?php echo @$_GET['idResponsavel']; ?>">
                     <div class="input-box-width100">
                         <h2>Nome Responsável</h2>
                         <label class="label-erro" id="label-nome"></label>
-                        <input name="txtNome" id="txtNome" type="text" placeholder="Insira o nome do Responsável">
+                        <input name="txtNome" id="txtNome" type="text" placeholder="Insira o nome do Responsável" value="<?php echo @$_GET['nomeResponsavel'] ?>">
                     </div>
                     <div class="input-box-width100">
                         <h2>Email Responsável</h2>
                         <label class="label-erro" id="label-email"></label>
                         <input name="txtEmail" id="txtEmail" type="text" placeholder="Insira o email do Responsável" value="<?php if(isset($_SESSION['emailResponsavel'])){
                                                                                                                                                                             echo $_SESSION['emailResponsavel'];
+                                                                                                                                                                        }else{
+                                                                                                                                                                            echo @$_GET['emailResponsavel'];
                                                                                                                                                                         } ?>">
                     </div>
                     <div class="input-box">
@@ -186,52 +190,56 @@
                         <h2>Telefone do Responsável:</h2>
                         <label class="label-erro" id="label-telefone"></label>
                         <input name="txtTelefone" id="txtTelefone" type="tel"
-                            placeholder="Insira o numero de telefone do Responsável">
+                            placeholder="Insira o numero de telefone do Responsável" value="<?php echo @$_GET['telefoneResponsavel']; ?>">
                     </div>
                     <div class="input-box">
                         <h2>CPF Responsável:</h2>
                         <label class="label-erro" id="label-cpf"></label>
                         <input name="txtCpf" id="txtCpf" type="tel" placeholder="Insira CPF do Responsável" value="<?php if(isset($_SESSION['cpfResponsavel'])){
                                                                                                                                                                         echo $_SESSION['cpfResponsavel'];
+                                                                                                                                                                    }else{
+                                                                                                                                                                        echo @$_GET['cpfResponsavel'];
                                                                                                                                                                     } ?>">
                     </div>
                     <div class="input-box-width100">
                         <h2>CEP:</h2>
                         <label class="label-erro" id="label-cep"></label>
                         <input name="txtCep" id="txtCep" type="text"
-                            placeholder="Insira o CEP do endereço do Reponsável">
+                            placeholder="Insira o CEP do endereço do Reponsável" value="<?php echo @$_GET['cep']; ?>">
                     </div>
                     <div class="input-box-width100">
                         <h2>Rua:</h2>
                         <label class="label-erro" id="label-rua"></label>
                         <input name="txtRua" id="txtRua" type="text"
-                            placeholder="Insira a rua do endereço do Responsável">
+                            placeholder="Insira a rua do endereço do Responsável" value="<?php echo @$_GET['rua']; ?>">
                     </div>
                     <div class="input-box">
                         <h2>Número:</h2>
                         <label class="label-erro" id="label-numero"></label>
-                        <input name="txtNumero" id="txtNumero" type="text" placeholder="Insira o número da residência">
+                        <input name="txtNumero" id="txtNumero" type="text" placeholder="Insira o número da residência" value="<?php echo @$_GET['numCasa']; ?>">
                     </div>
                     <div class="input-box">
                         <h2>Complemento:</h2>
                         <label class="label-erro" id="label-complemento"></label>
-                        <input name="txtComplemento" id="txtComplemento" type="text" placeholder="Insira o complemento">
+                        <input name="txtComplemento" id="txtComplemento" type="text" placeholder="Insira o complemento" value="<?php echo @$_GET['complemento']; ?>">
                     </div>
                     <div class="input-box">
                         <h2>Bairro:</h2>
                         <label class="label-erro" id="label-bairro"></label>
-                        <input name="txtBairro" id="txtBairro" type="text" placeholder="Insira o bairro">
+                        <input name="txtBairro" id="txtBairro" type="text" placeholder="Insira o bairro" value="<?php echo @$_GET['bairro']; ?>">
                     </div>
                     <div class="input-box">
                         <h2>Cidade:</h2>
                         <label class="label-erro" id="label-cidade"></label>
-                        <input name="txtCidade" id="txtCidade" type="text" placeholder="Insira a cidade">
+                        <input name="txtCidade" id="txtCidade" type="text" placeholder="Insira a cidade" value="<?php echo @$_GET['cidade']; ?>">
                     </div>
                     <div class="input-box-width100">
                         <h2>De qual aluno você é responsável:</h2>
                         <label class="label-erro" id="label-aluno"></label>
                         <input name="txtAluno" id="txtAluno" type="text" placeholder="Insira o nome do aluno"  value="<?php if(isset($_SESSION['nomeAluno'])){
                                                                                                                                                                 echo $_SESSION['nomeAluno'];
+                                                                                                                                                            }else{
+                                                                                                                                                                echo @$_GET['nomeAluno'] ?> <?php echo @$_GET['turma'];
                                                                                                                                                             } ?>">
                         <div id="retornoPesquisa">
 
@@ -243,19 +251,96 @@
                 </div>
             </form>
         </section>
+        <section class="container-controlers">
+            <div class="content-card-link1" checked>
+                <div class="side-left">
+                    <h1>
+                        <?php
+                            $responsavel = new Responsavel();
+                            $listaResponsavel = $responsavel->contar($_SESSION['idEscola']);
+                            foreach($listaResponsavel as $linha){
+                                echo $linha['qtdeResponsavel'];
+                            }
+                        ?>
+                    </h1>
+                    <p>Responsáveis</p>
+                </div>
+                <div class="side-right">    
+                <a class="btn-ver-dados-tabela" id="btn-show-div-exibir-dados"><i class="fas fa-user-tie" aria-hidden="true"></i><p> ver todos</p></a>
+                
+                </div>
+
+            </div>
+            <a href="#Topo" class="content-card-link2">
+                <div class="side-left">
+                    <h1>+</h1>
+                    <p>Adicionar Responsável</p>
+                </div>
+                <div class="side-right">
+                    <i class="btn-adicionar-aluno fas fa-user-tie" aria-hidden="true"></i>
+                </div>
+            </a>
+
+        </section>
+        <div class="container-exibir-dados">
+            <div class="box-titulo-bar-search">
+                <h1>Responsáveis Cadastrados</h1> 
+                <form action="#" class="box-search">
+                    <button class="btn-search"><i class="fa fa-search" aria-hidden="true"></i></button>
+                    <input type="text" name="search" placeholder="Busque..">
+                </form>
+            </div>
+            <div class="table-dados">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Nome:</td>
+                            <td>CPF:</td>
+                            <td>Email:</td>
+                            <td>Aluno:</td>
+                            <td>Alterar</td>
+                            <td>Excluir</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <?php
+                        $listaResponsavel = $responsavel->listar();
+                        foreach($listaResponsavel as $linha){
+                    ?>
+                        <tr>
+                          <td><?php echo $linha['nomeResponsavel'] ?></td>
+                          <td><?php echo $linha['cpfResponsavel'] ?></td>
+                          <td><?php echo $linha['emailResponsavel'] ?></td>
+                          <td><?php echo $linha['nomeAluno'] ?></td>
+                          <td><?php echo "<a class'opcao-icone' href='?idResponsavel={$linha['idResponsavel']}&nomeResponsavel={$linha['nomeResponsavel']}&cpfResponsavel={$linha['cpfResponsavel']}&emailResponsavel={$linha['emailResponsavel']}&idAluno={$linha['idAluno']}&nomeAluno={$linha['nomeAluno']}&turma={$linha['turmaAluno']}&telefoneResponsavel={$linha['numTelefoneResponsavel']}&cep={$linha['cepEnderecoResponsavel']}&rua={$linha['logradouroEnderecoResponsavel']}&numCasa={$linha['numCasaEnderecoResponsavel']}&complemento={$linha['complementoEnderecoResponsavel']}&bairro={$linha['bairroEnderecoResponsavel']}&cidade={$linha['cidadeEnderecoResponsavel']}'>"?><i class="icons-table fa fa-cog opcao-icone"></i><?php echo "</a>" ?></td>
+                          <td><?php echo "<a href='../DAO/excluir-responsavel.php?idResponsavel={$linha['idResponsavel']}'"?> onclick="return confirm('Você está prestes a excluir a conta do responsável: <?php echo $linha['nomeResponsavel'] ?>, responsável por: <?php echo $linha['nomeAluno'] ?>, tem certeza?')"><i class="icons-table fas fa-times" aria-hidden="true"></i></td>
+                        </tr>
+                    <?php
+                       }
+                    ?>
+                      
+                   </tbody>
+               </table>
+            </div>
+        </div>
     </main>
 
     <script src="../js/nav.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="../js/showDiv.js"></script>
     <script src="../js/jquery.mask.js"></script>
 
     <script>
 
+        
         $(document).ready(function(){
+            var repeteEmail = "<?php if(isset($_SESSION['emailResponsavel'])){echo 'true';}else{echo 'false';} ?>";
             var valueEmail = $('#txtEmail').val();
             var valueCpf = $('#txtCpf').val();
+            var repeteCpf = "<?php if(isset($_SESSION['cpfResponsavel'])){echo 'true';}else{echo 'false';} ?>";
             var valueAluno = $('#txtAluno').val();
-            if(valueEmail.length > 0){
+            var repeteAluno = "<?php if(isset($_SESSION['nomeAluno'])){echo 'true';}else{echo 'false';} ?>";
+            if(valueEmail.length > 0 && repeteEmail == 'true'){
                 $('#label-email').html('Email já cadastrado!');
                 $('#txtEmail').addClass('erro-form');
                 $('#label-email').show();
@@ -269,7 +354,7 @@
                 ?>
                 e.preventDefault();
             }
-            if(valueCpf.length > 0){
+            if(valueCpf.length > 0 && repeteCpf == 'true'){
                 $('#label-cpf').html('CPF já cadastrado!');
                 $('#txtCpf').addClass('erro-form');
                 $('#label-cpf').show();
@@ -283,7 +368,7 @@
                 ?>
                 e.preventDefault();
             }
-            if(valueAluno.length > 0){
+            if(valueAluno.length > 0 && repeteAluno == 'true'){
                 $('#label-aluno').html('Aluno já tem responsável cadastrado!');
                 $('#txtAluno').addClass('erro-form');
                 $('#label-aluno').show();
@@ -298,7 +383,7 @@
                 e.preventDefault();
             }
         });
-
+        
         $('#txtTelefone').keyup(function (){
             if($(this).val().length > 14){
                 $('#txtTelefone').mask("(00) 00000-0000");
