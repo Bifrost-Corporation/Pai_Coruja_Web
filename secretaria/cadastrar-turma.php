@@ -16,6 +16,7 @@
 <body>
     <?php
         include ('sentinela.php');
+        include ('globalSecretaria.php');
     ?>
     <header>
 
@@ -159,13 +160,14 @@
         </section>
 
 
-        <section class="main-section">
+        <section class="main-section" id="Topo">
             <form name="nomeTurma" class="formulario" method="POST" action="../DAO/inserir-turma.php">
                 <div class="user-details">
+                    <input type="hidden" id="idTurma" name="idTurma" value="<?php echo @$_GET['idTurma'] ?>">
                     <div class="input-box-width100">
                         <h2>Nome da Turma:</h2>
                         <label class="label-erro" id="label-nome"></label>
-                        <input name="txtNomeTurma" id="txtNomeTurma" type="text" placeholder="Insira o nome da turma">
+                        <input name="txtNomeTurma" id="txtNomeTurma" type="text" placeholder="Insira o nome da turma" value="<?php echo @$_GET['nomeTurma'] ?>">
                     </div>
                     <div class="button">
                         <input type="submit" class="btn-nav-exit" value="Cadastrar">
@@ -173,11 +175,78 @@
                 </div>
             </form>
         </section>
+        <section class="container-controlers">
+            <div class="content-card-link1" checked>
+                <div class="side-left">
+                    <h1>
+                        <?php 
+                            $turma = new Turma();
+                            $listaTurma = $turma->contar($_SESSION['idEscola']);
+                            foreach($listaTurma as $linha){
+                                echo $linha['qtdeTurma'];
+                            }
+                        ?>
+                    </h1>
+                    <p>Turmas</p>
+                </div>
+                <div class="side-right">    
+                <a class="btn-ver-dados-tabela" id="btn-show-div-exibir-dados"><i class="fas fa-users" aria-hidden="true"></i><p> ver todos</p></a>
+                
+                </div>
+
+            </div>
+            <a href="#Topo" class="content-card-link2">
+                <div class="side-left">
+                    <h1>+</h1>
+                    <p>Adicionar Turma</p>
+                </div>
+                <div class="side-right">
+                    <i class="btn-adicionar-aluno fas fa-users" aria-hidden="true"></i>
+                </div>
+            </a>
+
+        </section>
+        <div class="container-exibir-dados">
+            <div class="box-titulo-bar-search">
+                <h1>Disciplinas Cadastradas</h1>
+                <form action="#" class="box-search">
+                    <button class="btn-search"><i class="fa fa-search" aria-hidden="true"></i></button>
+                    <input type="text" name="search" placeholder="Busque..">
+                </form>
+            </div>
+            <div class="table-dados">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Turma:</td>
+                            <td>Alterar</td>
+                            <td>Excluir</td>
+                        </tr>
+                   </thead>
+                   <tbody>
+                   <?php
+                        $listaTurma = $turma->listar();
+                        foreach($listaTurma as $linha){
+                   ?>
+                        <tr>
+                            <td><?php echo $linha['nomeTurma'] ?></td>
+                            <td><?php echo "<a class'opcao-icone' href='?idTurma={$linha['idTurma']}&nomeTurma={$linha['nomeTurma']}&idEscola={$linha['idEscola']}'>"; ?><i class="icons-table fa fa-cog opcao-icone"></i><?php echo "</a>" ?></td>
+                            <td><?php echo "<a href='../DAO/excluir-turma.php?idTurma={$linha['idTurma']}'"?> onclick="return confirm('Você está prestes a excluir a turma: <?php echo $linha['nomeTurma'] ?> da escola, tem certeza?')"><i class="icons-table fas fa-times" aria-hidden="true"></i></td>
+                        </tr>
+                   <?php
+                        }
+                   ?>
+                   </tbody>
+               </table>
+            </div>
+        </div>
     </main>
 
     <script src="../js/nav.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script src="../js/jquery.mask.js"></script>
+    <script src="../js/showDiv.js"></script>
+    <script src="../js/jquery-dropdown.js"></script>
 
     <script>
         

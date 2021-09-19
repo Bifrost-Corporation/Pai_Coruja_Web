@@ -159,21 +159,23 @@
         </section>
 
 
-        <section class="main-section">
+        <section class="main-section" id="Topo">
+            
             <form class="formulario" name="formDisciplina" id="formDisciplina" action="../DAO/inserir-disciplina.php"
                 method="POST">
                 <div class="user-details">
+                    <input type="hidden" id="idDisciplina" name="idDisciplina" value="<?php echo @$_GET['idDisciplina'] ?>">
                     <div class="input-box-width100">
                         <h2>Nome da disciplina:</h2>
                         <label class="label-erro" id="label-nome"></label>
                         <input name="txtNomeDisciplina" id="txtNomeDisciplina" type="text"
-                            placeholder="Insira o nome da disciplina">
+                            placeholder="Insira o nome da disciplina" value="<?php echo @$_GET['nomeDisciplina'] ?>">
                     </div>
                     <div class="input-box-width100">
                         <h2>Professor:</h2>
                         <label class="label-erro" id="label-professor"></label>
                         <input name="txtProfessor" id="txtProfessor" type="text"
-                            placeholder="Insira o professor responsável pela disciplina">
+                            placeholder="Insira o professor responsável pela disciplina" value="<?php echo @$_GET['nomeProfessor'] ?>">
                         <div id="retornoPesquisa">
                             
                         </div>
@@ -189,10 +191,10 @@
                 <div class="side-left">
                     <h1>
                         <?php 
-                            $secretaria = new Secretaria();
-                            $listaSecretaria = $secretaria->contar();
-                            foreach($listaSecretaria as $linha){
-                                echo $linha['qtdeSecretaria'];
+                            $disciplina = new Disciplina();
+                            $listaDisciplina = $disciplina->contar($_SESSION['idEscola']);
+                            foreach($listaDisciplina as $linha){
+                                echo $linha['qtdeDisciplina'];
                             }
                         ?>
                     </h1>
@@ -217,7 +219,7 @@
         </section>
         <div class="container-exibir-dados">
             <div class="box-titulo-bar-search">
-                <h1>Secretárias Cadastradas</h1>
+                <h1>Disciplinas Cadastradas</h1>
                 <form action="#" class="box-search">
                     <button class="btn-search"><i class="fa fa-search" aria-hidden="true"></i></button>
                     <input type="text" name="search" placeholder="Busque..">
@@ -227,24 +229,22 @@
                 <table>
                     <thead>
                         <tr>
-                            <td>Usuario:</td>
-                            <td>Email:</td>
-                            <td>Escola:</td>
+                            <td>Nome:</td>
+                            <td>Professor:</td>
                             <td>Alterar</td>
                             <td>Excluir</td>
                         </tr>
                    </thead>
                    <tbody>
                    <?php
-                        $listaSecretaria = $secretaria->listar();
-                        foreach($listaSecretaria as $linha){
+                        $listaDisciplina = $disciplina->listar();
+                        foreach($listaDisciplina as $linha){
                    ?>
                         <tr>
-                            <td><?php echo $linha['nomeSecretaria'] ?></td>
-                            <td><?php echo $linha['emailSecretaria'] ?></td>
-                            <td><?php echo $linha['nomeEscola'] ?></td>
-                            <td><?php echo "<a class'opcao-icone' href='?idSecretaria={$linha['idSecretaria']}&nomeSecretaria={$linha['nomeSecretaria']}&emailSecretaria={$linha['emailSecretaria']}&senhaSecretaria={$linha['senhaSecretaria']}&idEscola={$linha['idEscola']}&nomeEscola={$linha['nomeEscola']}&idAdministrador={$linha['idAdministrador']}'>"?><i class="icons-table fa fa-cog opcao-icone"></i><?php echo "</a>" ?></td>
-                            <td><?php echo "<a href='../DAO/excluir-secretaria.php?idSecretaria={$linha['idSecretaria']}'"?> onclick="return confirm('Você está prestes a excluir a conta de secretaria: <?php echo $linha['emailSecretaria'] ?> da escola: <?php echo $linha['nomeEscola'] ?>, tem certeza?')"><i class="icons-table fas fa-times" aria-hidden="true"></i></td>
+                            <td><?php echo $linha['nomeDisciplina'] ?></td>
+                            <td><?php echo $linha['nomeProfessor'] ?></td>
+                            <td><?php echo "<a class'opcao-icone' href='?idDisciplina={$linha['idDisciplina']}&nomeDisciplina={$linha['nomeDisciplina']}&idProfessor={$linha['idProfessor']}&idEscola={$linha['idEscola']}&nomeProfessor={$linha['nomeProfessor']}'>"; ?><i class="icons-table fa fa-cog opcao-icone"></i><?php echo "</a>" ?></td>
+                            <td><?php echo "<a href='../DAO/excluir-disciplina.php?idDisciplina={$linha['idDisciplina']}'"?> onclick="return confirm('Você está prestes a excluir a disciplina: <?php echo $linha['nomeDisciplina'] ?>, do professor: <?php echo $linha['nomeProfessor'] ?>, tem certeza?')"><i class="icons-table fas fa-times" aria-hidden="true"></i></td>
                         </tr>
                    <?php
                         }

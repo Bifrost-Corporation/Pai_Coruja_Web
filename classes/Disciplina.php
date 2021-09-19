@@ -1,5 +1,7 @@
 <?php
 
+    include_once('Conexao.php');
+
     class Disciplina{
         
         private $idDisciplina;
@@ -52,7 +54,7 @@
 
         public function listar(){
             $conexao = Conexao::conectar();
-            $queryDisciplina = 'SELECT idDisciplina, nomeDisciplina, idProfessor, idEscola FROM tbdisciplina';
+            $queryDisciplina = 'SELECT idDisciplina, nomeDisciplina, tbdisciplina.idProfessor, tbdisciplina.idEscola, tbprofessor.nomeProfessor FROM tbdisciplina INNER JOIN tbprofessor ON tbprofessor.idProfessor = tbdisciplina.idProfessor';
             $resultadoDisciplina = $conexao->query($queryDisciplina);
             $listaDisciplina = $resultadoDisciplina->fetchAll(PDO::FETCH_ASSOC);
             return $listaDisciplina;
@@ -75,6 +77,14 @@
             $stmt->bindParam(1, $disciplina->getIdDisciplina());
             $stmt->execute();
             return 'Disciplina excluida com sucesso!';
+        }
+
+        public function contar($idEscola){
+            $conexao = Conexao::conectar();
+            $queryDisciplina = "SELECT COUNT(idDisciplina) AS 'qtdeDisciplina' FROM tbdisciplina INNER JOIN tbprofessor ON tbprofessor.idProfessor = tbdisciplina.idProfessor WHERE tbprofessor.idEscola LIKE '$idEscola'";
+            $resultadoDisciplina = $conexao->query($queryDisciplina);
+            $listaDisciplina = $resultadoDisciplina->fetchAll(PDO::FETCH_ASSOC);
+            return $listaDisciplina;
         }
 
     }

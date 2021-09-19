@@ -68,6 +68,14 @@
             return 'Turma deletada com sucesso!';
         }
 
+        public function contar($idEscola){
+            $conexao = Conexao::conectar();
+            $queryTurma = "SELECT COUNT(idTurma) AS 'qtdeTurma' FROM tbturma WHERE idEscola LIKE '$idEscola'";
+            $resultadoTurma = $conexao->query($queryTurma);
+            $listaTurma = $resultadoTurma->fetchAll(PDO::FETCH_ASSOC);
+            return $listaTurma;
+        }
+
     }
 
 ?>

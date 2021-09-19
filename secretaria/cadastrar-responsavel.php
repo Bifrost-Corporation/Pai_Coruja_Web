@@ -158,7 +158,7 @@
         </section>
 
 
-        <section class="main-section">
+        <section class="main-section" id="Topo">
             <form class="formulario" name="formResponsavel" action="../DAO/inserir-responsavel.php" method="POST">
                 <div class="user-details">
                     <input type="hidden" id="idResponsavel" name="idResponsavel" value="<?php echo @$_GET['idResponsavel']; ?>">
