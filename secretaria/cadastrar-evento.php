@@ -42,7 +42,7 @@
         <div class="menu-container">
             <!-- <span>fernfjk</span> -->
             <li class="links-name">
-                <a href="home-adm.php">
+                <a href="home-secretaria.php">
                     <i class="fas fa-calendar"></i>
                     <span class="links-name">Mural</span>
                 </a>
