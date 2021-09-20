@@ -1,0 +1,243 @@
+/* TELA LOGIN */
+
+.bg-login {
+    background-color: var(--azulbtnsair);
+    height: 97vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.card-login {
+    width: 500px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: var(--cinzamaisclaro);
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+.card-login .ReturnToLogin {
+    text-align: left;
+}
+
+.card-login .ReturnToLogin a {
+    text-decoration: none;
+    color: var(--cinzaescuro);
+    padding: 5px;
+    font-weight: bold;
+    gap: 2rem;
+    margin-right: 0.5rem;
+    transition: 0.3s ease;
+}
+
+.card-login .ReturnToLogin a:hover {
+    opacity: 0.7;
+    border-bottom: 4px solid var(--cinzaclaro100);
+}
+
+.card-login .ReturnToLogin a span {
+    margin-right: 0.5rem;
+}
+
+.card-login .content-logoPaiCoruja {
+    text-align: center;
+}
+
+.logo-login {
+    width: 65%;
+}
+
+.label-login {
+    color: var(--azulbtnsair);
+    padding: 0.5rem;
+    font-size: 2rem;
+    text-align: center;
+    font-weight: bold;
+}
+
+.input-senha,
+.input-email {
+    background-color: var(--branco);
+    font-family: 'Poppins';
+    font-weight: bold;
+    width: 100%;
+    font-size: 1rem;
+    color: var(--cinzaescuro);
+    margin-top: 10px;
+    padding: 13px 18px;
+    border-radius: 10px;
+    outline: 0px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--azulmenulateral);
+}
+
+.div-titulo2 {
+    padding: 0.2rem 1rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.div-titulo3 {
+    padding: 0.2rem 1rem;
+    text-align: center;
+    justify-content: center;
+}
+
+.div-login {
+    padding: 0.5rem;
+    display: flex;
+    justify-content: center;
+}
+
+.cb-conectado {
+    cursor: pointer;
+    appearance: none;
+    height: 20px;
+    width: 20px;
+    background-color: var(--branco);
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--azulbtnsair);
+}
+
+.cb-conectado:hover {
+    height: 20px;
+    width: 20px;
+    background-color: var(--cinzaclaro100);
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--azulbtnsair);
+}
+
+.cb-conectado:checked {
+    height: 20px;
+    width: 20px;
+    background-color: var(--azulbtnsair);
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--azulbtnsair);
+}
+
+.cb-conectado:checked::after {
+    content: '\2714';
+    font-size: 16px;
+    position: relative;
+    top: -3px;
+    left: 2px;
+    color: var(--cinzamaisclaro);
+}
+
+.label-conectado {
+    cursor: pointer;
+    margin-top: -2px;
+    margin-left: 10px;
+    font-family: 'Poppins';
+    font-weight: bold;
+    color: var(--azulbtnsair);
+    font-size: 1rem;
+}
+
+.btn-login {
+    transition: 200ms;
+    cursor: pointer;
+    padding: 1rem;
+    width: 30%;
+    background-color: var(--azulbtnsair);
+    color: var(--branco);
+    font-weight: bold;
+    font-size: 1rem;
+    border-radius: 1rem;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-width: 0px;
+}
+
+.btn-login:active {
+    background-color: #aa4452;
+}
+
+.btn-esqueci {
+    transition: 200ms;
+    user-select: none;
+    cursor: pointer;
+    padding: 1rem;
+    width: 30%;
+    background-color: var(--branco);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    border-radius: 1rem;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-width: 1px;
+    border-color: var(--azulbtnsair);
+}
+
+.btn-esqueci a {
+    text-decoration: none;
+    color: var(--cinzafonte);
+}
+
+.btn-esqueci:hover,
+.btn-login:hover {
+    transition: 200ms;
+    transform: scale(0.94);
+}
+
+.nota-copy {
+    font-size: 0.6rem;
+    font-weight: bold;
+    color: var(--cinzaescuro);
+    text-align: center;
+}
+
+.div-footer {
+    background-color: var(--azulnavbar);
+    height: 3vh;
+}
+
+.caixa-alerta-email {
+    margin-left: 15px;
+    margin-right: 15px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    background-color: #e08e99;
+    border-style: solid;
+    border-color: #aa4452;
+    border-radius: 8px;
+    border-width: 2px;
+    display: none;
+}
+
+.caixa-alerta-senha {
+    margin-left: 15px;
+    margin-right: 15px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    background-color: #e08e99;
+    border-style: solid;
+    border-color: #aa4452;
+    border-radius: 8px;
+    border-width: 2px;
+    display: none;
+}
+
+.txt-alerta-email {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.txt-alerta-senha {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
+/* FIM TELA LOGIN */

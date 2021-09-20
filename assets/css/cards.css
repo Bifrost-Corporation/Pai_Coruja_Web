@@ -1,0 +1,131 @@
+/* HOME */
+
+
+
+.destaque-card {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 340px !important;
+    padding: 2rem;
+}
+
+.destaque-card:nth-child(1) {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 340px !important;
+    padding: 2rem;
+    color: var(--cinzafonte);
+    background-color: var(--cinzaclaro);
+}
+
+.destaque-card:nth-child(2) {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 340px !important;
+    padding: 2rem;
+    color: var(--cinzaclaro);
+    background-color: var(--azulnavbar);
+}
+
+.destaque-card:nth-child(3) {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 340px !important;
+    padding: 2rem;
+    color: var(--cinzafonte);
+    background-color: var(--cinzaclaro100);
+}
+
+.esquerda-destaque {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.esquerda-destaque h1 {
+    font-weight: bold;
+    font-size: 3rem;
+}
+
+.destaque-card h1,
+small:first-child {
+    margin-bottom: 1rem;
+}
+
+.saiba-mais-btn {
+    font-family: 'Poppins';
+    cursor: pointer;
+    border-radius: 10px;
+    border-style: none;
+    padding: 0.5rem 2.5rem;
+    font-weight: bold;
+    border-radius: 20px;
+    color: var(--cinzamaisclaro);
+    background-color: var(--azulnavbar);
+}
+
+.cards-eventos {
+    overflow: hidden;
+    padding-left: 2rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    padding-right: 0;
+    color: var(--cinzafonte);
+    width: 100%;
+    /*tirar isso aq pros cars ficarem do tamanho certo*/
+}
+
+.arrumar-cards {
+    display: flex;
+    flex-direction: row;
+}
+
+.evento-card {
+    margin-top: 1rem;
+    margin-right: 1rem;
+    padding: 1rem;
+    background-color: #137AB1;
+    color: var(--branco);
+    border-radius: 15px;
+    height: 200px !important;
+    width: 300px !important;
+    min-width: 260px !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.evento-card:nth-child(1) {
+    background-color: #137AB1;
+}
+
+.evento-card:nth-child(2) {
+    background-color: #1d1d1d;
+}
+
+.evento-card:nth-child(3) {
+    background-color: orange;
+}
+
+.evento-card:nth-child(4) {
+    background-color: pink;
+}
+
+.evento-card:nth-child(5) {
+    background-color: var(--cinzaescuro);
+}
+
+.evento-card div:last-child button {
+    color: var(--cinzafonte);
+    padding: 0.3rem;
+    justify-content: center;
+    width: 100%;
+    border-radius: 15px;
+    border-style: none;
+    font-weight: bold;
+    cursor: pointer;
+}

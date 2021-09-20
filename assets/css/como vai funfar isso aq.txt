@@ -1,0 +1,6 @@
+Negocio é o seguinte, temos aq um monte de arquivo né? percebi, n precisa mais usar td, tipo, dependendo da página, tu dp criar um css só pra fazer os import doq é necessário, tipo, se tiver algum css q vc use só no responsável, cria uma pasta responsável e deixa lá, é q tem mt página q n tá mt pronta ainda, pq meu objetivo é criar um style pra cada user, ele q vai chamar os css certos, assim n vai precisar chamar cod q n precisa, como ainda tem mt coisa em mts usuarios, vou deixar td sendo chamado no style.css, por enquanto, mas se quiserem já ir separando por pasta td certin eu agradeço 😉👍
+
+cara isso tá bem confuso ein, mas cara, acho q tipo, se separar td certin pd melhorar com o tempo, fazer uma main pra chamar os arquivos certos pra cada usuario sla... (meu objetivo é esse, mas agr acho q ainda n dá pra fazer isso)
+
+
+dica: ctrl + p pra achar um arquivo, facilita

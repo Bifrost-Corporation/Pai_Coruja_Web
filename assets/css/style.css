@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap');
+
+
+@import url(login.css);
+@import url(side-menu.css);
+@import url(cards.css);
+@import url(carousel.css);
+@import url(forms.css);
+@import url(container-main.css);
+
+
+/* So pra lembrar, as linhas aq do style.css são lidas por último, n vai tentar modificar algo num outro arquivo q pd dar probleminhas (no caso de max-width no import, se fizer media normal roda de boa, eu acho) */
+
+/* OS MEDIA */
+@import url(mobile/nav-menu.css) screen and (max-width:720px);
+@import url(media-queries.css);
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins';
+    scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+    background-color: var(--azulbtnsair);
+}
+
+
+/* Add a thumb */
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--branco);
+    border-radius: 7px;
+}
+
+:root {
+    --azulnavbar: #26466D;
+    --azulbtnsair: #042243;
+    --azulmenulateral: #123256;
+    --azulumpoucosaturado: #163677;
+    --azulsaturado: #0d2591;
+    --cinzamaisclaro: #f7f7f7;
+    --cinzaclaro: #f3f3f3;
+    --cinzaclaro100: #dcdcdc;
+    --cinza: #5A6978;
+    --cinzaescuro: #47525E;
+    --cinzafonte: #343F4B;
+    --branco: #ffffff;
+}
+
+h1 {
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+    font-size: 2rem;
+}
+
+h2 {
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+    font-size: 1.5rem;
+}
+
+p {
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+}
+
+
+
+

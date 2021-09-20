@@ -1,0 +1,125 @@
+@import url(../style.css);
+
+/* NAV FOOTER */
+
+.nav-footer {
+    position: fixed;
+    z-index: 10;
+    bottom: 0px;
+    height: 70px;
+    width: 100vw;
+    background: var(--branco);
+}
+
+.nav-footer ul {
+    border-top-color: var(--cinza);
+    border-top-width: 1px;
+    border-top-style: solid;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.nav-footer ul li {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    list-style: none;
+}
+
+.nav-footer ul li .links-name {
+    /* display: none; */
+}
+
+.nav-footer ul li a {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    color: var(--azulnavbar);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.nav-footer ul .active a {
+    padding: 15px;
+    border-radius: 15px;
+    display: flex;
+    background: var(--azulnavbar);
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    color: var(--cinzamaisclaro);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+
+
+/* SIDE MENU */
+
+.nav-bar {
+    display: flex;
+}
+.nav-bar a {
+    display: flex;
+    align-items: center;
+}
+.sidebar {
+    display: none;
+    z-index: 100000;
+}
+.sidebar ul {
+    margin-top: 10px;
+}
+
+.nav-open.active {
+    display: block;
+    transform: translateX(0);
+}
+.logo-content .logo {
+    color: var(--cinzamaisclaro);
+    display: block;
+    height: 50px;
+    width: 100%;
+    font-size: 30px;
+    font-weight: 400;
+}
+.logo-name {
+    display: none;
+}
+.close-mobile-navbar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 15px;
+    color: var(--cinzamaisclaro);
+}
+.btn-nav-open {
+    margin-left: 10px;
+    color: var(--cinzamaisclaro);
+    transition: 200ms;
+    cursor: pointer;
+    user-select: none;
+}
+.btn-nav-open:hover {
+    transform: scale(0.9);
+    color: var(--cinzamaisclaro);
+    transition: 200ms;
+    cursor: pointer;
+    user-select: none;
+}
+.btn-nav-close {
+    display: block;
+    transition: 200ms;
+    cursor: pointer;
+    user-select: none;
+}
+.btn-nav-close:hover {
+    transition: 200ms;
+    cursor: pointer;
+    user-select: none;
+    color: #aa4452;
+}

@@ -1,0 +1,349 @@
+/* FORM */
+
+.area-cadastro {
+    background-color: #dce8f1;
+}
+
+
+/* INPUT-FILE-CUSTOM */
+
+input[type="file"] {
+    display: none;
+}
+
+.h2Adicionar {
+    line-height: 50px;
+}
+
+.carregar-imagem-pub {
+    cursor: pointer;
+    color: var(--cinzaclaro);
+    text-decoration: none;
+    border-radius: 10px;
+    padding: 10px 40px;
+    background-color: var(--azulbtnsair);
+}
+
+
+/* ACABOU */
+
+.main-section {
+    margin: 0 auto;
+    width: 80%;
+}
+
+.formulario {
+    width: 100%;
+    padding: 30px;
+    border-radius: 18px;
+    background-color: var(--cinzamaisclaro);
+}
+
+.main-section .formulario .user-details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.formulario .user-details .input-box {
+    margin: 20px 0 12px 0;
+    width: calc(100% / 2 - 20px);
+}
+
+.formulario .user-details .input-boxwidth30 {
+    margin: 20px 0 12px 0;
+    width: calc(100% / 3 - 20px);
+}
+
+.user-details .input-box-width30 input {
+    padding: 15px 10px;
+    font-family: 'Poppins';
+    border-radius: 18px;
+    background-color: var(--cinzamaisclaro);
+    outline: 0px;
+    border: 1px solid var(--cinzaclaro100);
+    width: 100%;
+}
+
+.user-details .input-box-width30 h2 {
+    color: var(--cinza);
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+}
+
+.formulario .user-details .input-box-width100 {
+    margin: 20px 0 12px 0;
+    width: 100%;
+}
+
+.user-details .input-box-width100 input {
+    padding: 15px 10px;
+    font-family: 'Poppins';
+    border-radius: 18px;
+    background-color: var(--cinzamaisclaro);
+    outline: 0px;
+    border: 1px solid var(--cinzaclaro100);
+    width: 100%;
+}
+
+.user-details .input-box-width100 .text-area {
+    padding-top: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 35px;
+    border-radius: 15px;
+    font-family: 'Poppins';
+    border-radius: 18px;
+    background-color: var(--cinzamaisclaro);
+    outline: 0px;
+    border: 1px solid var(--cinzaclaro100);
+    width: 100%;
+}
+
+.user-details .input-box-width100 h2 {
+    color: var(--cinza);
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+}
+
+.user-details .input-box input {
+    padding: 15px 10px;
+    font-family: 'Poppins';
+    border-radius: 18px;
+    background-color: var(--cinzamaisclaro);
+    outline: 0px;
+    border: 1px solid var(--cinzaclaro100);
+    width: 100%;
+}
+
+.user-details .input-box h2 {
+    color: var(--cinza);
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+}
+
+.button {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.opcao-consulta {
+    padding: 6px;
+    background-color: var(--branco);
+    border-bottom-style: solid;
+    border-bottom-color: var(--cinza);
+    border-bottom-width: 1px;
+}
+
+.opcao-consulta2 {
+    padding: 6px;
+    background-color: var(--branco);
+    border-bottom-style: solid;
+    border-bottom-color: var(--cinza);
+    border-bottom-width: 1px;
+}
+
+.link-consulta {
+    text-decoration: none;
+    color: var(--cinza);
+    font-weight: bold;
+}
+
+.opcao-consulta:hover .link-consulta {
+    background-color: var(--cinzaclaro);
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+}
+
+.texto-consulta {
+    text-decoration: none;
+    color: var(--cinza);
+    font-weight: bold;
+}
+
+.erro-form {
+    border-style: solid !important;
+    border-width: 1px !important;
+    border-color: brown !important;
+    color: brown;
+}
+
+.label-erro {
+    color: brown;
+    font-size: 14px;
+    display: none;
+}
+
+
+/* AREA-EXIBIR CONSULTAS DO BANCO */
+
+.container-controlers {
+    width: 80%;
+    margin: 2% auto;
+    justify-content: center;
+    display: flex;
+    gap: 3rem;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.content-card-link1 {
+    background-color: var(--azulumpoucosaturado);
+    border-radius: 18px;
+    padding: 30px;
+    color: var(--cinzaclaro);
+    text-align: center;
+    min-width: calc(90%/2);
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    transition: 0.7s;
+}
+
+.content-card-link1:hover .btn-ver-dados-tabela {
+    color: var(--azulumpoucosaturado);
+}
+
+.content-card-link1 .side-left h1 {
+    font-size: 4rem;
+}
+
+.content-card-link1:hover {
+    background-color: var(--cinzamaisclaro);
+    color: var(--cinza);
+    transform: translateY(5%);
+}
+
+.content-card-link2 {
+    background-color: var(--cinzamaisclaro);
+    padding: 30px;
+    color: var(--cinza);
+    text-decoration: none;
+    border-radius: 18px;
+    min-width: calc(90%/2);
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    transition: 0.7s;
+}
+
+.content-card-link2 .side-left h1 {
+    font-size: 5rem;
+}
+
+.btn-ver-dados-tabela {
+    border: 0;
+    cursor: pointer;
+    background: transparent;
+    font-size: 5rem;
+    color: var(--cinzamaisclaro);
+}
+
+.btn-adicionar-aluno {
+    border: 0;
+    cursor: pointer;
+    background: transparent;
+    font-size: 5rem;
+    color: var(--cinza);
+}
+
+.content-card-link2:hover {
+    background-color: var(--cinzamaisclaro);
+    color: var(--cinza);
+    transform: translateY(5%);
+}
+
+
+/* ACABO */
+
+
+/* Exibir Consulta */
+
+.container-exibir-dados {
+    width: 80%;
+    min-height: 50vh;
+    margin: 0 auto;
+    background: var(--cinzamaisclaro);
+    padding: 30px;
+    border-radius: 18px;
+    flex-direction: column;
+    display: none;
+    opacity: 0;
+    transform: translateY(-30%);
+    transition: 0.3s ease;
+}
+
+.container-exibir-dados::before {
+    opacity: 0.5;
+}
+
+.container-exibir-dados::after {
+    opacity: 1;
+}
+
+.box-titulo-bar-search {
+    width: 100%;
+    align-items: center;
+    padding: 15px 0px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.box-titulo-bar-search h1 {
+    font-size: 1.5rem;
+    color: var(--cinzafonte);
+}
+
+.box-search {
+    padding: 10px;
+    border-radius: 18px;
+    background-color: var(--branco);
+}
+
+.box-search input[type=text] {
+    outline: none;
+    border: none;
+    color: var(--cinzafonte);
+    background-color: transparent;
+}
+
+.btn-search {
+    margin-right: 5px;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+}
+
+.table-dados {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.table-dados table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.table-dados table thead tr {
+    border-top: 1px solid var(--cinzaclaro100);
+    border-bottom: 1px solid var(--cinzaclaro100);
+}
+
+.table-dados thead td {
+    font-weight: 700;
+}
+
+.table-dados td {
+    font-size: .9rem;
+    padding: .5rem;
+}
+
+
+/* ACabo */
+
+
+/* ACABOU O FORM*/

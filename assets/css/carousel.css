@@ -1,0 +1,115 @@
+/* CAROUSEL */
+
+
+/*Carousel Destaque */
+
+.carousel {
+    width: 100%;
+    flex-wrap: wrap;
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel-destaque {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.carousel-destaque-prev {
+    position: absolute;
+    z-index: 1;
+    padding: 20px;
+    cursor: pointer;
+    left: 0%;
+    top: 30%;
+    font-size: 3rem;
+    padding: 20px;
+    background-color: transparent;
+    transform: translateX(0%);
+    transition: 0.7s ease;
+    opacity: 0.4;
+}
+
+.carousel-destaque-prev:hover {
+    opacity: 1;
+    transform: translateX(-10%);
+}
+
+.carousel-destaque-next {
+    z-index: 1;
+    opacity: 0.4;
+    padding: 20px;
+    cursor: pointer;
+    right: 0%;
+    top: 30%;
+    position: absolute;
+    font-size: 3rem;
+    padding: 20px;
+    background-color: transparent;
+    transform: translateX(-10%);
+    transition: 0.7s ease;
+}
+
+.carousel-destaque-next:hover {
+    transform: translateX(0%);
+    opacity: 1;
+}
+
+
+/* FIM */
+
+
+/* Carousel Eventos */
+
+.carousel-evento {
+    position: relative;
+    border: 0;
+}
+
+.carousel-evento-prev {
+    position: absolute;
+    z-index: 1;
+    border-radius: 150px;
+    padding: 20px;
+    cursor: pointer;
+    left: 0%;
+    top: 70%;
+    font-size: 2.8rem;
+    padding: 20px;
+    background-color: #5A6978;
+    transform: translateX(0%);
+    transition: 0.7s ease;
+    opacity: 0.4;
+}
+
+.carousel-evento-prev:hover {
+    opacity: 1;
+    transform: translateX(-10%);
+}
+
+.carousel-evento-next {
+    border-radius: 150px;
+    position: absolute;
+    z-index: 1;
+    opacity: 0.4;
+    padding: 20px;
+    cursor: pointer;
+    right: 0%;
+    top: 70%;
+    position: absolute;
+    font-size: 2.8rem;
+    padding: 20px;
+    background-color: #5A6978;
+    transform: translateX(-10%);
+    transition: 0.7s ease;
+}
+
+.carousel-evento-next:hover {
+    transform: translateX(0%);
+    opacity: 1;
+}
+
+
+/* ACABOU */

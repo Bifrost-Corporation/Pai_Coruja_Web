@@ -1,0 +1,85 @@
+/*  MEDIAS  */
+
+@import url(style.css);
+
+@media (max-width:1080px) {
+    html {
+        font-size: 93.73%;
+    }
+    .logo-img {
+        max-width: 93.73%;
+    }
+}
+
+@media (max-width:973px) {
+    .content-card-link1 {
+        min-width: 100%;
+    }
+    .content-card-link2 {
+        min-width: 100%;
+    }
+}
+
+@media (max-width:720px) {
+    html {
+        font-size: 87.5%;
+    }
+    .logo-img {
+        max-width: 87.5%;
+    }
+    .formulario .user-details .input-box {
+        width: 100%;
+    }
+    .formulario .user-details .input-boxwidth30 {
+        width: 100%;
+    }
+    .content-card-link2 {
+        min-width: 100%;
+    }
+}
+
+@media (min-width:720px) {
+    .sidebar {
+        display: block !important;
+    }
+}
+
+@media (max-width:720px) {
+    .container-main {
+        padding-top: 10vh;
+        margin-left: 0px;
+    }
+}
+
+@media (max-width:550px) {
+    
+    .card-login {
+        width: 90vw;
+    }
+    html {
+        font-size: 80%;
+    }
+    .main-section {
+        margin: 0 auto;
+        width: 100%;
+    }
+    .top-section {
+        margin-bottom: 10px;
+    }
+    .content-card-link1 {
+        min-width: 100%;
+    }
+    .content-card-link2 {
+        min-width: 100%;
+    }
+    .container-controlers {
+        width: 100%;
+        gap: 0;
+    }
+    .container-exibir-dados {
+        width: 100%;
+    }
+    .box-search {
+        width: 100%;
+    }
+}

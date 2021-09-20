@@ -1,0 +1,348 @@
+
+
+
+/* MENU LATERAL */
+
+/* Container */
+
+.container-main {
+    color: var(--cinzafonte);
+    flex-wrap: wrap;
+    /* padding-top: 10vh; */
+    padding-bottom: 40px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-left: 240px;
+    min-height: 100vh;
+    background-color: var(--cinzamaisclaro);
+}
+
+.top-section {
+    position: relative;
+    margin-top: 0px;
+    padding-left: 30px;
+    margin-bottom: 35px;
+    width: 100%;
+    align-items: center;
+    padding: 20px;
+    display: flex;
+    background-color: var(--cinzamaisclaro);
+    float: left;
+    flex-direction: row;
+}
+
+.voltar {
+    padding: 0px 5px;
+}
+
+.voltar a {
+    color: var(--cinza);
+    font-size: 1.25rem;
+    text-decoration: none;
+    font-weight: 400;
+}
+
+.voltar a span {
+    margin-right: 10px;
+    transition: 0.7s ease;
+}
+
+.voltar a:hover span {
+    transform: translateX(-20%);
+}
+
+.titulo-cadastrar {
+    padding: 0px 20px;
+}
+
+.titulo-cadastrar h2 {
+    color: var(--cinza);
+    font-size: 1.5rem;
+}
+
+
+
+
+/* MENU MOBILE */
+
+.nav-bar {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding: 0 5%;
+    width: 100%;
+    height: 10vh;
+    background-color: var(--azulnavbar);
+    flex-direction: row-reverse;
+    justify-content: space-between;
+}
+
+.logo-img {
+    align-items: center;
+    width: 120px;
+}
+
+.ul-area-btn {
+    list-style: none;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    font-size: 30px;
+}
+
+.nav-li {
+    align-items: center;
+    display: flex;
+}
+
+.btn-nav-exit {
+    cursor: pointer;
+    font-family: 'Poppins';
+    text-decoration: none;
+    background-color: transparent;
+    border-radius: 15px;
+    font-weight: bold;
+    color: var(--cinza);
+    border: 3px solid var(--cinza);
+    padding: 10px 40px;
+    transition: 0.7s;
+    transform: translateY(10px);
+}
+
+.btn-nav-exit:hover {
+    background-color: var(--azulbtnsair);
+    color: var(--cinzamaisclaro);
+    transform: translateY(0px);
+}
+
+
+/* MENU PC */
+
+.sidebar {
+    height: 100vh;
+    width: 240px;
+    background: var(--azulumpoucosaturado);
+    padding: 6px 14px;
+    position: fixed;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.sidebar .logo-content {
+    margin-bottom: 40px;
+}
+
+.sidebar .logo-content i {
+    font-size: 28px;
+    font-weight: 400;
+}
+
+.logo-content .logo {
+    color: var(--cinzamaisclaro);
+    display: flex;
+    height: 50px;
+    width: 100%;
+    margin-top: 10px;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.logo-content .logo .logo-name a img {
+    width: 120px;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.close-mobile-navbar {
+    display: none;
+}
+
+.sidebar #menu-btn {
+    color: var(--cinzamaisclaro);
+    position: fixed;
+    left: 90%;
+    top: 6px;
+    text-align: center;
+    line-height: 50px;
+    transform: translateX(-50%);
+}
+
+.sidebar ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0;
+    margin-bottom: 100px;
+}
+
+.sidebar ul hr {
+    border: 1px solid #9aa9b1;
+}
+
+.menu-container {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-color: #9da9b6;
+    border-width: 1px;
+}
+
+.sidebar ul li {
+    position: relative;
+    width: 100%;
+    list-style: none;
+    list-style: none;
+    line-height: 50px;
+}
+
+.sidebar ul li a {
+    margin: 0.3rem;
+    padding: 1rem;
+    border-radius: 15px;
+    color: var(--cinzaclaro100);
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.sidebar ul li .active-nav {
+    border-radius: 15px;
+    color: var(--branco);
+    background-color: var(--azulbtnsair);
+    font-weight: bold;
+    transition: 200ms;
+}
+
+.sidebar ul li a:hover {
+    border-radius: 15px;
+    color: var(--cinzafonte);
+    background-color: var(--cinzamaisclaro);
+    font-weight: bold;
+    transition: 200ms;
+}
+
+.sidebar ul li a span {
+    margin-left: 2.5rem;
+    font-size: 12px;
+    line-height: 15px;
+}
+
+.sidebar ul li a i {
+    width: 10px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+}
+
+.sidebar .profile-content {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 235px;
+}
+
+.sidebar .profile-content .profile {
+    position: relative;
+    padding: 10px 14px;
+    height: 60px;
+    background: var(--cinzamaisclaro);
+}
+
+.profile-content .profile {
+    color: var(--cinzafonte);
+    margin: 1rem;
+    border-radius: 15px;
+}
+
+.profile-content .profile .profile-details {
+    background-color: var(--cinzamaisclaro);
+    display: flex;
+    align-items: center;
+}
+
+.profile .profile-details img {
+    box-shadow: 0rem 0.5rem 2rem #9aa9b1;
+    background-color: #042243;
+    border-style: solid;
+    border-width: 3px;
+    border-color: var(--cinza);
+    height: 40px;
+    width: 40px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.profile .profile-details .name-job {
+    margin-left: 10px;
+}
+
+.profile .profile-details .name-menu {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.profile .profile-details .job-menu {
+    font-size: 10px;
+    font-weight: 400;
+}
+
+.profile-content .profile-menu{
+    transform:translateY(100px);
+    margin: -0.6rem 1rem ;
+    display: flex;
+    padding: 0;
+    border-radius: 1rem;
+    height: 0;
+    background-color: var(--cinzamaisclaro);
+    flex-direction: column;
+    font-size: 13px;
+    opacity: 0;
+    pointer-events: none;
+    transition:  200ms ease-out;
+
+}
+
+.profile-content:hover .profile-menu{
+    margin: 0rem 1rem ;
+    padding: 1rem;
+    height: auto;
+    transition: 500ms cubic-bezier(0.96, -0.54, 2.9, 3.27);
+    display: flex;
+    opacity: 1;
+    pointer-events:all;
+    transform:translateY(10px);
+}
+
+.profile-menu a {
+    text-decoration: none;
+    margin: 0.1rem;
+    padding: 0.5rem 1.0rem;
+    color: var(--cinzafonte);
+    transition: 200ms;
+}
+
+.profile-menu a:hover {
+    text-decoration: none;
+    border-radius: 3.5rem;
+    margin: 0.1rem;
+    padding: 0.5rem 1rem;
+    color: var(--branco);
+    background-color: var(--azulnavbar);
+    transition: 200ms;
+}
+
+.profile-menu a span {
+    width: 100%;
+}
+
+.profile-logout a i:hover {
+    transition: 200ms;
+    transform: scale(0.9);
+    color: var(--cinza);
+}
+
+
+/* ACABOU O MENU AQ */
