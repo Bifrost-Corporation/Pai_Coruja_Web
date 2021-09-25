@@ -251,10 +251,10 @@
             </div>
         </div>
 
-        <script src="../js/nav.js"></script>
+        <script src="../assets/js/nav.js"></script>
         <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-        <script src="../js/showDiv.js"></script>
-        <script src="../js/jquery.mask.js"></script>
+        <script src="../assets/js/showDiv.js"></script>
+        <script src="../assets/js/jquery.mask.js"></script>
 
     </main>
 

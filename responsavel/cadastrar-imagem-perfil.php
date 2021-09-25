@@ -129,7 +129,7 @@
         </section>
     </main>
 
-    <script src="../js/nav.js"></script>
+    <script src="../assets/js/nav.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 
     <script>
