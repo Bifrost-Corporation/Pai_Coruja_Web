@@ -2,11 +2,10 @@ var APP_PREFIX = 'Bifrost-PWA'     // Identifier for this app (this needs to be 
 var VERSION = '_02'              // Version of the off-line cache (change this value everytime you want to update cache)
 var CACHE_NAME = APP_PREFIX + VERSION
 var URLS = [                            // Add URL you want to cache in this list.
-  '',                     // If you have separate JS/CSS files,
+  '.',                     // If you have separate JS/CSS files,
   // 'index.php'            // add path to those files here
 ]
 
-// Respond with cached resources
 self.addEventListener('fetch', function (e) {
   console.log('fetch request : ' + e.request.url)
   e.respondWith(
@@ -18,32 +17,10 @@ self.addEventListener('fetch', function (e) {
         console.log('file is not cached, fetching : ' + e.request.url)
         return fetch(e.request)
       }
-
       // You can omit if/else for console.log & put one line below like this too.
-      // return request || fetch(e.request)
     })
   )
 })
-
-// Register event listener for the 'push' event.
-self.addEventListener('push', function(event) {
-  // Retrieve the textual payload from event.data (a PushMessageData object).
-  // Other formats are supported (ArrayBuffer, Blob, JSON), check out the documentation
-  // on https://developer.mozilla.org/en-US/docs/Web/API/PushMessageData.
-  const payload = event.data ? event.data.text() : 'Sem mensagem';
-
-  // Keep the service worker alive until the notification is created.
-  event.waitUntil(
-    // as the body.
-    self.registration.showNotification('Pai Coruja', {
-      body: payload,
-      icon: "img/windows10/SmallTile.scale-400.png",
-      // image: "macos.png",
-    })
-  );
-});
-
-// https://developers.google.com/web/fundamentals/push-notifications/display-a-notification
 
 // Cache resources
 self.addEventListener('install', function (e) {
@@ -77,33 +54,24 @@ self.addEventListener('activate', function (e) {
   )
 })
 
-import {registerRoute} from 'workbox-routing';
-import {StaleWhileRevalidate} from 'workbox-strategies';
 
-registerRoute(
-  ({request}) => request.destination === 'script' ||
-                 request.destination === 'style',
-  new StaleWhileRevalidate()
-);
+// Register event listener for the 'push' event.
+self.addEventListener('push', function(event) {
+  // Retrieve the textual payload from event.data (a PushMessageData object).
+  // Other formats are supported (ArrayBuffer, Blob, JSON), check out the documentation
+  // on https://developer.mozilla.org/en-US/docs/Web/API/PushMessageData.
+  const payload = event.data ? event.data.text() : 'Sem mensagem';
 
+  // Keep the service worker alive until the notification is created.
+  event.waitUntil(
+    // as the body.
+    self.registration.showNotification('Pai Coruja', {
+      body: payload,
+      icon: "img/windows10/SmallTile.scale-400.png",
+      // image: "macos.png",
+    })
+  );
+});
 
-import {CacheableResponsePlugin} from 'workbox-cacheable-response';
-import {CacheFirst} from 'workbox-strategies';
-import {ExpirationPlugin} from 'workbox-expiration';
-import {registerRoute} from 'workbox-routing';
+// https://developers.google.com/web/fundamentals/push-notifications/display-a-notification
 
-registerRoute(
-  ({request}) => request.destination === 'image',
-  new CacheFirst({
-    cacheName: 'images',
-    plugins: [
-      new CacheableResponsePlugin({
-        statuses: [0, 200],
-      }),
-      new ExpirationPlugin({
-        maxEntries: 60,
-        maxAgeSeconds: 30 * 24 * 60 * 60, // 30 Days
-      }),
-    ],
-  }),
-);
