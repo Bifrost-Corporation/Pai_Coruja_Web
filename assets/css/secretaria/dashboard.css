@@ -1,0 +1,55 @@
+.ola-nav-dash{
+    background-color: var(--cinzaclaro);
+    height: auto;
+    padding: 0.4rem 2rem;
+}
+
+.ola-nav-dash small{
+        /* background-color: var(--cinzaclaro); */
+        height: auto;
+        /* margin: 0; */
+        margin-left: 2px;
+        position: absolute;
+        top: 6.5vh;
+        font-size: 10px;
+        font-weight: 600;
+}
+
+.container-dash{
+    display: flex;
+    text-align: left;
+    justify-content: space-between;
+}
+
+.container-dash .left-dash,
+.container-dash .right-dash{
+    /* background-color: blue; */
+    width: 50%;
+    padding: 2rem;
+    text-align: left;
+}
+
+.container-dash .left-dash .acesso-rapido-btns{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem 0;
+}
+
+.container-dash .left-dash .acesso-rapido-btns a{
+    text-align: center;
+    background: var(--azulbtnsair);
+    padding: 0.5rem;
+    width: 45%;
+    height: auto;
+    border-radius: 1rem;
+    border: 0;
+    color: var(--branco);
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0px 4px 20px #c8c8c8;
+}
+
+.dash-eventos-destaque .evento-card{
+    width: auto !important;
+}

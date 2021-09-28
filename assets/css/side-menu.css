@@ -437,16 +437,6 @@
     .compact-nav .profile .profile-details .job-menu {
         font-size: 0;
     }
-    
-    .compact-nav .profile-content .profile-menu{
-        
-    
-    }
-    
-    
-    
-
-    
     .compact-nav .profile-menu a span {
         /* width: 100%; */
     }
@@ -552,9 +542,7 @@
         transition: 200ms;
     }
     .compact-nav .profile-menu span {
-        text-decoration: none;
-        font: size 0;
-        transition: 200ms;
+        
     }
     .compact-nav .profile-menu a:hover {
         text-decoration: none;
@@ -567,7 +555,10 @@
     }
     
     .compact-nav .profile-menu a span {
-        width: 100%;
+        display: block;
+        text-decoration: none;
+        font-size: 100px;
+        transition: 200ms;
     }
     
     .compact-nav .profile-logout a i:hover {

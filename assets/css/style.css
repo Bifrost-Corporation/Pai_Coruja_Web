@@ -7,6 +7,8 @@
 @import url(carousel.css);
 @import url(forms.css);
 @import url(container-main.css);
+@import url(secretaria/dashboard.css);
+
 
 
 /* So pra lembrar, as linhas aq do style.css são lidas por último, n vai tentar modificar algo num outro arquivo q pd dar probleminhas (no caso de max-width no import, se fizer media normal roda de boa, eu acho) */
