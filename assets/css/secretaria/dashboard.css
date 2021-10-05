@@ -16,18 +16,55 @@
 }
 
 .container-dash{
+    color: var(--cinzafonte);
+    flex-wrap: wrap;
+    padding-bottom: 40px;
+    position: relative;
     display: flex;
-    text-align: left;
-    justify-content: space-between;
+    flex-direction: column;
+    margin-left: 240px;
+    min-height: 100vh;
+    background-color: var(--cinzaBackground);
+    background-image: url(../../../img/background.svg) no-repeat;
+    transition: 200ms ease;
+
+    padding: 7% 2rem;
+
 }
 
-.container-dash .left-dash,
-.container-dash .right-dash{
-    /* background-color: blue; */
-    width: 50%;
-    padding: 2rem;
-    text-align: left;
+.container-dados-dash{
+    display: flex;
+    justify-content: space-between;
+
 }
+
+
+.acesso-rapido-dash{
+    display: flex;
+    flex-direction: column;
+    background: var(--branco);
+    padding: 1rem;
+    border-radius: 1rem;
+    gap: 1rem;
+}
+.acesso-rapido-dash div{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.acesso-dash-btns button{
+    background-color: var(--azulbtnsair);
+    color: var(--cinzamaisclaro);
+    padding: 0.4rem 1.2rem;
+    border: none;
+    border-radius: 3rem;
+    font-weight: 900;
+    cursor: pointer;
+}
+
+
+
 
 .container-dash .left-dash .acesso-rapido-btns{
     width: 100%;
