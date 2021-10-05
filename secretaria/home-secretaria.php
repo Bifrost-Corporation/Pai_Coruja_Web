@@ -68,18 +68,48 @@
                 </div>
                 <hr>
                 <div class="menu-container">
-                    <li class="links-name">
-                        <a href="cadastrar-escola.php">
-                            <i class="fas fa-school"></i>
-                            <span class="links-name">Cadastrar Escola</span>
-                        </a>
-                    </li>
-                    <li class="links-name">
-                        <a href="cadastrar-secretaria.php">
-                            <i class="fas fa-school"></i>
-                            <span class="links-name">Cadastrar Secretária</span>
-                        </a>
-                    </li>
+                <li class="links-name">
+                <a href="cadastrar-turma.php">
+                    <i class="fas fa-school"></i>
+                    <span class="links-name">Cadastrar Turma</span>
+                </a>
+            </li>
+            <li class="links-name">
+                <a href="cadastrar-aluno.php">
+                    <i class="fas fa-school"></i>
+                    <span class="links-name">Cadastrar Aluno</span>
+                </a>
+            </li>
+            <li class="links-name">
+                <a href="cadastrar-professor.php">
+                    <i class="fas fa-school"></i>
+                    <span class="links-name">Cadastrar Professor</span>
+                </a>
+            </li>
+            <li class="links-name">
+                <a href="cadastrar-responsavel.php">
+                    <i class="fas fa-school"></i>
+                    <span class="links-name">Cadastrar Responsável</span>
+                </a>
+            </li>
+            <li class="links-name">
+                <a href="cadastrar-disciplina.php">
+                    <i class="fas fa-school"></i>
+                    <span class="links-name">Cadastrar Disciplina</span>
+                </a>
+            </li>
+            <li class="links-name">
+                <a href="cadastrar-horario-turma.php">
+                    <i class="fas fa-school"></i>
+                    <span class="links-name">Cadastrar Horarios</span>
+                </a>
+            </li>
+            <li class="links-name">
+                <a href="cadastrar-evento.php">
+                    <i class="fas fa-school"></i>
+                    <span class="links-name">Cadastrar Evento</span>
+                </a>
+            </li>
                 </div>
             </ul>
             <div class="profile-content">

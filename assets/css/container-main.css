@@ -5,13 +5,13 @@
     color: var(--cinzafonte);
     flex-wrap: wrap;
     /* padding-top: 10vh; */
-    padding-bottom: 40px;
+    padding-bottom: 20px;
     position: relative;
     display: flex;
     flex-direction: column;
     margin-left: 240px;
-    min-height: 100vh;
     background-color: var(--cinzamaisclaro);
+   
 }
 
 .top-section {

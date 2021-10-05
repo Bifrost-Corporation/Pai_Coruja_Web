@@ -206,11 +206,11 @@
 
 
             </div>
-            <div class="indicadors-bar">
+            
             <i aria-label="Previous" class="fa fa-chevron-left carousel-evento-prev"></i>
             <div role="tablist" class="carousel-evento-dots"></div>
             <i aria-label="Next" class="fa fa-chevron-right carousel-evento-next"></i>
-            </div>
+            
         </section>
     </main>
 

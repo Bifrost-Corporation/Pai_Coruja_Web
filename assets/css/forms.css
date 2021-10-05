@@ -72,7 +72,7 @@ input[type="file"] {
 }
 
 .formulario .user-details .input-box-width100 {
-    margin: 20px 0 12px 0;
+    margin: 20px 20px 12px 20px;
     width: 100%;
 }
 
@@ -176,6 +176,167 @@ input[type="file"] {
     display: none;
 }
 
+
+/* FORM MULTI STEPS */
+.container-form-pages{
+    overflow: hidden;
+    padding: 50px 0px 40px 0px;
+}
+.container-steps-form{
+    background-color: var(--cinzamaisclaro);
+    
+    padding: 50px 0px 40px 0px;
+    
+    width: 100%;
+    align-items: center;
+}
+
+.title-page-form{
+    align-items: center;
+    text-align: center;
+    margin: 0 0 40px 0;
+}
+
+.container-steps-form form{
+    display: flex;
+    flex-direction: row;
+    gap: 0rem;
+   
+    width: 400%;
+}
+.page-form{
+    align-items: center;
+    width:25%;
+    padding: 0px;
+    transition: margin-left 0.3s ease-in-out;
+
+}
+.page-form .input-box{
+    padding: 20px 20px 12px 20px;
+}
+.page-form .input-box-width30{
+    padding: 20px 20px 12px 20px;
+}
+.page-form .input-box-width100{
+    padding: 20px 20px 12px 20px;
+}
+
+.btn-page-prev{
+    width: calc(100%/2);
+    margin-right: 3px;
+    background-color: var(--azulbtnsair);
+    font-size: 1rem;
+    color: var(--cinzamaisclaro);
+    text-align: center;
+}
+.btn-page-next{
+    width: calc(100%/2);
+    margin-left: 3px;
+    text-align: center;
+    font-size: 1rem;
+    
+}
+
+.progress-bar{
+    display: flex;
+    width: 300px;
+    margin: 0 auto;
+}
+.progress-bar .steps{
+    position: relative;
+    text-align: center;
+    width: 100%;
+    align-items: center;
+}
+.progress-bar .steps p{
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+.progress-bar .steps p.actived{
+    color:var(--azulumpoucosaturado);
+}
+.progress-bar .steps .bullet{
+    position: relative;
+    height: 30px;
+    width: 30px;
+    border: 2px solid var(--cinza);
+    display: inline-block;
+    border-radius: 50%;
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 25px;
+    transition: 0.2s;
+}
+
+.progress-bar .steps .bullet.actived{
+    border-color:var(--azulumpoucosaturado);
+    background: var(--azulumpoucosaturado);
+    color: var(--cinzamaisclaro);
+}
+.progress-bar .steps:last-child .bullet:before,
+.progress-bar .steps:last-child .bullet:after{
+    
+
+    display: none;
+}
+.progress-bar .steps .bullet:before,
+.progress-bar .steps .bullet:after{
+    
+
+    position: absolute;
+    content: '';
+    bottom: 11px;
+
+    right: -66px;
+    height: 3px;
+    
+    width: 60px;
+    background: var(--branco);
+}
+.progress-bar .steps .bullet.actived:after{
+    
+    background: var(--azulumpoucosaturado);
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: animate 0.3s linear forwards;
+
+}
+@keyframes animate{
+    100%{
+        transform: scaleX(1);
+    }
+
+}
+
+.progress-bar .steps span{
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 25px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+}
+.progress-bar .steps .bullet.actived span{
+    display:none;
+}
+.progress-bar .steps .bullet-check{
+
+    position:absolute;
+    left: 50%;
+    top:70%;
+    font-size:15px ;
+    transform: translate(-50%,-50%);
+    display: none;
+}
+.progress-bar .steps .bullet-check.actived{
+
+    display:block;
+    color:var(--cinzamaisclaro);
+}
+
+/* END*/
 
 /* AREA-EXIBIR CONSULTAS DO BANCO */
 

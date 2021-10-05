@@ -66,16 +66,16 @@
 .carousel-evento {
     position: relative;
     border: 0;
+    
+   
 }
 
 .carousel-evento-prev {
     position: absolute;
     z-index: 1;
     border-radius: 150px;
-    padding: 20px;
     cursor: pointer;
     left: 0%;
-    top: 70%;
     font-size: 2.8rem;
     padding: 20px;
     background-color: #5A6978;
@@ -83,7 +83,6 @@
     transition: 0.7s ease;
     opacity: 0.4;
 }
-
 .carousel-evento-prev:hover {
     opacity: 1;
     transform: translateX(-10%);
@@ -91,13 +90,11 @@
 
 .carousel-evento-next {
     border-radius: 150px;
-    position: absolute;
     z-index: 1;
     opacity: 0.4;
-    padding: 20px;
     cursor: pointer;
     right: 0%;
-    top: 70%;
+    align-items: center;
     position: absolute;
     font-size: 2.8rem;
     padding: 20px;
