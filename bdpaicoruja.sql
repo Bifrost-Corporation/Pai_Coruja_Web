@@ -275,6 +275,44 @@ CREATE TABLE `tbusuario` (
   `idSecretaria` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `tborigemmensagem`
+--
+
+CREATE TABLE `tborigemmensagem` (
+  `idOrigemMensagem` int(11) NOT NULL,
+  `idUsuario` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `tbdestinomensagem`
+--
+
+CREATE TABLE `tbdestinomensagem` (
+  `idDestinoMensagem` int(11) NOT NULL,
+  `idUsuario` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `tbmensagem`
+--
+
+CREATE TABLE `tbmensagem` (
+  `idMensagem` int(11) NOT NULL,
+  `textoMensagem` varchar(500) NOT NULL,
+  `dataMensagem` datetime NOT NULL,
+  `idOrigemMensagem` int(11) DEFAULT NULL,
+  `idDestinoMensagem` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
 --
 -- Índices de tabelas apagadas
 --
@@ -413,6 +451,28 @@ ALTER TABLE `tbusuario`
   ADD KEY `fk_usuario_secretaria` (`idSecretaria`);
 
 --
+-- Índices de tabela `tborigemmensagem`
+--
+ALTER TABLE `tborigemmensagem`
+  ADD PRIMARY KEY (`idOrigemMensagem`),
+  ADD KEY `fk_origemMensagem_usuario` (`idUsuario`);
+
+--
+-- Índices de tabela `tbdestinomensagem`
+--
+ALTER TABLE `tbdestinomensagem`
+  ADD PRIMARY KEY (`idDestinoMensagem`),
+  ADD KEY `fk_destinoMensagem_usuario` (`idUsuario`);
+
+--
+-- Índices de tabela `tbmensagem`
+--
+ALTER TABLE `tbmensagem`
+  ADD PRIMARY KEY (`idMensagem`),
+  ADD KEY `fk_mensagem_origemMensagem` (`idOrigemMensagem`),
+  ADD KEY `fk_mensagem_destinoMensagem` (`idDestinoMensagem`);
+
+--
 -- AUTO_INCREMENT de tabelas apagadas
 --
 
@@ -523,6 +583,24 @@ ALTER TABLE `tbturma`
 --
 ALTER TABLE `tbusuario`
   MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `tborigemmensagem`
+--
+ALTER TABLE `tborigemmensagem`
+  MODIFY `idOrigemMensagem` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `tbdestinomensagem`
+--
+ALTER TABLE `tbdestinomensagem`
+  MODIFY `idDestinoMensagem` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `tbmensagem`
+--
+ALTER TABLE `tbmensagem`
+  MODIFY `idMensagem` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Restrições para dumps de tabelas
@@ -637,6 +715,22 @@ ALTER TABLE `tbusuario`
   ADD CONSTRAINT `fk_usuario_professor` FOREIGN KEY (`idProfessor`) REFERENCES `tbprofessor` (`idProfessor`),
   ADD CONSTRAINT `fk_usuario_responsavel` FOREIGN KEY (`idResponsavel`) REFERENCES `tbresponsavel` (`idResponsavel`),
   ADD CONSTRAINT `fk_usuario_secretaria` FOREIGN KEY (`idSecretaria`) REFERENCES `tbsecretaria` (`idSecretaria`);
+
+--
+-- Restições para tabelas `tborigemmensagem`
+--
+ALTER TABLE `tborigemmensagem`
+  ADD CONSTRAINT `fk_origemMensagem_usuario` FOREIGN KEY (`idUsuario`) REFERENCES `tbusuario` (`idUsuario`);
+
+--
+-- Restrições para tabelas `tbdestinomensagem`
+--
+ALTER TABLE `tbdestinomensagem`
+  ADD CONSTRAINT `fk_destinoMensagem_usuario` FOREIGN KEY (`idUsuario`) REFERENCES `tbusuario` (`idUsuario`);
+
+ALTER TABLE `tbmensagem`
+  ADD CONSTRAINT `fk_mensagem_origemMensagem` FOREIGN KEY (`idOrigemMensagem`) REFERENCES `tborigemmensagem` (`idOrigemMensagem`),
+  ADD CONSTRAINT `fk_mensagem_destinoMensagem` FOREIGN KEY (`idDestinoMensagem`) REFERENCES `tbdestinomensagem` (`idDestinoMensagem`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

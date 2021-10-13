@@ -1,0 +1,83 @@
+.area-chat{
+    width: 100%;
+    display: flex;
+}
+
+.menu-lateral{
+    width: 20%;
+    background-color: yellowgreen;
+    float: left;
+}
+
+.caixa-chat{
+    width: 80%;
+    background-color: #f3f3f3;
+    height: 90%;
+    float: right;
+}
+
+.caixa-chat2{
+    width: 100%;
+    background-color: #f3f3f3;
+    height: 90%;
+    float: right;
+}
+
+.caixa-mensagens{
+    width: 100%;
+    height: 90%;
+    background-color: violet;
+}
+
+.form-mensagem{
+    width: 100%;
+    height: 10%;
+    background-color: turquoise;
+}
+
+.caixa-mensagem{
+    width: 90%;
+    float: left;
+}
+
+.botao-enviar{
+    width: 10%;
+    float: right;
+}
+
+.mensagem{
+    width: 100%;
+    height: auto;
+    padding: 5px;
+}
+
+.enviado{
+    width: 100%;
+    text-align: end;
+    float: right;
+}
+
+.recebido{
+    width: 100%;
+    text-align: start;
+    float: left;
+}
+
+.area-contato{
+    width: 100%;
+    padding: 10px;
+}
+
+.img-contato{
+    float: left;
+    width: 30%;
+    height: auto;
+}
+
+.nome-contato{
+    float: right;
+}
+
+.botao-contato{
+    width: 100%;
+}
