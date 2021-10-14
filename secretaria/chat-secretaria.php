@@ -9,17 +9,21 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.css">
 
     <link rel="stylesheet" type="text/css"  href="../assets/css/style.css">
+    <link rel="stylesheet" type="text/css"  href="../assets/css/chat.css">
 
 
 
-    <title>Home - Secretária</title>
+    <title>Chat - Secretária</title>
 
 
+</head>
+
+<body>
     <?php
         include ('sentinela.php');
         include ('globalSecretaria.php');
     ?>
-       <header>
+        <header>
 
 <nav class="nav-bar">
     <a href=""><img class="logo-img" src="../img/pai_coruja_branca.png"></a>
@@ -138,43 +142,45 @@
 </div>
 </header>
 
-        
-    
 
-    <main>
-        
-        
-        
-        <div class="container-dash">
-            <div>
-                <h1>Dashboard</h1>
-            </div>
+        <main class="container-main">
 
-            <div class="container-dados-dash">
-                <div class="acesso-rapido-dash">
-                    <h4>Acesso Rápido</h4>
-                    <div class="acesso-dash-btns">
-                        <a href=""><button>Cadastrar Dados</button></a>
-                        <a href=""><button>Cadastrar Dados</button></a>
-                        <a href=""><button>Cadastrar Dados</button></a>
-                        <a href=""><button>Cadastrar Dados</button></a>
+            <section class="area-chat">
+                <div class="menu-lateral">
+                    <?php
+                        $secretaria = new Secretaria();
+                        $listaContatos = $secretaria->listarResponsaveis($_SESSION['idEscola']);
+                        foreach($listaContatos as $linha){
+                    ?>
+                    <div class="area-contato">
+                        <button class="botao-contato" id="<?php echo $linha['idResponsavel'] ?>"><?php echo $linha['nomeResponsavel'] ?></button>
+                    </div>
+                    <?php
+                        }
+                    ?>
+                </div>
+                <div class="caixa-chat">
+                    <div class="caixa-mensagens">
+                        <div id="mensagens">
+
+                        </div>
+                    </div>
+                    <div class="form-mensagem">
+                        <form name="form-chat" method="POST" action="../DAO/enviar-mensagem.php">
+                            <input type="hidden" id="idEnviar" name="idEnviar" value="<?php echo $_SESSION['idSecretaria'] ?>">
+                            <input type="hidden" id="idReceber" name="idReceber" value="#">
+                            <input type="text" class="caixa-mensagem" id="txtMensagem" name="txtMensagem">
+                            <button class="botao-enviar" id="botao-enviar" name="botao-enviar">Enviar</button>
+                        </form>
                     </div>
                 </div>
-                <div class="acesso-rapido-dash">
-                    <h4>Dados Escolares</h4>
-                </div>
-                <div class="acesso-rapido-dash">
-                    <h4>Mensagens do Chat</h4>
-                </div>
-            </div>
-            
-        </div>
+            </section>
+
+        </main>
+        
+       
 
         
-
-
-    </main>
-
     <div class="nav-footer">
         <ul>
             <li class="active">
@@ -202,6 +208,77 @@
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.js"></script>
     <script src="../assets/js/carousel.js"></script>
+
+    <script>
+        jQuery('.botao-contato').on('click', function(){
+            $('#idReceber').val(this.id);
+            (function attMensagens () {
+                var idSecretaria = $('#idEnviar').val();
+                var idResponsavel = $('#idReceber').val();
+
+                var query = idSecretaria + ' ' + idResponsavel;
+                $.ajax({
+                url: '../DAO/listar-mensagens-secretaria.php',
+                method: 'POST',
+                data: {
+                    query: query
+                },
+                success: function(retorno){
+                    $("#mensagens").html(retorno);
+                },
+                complete: function () {
+                    setTimeout(attMensagens, 1000);
+                }
+                });
+            })();
+        });
+
+        jQuery('form').on('submit', function(e){
+            e.preventDefault();
+        });
+
+        jQuery('#botao-enviar').click(function (){
+            if($('#txtMensagem').length != 0){
+                var dados = {'idEnviar':jQuery('#idEnviar').val(),
+                            'idReceber':jQuery('#idReceber').val(),
+                            'txtMensagem':jQuery('#txtMensagem').val()};
+                var pageurl = '../DAO/enviar-mensagem.php';
+                jQuery.ajax({
+                    url: pageurl,
+                    data: dados,
+                    type: 'POST',
+                    success:function(html){
+                        jQuery('html body').animate({scrollbottom:0},100);
+                        jQuery('html #txtMensagem').val('');
+                    }
+                });
+            }
+        });
+        /*
+        $(document).ready(function() {
+            var idSecretaria = $('#idEnviar').val();
+            var idResponsavel = $('#idReceber').val();
+
+            var query = idSecretaria + ' ' + idResponsavel;
+
+            (function attMensagens () {
+                $.ajax({
+                url: '../DAO/listar-mensagens-secretaria.php',
+                method: 'POST',
+                data: {
+                    query: query
+                },
+                success: function(retorno){
+                    $("#mensagens").html(retorno);
+                },
+                complete: function () {
+                    setTimeout(attMensagens, 1000);
+                }
+                });
+            })();
+        });
+        */
+    </script>
 </body>
 
 

@@ -9,17 +9,19 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.css">
 
     <link rel="stylesheet" type="text/css"  href="../assets/css/style.css">
+    <link rel="stylesheet" type="text/css"  href="../assets/css/chat.css">
+
+    <title>Home - Responsável</title>
 
 
+</head>
 
-    <title>Home - Secretária</title>
-
-
+<body>
     <?php
-        include ('sentinela.php');
-        include ('globalSecretaria.php');
+        include("sentinela.php");
+        include("globalResponsavel.php");
     ?>
-       <header>
+    <header>
 
 <nav class="nav-bar">
     <a href=""><img class="logo-img" src="../img/pai_coruja_branca.png"></a>
@@ -31,7 +33,7 @@
 <div class="sidebar">
     <div class="logo-content">
         <div class="logo">
-            <div class="logo-name"><a href="home-adm.php"><img src="../img/pai_coruja_branca.png"></a>
+            <div class="logo-name"><a href="home-responsavel.php"><img src="../img/pai_coruja_branca.png"></a>
             <i class="fas fa-arrow-left"></i>
         </div>
             <div class="close-mobile-navbar">
@@ -44,7 +46,7 @@
         <div class="menu-container">
             <!-- <span>fernfjk</span> -->
             <li class="links-name">
-                <a href="home-secretaria.php">
+                <a href="home-responsavel.php">
                     <i class="fas fa-calendar"></i>
                     <span class="links-name">Mural</span>
                 </a>
@@ -62,7 +64,7 @@
                 </a>
             </li>
             <li class="links-name">
-                <a href="chat-secretaria.php">
+                <a href="chat-responsavel.php">
                     <i class="fas fa-calendar-day"></i>
                     <span class="links-name">Chat</span>
                 </a>
@@ -71,45 +73,9 @@
         <hr>
         <div class="menu-container">
             <li class="links-name">
-                <a href="cadastrar-turma.php">
+                <a href="cadastrar-imagem-perfil.php">
                     <i class="fas fa-school"></i>
-                    <span class="links-name">Cadastrar Turma</span>
-                </a>
-            </li>
-            <li class="links-name">
-                <a href="cadastrar-aluno.php">
-                    <i class="fas fa-school"></i>
-                    <span class="links-name">Cadastrar Aluno</span>
-                </a>
-            </li>
-            <li class="links-name">
-                <a href="cadastrar-professor.php">
-                    <i class="fas fa-school"></i>
-                    <span class="links-name">Cadastrar Professor</span>
-                </a>
-            </li>
-            <li class="links-name">
-                <a href="cadastrar-responsavel.php">
-                    <i class="fas fa-school"></i>
-                    <span class="links-name">Cadastrar Responsável</span>
-                </a>
-            </li>
-            <li class="links-name">
-                <a href="cadastrar-disciplina.php">
-                    <i class="fas fa-school"></i>
-                    <span class="links-name">Cadastrar Disciplina</span>
-                </a>
-            </li>
-            <li class="links-name">
-                <a href="cadastrar-horario-turma.php">
-                    <i class="fas fa-school"></i>
-                    <span class="links-name">Cadastrar Horarios</span>
-                </a>
-            </li>
-            <li class="links-name">
-                <a href="cadastrar-evento.php">
-                    <i class="fas fa-school"></i>
-                    <span class="links-name">Cadastrar Evento</span>
+                    <span class="links-name">Cadastrar imagem de perfil</span>
                 </a>
             </li>
         </div>
@@ -129,8 +95,8 @@
             <div class="profile-details">
                 <img src="../img/usuario-de-perfil.png" alt="">
                 <div class="name-job">
-                    <div class="name-menu"><?php echo $_SESSION['nomeSecretaria'] ?></div>
-                    <div class="job-menu">Olá Secretário(a)</div>
+                    <div class="name-menu"><?php echo $_SESSION['nomeResponsavel'] ?></div>
+                    <div class="job-menu">Olá Professor(a)</div>
                 </div>
             </div>
         </div>
@@ -138,42 +104,29 @@
 </div>
 </header>
 
-        
-    
 
-    <main>
-        
-        
-        
-        <div class="container-dash">
-            <div>
-                <h1>Dashboard</h1>
-            </div>
 
-            <div class="container-dados-dash">
-                <div class="acesso-rapido-dash">
-                    <h4>Acesso Rápido</h4>
-                    <div class="acesso-dash-btns">
-                        <a href=""><button>Cadastrar Dados</button></a>
-                        <a href=""><button>Cadastrar Dados</button></a>
-                        <a href=""><button>Cadastrar Dados</button></a>
-                        <a href=""><button>Cadastrar Dados</button></a>
+<main class="container-main">
+
+            <section class="area-chat">
+                <div class="caixa-chat2">
+                    <div class="caixa-mensagens">
+                        <div id="mensagens">
+
+                        </div>
+                    </div>
+                    <div class="form-mensagem">
+                        <form name="form-chat" method="POST" action="../DAO/enviar-mensagem-responsavel.php">
+                            <input type="hidden" id="idEnviar" name="idEnviar" value="<?php echo $_SESSION['idResponsavel'] ?>">
+                            <input type="hidden" id="idReceber" name="idReceber" value="<?php echo $_SESSION['idSecretaria'] ?>">
+                            <input type="text" class="caixa-mensagem" id="txtMensagem" name="txtMensagem">
+                            <button class="botao-enviar" id="botao-enviar" name="botao-enviar">Enviar</button>
+                        </form>
                     </div>
                 </div>
-                <div class="acesso-rapido-dash">
-                    <h4>Dados Escolares</h4>
-                </div>
-                <div class="acesso-rapido-dash">
-                    <h4>Mensagens do Chat</h4>
-                </div>
-            </div>
-            
-        </div>
+            </section>
 
-        
-
-
-    </main>
+        </main>
 
     <div class="nav-footer">
         <ul>
@@ -202,6 +155,54 @@
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.js"></script>
     <script src="../assets/js/carousel.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            var idSecretaria = $('#idReceber').val();
+            var idResponsavel = $('#idEnviar').val();
+
+            var query = idSecretaria + ' ' + idResponsavel;
+
+            (function attMensagens () {
+                $.ajax({
+                url: '../DAO/listar-mensagens-responsavel.php',
+                method: 'POST',
+                data: {
+                    query: query
+                },
+                success: function(retorno){
+                        $("#mensagens").html(retorno);
+                },
+                complete: function () {
+                    setTimeout(attMensagens, 1000);
+                }
+                });
+            })();
+            
+        });
+
+        jQuery('form').on('submit', function(e){
+            e.preventDefault();
+        });
+
+        jQuery('#botao-enviar').click(function (){
+            if($('#txtMensagem').length != 0){
+                var dados = {'idEnviar':jQuery('#idEnviar').val(),
+                            'idReceber':jQuery('#idReceber').val(),
+                            'txtMensagem':jQuery('#txtMensagem').val()};
+                var pageurl = '../DAO/enviar-mensagem-responsavel.php';
+                jQuery.ajax({
+                    url: pageurl,
+                    data: dados,
+                    type: 'POST',
+                    success:function(html){
+                        jQuery('html body').animate({scrollbottom:0},100);
+                        jQuery('html #txtMensagem').val('');
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 
 
