@@ -65,7 +65,7 @@
                         </a>
                     </li>
                     <li class="links-name">
-                        <a href="cadastrar-turma.php">
+                        <a href="chat-secretaria.php">
                             <i class="fas fa-school"></i>
                             <span class="links-name">Pai Coruja Chat</span>
                         </a>

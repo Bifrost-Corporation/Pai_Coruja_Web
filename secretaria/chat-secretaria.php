@@ -23,7 +23,7 @@
         include ('sentinela.php');
         include ('globalSecretaria.php');
     ?>
-        <header>
+    <header>
 
 <nav class="nav-bar">
     <a href=""><img class="logo-img" src="../img/pai_coruja_branca.png"></a>
@@ -36,8 +36,8 @@
     <div class="logo-content">
         <div class="logo">
             <div class="logo-name"><a href="home-adm.php"><img src="../img/pai_coruja_branca.png"></a>
-            <i class="fas fa-arrow-left"></i>
-        </div>
+                <i class="fas fa-arrow-left"></i>
+            </div>
             <div class="close-mobile-navbar">
                 <span>Menu Pai Coruja</span>
                 <a class="btn-nav-close"><i class="far fa-window-close"></i></a>
@@ -48,72 +48,33 @@
         <div class="menu-container">
             <!-- <span>fernfjk</span> -->
             <li class="links-name">
-                <a href="home-secretaria.php">
+                <a href="dashboard.php">
                     <i class="fas fa-calendar"></i>
-                    <span class="links-name">Mural</span>
+                    <span class="links-name">Dashboard</span>
                 </a>
             </li>
             <li class="links-name">
-                <a href="#">
-                    <i class="fas fa-chalkboard-teacher"></i>
-                    <span class="links-name">Avaliação dos Professores</span>
+                <a href="cadastrar-dados.php">
+                    <i class="fas fa-school"></i>
+                    <span class="links-name">Cadastrar Dados</span>
                 </a>
             </li>
             <li class="links-name">
-                <a href="#">
-                    <i class="fas fa-calendar-day"></i>
-                    <span class="links-name">Eventos Programados</span>
+                <a href="cadastrar-d.php">
+                    <i class="fas fa-school"></i>
+                    <span class="links-name">Alterar Dados</span>
+                </a>
+            </li>
+            <li class="links-name">
+                <a href="cadastrar-turma.php">
+                    <i class="fas fa-school"></i>
+                    <span class="links-name">Gerenciar Eventos</span>
                 </a>
             </li>
             <li class="links-name">
                 <a href="chat-secretaria.php">
-                    <i class="fas fa-calendar-day"></i>
-                    <span class="links-name">Chat</span>
-                </a>
-            </li>
-        </div>
-        <hr>
-        <div class="menu-container">
-            <li class="links-name">
-                <a href="cadastrar-turma.php">
                     <i class="fas fa-school"></i>
-                    <span class="links-name">Cadastrar Turma</span>
-                </a>
-            </li>
-            <li class="links-name">
-                <a href="cadastrar-aluno.php">
-                    <i class="fas fa-school"></i>
-                    <span class="links-name">Cadastrar Aluno</span>
-                </a>
-            </li>
-            <li class="links-name">
-                <a href="cadastrar-professor.php">
-                    <i class="fas fa-school"></i>
-                    <span class="links-name">Cadastrar Professor</span>
-                </a>
-            </li>
-            <li class="links-name">
-                <a href="cadastrar-responsavel.php">
-                    <i class="fas fa-school"></i>
-                    <span class="links-name">Cadastrar Responsável</span>
-                </a>
-            </li>
-            <li class="links-name">
-                <a href="cadastrar-disciplina.php">
-                    <i class="fas fa-school"></i>
-                    <span class="links-name">Cadastrar Disciplina</span>
-                </a>
-            </li>
-            <li class="links-name">
-                <a href="cadastrar-horario-turma.php">
-                    <i class="fas fa-school"></i>
-                    <span class="links-name">Cadastrar Horarios</span>
-                </a>
-            </li>
-            <li class="links-name">
-                <a href="cadastrar-evento.php">
-                    <i class="fas fa-school"></i>
-                    <span class="links-name">Cadastrar Evento</span>
+                    <span class="links-name">Pai Coruja Chat</span>
                 </a>
             </li>
         </div>
@@ -141,6 +102,7 @@
     </div>
 </div>
 </header>
+
 
 
         <main class="container-main">
