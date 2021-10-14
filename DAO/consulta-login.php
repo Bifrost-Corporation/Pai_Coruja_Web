@@ -9,7 +9,7 @@
         $conexao = Conexao::conectar();
         $verificalogin = false;
         $queryadm = "SELECT idAdministrador, loginAdministrador, senhaAdministrador FROM tbadministrador";
-        $querysecretaria = "SELECT idSecretaria, nomeSecretaria, emailSecretaria, senhaSecretaria, idEscola FROM tbsecretaria";
+        $querysecretaria = "SELECT idSecretaria, nomeSecretaria, emailSecretaria, senhaSecretaria, tbsecretaria.idEscola, tbescola.nomeEscola FROM tbsecretaria INNER JOIN tbescola ON tbsecretaria.idEscola = tbescola.idEscola";
         $queryprofessor = "SELECT idEscola, idProfessor, nomeProfessor, emailProfessor, senhaProfessor FROM tbprofessor";
         $queryresponsavel = "SELECT idResponsavel, nomeResponsavel, emailResponsavel, senhaResponsavel FROM tbresponsavel";
         $resultadoadm = $conexao->query($queryadm);
@@ -34,6 +34,7 @@
                 $_SESSION['emailSecretaria'] = $emailForm;
                 $_SESSION['senhaSecretaria'] = $senhaForm;
                 $_SESSION['idEscola'] = $linha['idEscola'];
+                $_SESSION['nomeEscola'] = $linha['nomeEscola'];
                 $_SESSION['autorizacaoSecretaria'] = true;
                 header('location: ../secretaria/dashboard.php');
             }

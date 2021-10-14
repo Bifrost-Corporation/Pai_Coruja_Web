@@ -144,6 +144,46 @@
             return $listaSecretaria;
         }
 
+        public function contarAlunos($idEscola){
+            $conexao = Conexao::conectar();
+            $querySecretaria = "SELECT COUNT(idAluno) AS 'qtdeAlunos' FROM tbaluno WHERE '$idEscola' = idEscola";
+            $resultadoSecretaria = $conexao->query($querySecretaria);
+            $listaSecretaria = $resultadoSecretaria->fetchAll(PDO::FETCH_ASSOC);
+            return $listaSecretaria;
+        }
+
+        public function contarProfessores($idEscola){
+            $conexao = Conexao::conectar();
+            $querySecretaria = "SELECT COUNT(idProfessor) AS 'qtdeProfessores' FROM tbprofessor WHERE '$idEscola' = idEscola";
+            $resultadoSecretaria = $conexao->query($querySecretaria);
+            $listaSecretaria = $resultadoSecretaria->fetchAll(PDO::FETCH_ASSOC);
+            return $listaSecretaria;
+        }
+
+        public function contarTurmas($idEscola){
+            $conexao = Conexao::conectar();
+            $querySecretaria = "SELECT COUNT(idTurma) AS 'qtdeTurmas' FROM tbturma WHERE '$idEscola' = idEscola";
+            $resultadoSecretaria = $conexao->query($querySecretaria);
+            $listaSecretaria = $resultadoSecretaria->fetchAll(PDO::FETCH_ASSOC);
+            return $listaSecretaria;
+        }
+
+        public function contarResponsaveis($idEscola){
+            $conexao = Conexao::conectar();
+            $querySecretaria = "SELECT COUNT(idResponsavel) AS 'qtdeResponsaveis' FROM tbresponsavel INNER JOIN tbaluno ON tbaluno.idAluno = tbresponsavel.idAluno WHERE tbaluno.idEscola = '$idEscola'";
+            $resultadoSecretaria = $conexao->query($querySecretaria);
+            $listaSecretaria = $resultadoSecretaria->fetchAll(PDO::FETCH_ASSOC);
+            return $listaSecretaria;
+        }
+
+        public function mediaObservacoes($idEscola){
+            $conexao = Conexao::conectar();
+            $querySecretaria = "SELECT AVG(qtdePontosObservacao) AS 'mediaObservacoes' FROM tbobservacao INNER JOIN tbaluno ON tbaluno.idAluno = tbobservacao.idAluno WHERE tbaluno.idEscola = '$idEscola'";
+            $resultadoSecretaria = $conexao->query($querySecretaria);
+            $listaSecretaria = $resultadoSecretaria->fetchAll(PDO::FETCH_ASSOC);
+            return $listaSecretaria;
+        }
+
     }
 
 ?>

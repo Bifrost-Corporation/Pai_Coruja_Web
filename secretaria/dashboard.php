@@ -18,6 +18,34 @@
     <?php
         include ('sentinela.php');
         include ('globalSecretaria.php');
+        include ('../classes/Secretaria.php');
+        $secretaria = new Secretaria();
+
+        $listaQtdeAlunos = $secretaria->contarAlunos($_SESSION['idEscola']);
+        $listaQtdeProfessores = $secretaria->contarProfessores($_SESSION['idEscola']);
+        $listaQtdeTurmas = $secretaria->contarTurmas($_SESSION['idEscola']);
+        $listaQtdeResponsaveis = $secretaria->contarResponsaveis($_SESSION['idEscola']);
+        $listaMediaObservacoes = $secretaria->mediaObservacoes($_SESSION['idEscola']);
+
+        foreach($listaQtdeAlunos as $linha){
+            $qtdeAlunos = $linha['qtdeAlunos'];
+        }
+
+        foreach($listaQtdeProfessores as $linha){
+            $qtdeProfessores = $linha['qtdeProfessores'];
+        }
+
+        foreach($listaQtdeTurmas as $linha){
+            $qtdeTurmas = $linha['qtdeTurmas'];
+        }
+
+        foreach($listaQtdeResponsaveis as $linha){
+            $qtdeResponsaveis = $linha['qtdeResponsaveis'];
+        }
+
+        foreach($listaMediaObservacoes as $linha){
+            $mediaObservacoes = $linha['mediaObservacoes'];
+        }
     ?>
        <header>
 
@@ -122,21 +150,21 @@
                     </div>
                 </div>
                 <div class="dados-escolares-dash">
-                    <h4>Dados Escolares</h4>
+                    <h4>Dados Escolares - <?php echo $_SESSION['nomeEscola'] ?></h4>
                     <div class="dados-escolares-container">
                         <div class="dados-escolares-linha">
                             <div class="dado-escolar">
                                 <i class="fas fa-school"></i>
                                 <div>
-                                    <h3>888888</h3>
-                                    <h5>Escolas Cadastradas</h5>
+                                    <h3><?php echo $qtdeAlunos ?></h3>
+                                    <h5>Alunos Cadastrados</h5>
                                 </div> 
                             </div>
                             <div class="dado-escolar">
                                 <i class="fas fa-school"></i>
                                 <div>
-                                    <h3>8888</h3>
-                                    <h5>Escolas Cadastradas</h5>
+                                    <h3><?php echo $qtdeProfessores ?></h3>
+                                    <h5>Professores Cadastradas</h5>
                                 </div> 
                             </div> 
                         </div>
@@ -144,15 +172,15 @@
                             <div class="dado-escolar">
                                 <i class="fas fa-school"></i>
                                 <div>
-                                    <h3>8888</h3>
-                                    <h5>Escolas Cadastradas</h5>
+                                    <h3><?php echo $qtdeTurmas ?></h3>
+                                    <h5>Turmas Cadastradas</h5>
                                 </div> 
                             </div>
                             <div class="dado-escolar">
                                 <i class="fas fa-school"></i>
                                 <div>
-                                    <h3>8888</h3>
-                                    <h5>Escolas Cadastradas</h5>
+                                    <h3><?php echo $qtdeResponsaveis ?></h3>
+                                    <h5>Responsáveis Cadastrados</h5>
                                 </div> 
                             </div> 
                         </div>
@@ -160,8 +188,8 @@
                             <div class="dado-escolar">
                                 <i class="fas fa-school"></i>
                                 <div>
-                                    <h3>8888</h3>
-                                    <h5>Escolas Cadastradas</h5>
+                                    <h3><?php echo $mediaObservacoes ?></h3>
+                                    <h5>Média Observações</h5>
                                 </div> 
                             </div>
                             <div class="dado-escolar">
