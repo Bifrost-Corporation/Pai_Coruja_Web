@@ -71,6 +71,12 @@
                     <span class="links-name">Cadastrar imagem de perfil</span>
                 </a>
             </li>
+            <li class="links-name">
+                <a href="chat-responsavel.php">
+                    <i class="fas fa-calendar-day"></i>
+                    <span class="links-name">Chat</span>
+                </a>
+            </li>
         </div>
     </ul>
     <div class="profile-content">

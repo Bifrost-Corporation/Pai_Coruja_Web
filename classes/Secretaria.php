@@ -179,6 +179,11 @@
         public function mediaObservacoes($idEscola){
             $conexao = Conexao::conectar();
             $querySecretaria = "SELECT AVG(qtdePontosObservacao) AS 'mediaObservacoes' FROM tbobservacao INNER JOIN tbaluno ON tbaluno.idAluno = tbobservacao.idAluno WHERE tbaluno.idEscola = '$idEscola'";
+        }
+        
+        public function listarResponsaveis($idSecretaria){
+            $conexao = Conexao::conectar();
+            $querySecretaria = "SELECT tbresponsavel.idResponsavel, tbresponsavel.nomeResponsavel FROM tbresponsavel INNER JOIN tbaluno ON tbresponsavel.idAluno = tbaluno.idAluno INNER JOIN tbsecretaria ON tbaluno.idEscola = tbsecretaria.idSecretaria WHERE tbaluno.idEscola = '$idSecretaria'";
             $resultadoSecretaria = $conexao->query($querySecretaria);
             $listaSecretaria = $resultadoSecretaria->fetchAll(PDO::FETCH_ASSOC);
             return $listaSecretaria;
