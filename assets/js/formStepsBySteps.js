@@ -1,54 +1,85 @@
 const $slidePage = document.querySelector('.slidePage')
-const $firstNextBtn = document.querySelector('.nextBtn')
-
-const $prevBtnSec = document.querySelector('.prev-page-1')
-const $nextBtnSec = document.querySelector('.next-page-1')
 
 const $prevBtnThird = document.querySelector('.prev-page-2')
 const $submitBtn = document.querySelector('.submitBtn')
 const $progressText = document.querySelectorAll('.steps p')
 const $progressCheck = document.querySelectorAll('.steps .bullet-check')
 const $bullets = document.querySelectorAll('.steps .bullet')
-let max = 4
+let max = 2
 let current = 1
 
-$firstNextBtn.addEventListener('click', () => {
+function linkEtapa1(){
+    $slidePage.style.marginLeft = "0%"
+    current = 1
+    $bullets[current - 1].classList.remove('actived')
+    $progressText[current - 1].classList.remove('actived')
+    $progressCheck[current - 1].classList.remove('actived')
+}
+function linkEtapa2(){
     $slidePage.style.marginLeft = "-25%"
-    $bullets[current - 1].classList.add('actived')
-    $progressText[current - 1].classList.add('actived')
-    $progressCheck[current - 1].classList.add('actived')
-    current += 1
-})
-$nextBtnSec.addEventListener('click', () => {
+    current = 1
+    $bullets[current - 1].classList.remove('actived')
+    $progressText[current - 1].classList.remove('actived')
+    $progressCheck[current - 1].classList.remove('actived')
+}
+function linkEtapa3(){
     $slidePage.style.marginLeft = "-50%"
     $bullets[current - 1].classList.add('actived')
     $progressText[current - 1].classList.add('actived')
     $progressCheck[current - 1].classList.add('actived')
-    current += 1
-})
-$submitBtn.addEventListener('click', () => {
+    console.log(current);
+}
+function linkEtapa4(){
+    $slidePage.style.marginLeft = "-75%"
+}
+
+function linkCadastrar(){  
+    current = 2
     $bullets[current - 1].classList.add('actived')
     $progressText[current - 1].classList.add('actived')
     $progressCheck[current - 1].classList.add('actived')
-    current += 1
-    setTimeout(() => {
-        alert('Cadastrado com sucesso!')
+    alert('Cadastrado com sucesso!')
+}
 
-    }, 800)
-})
 
-$prevBtnSec.addEventListener('click', () => {
-    $slidePage.style.marginLeft = "0%"
-    $bullets[current - 2].classList.remove('actived')
-    $progressText[current - 2].classList.remove('actived')
-    $progressCheck[current - 2].classList.remove('actived')
-    current -= 1
+const $slidePageForm2 = document.querySelector('.slidePage-form2')
 
-})
-$prevBtnThird.addEventListener('click', () => {
-    $slidePage.style.marginLeft = "-25%"
-    $bullets[current - 2].classList.remove('actived')
-    $progressText[current - 2].classList.remove('actived')
-    $progressCheck[current - 2].classList.remove('actived')
-    current -= 1
-})
+const $prevBtnThirdForm2 = document.querySelector('.prev-page-2-form2')
+const $submitBtnForm2 = document.querySelector('.submitBtn-form2')
+const $progressTextForm2 = document.querySelectorAll('.steps-form2 p')
+const $progressCheckForm2 = document.querySelectorAll('.steps-form2 .bullet-check-form2')
+const $bulletsForm2 = document.querySelectorAll('.steps-form2 .bullet-form2')
+let maxForm2 = 2
+let currentForm2 = 1
+
+function linkEtapa1Form2(){
+    $slidePageForm2.style.marginLeft = "0%"
+    currentForm2 = 1
+    $bulletsForm2[current - 1].classList.remove('actived')
+    $progressTextForm2[current - 1].classList.remove('actived')
+    $progressCheckForm2[current - 1].classList.remove('actived')
+}
+function linkEtapa2Form2(){
+    $slidePageForm2.style.marginLeft = "-25%"
+    currentForm2 = 1
+    $bulletsForm2[current - 1].classList.remove('actived')
+    $progressTextForm2[current - 1].classList.remove('actived')
+    $progressCheckForm2[current - 1].classList.remove('actived')
+}
+function linkEtapa3Form2(){
+    $slidePageForm2.style.marginLeft = "-50%"
+    $bulletsForm2[current - 1].classList.add('actived')
+    $progressTextForm2[current - 1].classList.add('actived')
+    $progressCheckForm2[current - 1].classList.add('actived')
+}
+function linkEtapa4Form2(){
+    $slidePageForm2.style.marginLeft = "-75%"
+}
+
+function linkCadastrarForm2(){  
+    current = 2
+    $bulletsForm2[current - 1].classList.add('actived')
+    $progressTextForm2[current - 1].classList.add('actived')
+    $progressCheckForm2[current - 1].classList.add('actived')
+    alert('Cadastrado com sucesso!')
+}

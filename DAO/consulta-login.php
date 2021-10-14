@@ -35,7 +35,7 @@
                 $_SESSION['senhaSecretaria'] = $senhaForm;
                 $_SESSION['idEscola'] = $linha['idEscola'];
                 $_SESSION['autorizacaoSecretaria'] = true;
-                header('location: ../secretaria/home-secretaria.php');
+                header('location: ../secretaria/dashboard.php');
             }
         }
         $resultadoprofessor = $conexao->query($queryprofessor);

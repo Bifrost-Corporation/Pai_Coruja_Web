@@ -3,6 +3,7 @@
 /* NAV FOOTER */
 
 .nav-footer {
+    display: none;
     position: fixed;
     z-index: 10;
     bottom: 0px;

@@ -68,6 +68,10 @@
 
 /* MENU MOBILE */
 
+.nav-footer {
+    display: none;
+}
+
 .nav-bar {
     display: none;
     position: fixed;
@@ -98,25 +102,7 @@
     display: flex;
 }
 
-.btn-nav-exit {
-    cursor: pointer;
-    font-family: 'Poppins';
-    text-decoration: none;
-    background-color: transparent;
-    border-radius: 15px;
-    font-weight: bold;
-    color: var(--cinza);
-    border: 3px solid var(--cinza);
-    padding: 10px 40px;
-    transition: 0.7s;
-    transform: translateY(10px);
-}
 
-.btn-nav-exit:hover {
-    background-color: var(--azulbtnsair);
-    color: var(--cinzamaisclaro);
-    transform: translateY(0px);
-}
 
 
 /* MENU PC */
