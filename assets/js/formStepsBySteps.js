@@ -42,6 +42,7 @@ function linkCadastrar(){
 }
 
 
+
 const $slidePageForm2 = document.querySelector('.slidePage-form2')
 
 const $prevBtnThirdForm2 = document.querySelector('.prev-page-2-form2')
@@ -81,5 +82,49 @@ function linkCadastrarForm2(){
     $bulletsForm2[current - 1].classList.add('actived')
     $progressTextForm2[current - 1].classList.add('actived')
     $progressCheckForm2[current - 1].classList.add('actived')
+    alert('Cadastrado com sucesso!')
+}
+
+
+
+const $slidePageform3 = document.querySelector('.slidePage-form3')
+
+const $prevBtnThirdform3 = document.querySelector('.prev-page-2-form3')
+const $submitBtnform3 = document.querySelector('.submitBtn-form3')
+const $progressTextform3 = document.querySelectorAll('.steps-form3 p')
+const $progressCheckform3 = document.querySelectorAll('.steps-form3 .bullet-check-form3')
+const $bulletsform3 = document.querySelectorAll('.steps-form3 .bullet-form3')
+let maxform3 = 2
+let currentform3 = 1
+
+function linkEtapa1form3(){
+    $slidePageform3.style.marginLeft = "0%"
+    currentform3 = 1
+    $bulletsform3[current - 1].classList.remove('actived')
+    $progressTextform3[current - 1].classList.remove('actived')
+    $progressCheckform3[current - 1].classList.remove('actived')
+}
+function linkEtapa2form3(){
+    $slidePageform3.style.marginLeft = "-25%"
+    currentform3 = 1
+    $bulletsform3[current - 1].classList.remove('actived')
+    $progressTextform3[current - 1].classList.remove('actived')
+    $progressCheckform3[current - 1].classList.remove('actived')
+}
+function linkEtapa3form3(){
+    $slidePageform3.style.marginLeft = "-50%"
+    $bulletsform3[current - 1].classList.add('actived')
+    $progressTextform3[current - 1].classList.add('actived')
+    $progressCheckform3[current - 1].classList.add('actived')
+}
+function linkEtapa4form3(){
+    $slidePageform3.style.marginLeft = "-75%"
+}
+
+function linkCadastrarform3(){  
+    current = 2
+    $bulletsform3[current - 1].classList.add('actived')
+    $progressTextform3[current - 1].classList.add('actived')
+    $progressCheckform3[current - 1].classList.add('actived')
     alert('Cadastrado com sucesso!')
 }

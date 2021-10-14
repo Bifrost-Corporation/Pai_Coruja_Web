@@ -399,6 +399,202 @@ input[type="file"] {
     color:var(--cinzamaisclaro);
 }
 
+/* sfreergrgg */
+
+
+.progress-bar .steps-form2{
+    position: relative;
+    text-align: center;
+    /* width: 100%; */
+    align-items: center;
+    margin: auto auto;
+}
+.progress-bar .steps-form2 p{
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+.progress-bar .steps-form2 p.actived{
+    color:var(--azulumpoucosaturado);
+}
+.progress-bar .steps-form2 .bullet-form2{
+    position: relative;
+    height: 30px;
+    width: 30px;
+    border: 2px solid var(--cinza);
+    display: inline-block;
+    border-radius: 50%;
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 25px;
+    transition: 0.2s;
+}
+
+.progress-bar .steps-form2 .bullet-form2.actived{
+    border-color:var(--azulumpoucosaturado);
+    background: var(--azulumpoucosaturado);
+    color: var(--cinzamaisclaro);
+}
+.progress-bar .steps-form2:last-child .bullet-form2:before,
+.progress-bar .steps-form2:last-child .bullet-form2:after{
+    
+
+    display: none;
+}
+.progress-bar .steps-form2 .bullet-form2:before,
+.progress-bar .steps-form2 .bullet-form2:after{
+    
+
+    position: absolute;
+    content: '';
+    bottom: 11px;
+
+    right: -100px;
+    height: 3px;
+    
+    width: 80px;
+    background: var(--branco);
+}
+.progress-bar .steps-form2 .bullet-form2.actived:after{
+    
+    background: var(--azulumpoucosaturado);
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: animate 0.3s linear forwards;
+
+}
+@keyframes animate{
+    100%{
+        transform: scaleX(1);
+    }
+
+}
+
+.progress-bar .steps-form2 span{
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 25px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+}
+.progress-bar .steps-form2 .bullet-form2.actived span{
+    display:none;
+}
+.progress-bar .steps-form2 .bullet-check-form2{
+
+    position:absolute;
+    left: 50%;
+    top:70%;
+    font-size:15px ;
+    transform: translate(-50%,-50%);
+    display: none;
+}
+.progress-bar .steps-form2 .bullet-check-form2.actived{
+
+    display:block;
+    color:var(--cinzamaisclaro);
+}
+
+/* dfgrererregdsddllll */
+
+
+.progress-bar .steps-form3{
+    position: relative;
+    text-align: center;
+    /* width: 100%; */
+    align-items: center;
+    margin: auto auto;
+}
+.progress-bar .steps-form3 p{
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+.progress-bar .steps-form3 p.actived{
+    color:var(--azulumpoucosaturado);
+}
+.progress-bar .steps-form3 .bullet-form3{
+    position: relative;
+    height: 30px;
+    width: 30px;
+    border: 2px solid var(--cinza);
+    display: inline-block;
+    border-radius: 50%;
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 25px;
+    transition: 0.2s;
+}
+
+.progress-bar .steps-form3 .bullet-form3.actived{
+    border-color:var(--azulumpoucosaturado);
+    background: var(--azulumpoucosaturado);
+    color: var(--cinzamaisclaro);
+}
+.progress-bar .steps-form3:last-child .bullet-form3:before,
+.progress-bar .steps-form3:last-child .bullet-form3:after{
+    
+
+    display: none;
+}
+.progress-bar .steps-form3 .bullet-form3:before,
+.progress-bar .steps-form3 .bullet-form3:after{
+    
+
+    position: absolute;
+    content: '';
+    bottom: 11px;
+
+    right: -100px;
+    height: 3px;
+    
+    width: 80px;
+    background: var(--branco);
+}
+.progress-bar .steps-form3 .bullet-form3.actived:after{
+    
+    background: var(--azulumpoucosaturado);
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: animate 0.3s linear forwards;
+
+}
+@keyframes animate{
+    100%{
+        transform: scaleX(1);
+    }
+
+}
+
+.progress-bar .steps-form3 span{
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 25px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+}
+.progress-bar .steps-form3 .bullet-form3.actived span{
+    display:none;
+}
+.progress-bar .steps-form3 .bullet-check-form3{
+
+    position:absolute;
+    left: 50%;
+    top:70%;
+    font-size:15px ;
+    transform: translate(-50%,-50%);
+    display: none;
+}
+.progress-bar .steps-form3 .bullet-check-form3.actived{
+
+    display:block;
+    color:var(--cinzamaisclaro);
+}
+
 /* END*/
 
 /* AREA-EXIBIR CONSULTAS DO BANCO */
