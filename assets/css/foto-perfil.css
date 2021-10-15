@@ -1,0 +1,27 @@
+.card-perfil{
+    margin: auto auto;
+    box-shadow: 0rem 0.5rem 2rem 0.2 var(--cinzaclaro);
+    padding: 3rem;
+    border-radius: 1rem;
+    gap: 1rem;
+    background-color: var(--branco);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.card-perfil img{
+    border-radius: 50%;
+    height: 250px;
+    width: 250px;
+    object-fit: cover;
+}
+
+.card-perfil input{
+    background-color: var(--azulnavbar);
+    border: 0;
+    padding: 1rem;
+    border-radius: 2rem;
+    color: var(--cinzamaisclaro);
+    font-weight: bold;
+}

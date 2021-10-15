@@ -1,0 +1,14 @@
+.gerenciar-eventos{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: var(--branco);
+    width: 100%;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+.gerenciar-eventos .gerenciar-eventos-direita{
+    width: 50%;
+    text-align: left;
+}
