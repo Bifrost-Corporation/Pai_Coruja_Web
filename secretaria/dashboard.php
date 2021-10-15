@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
@@ -13,7 +13,7 @@
 
 
 
-    <title>Home - Secretária</title>
+    <title>Dashborard - Secretária</title>
 
 
     <?php
@@ -105,7 +105,7 @@
                             </a>
                         </li>
                         <li class="links-name">
-                            <a href="cadastrar-turma.php">
+                            <a href="cadastrar-evento.php">
                                 <i class="fas fa-school"></i>
                                 <span class="links-name">Gerenciar Eventos</span>
                             </a>
@@ -124,9 +124,9 @@
                             <i class="fas fa-sign-out-alt" id="logout-user"></i>
                             <span>Logout</span>
                         </a>
-                        <a href="#">
+                        <a href="trocar-foto-perfil.php">
                             <i class="fas fa-user-cog"></i>
-                            <span>Configurações</span>
+                            <span>Trocar foto de perfil</span>
                         </a>
                     </div>
                     <div class="profile">
