@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.css">
 
     <link rel="stylesheet" type="text/css"  href="../assets/css/style.css">
+    <link rel="stylesheet" type="text/css"  href="../assets/css/grafico.css">
 
 
 
@@ -19,13 +20,19 @@
         include ('sentinela.php');
         include ('globalSecretaria.php');
         include ('../classes/Secretaria.php');
+        include ('../classes/Turma.php');
+
         $secretaria = new Secretaria();
+        $turma = new Turma();
+        $qtdeCor = 0;
 
         $listaQtdeAlunos = $secretaria->contarAlunos($_SESSION['idEscola']);
         $listaQtdeProfessores = $secretaria->contarProfessores($_SESSION['idEscola']);
         $listaQtdeTurmas = $secretaria->contarTurmas($_SESSION['idEscola']);
         $listaQtdeResponsaveis = $secretaria->contarResponsaveis($_SESSION['idEscola']);
         $listaMediaObservacoes = $secretaria->mediaObservacoes($_SESSION['idEscola']);
+        $listaMediaAlunoTurma = $secretaria->mediaAlunosTurma($_SESSION['idEscola']);
+        $listaAlunosTurmas = $turma->contarAlunosTurma($_SESSION['idEscola']);
 
         foreach($listaQtdeAlunos as $linha){
             $qtdeAlunos = $linha['qtdeAlunos'];
@@ -45,6 +52,14 @@
 
         foreach($listaMediaObservacoes as $linha){
             $mediaObservacoes = $linha['mediaObservacoes'];
+        }
+
+        foreach($listaMediaAlunoTurma as $linha){
+            $mediaAlunoTurma = $linha['mediaTurma'];
+        }
+
+        foreach($listaAlunosTurmas as $linha){
+            $qtdeCor += 1;
         }
     ?>
        <header>
@@ -195,8 +210,8 @@
                             <div class="dado-escolar">
                                 <i class="fas fa-school"></i>
                                 <div>
-                                    <h3>8888</h3>
-                                    <h5>Escolas Cadastradas</h5>
+                                    <h3><?php echo $mediaAlunoTurma ?></h3>
+                                    <h5>Média de alunos por turma</h5>
                                 </div> 
                             </div> 
                         </div>
@@ -209,7 +224,15 @@
             </div>
             
             <div class="grafico-container-dash">
-                dfgdfdfgdf
+                <div>
+                    <div class="acesso-dash-btns">
+                        <a href=""><button>Cadastrar Dados</button></a>
+                        <a href="" id="botao-grafico2"><button>Cadastrar Dados</button></a>
+                    </div>
+                    <div class="grafico">
+                        <canvas id="grafico" width="50" height="50" responsive></canvas>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -245,6 +268,101 @@
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.js"></script>
     <script src="../assets/js/carousel.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+
+        <?php
+            
+            function randomColorR(){
+                $r = mt_rand(0, 200);
+                return $r;
+            }
+
+            function randomColorG(){
+                $g = mt_rand(0, 200);
+                return $g;
+            }
+
+            function randomColorB(){
+                $b = mt_rand(0, 200);
+                return $b;
+            }
+
+        ?>
+
+        const ctx = document.getElementById('grafico');
+        const grafico = new Chart(ctx, {
+            /*
+                type: 'bar',
+                data: data,
+                options: {
+                    scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                    }
+                },
+            */
+            type: 'bar',
+            data: {
+                labels: [
+                    <?php
+                        $i = 1; 
+                        foreach($listaAlunosTurmas as $linha){
+                    ?>
+                    
+                    <?php
+                            echo "'" . $linha['nomeTurma'] . "'" . ",";
+                            $i += 1;
+                        }
+                    ?>
+                ],
+                datasets: [{
+                    label: 'Quantidade de alunos na turma',
+                    data: [
+                        <?php
+                            $i = 1; 
+                            foreach($listaAlunosTurmas as $linha){
+                        ?>
+                        
+                        <?php
+                                echo $linha['alunoTurma'] . ",";
+                                $i += 1;
+                            }
+                        ?>
+                    ],
+                    backgroundColor: [
+                        <?php
+                            $i = 1; 
+                            foreach($listaAlunosTurmas as $linha){
+                        ?>
+                        
+                        <?php
+                                echo "'rgba(".randomColorR().",".randomColorG().",".randomColorB().",1)',";
+                                $i += 1;
+                            }
+                        ?>
+                    ]
+                }]
+            },
+            options: {
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Quantidade de alunos por turma'
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                },
+                responsive: true,
+                maintainAspectRatio: false
+            },
+        });
+    </script>
 </body>
 
 

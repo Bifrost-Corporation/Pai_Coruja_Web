@@ -162,7 +162,7 @@
 
         public function contarTurmas($idEscola){
             $conexao = Conexao::conectar();
-            $querySecretaria = "SELECT COUNT(idTurma) AS 'qtdeTurmas' FROM tbturma WHERE '$idEscola' = idEscola";
+            $querySecretaria = "SELECT idTurma, nomeTurma, COUNT(idTurma) AS 'qtdeTurmas' FROM tbturma WHERE '$idEscola' = idEscola";
             $resultadoSecretaria = $conexao->query($querySecretaria);
             $listaSecretaria = $resultadoSecretaria->fetchAll(PDO::FETCH_ASSOC);
             return $listaSecretaria;
@@ -179,6 +179,14 @@
         public function mediaObservacoes($idEscola){
             $conexao = Conexao::conectar();
             $querySecretaria = "SELECT AVG(qtdePontosObservacao) AS 'mediaObservacoes' FROM tbobservacao INNER JOIN tbaluno ON tbaluno.idAluno = tbobservacao.idAluno WHERE tbaluno.idEscola = '$idEscola'";
+            $resultadoSecretaria = $conexao->query($querySecretaria);
+            $listaSecretaria = $resultadoSecretaria->fetchAll(PDO::FETCH_ASSOC);
+            return $listaSecretaria;
+        }
+
+        public function mediaAlunosTurma($idEscola){
+            $conexao = Conexao::conectar();
+            $querySecretaria = "SELECT AVG((SELECT COUNT(tbaluno.idAluno) FROM tbaluno WHERE tbaluno.idEscola = '$idEscola') / (SELECT COUNT(tbturma.idTurma) FROM tbturma WHERE tbturma.idEscola = '$idEscola')) AS 'mediaTurma' FROM tbturma INNER JOIN tbaluno ON tbaluno.idTurma = tbturma.idTurma WHERE tbturma.idTurma = tbaluno.idTurma";
             $resultadoSecretaria = $conexao->query($querySecretaria);
             $listaSecretaria = $resultadoSecretaria->fetchAll(PDO::FETCH_ASSOC);
             return $listaSecretaria;

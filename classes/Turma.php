@@ -76,6 +76,14 @@
             return $listaTurma;
         }
 
+        public function contarAlunosTurma($idEscola){
+            $conexao = Conexao::conectar();
+            $queryTurma = "SELECT tbturma.idTurma, nomeTurma, tbturma.idEscola, COUNT(idAluno) AS 'alunoTurma' FROM tbturma INNER JOIN tbaluno ON tbaluno.idTurma = tbturma.idTurma WHERE tbturma.idEscola = '$idEscola' GROUP BY nomeTurma;";
+            $resultadoTurma = $conexao->query($queryTurma);
+            $listaTurma = $resultadoTurma->fetchAll(PDO::FETCH_ASSOC);
+            return $listaTurma;
+        }
+
     }
 
 ?>
