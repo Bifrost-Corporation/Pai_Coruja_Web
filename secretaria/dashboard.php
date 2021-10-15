@@ -111,7 +111,7 @@
                             </a>
                         </li>
                         <li class="links-name">
-                            <a href="cadastrar-turma.php">
+                            <a href="chat-secretaria.php">
                                 <i class="fas fa-school"></i>
                                 <span class="links-name">Pai Coruja Chat</span>
                             </a>
@@ -158,8 +158,8 @@
                 <div class="acesso-rapido-dash">
                     <h4>Acesso Rápido</h4>
                     <div class="acesso-dash-btns">
-                        <a href=""><button>Cadastrar Dados</button></a>
-                        <a href=""><button>Cadastrar Dados</button></a>
+                        <a href="cadastrar-dados.php"><button>Cadastrar Dados</button></a>
+                        <a href="chat-secretaria.php"><button>Chat Secretaria</button></a>
                         <a href=""><button>Cadastrar Dados</button></a>
                         <a href=""><button>Cadastrar Dados</button></a>
                     </div>
