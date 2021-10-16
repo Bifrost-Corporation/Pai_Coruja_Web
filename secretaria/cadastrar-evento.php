@@ -17,7 +17,7 @@
     <?php
         include ('sentinela.php');
     ?>
-       <header>
+        <header>
 
 <nav class="nav-bar">
     <a href=""><img class="logo-img" src="../img/pai_coruja_branca.png"></a>
@@ -42,72 +42,33 @@
         <div class="menu-container">
             <!-- <span>fernfjk</span> -->
             <li class="links-name">
-                <a href="home-secretaria.php">
+                <a href="dashboard.php">
                     <i class="fas fa-calendar"></i>
-                    <span class="links-name">Mural</span>
+                    <span class="links-name">Dashboard</span>
                 </a>
             </li>
             <li class="links-name">
-                <a href="#">
-                    <i class="fas fa-chalkboard-teacher"></i>
-                    <span class="links-name">Avaliação dos Professores</span>
-                </a>
-            </li>
-            <li class="links-name">
-                <a href="#">
-                    <i class="fas fa-calendar-day"></i>
-                    <span class="links-name">Eventos Programados</span>
-                </a>
-            </li>
-            <li class="links-name">
-                <a href="chat-secretaria.php">
-                    <i class="fas fa-calendar-day"></i>
-                    <span class="links-name">Chat</span>
-                </a>
-            </li>
-        </div>
-        <hr>
-        <div class="menu-container">
-            <li class="links-name">
-                <a href="cadastrar-turma.php">
+                <a href="cadastrar-dados.php">
                     <i class="fas fa-school"></i>
-                    <span class="links-name">Cadastrar Turma</span>
+                    <span class="links-name">Cadastrar Dados</span>
                 </a>
             </li>
             <li class="links-name">
-                <a href="cadastrar-aluno.php">
+                <a href="cadastrar-d.php">
                     <i class="fas fa-school"></i>
-                    <span class="links-name">Cadastrar Aluno</span>
-                </a>
-            </li>
-            <li class="links-name">
-                <a href="cadastrar-professor.php">
-                    <i class="fas fa-school"></i>
-                    <span class="links-name">Cadastrar Professor</span>
-                </a>
-            </li>
-            <li class="links-name">
-                <a href="cadastrar-responsavel.php">
-                    <i class="fas fa-school"></i>
-                    <span class="links-name">Cadastrar Responsável</span>
-                </a>
-            </li>
-            <li class="links-name">
-                <a href="cadastrar-disciplina.php">
-                    <i class="fas fa-school"></i>
-                    <span class="links-name">Cadastrar Disciplina</span>
-                </a>
-            </li>
-            <li class="links-name">
-                <a href="cadastrar-horario-turma.php">
-                    <i class="fas fa-school"></i>
-                    <span class="links-name">Cadastrar Horarios</span>
+                    <span class="links-name">Alterar Dados</span>
                 </a>
             </li>
             <li class="links-name">
                 <a href="cadastrar-evento.php">
                     <i class="fas fa-school"></i>
-                    <span class="links-name">Cadastrar Evento</span>
+                    <span class="links-name">Gerenciar Eventos</span>
+                </a>
+            </li>
+            <li class="links-name">
+                <a href="chat-secretaria.php">
+                    <i class="fas fa-school"></i>
+                    <span class="links-name">Pai Coruja Chat</span>
                 </a>
             </li>
         </div>
@@ -118,9 +79,9 @@
                 <i class="fas fa-sign-out-alt" id="logout-user"></i>
                 <span>Logout</span>
             </a>
-            <a href="#">
+            <a href="trocar-foto-perfil.php">
                 <i class="fas fa-user-cog"></i>
-                <span>Configurações</span>
+                <span>Trocar foto de perfil</span>
             </a>
         </div>
         <div class="profile">
@@ -137,22 +98,15 @@
 </header>
 
 
-    <main class="container-main">
+    <main class="container-dash">
 
 
-        <section class="top-section">
-            <div class="voltar">
-                <a href="home-secretaria.php">
-                    <span class="fas fa-arrow-left"></span>Voltar
-                </a>
-            </div>
-            <div class="titulo-cadastrar">
-                <h2>Novo Evento:</h2>
-            </div>
-        </section>
+        <div class="ola-nav-dash">
+            <h1>Cadastrar Evento</h1>
+        </div>
 
 
-        <section class="main-section">
+        <section class="">
             <form class="formulario" name="formEvento" action="../DAO/inserir-evento.php" method="POST"
                 enctype="multipart/form-data">
                 <div class="user-details">
