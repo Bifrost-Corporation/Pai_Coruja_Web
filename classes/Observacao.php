@@ -82,6 +82,22 @@
             return 'Observação excluida com sucesso!';
         }
 
+        public function contarObservacoes($idEscola){
+            $conexao = Conexao::conectar();
+            $queryObservacao = "SELECT COUNT(idObservacao) AS 'qtdeObservacao' FROM tbobservacao INNER JOIN tbaluno ON tbaluno.idAluno = tbobservacao.idAluno WHERE tbaluno.idEscola = '$idEscola'";
+            $resultadoObservacao = $conexao->query($queryObservacao);
+            $listaObservacao = $resultadoObservacao->fetchAll(PDO::FETCH_ASSOC);
+            return $listaObservacao;
+        }
+
+        public function contarObservacoesPorValor($valorPontos, $idEscola){
+            $conexao = Conexao::conectar();
+            $queryObservacao = "SELECT COUNT(idObservacao) AS 'qtdeObservacao' FROM tbobservacao INNER JOIN tbaluno ON tbaluno.idAluno = tbobservacao.idAluno WHERE qtdePontosObservacao = '$valorPontos' AND tbaluno.idEscola = '$idEscola'";
+            $resultadoObservacao = $conexao->query($queryObservacao);
+            $listaObservacao = $resultadoObservacao->fetchAll(PDO::FETCH_ASSOC);
+            return $listaObservacao;
+        }
+
     }
 
 ?>

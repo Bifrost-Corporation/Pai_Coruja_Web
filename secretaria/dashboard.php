@@ -24,6 +24,7 @@
 
         $secretaria = new Secretaria();
         $turma = new Turma();
+        $observacao = new Observacao();
         $qtdeCor = 0;
 
         $listaQtdeAlunos = $secretaria->contarAlunos($_SESSION['idEscola']);
@@ -33,6 +34,12 @@
         $listaMediaObservacoes = $secretaria->mediaObservacoes($_SESSION['idEscola']);
         $listaMediaAlunoTurma = $secretaria->mediaAlunosTurma($_SESSION['idEscola']);
         $listaAlunosTurmas = $turma->contarAlunosTurma($_SESSION['idEscola']);
+        $listaQtdePontos0 = $observacao->contarObservacoesPorValor(0, $_SESSION['idEscola']);
+        $listaQtdePontos1 = $observacao->contarObservacoesPorValor(1, $_SESSION['idEscola']);
+        $listaQtdePontos2 = $observacao->contarObservacoesPorValor(2, $_SESSION['idEscola']);
+        $listaQtdePontos3 = $observacao->contarObservacoesPorValor(3, $_SESSION['idEscola']);
+        $listaQtdePontos4 = $observacao->contarObservacoesPorValor(4, $_SESSION['idEscola']);
+        $listaQtdePontos5 = $observacao->contarObservacoesPorValor(5, $_SESSION['idEscola']);
 
         foreach($listaQtdeAlunos as $linha){
             $qtdeAlunos = $linha['qtdeAlunos'];
@@ -60,6 +67,30 @@
 
         foreach($listaAlunosTurmas as $linha){
             $qtdeCor += 1;
+        }
+
+        foreach($listaQtdePontos0 as $linha){
+            $qtdePontos0 = $linha['qtdeObservacao'];
+        }
+
+        foreach($listaQtdePontos1 as $linha){
+            $qtdePontos1 = $linha['qtdeObservacao'];
+        }
+
+        foreach($listaQtdePontos2 as $linha){
+            $qtdePontos2 = $linha['qtdeObservacao'];
+        }
+
+        foreach($listaQtdePontos3 as $linha){
+            $qtdePontos3 = $linha['qtdeObservacao'];
+        }
+
+        foreach($listaQtdePontos4 as $linha){
+            $qtdePontos4 = $linha['qtdeObservacao'];
+        }
+
+        foreach($listaQtdePontos5 as $linha){
+            $qtdePontos5 = $linha['qtdeObservacao'];
         }
     ?>
        <header>
@@ -226,8 +257,8 @@
             <div class="grafico-container-dash">
                 <div>
                     <div class="acesso-dash-btns">
-                        <a href=""><button>Cadastrar Dados</button></a>
-                        <a href="" id="botao-grafico2"><button>Cadastrar Dados</button></a>
+                        <a id="botao-grafico1" onclick="gerarGraficoGravidadeObservacao()"><button>Cadastrar Dados</button></a>
+                        <a id="botao-grafico2" onclick="gerarGraficoAlunoTurma()"><button>Cadastrar Dados</button></a>
                     </div>
                     <div class="grafico">
                         <canvas id="grafico" width="50" height="50" responsive></canvas>
@@ -292,76 +323,108 @@
         ?>
 
         const ctx = document.getElementById('grafico');
-        const grafico = new Chart(ctx, {
-            /*
-                type: 'bar',
-                data: data,
-                options: {
-                    scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                    }
+
+        function gerarGraficoGravidadeObservacao(){
+            const grafico = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: [
+                        '0',
+                        '1',
+                        '2',
+                        '3',
+                        '4',
+                        '5'
+                    ],
+                    datasets: [{
+                        label: 'Quantidade de observações por gravidade',
+                        data: [
+                            <?php echo $qtdePontos0.", ".$qtdePontos1.", ".$qtdePontos2.", ".$qtdePontos3.", ".$qtdePontos4.", ".$qtdePontos5.", " ?>
+                        ],
+                        backgroundColor: [
+                            'rgb(67, 225, 228)',
+                            'rgb(86, 229, 76)',
+                            'rgb(207, 227, 53)',
+                            'rgb(224, 131, 24)',
+                            'rgb(226, 38, 38)',
+                            'rgb(0, 0, 0)',
+                        ],
+                        hoverOffset: 4
+                    }],
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: true
+                    },
                 },
-            */
-            type: 'bar',
-            data: {
-                labels: [
-                    <?php
-                        $i = 1; 
-                        foreach($listaAlunosTurmas as $linha){
-                    ?>
-                    
-                    <?php
-                            echo "'" . $linha['nomeTurma'] . "'" . ",";
-                            $i += 1;
-                        }
-                    ?>
-                ],
-                datasets: [{
-                    label: 'Quantidade de alunos na turma',
-                    data: [
+            });
+        }
+
+        function gerarGraficoAlunoTurma(){
+            const grafico = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: [
                         <?php
                             $i = 1; 
                             foreach($listaAlunosTurmas as $linha){
                         ?>
                         
                         <?php
-                                echo $linha['alunoTurma'] . ",";
+                                echo "'" . $linha['nomeTurma'] . "'" . ",";
                                 $i += 1;
                             }
                         ?>
                     ],
-                    backgroundColor: [
-                        <?php
-                            $i = 1; 
-                            foreach($listaAlunosTurmas as $linha){
-                        ?>
-                        
-                        <?php
-                                echo "'rgba(".randomColorR().",".randomColorG().",".randomColorB().",1)',";
-                                $i += 1;
-                            }
-                        ?>
-                    ]
-                }]
-            },
-            options: {
-                plugins: {
-                    title: {
-                        display: true,
-                        text: 'Quantidade de alunos por turma'
-                    }
+                    datasets: [{
+                        label: 'Quantidade de alunos na turma',
+                        data: [
+                            <?php
+                                $i = 1; 
+                                foreach($listaAlunosTurmas as $linha){
+                            ?>
+                            
+                            <?php
+                                    echo $linha['alunoTurma'] . ",";
+                                    $i += 1;
+                                }
+                            ?>
+                        ],
+                        backgroundColor: [
+                            <?php
+                                $i = 1; 
+                                foreach($listaAlunosTurmas as $linha){
+                            ?>
+                            
+                            <?php
+                                /*
+                                    echo "'rgba(".randomColorR().",".randomColorG().",".randomColorB().",1)',";
+                                    $i += 1;
+                                }
+                                */
+                                echo "'rgba(13, 37, 145)',";
+                                }
+                            ?>
+                        ]
+                    }]
                 },
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
+                options: {
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Quantidade de alunos por turma'
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    },
+                    responsive: true,
+                    maintainAspectRatio: false
                 },
-                responsive: true,
-                maintainAspectRatio: false
-            },
-        });
+            });
+        }
+        
     </script>
 </body>
 
