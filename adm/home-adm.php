@@ -71,12 +71,6 @@
                             <span class="links-name">Cadastrar Escola</span>
                         </a>
                     </li>
-                    <li class="links-name">
-                        <a href="cadastrar-secretaria.php">
-                            <i class="fas fa-school"></i>
-                            <span class="links-name">Cadastrar Secretária</span>
-                        </a>
-                    </li>
                 </div>
             </ul>
             <div class="profile-content">

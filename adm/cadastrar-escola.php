@@ -101,22 +101,15 @@
     </header>
 
 
-    <main class="container-main area-cadastro">
+    <main class="container-dash">
 
 
-        <section class="top-section" id="Topo">
-            <div class="voltar">
-                <a href="home-adm.php">
-                    <span class="fas fa-arrow-left"></span>
-                </a>
-            </div>
-            <div class="titulo-cadastrar">
-                <h2>Cadastrar Escola:</h2>
-            </div>
-        </section>
+        <div class="ola-nav-dash">
+            <h1>Cadastrar Escola</h1>
+        </div>
 
 
-        <section class="main-section">
+        <section class="container-dados-dash">
             <form name="nomeEscola" class="formulario" method="POST" action="../DAO/inserir-escola.php">
                 <div class="user-details">
                     <input type="hidden" value="<?php echo @$_GET['idEscola']; ?>" id="idEscola" name="idEscola">
@@ -127,8 +120,36 @@
                             placeholder="Insira o nome da escola">
                     </div>
                     <input type="hidden" value="<?php echo @$_GET['idAdministrador'] ?>" id="idAdministrador" name="idAdministrador">
-                    <div class="button">
-                        <input type="submit" class="btn-nav-exit" value="Cadastrar >">
+                    
+
+                    <input type="hidden" id="idSecretaria" name="idSecretaria" value="<?php echo @$_GET['idSecretaria']; ?>">
+                    <div class="input-box-width100">
+                        <h2>Nome de usuário da Secretária:</h2>
+                        <label class="label-erro" id="label-usuario"></label>
+                        <input name="txtUsuarioSecretaria" id="txtUsuarioSecretaria" type="text"
+                            placeholder="Insira o nome de usuário para a secretaria" value="<?php echo @$_GET['nomeSecretaria']; ?>">
+                    </div>
+                    <div class="input-box-width100">
+                        <h2>Email Secretária:</h2>
+                        <label class="label-erro" id="label-email"></label>
+                        <input name="txtEmailSecretaria" id="txtEmailSecretaria" type="text"
+                            placeholder="Insira o email da secretaria"
+                            value="<?php if(isset($_SESSION['emailSecretaria'])){
+                                                                                                                                echo $_SESSION['emailSecretaria'];
+                                                                                                                            }else{
+                                                                                                                                echo @$_GET['emailSecretaria'];
+                                                                                                                            }  ?>">
+                    </div>
+                    <div class="input-box-width100">
+                        <h2>Senha Secretária:</h2>
+                        <label class="label-erro" id="label-senha1"></label>
+                        <input name="txtSenhaSecretaria" id="txtSenhaSecretaria" type="password" placeholder="********">
+                    </div>
+                    <div class="input-box-width100">
+                        <h2>Confirmar senha:</h2>
+                        <label class="label-erro" id="label-senha2"></label>
+                        <input name="txtConfirmaSenhaSecretaria" id="txtConfirmaSenhaSecretaria" type="password"
+                            placeholder="********">
                     </div>
                 </div>
             </form>
