@@ -26,7 +26,9 @@ function Navbar1(botaoAbrir, menu, botaoFechar, container) {
 
     botaoAbrirNav.addEventListener("click", function() {
         console.log(menuNav)
-        botaoAbrirNav.firstElementChild.src = "../img/pai2.png"
+        botaoAbrirNav.firstElementChild.remove()
+        botaoAbrirNav.createElement
+
         menuNav.classList.toggle("compact-nav")
         containerMain.classList.toggle("container-maior")
         if(botaoAbrirNav.firstElementChild.src == "../img/pai2.png"){

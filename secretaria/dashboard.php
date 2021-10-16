@@ -130,7 +130,7 @@
                             </a>
                         </li>
                         <li class="links-name">
-                            <a href="cadastrar-d.php">
+                            <a href="alterar-dados.php">
                                 <i class="fas fa-school"></i>
                                 <span class="links-name">Alterar Dados</span>
                             </a>
@@ -191,7 +191,7 @@
                     <div class="acesso-dash-btns">
                         <a href="cadastrar-dados.php"><button>Cadastrar Dados</button></a>
                         <a href="chat-secretaria.php"><button>Chat Secretaria</button></a>
-                        <a href=""><button>Cadastrar Dados</button></a>
+                        <a href="alterar-dados.php"><button>Visualizar Dados</button></a>
                         <a href=""><button>Cadastrar Dados</button></a>
                     </div>
                 </div>
