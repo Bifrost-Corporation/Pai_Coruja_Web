@@ -102,20 +102,14 @@
 
 
 
-    <main class="container-main">
-        <section class="top-section">
-            <div class="voltar">
-                <a href="home-professor.php">
-                    <span class="fas fa-arrow-left"></span>Voltar
-                </a>
-            </div>
-            <div class="titulo-cadastrar">
-                <h2>Cadastrar Publicação:</h2>
-            </div>
-        </section>
+    <main class="container-dash">
+        
+        <div class="ola-nav-dash">
+            <h1>Cadastrar Publicação</h1>
+        </div>
 
 
-        <section class="main-section">
+        <section class="container-dados-dash">
             <form class="formulario" action="../DAO/inserir-publicacao.php" method="POST">
                 <div class="user-details">
                     <div class="input-box-width100">

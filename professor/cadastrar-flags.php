@@ -99,20 +99,13 @@
     </div>
 </div>
 </header>
-    <main class="container-main">
-        <section class="top-section">
-            <div class="voltar">
-                <a href="home-professor.php">
-                    <span class="fas fa-arrow-left"></span>Voltar
-                </a>
-            </div>
-            <div class="titulo-cadastrar">
-                <h2>Cadastrar Observação ao aluno:</h2>
-            </div>
-        </section>
+    <main class="container-dash">
+        <div class="ola-nav-dash">
+            <h1>Cadastrar Avaliação</h1>
+        </div>
 
 
-        <section class="main-section">
+        <section class="container-dados-dash">
             <form class="formulario" action="../DAO/inserir-observacao.php" method="POST">
                 <div class="user-details">
                     <div class="input-box-width100">
@@ -138,7 +131,23 @@
                     <div class="input-box-width100">
                         <h2>Dê uma nota ao acontecido:</h2>
                         <label class="label-erro" id="label-gravidade"></label>
-                        <input name="txtGravidade" id="txtGravidade" type="number" placeholder="de 0 a 5, quão grave foi o que aconteceu? Deixe 0 para apenas uma observação">
+                        <input type="range" min="0" max="5" id="range-gravidade" >
+                        <datalist id="tickmarks">
+                            <option value="0" label="0">
+                            <option value="1" label="1">
+                            <option value="2" label="2">
+                            <option value="3" label="3">
+                            <option value="4" label="4">
+                            <option value="5" label="5">
+                        </datalist>
+                        <div class="label-do-range">
+                            <label for="range-gravidade">0</label>
+                            <label for="range-gravidade">1</label>
+                            <label for="range-gravidade">2</label>
+                            <label for="range-gravidade">3</label>
+                            <label for="range-gravidade">4</label>
+                            <label for="range-gravidade">5</label>
+                        </div>
                     </div>
                     <div class="input-box-width100">
                         <h2>Descreva o que aconteceu:</h2>

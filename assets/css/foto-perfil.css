@@ -15,9 +15,11 @@
     height: 250px;
     width: 250px;
     object-fit: cover;
+    background-color: var(--azulnavbar);
 }
 
 .card-perfil input{
+    cursor: pointer;
     background-color: var(--azulnavbar);
     border: 0;
     padding: 1rem;

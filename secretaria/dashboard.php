@@ -126,7 +126,7 @@
                         </a>
                         <a href="trocar-foto-perfil.php">
                             <i class="fas fa-user-cog"></i>
-                            <span>Trocar foto de perfil</span>
+                            <span>Foto de perfil</span>
                         </a>
                     </div>
                     <div class="profile">
