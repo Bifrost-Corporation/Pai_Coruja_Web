@@ -124,28 +124,33 @@ function linkEtapa4(){
 
 function linkCadastrar(){
     var nomeDisciplina = $('#txtNomeDisciplina').val();
-    var nomeProfessor = $('#txtProfessor').val();
+    var nomeProfessor = $('#txtProfessorDisciplina').val();
     var nomeDisciplinaSemEspaco = nomeDisciplina.trim();
     var nomeProfessorSemEspaco = nomeProfessor.trim();
     if (nomeDisciplina.length == 0 || nomeDisciplinaSemEspaco == '') {
-        $('#label-nome').html('Por favor, preencha o campo de nome para a disciplina!');
+        $('#label-nomeDisciplina').html('Por favor, preencha o campo de nome para a disciplina!');
         $('#txtNomeDisciplina').addClass('erro-form');
-        $('#label-nome').show();
+        $('#label-nomeDisciplina').show();
         setTimeout(function () {
-            $('#label-nome').fadeOut(1);
+            $('#label-nomeDisciplina').fadeOut(1);
             $('#txtNomeDisciplina').removeClass('erro-form');
         }, 5000);
-        e.preventDefault();
+        document.querySelector('#formProfessorDisciplina').addEventListener('submit', function(e){
+            e.preventDefault();
+        });
     }
     else if (nomeProfessor.length == 0 || nomeProfessorSemEspaco == '') {
         $('#label-professor').html('Por favor, preencha o campo de nome para o professor responsável pela disciplina!');
-        $('#txtProfessor').addClass('erro-form');
+        $('#txtProfessorDisciplina').addClass('erro-form');
         $('#label-professor').show();
         setTimeout(function () {
             $('#label-professor').fadeOut(1);
-            $('#txtProfessor').removeClass('erro-form');
+            $('#txtProfessorDisciplina').removeClass('erro-form');
         }, 5000);
-        e.preventDefault();
+        document.querySelector('#formProfessorDisciplina').addEventListener('submit', function(e){
+            e.preventDefault();
+        });
+        
     } else{
         current = 2
         $bullets[current - 1].classList.add('actived')

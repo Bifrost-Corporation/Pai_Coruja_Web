@@ -152,7 +152,7 @@
                                 </div>
                                 <div class="container-steps-form">
 
-                                    <form name="formProfessorDisciplina" id="formProfessorDisciplina" class="" method="POST" action="../DAO/inserir-professor-disciplina.php">
+                                    <form name="formProfessorDisciplina" id="formProfessorDisciplina" class="" method="POST" action="../DAO/inserir-professor-disciplina.php" onsubmit="return linkCadastrar()">
 
                                         <div class="user-details page-form slidePage">
                                             <div class="btns-link-step-form">
@@ -255,11 +255,9 @@
                                             <div class="title-page-form">
                                                 <h1>Cadastrar Disciplina:</h1>
                                             </div>
-                                            <input type="hidden" id="idDisciplina" name="idDisciplina"
-                                                value="<?php echo @$_GET['idDisciplina'] ?>">
                                             <div class="input-box-width100">
                                                 <h2>Nome da disciplina:</h2>
-                                                <label class="label-erro" id="label-nome"></label>
+                                                <label class="label-erro" id="label-nomeDisciplina"></label>
                                                 <input name="txtNomeDisciplina" id="txtNomeDisciplina" type="text"
                                                     placeholder="Insira o nome da disciplina"
                                                     value="<?php echo @$_GET['nomeDisciplina'] ?>">
@@ -267,7 +265,7 @@
                                             <div class="input-box-width100">
                                                 <h2>Professor:</h2>
                                                 <label class="label-erro" id="label-professor"></label>
-                                                <input name="txtProfessorDisciplina" id="txtProfessor" type="text"
+                                                <input name="txtProfessorDisciplina" id="txtProfessorDisciplina" type="text"
                                                     placeholder="Insira o professor responsável pela disciplina"
                                                     value="<?php echo @$_GET['nomeProfessor'] ?>">
                                                 <div id="retornoPesquisa">
@@ -277,7 +275,7 @@
                                             <div class="button">
                                                 <input type="button" onclick="linkEtapa3()" class="btn-nav-exit"
                                                     value="Voltar">
-                                                <input type="submit" id="btn-cadastrar" class="btn-nav-exit" value="Cadastrar">
+                                                <input type="submit" onclick="linkCadastrar()" id="btn-cadastrar" class="btn-nav-exit" value="Cadastrar">
                                             </div>
                                         </div>
 
