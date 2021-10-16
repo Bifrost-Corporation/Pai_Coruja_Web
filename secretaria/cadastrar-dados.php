@@ -152,7 +152,7 @@
                                 </div>
                                 <div class="container-steps-form">
 
-                                    <form name="formProfessorDisciplina" id="formProfessorDisciplina" class="" method="POST" action="../DAO/inserir-professor-disciplina.php" onsubmit="return linkCadastrar()">
+                                    <form name="formProfessorDisciplina" id="formProfessorDisciplina" class="" method="POST" action="../DAO/inserir-professor-disciplina.php"">
 
                                         <div class="user-details page-form slidePage">
                                             <div class="btns-link-step-form">
@@ -275,7 +275,7 @@
                                             <div class="button">
                                                 <input type="button" onclick="linkEtapa3()" class="btn-nav-exit"
                                                     value="Voltar">
-                                                <input type="submit" onclick="linkCadastrar()" id="btn-cadastrar" class="btn-nav-exit" value="Cadastrar">
+                                                <input type="submit" id="btn-cadastrar" class="btn-nav-exit" value="Cadastrar">
                                             </div>
                                         </div>
 
@@ -311,7 +311,7 @@
                                 </div>
                                 <div class="container-steps-form">
 
-                                    <form class="" method="POST" action="#">
+                                    <form id="formTurmaHorario" name="formTurmaHorario" class="" method="POST" action="../DAO/inserir-turma-horario.php">
 
                                         <div class="user-details page-form slidePage-form2">
                                             <div class="btns-link-step-form">
@@ -345,7 +345,7 @@
                                                 value="<?php echo@$_GET['idTurma'] ?>">
                                             <div class="input-box-width100">
                                             <h2>Nome da Turma:</h2>
-                                                <label class="label-erro" id="label-nome"></label>
+                                                <label class="label-erro" name="label-nomeTurma" id="label-nomeTurma"></label>
                                                 <input name="txtNomeTurma" id="txtNomeTurma" type="text" placeholder="Insira o nome da turma" value="<?php echo @$_GET['nomeTurma'] ?>">
                                             </div>
                                             <div class="button">
@@ -399,10 +399,10 @@
                                             <div class="input-box-width100">
                                             <h2>Nome da Disciplina</h2>
                                                 <label class="label-erro" id="label-disciplina"></label>
-                                                <input name="txtDisciplina" id="txtDisciplina" type="text" placeholder="Disciplina a ser dada na aula"  value="<?php if(isset($_SESSION['nomeDisciplina'])){
+                                                <input name="txtDisciplinaHorario" id="txtDisciplinaHorario" type="text" placeholder="Disciplina a ser dada na aula"  value="<?php if(isset($_SESSION['nomeDisciplina'])){
                                                                                                                                                                                                                 echo $_SESSION['nomeDisciplina'];
                                                                                                                                                                                                             } ?>">
-                                                <div id="retornoPesquisa2">
+                                                <div id="retornoPesquisaDisciplinaHorario">
 
                                                 </div>
                                             </div>
@@ -655,11 +655,95 @@
                                                                                                                             
 
     <script src="../assets/js/dash-cadastro.js"></script>
-    <script src="../assets/js/formStepsBySteps.js"></script>
     <script src="../assets/js/nav.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="../assets/js/jquery.mask.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.js"></script>
     <script src="../assets/js/carousel.js"></script>
+    <script src="../assets/js/formStepsBySteps.js"></script>
+
+    <script>
+        //Script Form Disciplina/Professor
+        jQuery('#formProfessorDisciplina').on('submit', function (e){
+            var nomeDisciplina = $('#txtNomeDisciplina').val();
+            var nomeProfessor = $('#txtProfessorDisciplina').val();
+            var nomeDisciplinaSemEspaco = nomeDisciplina.trim();
+            var nomeProfessorSemEspaco = nomeProfessor.trim();
+            if (nomeDisciplina.length == 0 || nomeDisciplinaSemEspaco == '') {
+                $('#label-nomeDisciplina').html('Por favor, preencha o campo de nome para a disciplina!');
+                $('#txtNomeDisciplina').addClass('erro-form');
+                $('#label-nomeDisciplina').show();
+                setTimeout(function () {
+                    $('#label-nomeDisciplina').fadeOut(1);
+                    $('#txtNomeDisciplina').removeClass('erro-form');
+                }, 5000);
+                e.preventDefault();
+            }
+            else if (nomeProfessor.length == 0 || nomeProfessorSemEspaco == '') {
+                $('#label-professor').html('Por favor, preencha o campo de nome para o professor responsável pela disciplina!');
+                $('#txtProfessorDisciplina').addClass('erro-form');
+                $('#label-professor').show();
+                setTimeout(function () {
+                    $('#label-professor').fadeOut(1);
+                    $('#txtProfessorDisciplina').removeClass('erro-form');
+                }, 5000);
+                e.preventDefault();
+            }
+        });
+
+        //Script Turma/HorárioTurma
+        $('#txtNomeTurma').mask("0ºS");
+
+        jQuery('#txtDisciplinaHorario').keyup(function () {
+            var textoInserido = $(this).val();
+            if (textoInserido != '') {
+                $.ajax({
+                    url: '../DAO/procurar-disciplina.php',
+                    method: 'POST',
+                    data: {
+                        query: textoInserido
+                    },
+                    success: function (resposta) {
+                        $("#retornoPesquisaDisciplinaHorario").html(resposta);
+                    }
+                });
+            } else {
+                $("#retornoPesquisaDisciplinaHorario").html('');
+            }
+        });
+
+        $(document).on('click', '.opcao-consulta2', function () {
+            $("#txtDisciplinaHorario").val($(this).text());
+            $("#retornoPesquisaDisciplinaHorario").html("");
+        });
+
+        jQuery('#formTurmaHorario').on('submit', function (e) {
+            var diaSemana = $('#txtDiaSemana').val();
+            var disciplina = $('#txtDisciplinaHorario').val();
+            var diaSemanaSemEspaco = diaSemana.trim();
+            var disciplinaSemEspaco = disciplina.trim();
+            if (diaSemana.length == 0 || diaSemanaSemEspaco == '') {
+                $('#label-dia').html('Por favor, preencha o campo de dia da semana!');
+                $('#txtDiaSemana').addClass('erro-form');
+                $('#label-dia').show();
+                setTimeout(function () {
+                    $('#label-dia').fadeOut(1);
+                    $('#txtDiaSemana').removeClass('erro-form');
+                }, 5000);
+                e.preventDefault();
+            }
+            if (disciplina.length == 0 || disciplinaSemEspaco == '') {
+                $('#label-disciplina').html('Por favor, preencha o campo de disciplina!');
+                $('#txtDisciplinaHorario').addClass('erro-form');
+                $('#label-disciplina').show();
+                setTimeout(function () {
+                    $('#label-disciplina').fadeOut(1);
+                    $('#txtDisciplinaHorario').removeClass('erro-form');
+                }, 5000);
+                e.preventDefault();
+            }
+        });
+    </script>
 
 
 </body>

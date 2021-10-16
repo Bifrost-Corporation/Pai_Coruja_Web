@@ -84,6 +84,14 @@
             return $listaTurma;
         }
 
+        public function selecionarUltimaTurma(){
+            $conexao = Conexao::conectar();
+            $queryTurma = "SELECT idTurma FROM tbturma WHERE idTurma = (SELECT MAX(idTurma) FROM tbturma)";
+            $resultadoTurma = $conexao->query($queryTurma);
+            $listaTurma = $resultadoTurma->fetchAll(PDO::FETCH_ASSOC);
+            return $listaTurma;
+        }
+
     }
 
 ?>

@@ -121,7 +121,7 @@ function linkEtapa3(){
 function linkEtapa4(){
     $slidePage.style.marginLeft = "-75%"
 }
-
+/*
 function linkCadastrar(){
     var nomeDisciplina = $('#txtNomeDisciplina').val();
     var nomeProfessor = $('#txtProfessorDisciplina').val();
@@ -158,7 +158,7 @@ function linkCadastrar(){
         $progressCheck[current - 1].classList.add('actived')
     }
 }
-
+*/
 
 
 const $slidePageForm2 = document.querySelector('.slidePage-form2')
@@ -186,10 +186,22 @@ function linkEtapa2Form2(){
     $progressCheckForm2[current - 1].classList.remove('actived')
 }
 function linkEtapa3Form2(){
-    $slidePageForm2.style.marginLeft = "-50%"
-    $bulletsForm2[current - 1].classList.add('actived')
-    $progressTextForm2[current - 1].classList.add('actived')
-    $progressCheckForm2[current - 1].classList.add('actived')
+    var nomeTurma = $('#txtNomeTurma').val();
+    if (nomeTurma.length != 3) {
+        $('#label-nomeTurma').html('Por favor, preencha o campo de nome para a turma corretamente!');
+        $('#txtNomeTurma').addClass('erro-form');
+        $('#label-nomeTurma').show();
+        setTimeout(function () {
+            $('#label-nomeTurma').fadeOut(1);
+            $('#txtNomeTurma').removeClass('erro-form');
+        }, 5000);
+    }else{
+            $slidePageForm2.style.marginLeft = "-50%"
+            $bulletsForm2[current - 1].classList.add('actived')
+            $progressTextForm2[current - 1].classList.add('actived')
+            $progressCheckForm2[current - 1].classList.add('actived')
+    }
+    
 }
 function linkEtapa4Form2(){
     $slidePageForm2.style.marginLeft = "-75%"
@@ -200,7 +212,6 @@ function linkCadastrarForm2(){
     $bulletsForm2[current - 1].classList.add('actived')
     $progressTextForm2[current - 1].classList.add('actived')
     $progressCheckForm2[current - 1].classList.add('actived')
-    alert('Cadastrado com sucesso!')
 }
 
 
