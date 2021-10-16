@@ -94,7 +94,6 @@
         }
     ?>
        <header>
-
             <nav class="nav-bar">
                 <a href=""><img class="logo-img" src="../img/pai_coruja_branca.png"></a>
                 <ul class="ul-area-btn">
