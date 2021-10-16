@@ -117,7 +117,7 @@
 
         public function selecionarUltimoProfessor(){
             $conexao = Conexao::conectar();
-            $queryProfessor = "SELECT idProfessor FROM tbprofessor WHERE idProfessor = (SELECT MAX(idProfessor) FROM tbprofessor)";
+            $queryProfessor = "SELECT idProfessor, nomeProfessor FROM tbprofessor WHERE idProfessor = (SELECT MAX(idProfessor) FROM tbprofessor)";
             $resultadoProfessor = $conexao->query($queryProfessor);
             $listaProfessor = $resultadoProfessor->fetchAll(PDO::FETCH_ASSOC);
             return $listaProfessor;

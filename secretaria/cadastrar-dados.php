@@ -152,7 +152,7 @@
                                 </div>
                                 <div class="container-steps-form">
 
-                                    <form class="" method="POST" action="#">
+                                    <form name="formProfessorDisciplina" id="formProfessorDisciplina" class="" method="POST" action="../DAO/inserir-professor-disciplina.php">
 
                                         <div class="user-details page-form slidePage">
                                             <div class="btns-link-step-form">
@@ -277,7 +277,7 @@
                                             <div class="button">
                                                 <input type="button" onclick="linkEtapa3()" class="btn-nav-exit"
                                                     value="Voltar">
-                                                <input type="submit" onclick="linkCadastrar()" class="btn-nav-exit" value="Cadastrar">
+                                                <input type="submit" id="btn-cadastrar" class="btn-nav-exit" value="Cadastrar">
                                             </div>
                                         </div>
 

@@ -23,22 +23,135 @@ function linkEtapa2(){
     $progressCheck[current - 1].classList.remove('actived')
 }
 function linkEtapa3(){
-    $slidePage.style.marginLeft = "-50%"
-    $bullets[current - 1].classList.add('actived')
-    $progressText[current - 1].classList.add('actived')
-    $progressCheck[current - 1].classList.add('actived')
-    console.log(current);
+    var nome = $('#txtNomeProfessor').val();
+    var email = $('#txtEmailProfessor').val();
+    var senha1 = $('#txtSenhaProfessor').val();
+    var senha2 = $('#txtConfirmarSenhaProfessor').val();
+    var nomeSemEspaco = nome.trim();
+    var emailSemEspaco = email.trim();
+    var senha1SemEspaco = senha1.trim();
+    var senha2SemEspaco = senha2.trim();
+    if (nome.length == 0 || nomeSemEspaco == '') {
+        $('#label-nome').html('Por favor, preencha o campo de nome para o professor!');
+        $('#txtNomeProfessor').addClass('erro-form');
+        $('#label-nome').show();
+        setTimeout(function () {
+            $('#label-nome').fadeOut(1);
+            $('#txtNomeProfessor').removeClass('erro-form');
+        }, 5000);
+        e.preventDefault();
+    }
+    if (email.length == 0 || emailSemEspaco == '') {
+        $('#label-email').html('Por favor, preencha o campo de email para o professor!');
+        $('#txtEmailProfessor').addClass('erro-form');
+        $('#label-email').show();
+        setTimeout(function () {
+            $('#label-email').fadeOut(1);
+            $('#txtEmailProfessor').removeClass('erro-form');
+        }, 5000);
+        e.preventDefault();
+    } else {
+        var verificaarroba = false;
+        var verificaponto = false;
+        for (var i = 0; i < email.length; i++) {
+            if (email.charAt(i) == '@' && i + 1 < email.length) {
+                var posicaoarroba = i;
+            }
+            if (email.charAt(i) == '.' && i + 1 < email.length) {
+                var posicaoponto = i;
+            }
+        }
+        if (posicaoponto > posicaoarroba) {
+            var verificaarroba = true;
+            var verificaponto = true;
+        }
+        if (verificaarroba == false || verificaponto == false) {
+            $('#label-email').html('Email inválido!');
+            $('#txtEmailProfessor').addClass('erro-form');
+            $('#label-email').show();
+            setTimeout(function () {
+                $('#label-email').fadeOut(1);
+                $('#txtEmailProfessor').removeClass('erro-form');
+            }, 5000);
+            e.preventDefault();
+        }
+    }
+    if (senha1.length == 0 || senha1SemEspaco == ''){
+        $('#label-senha1').html('Por favor, preencha o campo de senha para o professor!');
+        $('#txtSenhaProfessor').addClass('erro-form');
+        $('#label-senha1').show();
+        setTimeout(function () {
+            $('#label-senha1').fadeOut(1);
+            $('#txtSenhaProfessor').removeClass('erro-form');
+        }, 5000);
+        e.preventDefault();
+    }
+    if (senha2.length == 0 || senha2SemEspaco == ''){
+        $('#label-senha2').html('Por favor, preencha o campo de senha para o professor!');
+        $('#txtConfirmarSenhaProfessor').addClass('erro-form');
+        $('#label-senha2').show();
+        setTimeout(function () {
+            $('#label-senha2').fadeOut(1);
+            $('#txtConfirmarSenhaProfessor').removeClass('erro-form');
+        }, 5000);
+        e.preventDefault();
+    }
+    if (senha1 != senha2){
+        $('#label-senha1').html('Senhas não correspondem!');
+        $('#txtSenhaProfessor').addClass('erro-form');
+        $('#label-senha1').show();
+        $('#label-senha2').html('Senhas não correspondem!');
+        $('#txtConfirmarSenhaProfessor').addClass('erro-form');
+        $('#label-senha2').show();
+        setTimeout(function () {
+            $('#label-senha1').fadeOut(1);
+            $('#txtSenhaProfessor').removeClass('erro-form');
+            $('#label-senha2').fadeOut(1);
+            $('#txtConfirmarSenhaProfessor').removeClass('erro-form');
+        }, 5000);
+        e.preventDefault();
+    } else {
+        $slidePage.style.marginLeft = "-50%"
+        $bullets[current - 1].classList.add('actived')
+        $progressText[current - 1].classList.add('actived')
+        $progressCheck[current - 1].classList.add('actived')
+        console.log(current);
+    }
 }
 function linkEtapa4(){
     $slidePage.style.marginLeft = "-75%"
 }
 
-function linkCadastrar(){  
-    current = 2
-    $bullets[current - 1].classList.add('actived')
-    $progressText[current - 1].classList.add('actived')
-    $progressCheck[current - 1].classList.add('actived')
-    alert('Cadastrado com sucesso!')
+function linkCadastrar(){
+    var nomeDisciplina = $('#txtNomeDisciplina').val();
+    var nomeProfessor = $('#txtProfessor').val();
+    var nomeDisciplinaSemEspaco = nomeDisciplina.trim();
+    var nomeProfessorSemEspaco = nomeProfessor.trim();
+    if (nomeDisciplina.length == 0 || nomeDisciplinaSemEspaco == '') {
+        $('#label-nome').html('Por favor, preencha o campo de nome para a disciplina!');
+        $('#txtNomeDisciplina').addClass('erro-form');
+        $('#label-nome').show();
+        setTimeout(function () {
+            $('#label-nome').fadeOut(1);
+            $('#txtNomeDisciplina').removeClass('erro-form');
+        }, 5000);
+        e.preventDefault();
+    }
+    else if (nomeProfessor.length == 0 || nomeProfessorSemEspaco == '') {
+        $('#label-professor').html('Por favor, preencha o campo de nome para o professor responsável pela disciplina!');
+        $('#txtProfessor').addClass('erro-form');
+        $('#label-professor').show();
+        setTimeout(function () {
+            $('#label-professor').fadeOut(1);
+            $('#txtProfessor').removeClass('erro-form');
+        }, 5000);
+        e.preventDefault();
+    } else{
+        current = 2
+        $bullets[current - 1].classList.add('actived')
+        $progressText[current - 1].classList.add('actived')
+        $progressCheck[current - 1].classList.add('actived')
+    }
 }
 
 
