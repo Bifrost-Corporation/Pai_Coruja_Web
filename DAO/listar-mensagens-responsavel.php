@@ -41,14 +41,16 @@
         if($resultadoConsulta->rowCount() > 0){
             foreach($listaMensagens as $linha){
                 if($linha['EnvioSecretaria'] == $nomeSecretaria){
-                    echo "<div class='mensagem'>";
-                        echo "<h4 class='recebido'>". $linha['EnvioSecretaria'] . "</h4>";
-                        echo "<p class='recebido'>". $linha['textoMensagem'] . " - <small>" . $linha['dataMensagem'] . "</small></p>";
+                    echo "<div class='message-row destinatario'>";
+                        echo "<h4 class='name-user'>" . $linha['EnvioSecretaria'] . "</h4>";
+                        echo "<p class='text-message'>". $linha['textoMensagem'] . "</p>";
+                        echo "<small class='date-message'>".$linha['dataMensagem'] ."</small>";
                     echo "</div>";
                 }else if($linha['EnvioSecretaria'] == $nomeResponsavel){
-                    echo "<div class='mensagem'>";
-                        echo "<h4 class='enviado'>". $linha['EnvioSecretaria'] . "</h4>";
-                        echo "<p class='enviado'>". $linha['textoMensagem'] . " - <small>" . $linha['dataMensagem'] . "</small></p>";
+                    echo "<div class='message-row remetente'>";
+                        echo "<h4 class='name-user'>" . $linha['EnvioSecretaria'] . "</h4>";
+                        echo "<p class='text-message'>". $linha['textoMensagem'] . "</p>";
+                        echo "<small class='date-message'>".$linha['dataMensagem'] ."</small>";
                     echo "</div>";
                 }
             }

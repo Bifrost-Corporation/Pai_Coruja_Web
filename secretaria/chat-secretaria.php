@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -23,7 +23,7 @@
         include ('sentinela.php');
         include ('globalSecretaria.php');
     ?>
-    <header>
+        <header>
 
 <nav class="nav-bar">
     <a href=""><img class="logo-img" src="../img/pai_coruja_branca.png"></a>
@@ -36,8 +36,8 @@
     <div class="logo-content">
         <div class="logo">
             <div class="logo-name"><a href="home-adm.php"><img src="../img/pai_coruja_branca.png"></a>
-                <i class="fas fa-arrow-left"></i>
-            </div>
+            <i class="fas fa-arrow-left"></i>
+        </div>
             <div class="close-mobile-navbar">
                 <span>Menu Pai Coruja</span>
                 <a class="btn-nav-close"><i class="far fa-window-close"></i></a>
@@ -48,33 +48,72 @@
         <div class="menu-container">
             <!-- <span>fernfjk</span> -->
             <li class="links-name">
-                <a href="dashboard.php">
+                <a href="home-secretaria.php">
                     <i class="fas fa-calendar"></i>
-                    <span class="links-name">Dashboard</span>
+                    <span class="links-name">Mural</span>
                 </a>
             </li>
             <li class="links-name">
-                <a href="cadastrar-dados.php">
-                    <i class="fas fa-school"></i>
-                    <span class="links-name">Cadastrar Dados</span>
+                <a href="#">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <span class="links-name">Avaliação dos Professores</span>
                 </a>
             </li>
             <li class="links-name">
-                <a href="cadastrar-d.php">
-                    <i class="fas fa-school"></i>
-                    <span class="links-name">Alterar Dados</span>
-                </a>
-            </li>
-            <li class="links-name">
-                <a href="cadastrar-turma.php">
-                    <i class="fas fa-school"></i>
-                    <span class="links-name">Gerenciar Eventos</span>
+                <a href="#">
+                    <i class="fas fa-calendar-day"></i>
+                    <span class="links-name">Eventos Programados</span>
                 </a>
             </li>
             <li class="links-name">
                 <a href="chat-secretaria.php">
+                    <i class="fas fa-calendar-day"></i>
+                    <span class="links-name">Chat</span>
+                </a>
+            </li>
+        </div>
+        <hr>
+        <div class="menu-container">
+            <li class="links-name">
+                <a href="cadastrar-turma.php">
                     <i class="fas fa-school"></i>
-                    <span class="links-name">Pai Coruja Chat</span>
+                    <span class="links-name">Cadastrar Turma</span>
+                </a>
+            </li>
+            <li class="links-name">
+                <a href="cadastrar-aluno.php">
+                    <i class="fas fa-school"></i>
+                    <span class="links-name">Cadastrar Aluno</span>
+                </a>
+            </li>
+            <li class="links-name">
+                <a href="cadastrar-professor.php">
+                    <i class="fas fa-school"></i>
+                    <span class="links-name">Cadastrar Professor</span>
+                </a>
+            </li>
+            <li class="links-name">
+                <a href="cadastrar-responsavel.php">
+                    <i class="fas fa-school"></i>
+                    <span class="links-name">Cadastrar Responsável</span>
+                </a>
+            </li>
+            <li class="links-name">
+                <a href="cadastrar-disciplina.php">
+                    <i class="fas fa-school"></i>
+                    <span class="links-name">Cadastrar Disciplina</span>
+                </a>
+            </li>
+            <li class="links-name">
+                <a href="cadastrar-horario-turma.php">
+                    <i class="fas fa-school"></i>
+                    <span class="links-name">Cadastrar Horarios</span>
+                </a>
+            </li>
+            <li class="links-name">
+                <a href="cadastrar-evento.php">
+                    <i class="fas fa-school"></i>
+                    <span class="links-name">Cadastrar Evento</span>
                 </a>
             </li>
         </div>
@@ -104,36 +143,53 @@
 </header>
 
 
-
         <main class="container-main">
 
             <section class="area-chat">
                 <div class="menu-lateral">
+                    <div class="header-menu-lateral-title">
+                        <a href="#"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+                        <h3>Responsáveis</h3>
+                    </div>
                     <?php
                         $secretaria = new Secretaria();
                         $listaContatos = $secretaria->listarResponsaveis($_SESSION['idEscola']);
                         foreach($listaContatos as $linha){
                     ?>
-                    <div class="area-contato">
-                        <button class="botao-contato" id="<?php echo $linha['idResponsavel'] ?>"><?php echo $linha['nomeResponsavel'] ?></button>
+                    <!--
+                            <p></p>-->
+                    <div class="area-botao-conversa">
+                        <button class="botao-contato"id="<?php echo $linha['idResponsavel'] ?>">
+                        <img src="../img/usuario-de-perfil.png" alt="">
+                            <div class="title-conversa">
+                                <?php echo $linha['nomeResponsavel'] ?>
+                            </div>
+                            
+                        </button>
                     </div>
                     <?php
                         }
                     ?>
                 </div>
                 <div class="caixa-chat">
+                    <div class="nav-chat">
+                        <img src="../img/usuario-de-perfil.png" alt="">
+                        <h1 class="name-user-chat"><!--<i class="fa fa-arrow-left" aria-hidden="true"></i>-->Responsável</h1>
+                    </div>
                     <div class="caixa-mensagens">
                         <div id="mensagens">
-
                         </div>
                     </div>
                     <div class="form-mensagem">
                         <form name="form-chat" method="POST" action="../DAO/enviar-mensagem.php">
                             <input type="hidden" id="idEnviar" name="idEnviar" value="<?php echo $_SESSION['idSecretaria'] ?>">
                             <input type="hidden" id="idReceber" name="idReceber" value="#">
-                            <input type="text" class="caixa-mensagem" id="txtMensagem" name="txtMensagem">
-                            <button class="botao-enviar" id="botao-enviar" name="botao-enviar">Enviar</button>
-                        </form>
+                            <div class="box-submit-message">
+                            <input type="text" class="caixa-mensagem" placeholder="Converse com @<?php echo $linha['nomeResponsavel'] ?>" id="txtMensagem" name="txtMensagem">
+                            <button class="botao-enviar" id="botao-enviar" name="botao-enviar"><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+                       
+                            </div>
+                         </form>
                     </div>
                 </div>
             </section>
@@ -143,7 +199,7 @@
        
 
         
-    <div class="nav-footer">
+    <!--<div class="nav-footer">
         <ul>
             <li class="active">
                 <a href="home-responsavel.php">
@@ -164,7 +220,7 @@
                 </a>
             </li>
         </ul>
-    </div>
+    </div>-->
 
     <script src="../assets/js/nav.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>

@@ -107,8 +107,11 @@
 
 
 <main class="container-main">
-
+<div class="nav-chat">
+                        <h1 class="name-user-chat"><!--<i class="fa fa-arrow-left" aria-hidden="true"></i>-->Chat</h1>
+                    </div>
             <section class="area-chat">
+            
                 <div class="caixa-chat2">
                     <div class="caixa-mensagens">
                         <div id="mensagens">
@@ -119,8 +122,10 @@
                         <form name="form-chat" method="POST" action="../DAO/enviar-mensagem-responsavel.php">
                             <input type="hidden" id="idEnviar" name="idEnviar" value="<?php echo $_SESSION['idResponsavel'] ?>">
                             <input type="hidden" id="idReceber" name="idReceber" value="<?php echo $_SESSION['idSecretaria'] ?>">
-                            <input type="text" class="caixa-mensagem" id="txtMensagem" name="txtMensagem">
-                            <button class="botao-enviar" id="botao-enviar" name="botao-enviar">Enviar</button>
+                            <div class="box-submit-message">
+                            <input type="text" class="caixa-mensagem" placeholder="Converse com a Secretária" id="txtMensagem" name="txtMensagem">
+                            <button class="botao-enviar" id="botao-enviar" name="botao-enviar"><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+</div>
                         </form>
                     </div>
                 </div>
@@ -128,7 +133,7 @@
 
         </main>
 
-    <div class="nav-footer">
+    <!--<div class="nav-footer">
         <ul>
             <li class="active">
                 <a href="home-responsavel.php">
@@ -149,7 +154,7 @@
                 </a>
             </li>
         </ul>
-    </div>
+    </div>-->
 
     <script src="../assets/js/nav.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
