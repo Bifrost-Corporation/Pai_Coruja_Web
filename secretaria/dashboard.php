@@ -202,14 +202,14 @@
                     <div class="dados-escolares-container">
                         <div class="dados-escolares-linha">
                             <div class="dado-escolar">
-                                <i class="fas fa-school"></i>
+                                <i class="fas fa-user-graduate"></i>
                                 <div>
                                     <h3><?php echo $qtdeAlunos ?></h3>
                                     <h5>Alunos Cadastrados</h5>
                                 </div> 
                             </div>
                             <div class="dado-escolar">
-                                <i class="fas fa-school"></i>
+                                <i class="fas fa-users"></i>
                                 <div>
                                     <h3><?php echo $qtdeProfessores ?></h3>
                                     <h5>Professores Cadastradas</h5>
@@ -218,14 +218,14 @@
                         </div>
                         <div class="dados-escolares-linha">
                             <div class="dado-escolar">
-                                <i class="fas fa-school"></i>
+                                <i class="fas fa-users"></i>
                                 <div>
                                     <h3><?php echo $qtdeTurmas ?></h3>
                                     <h5>Turmas Cadastradas</h5>
                                 </div> 
                             </div>
                             <div class="dado-escolar">
-                                <i class="fas fa-school"></i>
+                                <i class="fas fa-users"></i>
                                 <div>
                                     <h3><?php echo $qtdeResponsaveis ?></h3>
                                     <h5>Responsáveis Cadastrados</h5>
@@ -234,14 +234,14 @@
                         </div>
                         <div class="dados-escolares-linha">
                             <div class="dado-escolar">
-                                <i class="fas fa-school"></i>
+                                <i class="fas fa-calendar-check"></i>
                                 <div>
                                     <h3><?php echo $mediaObservacoes ?></h3>
                                     <h5>Média Observações</h5>
                                 </div> 
                             </div>
                             <div class="dado-escolar">
-                                <i class="fas fa-school"></i>
+                                <i class="fas fa-user-graduate"></i>
                                 <div>
                                     <h3><?php echo $mediaAlunoTurma ?></h3>
                                     <h5>Média de alunos por turma</h5>
