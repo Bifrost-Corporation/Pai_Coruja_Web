@@ -131,7 +131,7 @@
                     <div class="input-box-width100">
                         <h2>Dê uma nota ao acontecido:</h2>
                         <label class="label-erro" id="label-gravidade"></label>
-                        <input type="range" min="0" max="5" id="range-gravidade" >
+                        <input type="range" min="0" max="5" id="range-gravidade" name="range-gravidade">
                         <datalist id="tickmarks">
                             <option value="0" label="0">
                             <option value="1" label="1">

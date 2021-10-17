@@ -23,15 +23,15 @@ function linkEtapa2(){
     $progressCheck[current - 1].classList.remove('actived')
 }
 function linkEtapa3(){
-    var nome = $('#txtNomeProfessor').val();
+    var nomeProfessor = $('#txtNomeProfessor').val();
     var email = $('#txtEmailProfessor').val();
     var senha1 = $('#txtSenhaProfessor').val();
     var senha2 = $('#txtConfirmarSenhaProfessor').val();
-    var nomeSemEspaco = nome.trim();
+    var nomeProfessorSemEspaco = nomeProfessor.trim();
     var emailSemEspaco = email.trim();
     var senha1SemEspaco = senha1.trim();
     var senha2SemEspaco = senha2.trim();
-    if (nome.length == 0 || nomeSemEspaco == '') {
+    if (nomeProfessor.length == 0 || nomeProfessorSemEspaco == '') {
         $('#label-nome').html('Por favor, preencha o campo de nome para o professor!');
         $('#txtNomeProfessor').addClass('erro-form');
         $('#label-nome').show();
@@ -116,6 +116,7 @@ function linkEtapa3(){
         $progressText[current - 1].classList.add('actived')
         $progressCheck[current - 1].classList.add('actived')
         console.log(current);
+        $('#txtProfessorDisciplina').val(nomeProfessor);
     }
 }
 function linkEtapa4(){

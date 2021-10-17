@@ -6,8 +6,9 @@
     include("../classes/Observacao.php");
 
     try{
+        unset($_SESSION['turmaAluno']);
         header("location: ../professor/cadastrar-flags.php");
-        $qtdePontosObservacao = $_POST['txtGravidade'];
+        $qtdePontosObservacao = $_POST['range-gravidade'];
         $descObservacao = $_POST['txtOcorrido'];
         $idProfessor = $_SESSION['idProfessor'];
         $nomeAluno = $_POST['txtAluno'];

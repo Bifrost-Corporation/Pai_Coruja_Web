@@ -6,7 +6,7 @@
     include("../classes/HorarioTurma.php");
 
     try{
-        header("location: ../secretaria/cadastrar-turma.php");
+        header("location: ../secretaria/cadastrar-dados.php");
         $idTurma = $_POST['idTurma'];
         $nomeTurma = $_POST['txtNomeTurma'];
         $nomeDisciplina = $_POST['txtDisciplina'];

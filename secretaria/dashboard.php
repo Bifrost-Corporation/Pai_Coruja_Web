@@ -92,6 +92,9 @@
         foreach($listaQtdePontos5 as $linha){
             $qtdePontos5 = $linha['qtdeObservacao'];
         }
+
+        $mediaAlunoTurma = number_format($mediaAlunoTurma, 1, '.', '');
+        $mediaObservacoes = number_format($mediaObservacoes, 1, '.', '');
     ?>
        <header>
             <nav class="nav-bar">
