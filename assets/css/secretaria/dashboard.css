@@ -25,6 +25,13 @@ body{
     gap: 1rem;
 }
 
+.alterar-section-dash{
+    background-color: var(--cinzamaisclaro);
+    border-radius: 1rem;
+    padding: 1rem;
+    gap: 1rem;
+}
+
 .container-dados-dash{
     display: flex;
     justify-content: space-between;
@@ -37,7 +44,7 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background: var(--branco);
+    background: var(--cinzamaisclaro);
     padding: 1rem;
     border-radius: 1rem;
     gap: 1rem;
@@ -56,7 +63,7 @@ body{
 }
 
 .acesso-dash-btns button{
-    background-color: var(--azulbtnsair);
+    background-color: var(--azulnavbar);
     color: var(--cinzamaisclaro);
     padding: 0.3rem 1.2rem;
     border: none;
@@ -64,6 +71,7 @@ body{
     font-weight: bolder;
     cursor: pointer;
     width: auto;
+    flex:1 0 auto;
 }
 
 .dados-escolares-dash{
@@ -114,7 +122,7 @@ body{
 .grafico-container-dash{
     padding: 1rem;
     border-radius: 1rem;
-    background: var(--branco);
+    background: var(--cinzamaisclaro);
 }
 
 
@@ -165,14 +173,14 @@ body{
 
 .aba-cadastro:hover{
     background-color: var(--azulnavbar);
-    color: var(--branco);
+    color: var(--cinzamaisclaro);
     transition: 300ms;
     cursor: pointer;
 }
 
 .aba-cadastro-active{
     background-color: var(--azulbtnsair);
-    color: var(--branco);
+    color: var(--cinzamaisclaro);
 }
 
 .conteudo-aba{

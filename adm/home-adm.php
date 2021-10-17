@@ -33,7 +33,7 @@
             <div class="logo-content">
                 <div class="logo">
                     <div class="logo-name"><a class="btn-nav-pc-open"><img src="../img/pai_coruja_branca.png"></a>
-                    <i class="fas fa-arrow-left"></i>
+                    <!-- <i class="fas fa-bars">dffg</i> -->
                 </div>
                     <div class="close-mobile-navbar">
                         <span>Menu Pai Coruja</span>
@@ -51,24 +51,15 @@
                         </a>
                     </li>
                     <li class="links-name">
-                        <a href="#">
-                            <i class="fas fa-chalkboard-teacher"></i>
-                            <span class="links-name">Avaliação dos Professores</span>
-                        </a>
-                    </li>
-                    <li class="links-name">
-                        <a href="#">
-                            <i class="fas fa-calendar-day"></i>
-                            <span class="links-name">Eventos Programados</span>
-                        </a>
-                    </li>
-                </div>
-                <hr>
-                <div class="menu-container">
-                    <li class="links-name">
                         <a href="cadastrar-escola.php">
                             <i class="fas fa-school"></i>
                             <span class="links-name">Cadastrar Escola</span>
+                        </a>
+                    </li>
+                    <li class="links-name">
+                        <a href="cadastrar-escola.php">
+                            <i class="fas fa-school"></i>
+                            <span class="links-name">Visualizar Dados</span>
                         </a>
                     </li>
                 </div>
