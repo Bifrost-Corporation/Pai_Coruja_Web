@@ -10,6 +10,7 @@
 
     <link rel="stylesheet" type="text/css"  href="../assets/css/style.css">
     <link rel="stylesheet" type="text/css"  href="../assets/css/chat.css">
+    <link rel="stylesheet" type="text/css"  href="../assets/css/foto-perfil.css">
 
 
 
@@ -105,12 +106,26 @@
 
         <main class="container-dash">
             <div class="card-perfil">
-                <img src="../img/usuario-de-perfil.png" alt="Sua Foto de Perfil">
+                <img src="../img/usuario-de-perfil.png" alt="Sua Foto de Perfil" style="align-self: center;">
                 <div>
                     <h1><?php echo $_SESSION['nomeSecretaria'] ?></h1>
                     <small>Secretário(a) Escolar</small>
                 </div>
-                <input type="button" value="Carregar uma nova imagem">
+                <form class="formulario" name="formImagemPerfil" id="formImagemPerfil" action="../DAO/inserir-imagem-secretaria.php" method="POST" enctype="multipart/form-data">
+                    <div class="user-details">
+                        <div class="input-box-width100">
+                            <label class="label-erro" id="label-foto"></label>
+                            <div>
+                                <label class="carregar-imagem-perfil" for="arquivo">Carregar Imagem Perfil</label>
+                                <input name="arquivo" id="arquivo" type="file" accept="image/*">
+                                <label class="label-erro" id="label-arquivo"></label>
+                                <span id="nome-arquivo"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <input class="btn-nav-exit cadastrar-prof-step" type="submit" value="Enviar">
+                </form>
             </div>
         </main>
 
@@ -142,7 +157,33 @@
     <script src="../assets/js/nav.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.js"></script>
+
     <script src="../assets/js/carousel.js"></script>
+    <script>
+
+        var $input = document.getElementById('arquivo'),
+        $fileName = document.getElementById('nome-arquivo');
+
+        $input.addEventListener('change', function(){
+            $fileName.textContent = this.value;
+        });
+
+        jQuery('form').on('submit', function(e){
+            var nomeArquivo = $('#arquivo').val();
+            var nomeArquivoSemEspaco = nomeArquivo.trim();
+            if(nomeArquivo.length == 0 || nomeArquivoSemEspaco == ''){
+                $('#label-arquivo').html('Selecione um arquivo!');
+                $('#arquivo').addClass('erro-form');
+                $('#label-arquivo').show();
+                setTimeout(function () {
+                    $('#label-arquivo').fadeOut(1);
+                    $('#arquivo').removeClass('erro-form');
+                }, 5000);
+                e.preventDefault();
+            }
+        });
+        
+    </script>
 </body>
 
 

@@ -1,7 +1,5 @@
 <?php
 
-    include ("Conexao.php");
-
     class ImagemResponsavel{
 
         private $idImagemResponsavel;

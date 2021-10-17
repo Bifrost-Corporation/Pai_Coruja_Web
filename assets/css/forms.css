@@ -24,6 +24,15 @@ input[type="file"] {
     background-color: var(--azulbtnsair);
 }
 
+.carregar-imagem-perfil {
+    cursor: pointer;
+    color: var(--cinzaclaro);
+    text-decoration: none;
+    border-radius: 10px;
+    padding: 10px 40px;
+    background-color: var(--azulbtnsair);
+}
+
 
 /* ACABOU */
 

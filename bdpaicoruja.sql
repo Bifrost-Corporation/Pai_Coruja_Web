@@ -154,6 +154,18 @@ CREATE TABLE `tbimagemperfilprofessor` (
 -- --------------------------------------------------------
 
 --
+-- Estrutura para tabela `tbimagemperfilsecretaria`
+
+CREATE TABLE `tbimagemperfilsecretaria` (
+  `idImagemPerfilSecretaria` int(11) NOT NULL,
+  `nomeImagemPerfilSecretaria` varchar(150) DEFAULT NULL,
+  `caminhoImagemPerfilSecretaria` varchar(250) DEFAULT NULL,
+  `idSecretaria` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura para tabela `tbimagemperfilresponsavel`
 --
 
@@ -384,6 +396,13 @@ ALTER TABLE `tbimagemperfilprofessor`
   ADD KEY `fk_imagemPerfilProfessor_professor` (`idProfessor`);
 
 --
+-- Índices de tabela `tbimagemperfilsecretaria`
+--
+ALTER TABLE `tbimagemperfilsecretaria`
+  ADD PRIMARY KEY (`idImagemPerfilSecretaria`),
+  ADD KEY `fk_imagemPerfilSecretaria_secretaria` (`idSecretaria`);
+
+--
 -- Índices de tabela `tbimagemperfilresponsavel`
 --
 ALTER TABLE `tbimagemperfilresponsavel`
@@ -531,6 +550,12 @@ ALTER TABLE `tbimagemperfilprofessor`
   MODIFY `idImagemPerfilProfessor` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT de tabela `tbimagemperfilsecretaria`
+--
+ALTER TABLE `tbimagemperfilsecretaria`
+  MODIFY `idImagemPerfilSecretaria` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de tabela `tbimagemperfilresponsavel`
 --
 ALTER TABLE `tbimagemperfilresponsavel`
@@ -657,6 +682,12 @@ ALTER TABLE `tbimagemevento`
 --
 ALTER TABLE `tbimagemperfilprofessor`
   ADD CONSTRAINT `fk_imagemPerfilProfessor_professor` FOREIGN KEY (`idProfessor`) REFERENCES `tbprofessor` (`idProfessor`);
+
+--
+-- Restrições para tabelas `tbimagemperfilsecretaria`
+--
+ALTER TABLE `tbimagemperfilsecretaria`
+  ADD CONSTRAINT `fk_imagemPerfilSecretaria_secretaria` FOREIGN KEY (`idSecretaria`) REFERENCES `tbsecretaria` (`idSecretaria`);
 
 --
 -- Restrições para tabelas `tbimagemperfilresponsavel`

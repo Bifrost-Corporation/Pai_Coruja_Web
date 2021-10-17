@@ -75,6 +75,14 @@
             return $listaEscola;
         }
 
+        public function selecionarUltimaEscola(){
+            $conexao = Conexao::conectar();
+            $queryEscola = "SELECT idEscola FROM tbescola WHERE idEscola = (SELECT MAX(idEscola) FROM tbescola)";
+            $resultadoEscola = $conexao->query($queryEscola);
+            $listaEscola = $resultadoEscola->fetchAll(PDO::FETCH_ASSOC);
+            return $listaEscola;
+        }
+
     }
 
 ?>
