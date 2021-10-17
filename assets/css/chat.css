@@ -1,83 +1,237 @@
+
+/* CONTAINER DO CHAT */
+
 .area-chat{
     width: 100%;
     display: flex;
 }
-
-.menu-lateral{
-    width: 20%;
-    background-color: yellowgreen;
-    float: left;
+.nav-chat{
+    padding: 0px 20px;
+    width: 100%;
+    align-items: center;
+    height: 10vh;
+    display: flex;
+    background:#dcdcdc;
+    
+}
+.nav-chat img{
+    background-color: #163677;
+    width:40px;
+    margin-right:10px;
+    border-radius: 51%;
+}
+.name-user-chat{
+    font-size: 1.5rem;
+    color: #163677;
 }
 
 .caixa-chat{
-    width: 80%;
+    width: 75%;
     background-color: #f3f3f3;
-    height: 90%;
+    height: 90vh;
     float: right;
 }
 
 .caixa-chat2{
     width: 100%;
     background-color: #f3f3f3;
-    height: 90%;
+    height: 90vh;
     float: right;
+    
+    
 }
 
 .caixa-mensagens{
+    
     width: 100%;
-    height: 90%;
-    background-color: violet;
+    height: 80vh;
+    padding: 20px;
+    overflow-y: scroll;
+    background-color: transparent;
+
+    display: flex;
+    flex-direction: column;
 }
+
+/*FIM*/
+
+
+
+/* FOMATAÇÃO DAS MENSAGENS */
+
+.message-row{
+    margin-bottom: 20px;
+    display: grid;
+    grid-template-columns: 70%;
+
+}
+.name-user{
+
+}
+.text-message{
+    padding: 9px 14px;
+    font-size: 1rem;
+}
+.date-message{
+
+    font-size: 0.75rem;
+}
+
+/* REMENTE */
+.remetente{
+    justify-items: end;
+    justify-content:end ;
+}
+.destinatario{
+    justify-content: start;
+    justify-items: start;
+}
+
+.remetente .text-message{
+    background-color: #163677;
+    color: #f3f3f3;
+    border-radius: 15px 15px 0px 15px;
+}
+
+/* FIM */
+
+/* DESTINATARIO */
+
+
+.destinatario .text-message{
+    background-color: #dcdcdc;
+    color:#1d1d1d;
+    border-radius: 15px 15px 15px 0px;
+}
+
+
+/* FIM  */
+
+
+/* FIM */
+
+
+
+/* FORM PARA ESCREVER MENSAGEM */
 
 .form-mensagem{
     width: 100%;
-    height: 10%;
-    background-color: turquoise;
+    padding: 0 20px;
+    align-items: center;
+    height: 10vh;
+    display: grid;
+    background-color:#dcdcdc;
 }
-
+.box-submit-message{
+    width:100%;
+    padding: 10px 20px;
+    
+    background-color: #f3f3f3;
+}
 .caixa-mensagem{
-    width: 90%;
-    float: left;
+    
+    width: 90% ;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    
+    
 }
 
 .botao-enviar{
-    width: 10%;
-    float: right;
+    background-color: #163677;
+    padding: 5px 25px;
+    border: none;
+    cursor: pointer;
+    color:#f3f3f3;
 }
 
-.mensagem{
-    width: 100%;
-    height: auto;
-    padding: 5px;
+/* FIM */
+
+
+
+
+
+/*Titulo menu lateral*/
+
+.header-menu-lateral-title{
+    width:100%;
+    color: #f3f3f3;
+    display: flex;
+    align-items: center;
+    padding: 0px 20px;
+    height:10vh;
+    background-color: #11244b;
 }
 
-.enviado{
-    width: 100%;
-    text-align: end;
-    float: right;
+
+.header-menu-lateral-title h3{
+    text-align: center;
+   font-weight: bold;
+}
+.header-menu-lateral-title a{
+    color: #f7f7f7;
+    display: none;
+
 }
 
-.recebido{
-    width: 100%;
-    text-align: start;
+/*fffffffim*/
+
+/* MENU LATERAL - BOTAO PARA ENTRAR EM UMA CONVERSA */
+
+.menu-lateral{
+    width: 25%;
+
+    display: flex;
+    flex-direction: column;
+    
+    height:100vh;
+    background-color:#163677;
     float: left;
+
+    overflow-y: scroll;
+    
 }
 
-.area-contato{
+.area-botao-conversa{
+    border-bottom: 1px solid #11244b;
+    
+    padding: 20px 20px 20px 10px;
+}
+
+.area-botao-conversa .botao-contato{
+
+    
+    display: grid;
+    grid-template-columns:  1fr 5fr;
+    gap:10px;
+    align-items: center;
+
+    cursor: pointer;
+    outline: none;
+    border: none;
+    background-color: transparent;
+
+    padding: 0px 30px;
+
     width: 100%;
-    padding: 10px;
+    color: #f7f7f7;
+    font-size: 1rem;
+    
+
+}
+.area-botao-conversa .botao-contato img{
+
+    width: 38px;
+    grid-row: span 2;
+    
+
+}
+.title-conversa{
+    font-weight: bold;
+    color:#eee;
+    align-items: center;
 }
 
-.img-contato{
-    float: left;
-    width: 30%;
-    height: auto;
-}
 
-.nome-contato{
-    float: right;
-}
-
-.botao-contato{
-    width: 100%;
-}
+/* FIM */
