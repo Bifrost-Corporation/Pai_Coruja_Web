@@ -250,17 +250,18 @@
                 </div>
                 <div class="msg-chat-dash">
                     <h4>Mensagens do Chat</h4>
+                    <img src="../img/macacopc.gif">
                 </div>
             </div>
             
             <div class="grafico-container-dash">
                 <div>
                     <div class="acesso-dash-btns">
-                        <a id="botao-grafico1" onclick="gerarGraficoGravidadeObservacao()"><button>Cadastrar Dados</button></a>
-                        <a id="botao-grafico2" onclick="gerarGraficoAlunoTurma()"><button>Cadastrar Dados</button></a>
+                        <a id="botao-grafico1" onclick="gerarGraficoGravidadeObservacao()"><button>Gravidade das Observações</button></a>
+                        <a id="botao-grafico2" onclick="gerarGraficoAlunoTurma()"><button>Alunos por Turma</button></a>
                     </div>
                     <div class="grafico">
-                        <canvas id="grafico" width="50" height="50" responsive></canvas>
+                        <canvas id="grafico" height="500" responsive></canvas>
                     </div>
                 </div>
             </div>
@@ -321,10 +322,8 @@
 
         ?>
 
-        const ctx = document.getElementById('grafico');
-
-        function gerarGraficoGravidadeObservacao(){
-            const grafico = new Chart(ctx, {
+        const ctx = document.getElementById('grafico').getContext("2d");
+        let grafico = new Chart(ctx, {
                 type: 'doughnut',
                 data: {
                     labels: [
@@ -351,15 +350,64 @@
                         hoverOffset: 4
                     }],
                     options: {
+                        plugins: {
+                            title: {
+                                display: true,
+                                text: 'Gravidade das Observações na Escola'
+                            }
+                        },
                         responsive: true,
-                        maintainAspectRatio: true
+                        maintainAspectRatio: false
+                    },
+                },
+            });
+
+
+        function gerarGraficoGravidadeObservacao(){
+            grafico.destroy();
+            grafico = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: [
+                        '0',
+                        '1',
+                        '2',
+                        '3',
+                        '4',
+                        '5'
+                    ],
+                    datasets: [{
+                        label: 'Quantidade de observações por gravidade',
+                        data: [
+                            <?php echo $qtdePontos0.", ".$qtdePontos1.", ".$qtdePontos2.", ".$qtdePontos3.", ".$qtdePontos4.", ".$qtdePontos5.", " ?>
+                        ],
+                        backgroundColor: [
+                            'rgb(67, 225, 228)',
+                            'rgb(86, 229, 76)',
+                            'rgb(207, 227, 53)',
+                            'rgb(224, 131, 24)',
+                            'rgb(226, 38, 38)',
+                            'rgb(0, 0, 0)',
+                        ],
+                        hoverOffset: 4
+                    }],
+                    options: {
+                        plugins: {
+                            title: {
+                                display: true,
+                                text: 'Gravidade das Observações na Escola'
+                            }
+                        },
+                        responsive: true,
+                        maintainAspectRatio: false
                     },
                 },
             });
         }
 
         function gerarGraficoAlunoTurma(){
-            const grafico = new Chart(ctx, {
+            grafico.destroy();
+            grafico = new Chart(ctx, {
                 type: 'bar',
                 data: {
                     labels: [
