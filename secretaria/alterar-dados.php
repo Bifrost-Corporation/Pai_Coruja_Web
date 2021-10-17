@@ -200,7 +200,7 @@
                                     <?php
                                 $disciplina = new Disciplina();
                                 $listaDisciplina = $disciplina->contar($_SESSION['idEscola']);
-                                $listaDisciplina = $disciplina->listar();
+                                $listaDisciplina = $disciplina->listar($_SESSION['idEscola']);
                                 foreach($listaDisciplina as $linha){
                         ?>
                                     <tr>
@@ -243,7 +243,7 @@
                                     <?php
                                     $turma = new Turma();
                                     $listaTurma = $turma->contar($_SESSION['idEscola']);
-                                    $listaTurma = $turma->listar();
+                                    $listaTurma = $turma->listar($_SESSION['idEscola']);
                                     foreach($listaTurma as $linha){
                             ?>
                                     <tr>
@@ -286,7 +286,7 @@
                                 $aluno = new Aluno();
                                 $listaAluno = $aluno->contar($_SESSION['idEscola']);
                                 
-                                $listaAluno = $aluno->listar();
+                                $listaAluno = $aluno->listar($_SESSION['idEscola']);
                                 foreach($listaAluno as $linha){
                             ?>
                                     <tr>
@@ -336,7 +336,7 @@
                         foreach($listaResponsavel as $linha){
                             echo $linha['qtdeResponsavel'];
                         }
-                        $listaResponsavel = $responsavel->listar();
+                        $listaResponsavel = $responsavel->listar($_SESSION['idEscola']);
                         foreach($listaResponsavel as $linha){
                     ?>
                                     <tr>

@@ -52,9 +52,9 @@
             return 'Cadastro da disciplina realizado com sucesso!';
         }
 
-        public function listar(){
+        public function listar($idEscola){
             $conexao = Conexao::conectar();
-            $queryDisciplina = 'SELECT idDisciplina, nomeDisciplina, tbdisciplina.idProfessor, tbdisciplina.idEscola, tbprofessor.nomeProfessor FROM tbdisciplina INNER JOIN tbprofessor ON tbprofessor.idProfessor = tbdisciplina.idProfessor';
+            $queryDisciplina = "SELECT idDisciplina, nomeDisciplina, tbdisciplina.idProfessor, tbdisciplina.idEscola, tbprofessor.nomeProfessor FROM tbdisciplina INNER JOIN tbprofessor ON tbprofessor.idProfessor = tbdisciplina.idProfessor WHERE tbdisciplina.idEscola = '$idEscola'";
             $resultadoDisciplina = $conexao->query($queryDisciplina);
             $listaDisciplina = $resultadoDisciplina->fetchAll(PDO::FETCH_ASSOC);
             return $listaDisciplina;

@@ -62,9 +62,9 @@
             return 'Cadastro do aluno realizado com sucesso!';
         }
 
-        public function listar(){
+        public function listar($idEscola){
             $conexao = Conexao::conectar();
-            $queryAluno = "SELECT idAluno, nomeAluno, DATE(dataNascAluno) AS 'dataNascAluno', tbaluno.idTurma, tbaluno.idEscola, nomeTurma FROM tbaluno INNER JOIN tbturma ON tbturma.idTurma = tbaluno.idTurma";
+            $queryAluno = "SELECT idAluno, nomeAluno, DATE(dataNascAluno) AS 'dataNascAluno', tbaluno.idTurma, tbaluno.idEscola, nomeTurma FROM tbaluno INNER JOIN tbturma ON tbturma.idTurma = tbaluno.idTurma WHERE tbaluno.idEscola = '$idEscola'";
             $resultadoAluno = $conexao->query($queryAluno);
             $listaAluno = $resultadoAluno->fetchAll(PDO::FETCH_ASSOC);
             return $listaAluno;
