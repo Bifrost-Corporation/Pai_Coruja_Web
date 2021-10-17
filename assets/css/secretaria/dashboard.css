@@ -98,6 +98,7 @@ body{
     justify-content: space-between;
     align-items: center;
     gap: 0.6rem;
+    width: 170px;
 }
 
 .dado-escolar i{
