@@ -40,6 +40,7 @@
         $listaQtdeProfessores = $administrador->contarProfessores();
         $listaMediaAlunosEscola = $administrador->mediaAlunoEscola();
         $listaMediaTurmaEscola = $administrador->mediaTurmaEscola();
+        $listaAlunosEscolaGrafico = $administrador->listarAlunosEscola();
 
         foreach($listaQtdeEscolas as $linha){
             $qtdeEscolas = $linha['qtdeEscolas'];
@@ -295,7 +296,7 @@
                 <div>
                     <div class="acesso-dash-btns">
                         <a id="botao-grafico1" onclick="gerarGraficoGravidadeObservacao()"><button>Gravidade das Observações</button></a>
-                        <a id="botao-grafico2" onclick="gerarGraficoAlunoTurma()"><button>Alunos por Turma</button></a>
+                        <a id="botao-grafico2" onclick="gerarGraficoAlunoEscola()"><button>Alunos por Turma</button></a>
                     </div>
                     <div class="grafico">
                         <canvas id="grafico" height="500" responsive></canvas>
@@ -360,6 +361,71 @@
         ?>
 
         const ctx = document.getElementById('grafico').getContext("2d");
+
+        let grafico = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: [
+                        <?php
+                            $i = 1; 
+                            foreach($listaAlunosEscolaGrafico as $linha){
+                        ?>
+                        
+                        <?php
+                                echo "'" . $linha['nomeEscola'] . "'" . ",";
+                                $i += 1;
+                            }
+                        ?>
+                    ],
+                    datasets: [{
+                        label: 'Quantidade de alunos na escola',
+                        data: [
+                            <?php
+                                $i = 1; 
+                                foreach($listaAlunosEscolaGrafico as $linha){
+                            ?>
+                            
+                            <?php
+                                    echo $linha['qtdeAluno'] . ",";
+                                    $i += 1;
+                                }
+                            ?>
+                        ],
+                        backgroundColor: [
+                            <?php
+                                $i = 1; 
+                                foreach($listaAlunosEscolaGrafico as $linha){
+                            ?>
+                            
+                            <?php
+                                /*
+                                    echo "'rgba(".randomColorR().",".randomColorG().",".randomColorB().",1)',";
+                                    $i += 1;
+                                }
+                                */
+                                echo "'rgba(13, 37, 145)',";
+                                }
+                            ?>
+                        ]
+                    }]
+                },
+                options: {
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Quantidade de alunos por escola'
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    },
+                    responsive: true,
+                    maintainAspectRatio: false
+                },
+            });
+        /*
         let grafico = new Chart(ctx, {
                 type: 'doughnut',
                 data: {
@@ -441,8 +507,8 @@
                 },
             });
         }
-
-        function gerarGraficoAlunoTurma(){
+        */
+        function gerarGraficoAlunoEscola(){
             grafico.destroy();
             grafico = new Chart(ctx, {
                 type: 'bar',
@@ -450,25 +516,25 @@
                     labels: [
                         <?php
                             $i = 1; 
-                            foreach($listaAlunosTurmas as $linha){
+                            foreach($listaAlunosEscolaGrafico as $linha){
                         ?>
                         
                         <?php
-                                echo "'" . $linha['nomeTurma'] . "'" . ",";
+                                echo "'" . $linha['nomeEscola'] . "'" . ",";
                                 $i += 1;
                             }
                         ?>
                     ],
                     datasets: [{
-                        label: 'Quantidade de alunos na turma',
+                        label: 'Quantidade de alunos na escola',
                         data: [
                             <?php
                                 $i = 1; 
-                                foreach($listaAlunosTurmas as $linha){
+                                foreach($listaAlunosEscolaGrafico as $linha){
                             ?>
                             
                             <?php
-                                    echo $linha['alunoTurma'] . ",";
+                                    echo $linha['qtdeAluno'] . ",";
                                     $i += 1;
                                 }
                             ?>
@@ -476,7 +542,7 @@
                         backgroundColor: [
                             <?php
                                 $i = 1; 
-                                foreach($listaAlunosTurmas as $linha){
+                                foreach($listaAlunosEscolaGrafico as $linha){
                             ?>
                             
                             <?php
@@ -495,7 +561,7 @@
                     plugins: {
                         title: {
                             display: true,
-                            text: 'Quantidade de alunos por turma'
+                            text: 'Quantidade de alunos por escola'
                         }
                     },
                     scales: {

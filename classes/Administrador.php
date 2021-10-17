@@ -78,6 +78,14 @@
             return $listaAdm;
         }
 
+        public function listarAlunosEscola(){
+            $conexao = Conexao::conectar();
+            $queryAdm = "SELECT nomeEscola, COUNT(tbaluno.idAluno) as 'qtdeAluno' FROM tbescola INNER JOIN tbaluno ON tbaluno.idEscola = tbescola.idEscola GROUP BY nomeEscola";
+            $resultadoAdm = $conexao->query($queryAdm);
+            $listaAdm = $resultadoAdm->fetchAll(PDO::FETCH_ASSOC);
+            return $listaAdm;
+        }
+
     }
 
 ?>
