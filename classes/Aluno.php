@@ -106,6 +106,14 @@
             return $listaAluno;
         }
 
+        public function selecionarUltimoAluno(){
+            $conexao = Conexao::conectar();
+            $queryAluno = "SELECT idAluno FROM tbaluno WHERE idAluno = (SELECT MAX(idAluno) FROM tbaluno)";
+            $resultadoAluno = $conexao->query($queryAluno);
+            $listaAluno = $resultadoAluno->fetchAll(PDO::FETCH_ASSOC);
+            return $listaAluno;
+        }
+
     }
 
 ?>

@@ -152,7 +152,7 @@
                                 </div>
                                 <div class="container-steps-form">
 
-                                    <form name="formProfessorDisciplina" id="formProfessorDisciplina" class="" method="POST" action="../DAO/inserir-professor-disciplina.php"">
+                                    <form name="formProfessorDisciplina" id="formProfessorDisciplina" class="" method="POST" action="../DAO/inserir-professor-disciplina.php">
 
                                         <div class="user-details page-form slidePage">
                                             <div class="btns-link-step-form">
@@ -341,8 +341,6 @@
 
 
                                         <div class="user-details page-form">
-                                        <input id="idTurma" name="idTurma" type="hidden"
-                                                value="<?php echo@$_GET['idTurma'] ?>">
                                             <div class="input-box-width100">
                                             <h2>Nome da Turma:</h2>
                                                 <label class="label-erro" name="label-nomeTurma" id="label-nomeTurma"></label>
@@ -445,7 +443,7 @@
                                 </div>
                                 <div class="container-steps-form">
 
-                                    <form class="" method="POST" action="#">
+                                    <form id="formAlunoResponsavel" name="formAlunoResponsavel" class="" method="POST" action="../DAO/inserir-aluno-responsavel.php">
 
                                         <div class="user-details page-form slidePage-form3">
                                             <div class="btns-link-step-form">
@@ -475,11 +473,9 @@
 
 
                                         <div class="user-details page-form">
-                                        <input id="idTurma" name="idTurma" type="hidden"
-                                                value="<?php echo@$_GET['idTurma'] ?>">
                                             <div class="input-box-width100">
                                                 <h2>Nome do aluno:</h2>
-                                                <label class="label-erro" id="label-nome"></label>
+                                                <label class="label-erro" id="label-nomeAluno"></label>
                                                 <input name="txtNomeAluno" id="txtNomeAluno" type="text" placeholder="Insira o nome do aluno" value="<?php echo @$_GET['nomeAluno']; ?>">
                                             </div>
                                             <div class="input-box-width100">
@@ -490,12 +486,12 @@
                                             <div class="input-box">
                                                 <h2>Turma:</h2>
                                                 <label class="label-erro" id="label-turma"></label>
-                                                <input name="txtTurma" id="txtTurma" type="text" placeholder="Insira a turma do aluno" value="<?php if(isset($_SESSION['turmaInvalida'])){
+                                                <input name="txtTurmaAluno" id="txtTurmaAluno" type="text" placeholder="Insira a turma do aluno" value="<?php if(isset($_SESSION['turmaInvalida'])){
                                                                                                                                                                                         echo $_SESSION['turmaInvalida'];
                                                                                                                                                                                     }else{
                                                                                                                                                                                         echo @$_GET['nomeTurma'];
                                                                                                                                                                                     } ?>">
-                                                <div id="retornoPesquisa">
+                                                <div id="retornoPesquisaTurmaAluno">
 
                                                 </div>
                                             </div>
@@ -543,13 +539,13 @@
                                             </div>
                                             <div class="input-box-width100">
                                                 <h2>Nome Responsável</h2>
-                                                <label class="label-erro" id="label-nome"></label>
-                                                <input name="txtNome" id="txtNome" type="text" placeholder="Insira o nome do Responsável" value="<?php echo @$_GET['nomeResponsavel'] ?>">
+                                                <label class="label-erro" id="label-nomeResponsavel"></label>
+                                                <input name="txtNomeResponsavel" id="txtNomeResponsavel" type="text" placeholder="Insira o nome do Responsável" value="<?php echo @$_GET['nomeResponsavel'] ?>">
                                             </div>
                                             <div class="input-box-width100">
                                                 <h2>Email Responsável</h2>
-                                                <label class="label-erro" id="label-email"></label>
-                                                <input name="txtEmail" id="txtEmail" type="text" placeholder="Insira o email do Responsável" value="<?php if(isset($_SESSION['emailResponsavel'])){
+                                                <label class="label-erro" id="label-emailResponsavel"></label>
+                                                <input name="txtEmailResponsavel" id="txtEmailResponsavel" type="text" placeholder="Insira o email do Responsável" value="<?php if(isset($_SESSION['emailResponsavel'])){
                                                                                                                                                                                                     echo $_SESSION['emailResponsavel'];
                                                                                                                                                                                                 }else{
                                                                                                                                                                                                     echo @$_GET['emailResponsavel'];
@@ -557,13 +553,13 @@
                                             </div>
                                             <div class="input-box">
                                                 <h2>Senha Responsável</h2>
-                                                <label class="label-erro" id="label-senha1"></label>
-                                                <input name="txtSenha" id="txtSenha" type="password" placeholder="********">
+                                                <label class="label-erro" id="label-senha1Responsavel"></label>
+                                                <input name="txtSenhaResponsavel" id="txtSenhaResponsavel" type="password" placeholder="********">
                                             </div>
                                             <div class="input-box">
                                                 <h2>Confirmar senha:</h2>
-                                                <label class="label-erro" id="label-senha2"></label>
-                                                <input name="txtConfirmaSenha" id="txtConfirmaSenha" type="password" placeholder="********">
+                                                <label class="label-erro" id="label-senha2Responsavel"></label>
+                                                <input name="txtConfirmaSenhaResponsavel" id="txtConfirmaSenhaResponsavel" type="password" placeholder="********">
                                             </div>
                                             <div class="input-box">
                                                 <h2>Telefone do Responsável:</h2>
@@ -614,20 +610,20 @@
                                             </div>
                                             <div class="input-box-width100">
                                                 <h2>De qual aluno você é responsável:</h2>
-                                                <label class="label-erro" id="label-aluno"></label>
-                                                <input name="txtAluno" id="txtAluno" type="text" placeholder="Insira o nome do aluno"  value="<?php if(isset($_SESSION['nomeAluno'])){
+                                                <label class="label-erro" id="label-alunoResponsavel"></label>
+                                                <input name="txtAlunoResponsavel" id="txtAlunoResponsavel" type="text" placeholder="Insira o nome do aluno"  value="<?php if(isset($_SESSION['nomeAluno'])){
                                                                                                                                                                                         echo $_SESSION['nomeAluno'];
                                                                                                                                                                                     }else{
                                                                                                                                                                                         echo @$_GET['nomeAluno'] ?> <?php echo @$_GET['turma'];
                                                                                                                                                                                     } ?>">
-                                                <div id="retornoPesquisa">
+                                                <div id="retornoPesquisaAlunoResponsavel">
 
                                                 </div>
                                             </div>
                                             <div class="button">
                                                 <input type="button" onclick="linkEtapa3form3()" class="btn-nav-exit"
                                                     value="Voltar">
-                                                <input type="submit" onclick="linkCadastrarform3()" class="btn-nav-exit" value="Cadastrar">
+                                                <input type="submit" class="btn-nav-exit" value="Cadastrar">
                                             </div>
                                         </div>
 
@@ -742,6 +738,359 @@
                 }, 5000);
                 e.preventDefault();
             }
+        });
+
+        //Script Aluno/Responsável
+        jQuery('#txtTurmaAluno').keyup(function () {
+            var textoInserido = $(this).val();
+            if (textoInserido != '') {
+                $.ajax({
+                    url: '../DAO/procurar-turma-aluno.php',
+                    method: 'POST',
+                    data: {
+                        query: textoInserido
+                    },
+                    success: function (resposta) {
+                        $("#retornoPesquisaTurmaAluno").html(resposta);
+                    }
+                });
+            } else {
+                $("#retornoPesquisaTurmaAluno").html('');
+            }
+        });
+
+        $(document).on('click', '.opcao-consulta', function () {
+            $("#txtTurmaAluno").val($(this).text());
+            $("#retornoPesquisaTurmaAluno").html("");
+        });
+
+        $('#txtTelefone').keyup(function (){
+            if($(this).val().length > 14){
+                $('#txtTelefone').mask("(00) 00000-0000");
+            } else {
+                $('#txtTelefone').mask("(00) 0000-00009");
+            }
+        });
+
+        $('#txtCpf').mask("000.000.000-00");
+        $('#txtCep').mask("00000-000");
+
+        $(document).ready(function() {
+            $("#txtCep").keyup(function() {
+                var tamanhoCep = $(this).val().length;
+                if(tamanhoCep == 9){
+                    var cep = $(this).val().replace(/\D/g, '');
+                    if (cep != "") {
+                        var validacep = /^[0-9]{8}$/;
+                        if(validacep.test(cep)) {
+                            $("#txtRua").val("...");
+                            $("#txtBairro").val("...");
+                            $("#txtCidade").val("...");
+                            $.getJSON("https://viacep.com.br/ws/"+ cep +"/json/?callback=?", function(dados) {
+                                if (!("erro" in dados)) {
+                                    $("#txtRua").val(dados.logradouro);
+                                    $("#txtBairro").val(dados.bairro);
+                                    $("#txtCidade").val(dados.localidade);
+                                } else {
+                                    $('#label-cep').html('CEP inválido!');
+                                    $('#txtCep').addClass('erro-form');
+                                    $('#label-cep').show();
+                                    $('#txtCep').focus();
+                                    setTimeout(function () {
+                                        $('#label-cep').fadeOut(1);
+                                        $('#txtCep').removeClass('erro-form');
+                                    }, 5000);
+                                    e.preventDefault();
+                                } 
+                            });
+                        }
+                        else {
+                            $('#label-cep').html('CEP inválido!');
+                            $('#txtCep').addClass('erro-form');
+                            $('#label-cep').show();
+                            $('#txtCep').focus();
+                            setTimeout(function () {
+                                $('#label-cep').fadeOut(1);
+                                $('#txtCep').removeClass('erro-form');
+                            }, 5000);
+                            e.preventDefault();
+                        }
+                    }
+                }
+            });
+        });
+
+        jQuery('#formAlunoResponsavel').on('submit', function (e) {
+            var nome = $('#txtNomeResponsavel').val();
+            var email = $('#txtEmailResponsavel').val();
+            var senha1 = $('#txtSenhaResponsavel').val();
+            var senha2 = $('#txtConfirmaSenhaResponsavel').val();
+            var telefone = $('#txtTelefone').val();
+            var cpf = $('#txtCpf').val();
+            var cep = $('#txtCep').val();
+            var rua = $('#txtRua').val();
+            var numero = $('#txtNumero').val();
+            var cidade = $('#txtCidade').val();
+            var bairro = $('#txtBairro').val();
+            var complemento = $('#txtComplemento').val();
+            var aluno = $('#txtAlunoResponsavel').val();
+            var nomeSemEspaco = nome.trim();
+            var emailSemEspaco = email.trim();
+            var senha1SemEspaco = senha1.trim();
+            var senha2SemEspaco = senha2.trim();
+            var ruaSemEspaco = rua.trim();
+            var numeroSemEspaco = numero.trim();
+            var cidadeSemEspaco = cidade.trim();
+            var bairroSemEspaco = bairro.trim();
+            var alunoSemEspaco = aluno.trim();
+
+            if (nome.length == 0 || nomeSemEspaco == '') {
+                $('#label-nomeResponsavel').html('Por favor, preencha o campo de nome para o responsável!');
+                $('#txtNomeResponsavel').addClass('erro-form');
+                $('#label-nomeResponsavel').show();
+                $('#txtNomeResponsavel').focus();
+                setTimeout(function () {
+                    $('#label-nomeResponsavel').fadeOut(1);
+                    $('#txtNomeResponsavel').removeClass('erro-form');
+                }, 5000);
+                e.preventDefault();
+            }
+
+            if (email.length == 0 || emailSemEspaco == '') {
+                $('#label-emailResponsavel').html('Por favor, preencha o campo de email para o responsável!');
+                $('#txtEmailResponsavel').addClass('erro-form');
+                $('#label-emailResponsavel').show();
+                $('#txtEmailResponsavel').focus();
+                setTimeout(function () {
+                    $('#label-emailResponsavel').fadeOut(1);
+                    $('#txtEmailResponsavel').removeClass('erro-form');
+                }, 5000);
+                e.preventDefault();
+            } else {
+                var verificaarroba = false;
+                var verificaponto = false;
+                for (var i = 0; i < email.length; i++) {
+                    if (email.charAt(i) == '@' && i + 1 < email.length) {
+                        var posicaoarroba = i;
+                    }
+                    if (email.charAt(i) == '.' && i + 1 < email.length) {
+                        var posicaoponto = i;
+                    }
+                }
+                if (posicaoponto > posicaoarroba) {
+                    verificaarroba = true;
+                    verificaponto = true;
+                }
+                if (verificaarroba == false || verificaponto == false) {
+                    $('#label-emailResponsavel').html('Email inválido!');
+                    $('#txtEmailResponsavel').addClass('erro-form');
+                    $('#label-emailResponsavel').show();
+                    $('#txtEmailResponsavel').focus();
+                    setTimeout(function () {
+                        $('#label-emailResponsavel').fadeOut(1);
+                        $('#txtEmailResponsavel').removeClass('erro-form');
+                    }, 5000);
+                    e.preventDefault();
+                }
+            }
+            if (senha1.length == 0 || senha1SemEspaco == '') {
+                $('#label-senha1Responsavel').html('Por favor, preencha o campo de senha!');
+                $('#txtSenhaResponsavel').addClass('erro-form');
+                $('#label-senha1Responsavel').show();
+                $('#txtSenhaResponsavel').focus();
+                setTimeout(function () {
+                    $('#label-senha1Responsavel').fadeOut(1);
+                    $('#txtSenhaResponsavel').removeClass('erro-form');
+                }, 5000);
+                e.preventDefault();
+            }
+            if (senha2.length == 0 || senha2SemEspaco == '') {
+                $('#label-senha2Responsavel').html('Por favor, preencha o campo para confirmar a senha!');
+                $('#txtConfirmaSenhaResponsavel').addClass('erro-form');
+                $('#label-senha2Responsavel').show();
+                $('#txtConfirmaSenhaResponsavel').focus();
+                setTimeout(function () {
+                    $('#label-senha2Responsavel').fadeOut(1);
+                    $('#txtConfirmaSenhaResponsavel').removeClass('erro-form');
+                }, 5000);
+                e.preventDefault();
+            }
+            if (senha1 != senha2) {
+                $('#label-senha1Responsavel').html('Senhas não correspondentes!');
+                $('#txtSenhaResponsavel').addClass('erro-form');
+                $('#label-senha1Responsavel').show();
+                $('#txtSenhaResponsavel').focus();
+                $('#label-senha2Responsavel').html('Senhas não correspondentes!');
+                $('#txtConfirmaSenhaResponsavel').addClass('erro-form');
+                $('#label-senha2Responsavel').show();
+                $('#txtConfirmaSenhaResponsavel').focus();
+                setTimeout(function () {
+                    $('#label-senha1Responsavel').fadeOut(1);
+                    $('#txtSenhaResponsavel').removeClass('erro-form');
+                    $('#label-senha2Responsavel').fadeOut(1);
+                    $('#txtConfirmaSenhaResponsavel').removeClass('erro-form');
+                }, 5000);
+                e.preventDefault();
+
+            }
+            if (telefone.length <= 8) {
+                $('#label-telefone').html('Número de telefone inválido!');
+                $('#txtTelefone').addClass('erro-form');
+                $('#label-telefone').show();
+                $('#txtTelefone').focus();
+                setTimeout(function () {
+                    $('#label-telefone').fadeOut(1);
+                    $('#txtTelefone').removeClass('erro-form');
+                }, 5000);
+                e.preventDefault();
+            }
+            if (cpf.length != 14) {
+                $('#label-cpf').html('CPF inválido!');
+                $('#txtCpf').addClass('erro-form');
+                $('#label-cpf').show();
+                $('#txtCpf').focus();
+                setTimeout(function () {
+                    $('#label-cpf').fadeOut(1);
+                    $('#txtCpf').removeClass('erro-form');
+                }, 5000);
+                e.preventDefault();
+            } else {
+                var cpfValido = true;
+                var arrayCpf = cpf.split("");
+                var digito1 = parseInt(arrayCpf[0]);
+                var digito2 = parseInt(arrayCpf[1]);
+                var digito3 = parseInt(arrayCpf[2]);
+                var digito4 = parseInt(arrayCpf[4]);
+                var digito5 = parseInt(arrayCpf[5]);
+                var digito6 = parseInt(arrayCpf[6]);
+                var digito7 = parseInt(arrayCpf[8]);
+                var digito8 = parseInt(arrayCpf[9]);
+                var digito9 = parseInt(arrayCpf[10]);
+                var digito10 = parseInt(arrayCpf[12]);
+                var digito11 = parseInt(arrayCpf[13]);
+                if(digito1 == digito2 && digito2 == digito3 && digito3 == digito4 && digito4 == digito5 && digito5 == digito6 &&
+                digito6 == digito7 && digito7 == digito8 && digito8 == digito9 && digito9 == digito10 && digito10 == digito11){
+                    $('#label-cpf').html('CPF inválido!');
+                    $('#txtCpf').addClass('erro-form');
+                    $('#label-cpf').show();
+                    $('#txtCpf').focus();
+                    setTimeout(function () {
+                        $('#label-cpf').fadeOut(1);
+                        $('#txtCpf').removeClass('erro-form');
+                    }, 5000);
+                        e.preventDefault();
+                }else{
+                    var teste1 = (digito1 * 10) + (digito2 * 9) + (digito3 * 8) + (digito4 * 7) + (digito5 * 6) + (digito6 * 5) + (digito7 * 4) + (digito8 * 3) + (digito9 * 2);
+                    var resto1 = (teste1 * 10) % 11;
+                    if(resto1 == 10 || resto1 == 11){
+                        resto1 = 0;
+                    }
+                    if(resto1 != digito10){
+                        cpfValido = false;
+                    }
+                    if(cpfValido != false){
+                        var teste2 = (digito1 * 11) + (digito2 * 10) + (digito3 * 9) + (digito4 * 8) + (digito5 * 7) + (digito6 * 6) + (digito7 * 5) + (digito8 * 4) + (digito9 * 3) + (digito10 * 2);
+                        var resto2 = (teste2 * 10) % 11;
+                        if(resto2 == 10 || resto2 == 11){
+                            resto2 = 0;
+                        }
+                        if(resto2 != digito11){
+                            cpfValido = false;
+                        }
+                    }
+                    if(cpfValido == false){
+                        $('#label-cpf').html('CPF inválido!');
+                        $('#txtCpf').addClass('erro-form');
+                        $('#label-cpf').show();
+                        $('#txtCpf').focus();
+                        setTimeout(function () {
+                            $('#label-cpf').fadeOut(1);
+                            $('#txtCpf').removeClass('erro-form');
+                        }, 5000);
+                        e.preventDefault();
+                    }
+                }
+            }
+            if (cep.length != 9) {
+                $('#label-cep').html('CEP inválido!');
+                $('#txtCep').addClass('erro-form');
+                $('#label-cep').show();
+                $('#txtCep').focus();
+                setTimeout(function () {
+                    $('#label-cep').fadeOut(1);
+                    $('#txtCep').removeClass('erro-form');
+                }, 5000);
+                e.preventDefault();
+            }
+            if (rua.length == 0 || ruaSemEspaco == '') {
+                $('#label-rua').html('Informe a rua do responsável!');
+                $('#txtRua').addClass('erro-form');
+                $('#label-rua').show();
+                $('#txtRua').focus();
+                setTimeout(function () {
+                    $('#label-rua').fadeOut(1);
+                    $('#txtRua').removeClass('erro-form');
+                }, 5000);
+                e.preventDefault();
+            }
+            if (numero.length == 0 || numeroSemEspaco == '') {
+                $('#label-numero').html('Informe o número do responsável!');
+                $('#txtNumero').addClass('erro-form');
+                $('#label-numero').show();
+                $('#txtNumero').focus();
+                setTimeout(function () {
+                    $('#label-numero').fadeOut(1);
+                    $('#txtNumero').removeClass('erro-form');
+                }, 5000);
+                e.preventDefault();
+            }
+            if (cidade.length == 0 || cidadeSemEspaco == '') {
+                $('#label-cidade').html('Informe a cidade do responsável!');
+                $('#txtCidade').addClass('erro-form');
+                $('#label-cidade').show();
+                $('#txtCidade').focus();
+                setTimeout(function () {
+                    $('#label-cidade').fadeOut(1);
+                    $('#txtCidade').removeClass('erro-form');
+                }, 5000);
+                e.preventDefault();
+            }
+            if (bairro.length == 0 || bairroSemEspaco == '') {
+                $('#label-bairro').html('Informe o bairro do responsável!');
+                $('#txtBairro').addClass('erro-form');
+                $('#label-bairro').show();
+                $('#txtBairro').focus();
+                setTimeout(function () {
+                    $('#label-bairro').fadeOut(1);
+                    $('#txtBairro').removeClass('erro-form');
+                }, 5000);
+                e.preventDefault();
+            }
+            /* Complemento não é obrigatório
+            if(complemento.length == 0){
+                $('#label-complemento').html('Informe o bairro do responsável!');
+                $('#txtComplemento').addClass('erro-form');
+                $('#label-complemento').show();
+                $('#txtComplemento').focus();
+                setTimeout(function(){
+                    $('#label-complemento').fadeOut(1);
+                    $('#txtComplemento').removeClass('erro-form');
+                },5000);
+                e.preventDefault();
+            }
+            */
+            if (aluno.length == 0 || alunoSemEspaco == '') {
+                $('#label-alunoResponsavel').html('Informe o aluno do responsável!');
+                $('#txtAlunoResponsavel').addClass('erro-form');
+                $('#label-alunoResponsavel').show();
+                $('#txtAlunoResponsavel').focus();
+                setTimeout(function () {
+                    $('#label-alunoResponsavel').fadeOut(1);
+                    $('#txtAlunoResponsavel').removeClass('erro-form');
+                }, 5000);
+                e.preventDefault();
+            }
+
         });
     </script>
 

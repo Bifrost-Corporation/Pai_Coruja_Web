@@ -241,15 +241,73 @@ function linkEtapa2form3(){
     $progressCheckform3[current - 1].classList.remove('actived')
 }
 function linkEtapa3form3(){
-    $slidePageform3.style.marginLeft = "-50%"
-    $bulletsform3[current - 1].classList.add('actived')
-    $progressTextform3[current - 1].classList.add('actived')
-    $progressCheckform3[current - 1].classList.add('actived')
+    var nomeAluno = $('#txtNomeAluno').val();
+    var dataNasc = $('#dataNasc').val();
+    var turma = $('#txtTurmaAluno').val();
+    var nomeAlunoSemEspaco = nomeAluno.trim();
+    var dataNascSemEspaco = dataNasc.trim();
+    var turmaSemEspaco = turma.trim();
+    var falha = false;
+    if (nomeAluno.length == 0 || nomeAlunoSemEspaco == '') {
+        $('#label-nomeAluno').html('Por favor, preencha o campo de nome para o aluno!');
+        $('#txtNomeAluno').addClass('erro-form');
+        $('#label-nomeAluno').show();
+        setTimeout(function () {
+            $('#label-nomeAluno').fadeOut(1);
+            $('#txtNomeAluno').removeClass('erro-form');
+        }, 5000);
+        falha = true;
+    }
+    if (dataNasc.length == 0 || dataNascSemEspaco == '') {
+        $('#label-dataNasc').html('Por favor, preencha o campo de data de nascimento!');
+        $('#dataNasc').addClass('erro-form');
+        $('#label-dataNasc').show();
+        setTimeout(function () {
+            $('#label-dataNasc').fadeOut(1);
+            $('#dataNasc').removeClass('erro-form');
+        }, 5000);
+        falha = true;
+    } else {
+        var dataNasc = $('#dataNasc').val().replace(/-/g, ",");
+        var dataFormatada = new Date(dataNasc);
+        var ano = dataFormatada.getFullYear();
+        var anoAtual = new Date().getFullYear();
+        if (ano >= anoAtual) {
+            $('#label-dataNasc').html('Data de nascimento inválida!');
+            $('#dataNasc').addClass('erro-form');
+            $('#label-dataNasc').show();
+            setTimeout(function () {
+                $('#label-dataNasc').fadeOut(1);
+                $('#dataNasc').removeClass('erro-form');
+            }, 5000);
+            falha = true;
+        }
+    }
+    if (turma.length == 0 || turmaSemEspaco == '') {
+        $('#label-turma').html('Por favor, preencha o campo de turma do aluno!');
+        $('#txtTurmaAluno').addClass('erro-form');
+        $('#label-turma').show();
+        setTimeout(function () {
+            $('#label-turma').fadeOut(1);
+            $('#txtTurmaAluno').removeClass('erro-form');
+        }, 5000);
+        falha = true;
+    }
+    if(falha == true){
+
+    }else{
+        $slidePageform3.style.marginLeft = "-50%"
+        $bulletsform3[current - 1].classList.add('actived')
+        $progressTextform3[current - 1].classList.add('actived')
+        $progressCheckform3[current - 1].classList.add('actived')
+        $('#txtAlunoResponsavel').val(nomeAluno)
+    }
 }
 function linkEtapa4form3(){
     $slidePageform3.style.marginLeft = "-75%"
 }
 
+/*
 function linkCadastrarform3(){  
     current = 2
     $bulletsform3[current - 1].classList.add('actived')
@@ -257,3 +315,4 @@ function linkCadastrarform3(){
     $progressCheckform3[current - 1].classList.add('actived')
     alert('Cadastrado com sucesso!')
 }
+*/
