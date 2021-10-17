@@ -23,7 +23,7 @@
         }
         $listaTurma = $turma->selecionarUltimaTurma();
         $disciplina = new Disciplina();
-        $listaDisciplina = $disciplina->listar();
+        $listaDisciplina = $disciplina->listar($_SESSION['idEscola']);
         $validaTurma = false;
         foreach($listaTurma as $linha){
                 $idTurma = $linha['idTurma'];

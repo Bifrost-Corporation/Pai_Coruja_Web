@@ -27,7 +27,7 @@
         $cidade = $_POST['txtCidade'];
         $telefone = $_POST['txtTelefone'];
         $turma = new Turma();
-        $listaturma = $turma->listar();
+        $listaturma = $turma->listar($_SESSION['idEscola']);
         $turmaInvalida = true;
         foreach($listaturma as $linha){
             if($turmaAluno == $linha['nomeTurma'] && $idEscola == $linha['idEscola']){
@@ -46,7 +46,7 @@
                 $repeteCpf = false;
                 $repeteAluno = false;
                 $responsavel = new Responsavel();
-                $listaResponsavel = $responsavel->listar();
+                $listaResponsavel = $responsavel->listar($_SESSION['idEscola']);
                 foreach($listaResponsavel as $linha){
                     if($emailResponsavel == $linha['emailResponsavel']){
                         $repeteEmail = true;
