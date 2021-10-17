@@ -86,6 +86,14 @@
             return $listaAdm;
         }
 
+        public function contarObservacoesPorValor($valorPontos){
+            $conexao = Conexao::conectar();
+            $queryObservacao = "SELECT COUNT(idObservacao) AS 'qtdeObservacao' FROM tbobservacao INNER JOIN tbaluno ON tbaluno.idAluno = tbobservacao.idAluno WHERE qtdePontosObservacao = '$valorPontos'";
+            $resultadoObservacao = $conexao->query($queryObservacao);
+            $listaObservacao = $resultadoObservacao->fetchAll(PDO::FETCH_ASSOC);
+            return $listaObservacao;
+        }
+
     }
 
 ?>

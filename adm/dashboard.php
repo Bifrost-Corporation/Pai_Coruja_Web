@@ -41,6 +41,12 @@
         $listaMediaAlunosEscola = $administrador->mediaAlunoEscola();
         $listaMediaTurmaEscola = $administrador->mediaTurmaEscola();
         $listaAlunosEscolaGrafico = $administrador->listarAlunosEscola();
+        $listaQtdePontos0 = $administrador->contarObservacoesPorValor(0);
+        $listaQtdePontos1 = $administrador->contarObservacoesPorValor(1);
+        $listaQtdePontos2 = $administrador->contarObservacoesPorValor(2);
+        $listaQtdePontos3 = $administrador->contarObservacoesPorValor(3);
+        $listaQtdePontos4 = $administrador->contarObservacoesPorValor(4);
+        $listaQtdePontos5 = $administrador->contarObservacoesPorValor(5);
 
         foreach($listaQtdeEscolas as $linha){
             $qtdeEscolas = $linha['qtdeEscolas'];
@@ -64,6 +70,30 @@
 
         foreach($listaMediaTurmaEscola as $linha){
             $qtdeMediaTurmaEscola = $linha['mediaTurmaEscola'];
+        }
+
+        foreach($listaQtdePontos0 as $linha){
+            $qtdePontos0 = $linha['qtdeObservacao'];
+        }
+
+        foreach($listaQtdePontos1 as $linha){
+            $qtdePontos1 = $linha['qtdeObservacao'];
+        }
+
+        foreach($listaQtdePontos2 as $linha){
+            $qtdePontos2 = $linha['qtdeObservacao'];
+        }
+
+        foreach($listaQtdePontos3 as $linha){
+            $qtdePontos3 = $linha['qtdeObservacao'];
+        }
+
+        foreach($listaQtdePontos4 as $linha){
+            $qtdePontos4 = $linha['qtdeObservacao'];
+        }
+
+        foreach($listaQtdePontos5 as $linha){
+            $qtdePontos5 = $linha['qtdeObservacao'];
         }
 
         $qtdeMediaAlunoEscola = number_format($qtdeMediaAlunoEscola, 2, '.', '');
@@ -361,71 +391,7 @@
         ?>
 
         const ctx = document.getElementById('grafico').getContext("2d");
-
-        let grafico = new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: [
-                        <?php
-                            $i = 1; 
-                            foreach($listaAlunosEscolaGrafico as $linha){
-                        ?>
-                        
-                        <?php
-                                echo "'" . $linha['nomeEscola'] . "'" . ",";
-                                $i += 1;
-                            }
-                        ?>
-                    ],
-                    datasets: [{
-                        label: 'Quantidade de alunos na escola',
-                        data: [
-                            <?php
-                                $i = 1; 
-                                foreach($listaAlunosEscolaGrafico as $linha){
-                            ?>
-                            
-                            <?php
-                                    echo $linha['qtdeAluno'] . ",";
-                                    $i += 1;
-                                }
-                            ?>
-                        ],
-                        backgroundColor: [
-                            <?php
-                                $i = 1; 
-                                foreach($listaAlunosEscolaGrafico as $linha){
-                            ?>
-                            
-                            <?php
-                                /*
-                                    echo "'rgba(".randomColorR().",".randomColorG().",".randomColorB().",1)',";
-                                    $i += 1;
-                                }
-                                */
-                                echo "'rgba(13, 37, 145)',";
-                                }
-                            ?>
-                        ]
-                    }]
-                },
-                options: {
-                    plugins: {
-                        title: {
-                            display: true,
-                            text: 'Quantidade de alunos por escola'
-                        }
-                    },
-                    scales: {
-                        y: {
-                            beginAtZero: true
-                        }
-                    },
-                    responsive: true,
-                    maintainAspectRatio: false
-                },
-            });
-        /*
+        
         let grafico = new Chart(ctx, {
                 type: 'doughnut',
                 data: {
@@ -507,7 +473,7 @@
                 },
             });
         }
-        */
+        
         function gerarGraficoAlunoEscola(){
             grafico.destroy();
             grafico = new Chart(ctx, {
