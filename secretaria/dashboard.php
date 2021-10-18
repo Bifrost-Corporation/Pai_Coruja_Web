@@ -194,7 +194,6 @@
                         <a href="cadastrar-dados.php"><button>Cadastrar Dados</button></a>
                         <a href="chat-secretaria.php"><button>Chat Secretaria</button></a>
                         <a href="alterar-dados.php"><button>Visualizar Dados</button></a>
-                        <a href=""><button>Cadastrar Dados</button></a>
                     </div>
                 </div>
                 <div class="dados-escolares-dash">
@@ -253,7 +252,7 @@
                 </div>
                 <div class="msg-chat-dash">
                     <h4>Mensagens do Chat</h4>
-                    <img src="../img/macacopc.gif">
+                    <!--<img src="../img/macacopc.gif">-->
                 </div>
             </div>
             

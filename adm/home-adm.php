@@ -256,14 +256,12 @@
                 <div class="acesso-rapido-dash">
                     <h4>Acesso Rápido</h4>
                     <div class="acesso-dash-btns">
-                        <a href="cadastrar-dados.php"><button>Cadastrar Dados</button></a>
-                        <a href="chat-secretaria.php"><button>Chat Secretaria</button></a>
+                        <a href="cadastrar-escola.php"><button>Cadastrar Escola</button></a>
                         <a href="alterar-dados.php"><button>Visualizar Dados</button></a>
-                        <a href=""><button>Cadastrar Dados</button></a>
                     </div>
                 </div>
                 <div class="dados-escolares-dash">
-                    <h4>Dados Escolares - </h4>
+                    <h4>Dados do Sistema Geral </h4>
                     <div class="dados-escolares-container">
                         <div class="dados-escolares-linha">
                             <div class="dado-escolar">
@@ -318,7 +316,7 @@
                 </div>
                 <div class="msg-chat-dash">
                     <h4>Mensagens do Chat</h4>
-                    <img src="../img/macacopc.gif">
+                    <!--<img src="../img/macacopc.gif">-->
                 </div>
             </div>
             
