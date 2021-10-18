@@ -20,7 +20,8 @@
             unset($_SESSION['idUsuario']);
             unset($_SESSION['codRecuperacao']);
             session_destroy();
-            header("Location: index.php");
+            echo 'aq deu ruim';
+            //header("Location: index.php");
         }
     ?>
     <main class="bg-login">

@@ -89,6 +89,14 @@
             return $listaResponsavel;
         }
 
+        public function listarAlternativo(){
+            $conexao = Conexao::conectar();
+            $queryResponsavel = "SELECT tbresponsavel.idResponsavel, nomeResponsavel, cpfResponsavel, emailResponsavel, senhaResponsavel, tbresponsavel.idAluno, tbturma.nomeTurma AS 'turmaAluno', codNovaSenha, nomeAluno, tbtelefoneresponsavel.idTelefoneResponsavel, tbtelefoneresponsavel.numTelefoneResponsavel, tbtelefoneresponsavel.idResponsavel, tbenderecoresponsavel.idEnderecoResponsavel, tbenderecoresponsavel.logradouroEnderecoResponsavel, tbenderecoresponsavel.numCasaEnderecoResponsavel, tbenderecoresponsavel.complementoEnderecoResponsavel, tbenderecoresponsavel.cepEnderecoResponsavel, tbenderecoresponsavel.bairroEnderecoResponsavel, tbenderecoresponsavel.cidadeEnderecoResponsavel, tbenderecoresponsavel.idResponsavel FROM tbresponsavel INNER JOIN tbaluno ON tbaluno.idAluno = tbresponsavel.idAluno INNER JOIN tbturma ON tbturma.idTurma = tbaluno.idTurma INNER JOIN tbtelefoneresponsavel ON tbtelefoneresponsavel.idResponsavel = tbresponsavel.idResponsavel INNER JOIN tbenderecoresponsavel ON tbenderecoresponsavel.idResponsavel = tbresponsavel.idResponsavel WHERE tbaluno.idAluno = tbresponsavel.idAluno AND tbtelefoneresponsavel.idResponsavel = tbresponsavel.idResponsavel AND tbenderecoresponsavel.idResponsavel = tbresponsavel.idResponsavel";
+            $resultadoResponsavel = $conexao->query($queryResponsavel);
+            $listaResponsavel = $resultadoResponsavel->fetchAll(PDO::FETCH_ASSOC);
+            return $listaResponsavel;
+        }
+
         public function atualizar($responsavel){
             $conexao = Conexao::conectar();
             $stmt = $conexao->prepare('UPDATE tbresponsavel SET nomeResponsavel = ?, cpfResponsavel = ?, emailResponsavel = ?, senhaResponsavel = ?, idAluno = ? WHERE idResponsavel = ?');

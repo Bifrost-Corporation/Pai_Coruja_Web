@@ -22,7 +22,7 @@
     $responsavel = new Responsavel();
     $secretaria = new Secretaria();
     $listaProfessor = $professor->listar();
-    $listaResponsavel = $responsavel->listar();
+    $listaResponsavel = $responsavel->listarAlternativo();
     $listaSecretaria = $secretaria->listar();
     $usuario = new Usuario();
     $listaUsuario = $usuario->listar();
