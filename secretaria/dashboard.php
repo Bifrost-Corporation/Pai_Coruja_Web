@@ -120,7 +120,7 @@
                     <div class="menu-container">
                         <!-- <span>fernfjk</span> -->
                         <li class="links-name">
-                            <a href="dashboard.php">
+                            <a href="dashboard.php" class="active-nav">
                                 <i class="fas fa-calendar"></i>
                                 <span class="links-name">Dashboard</span>
                             </a>

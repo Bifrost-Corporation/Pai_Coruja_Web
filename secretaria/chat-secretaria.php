@@ -71,7 +71,7 @@
                             </a>
                         </li>
                         <li class="links-name">
-                            <a href="chat-secretaria.php">
+                            <a href="chat-secretaria.php" class="active-nav">
                                 <i class="fas fa-school"></i>
                                 <span class="links-name">Pai Coruja Chat</span>
                             </a>
