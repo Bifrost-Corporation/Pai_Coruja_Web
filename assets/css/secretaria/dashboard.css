@@ -126,6 +126,23 @@ body{
     background: var(--cinzamaisclaro);
 }
 
+#grafico{
+    position: relative;
+     height:70vh;
+      width:40vw;
+      
+      margin: 0 auto;
+      
+}
+
+.grafico{
+    position: relative;
+     height:auto;
+      width:100%;
+      
+      margin: 0 auto;
+      
+}
 
 
 /* Cadastrar Dados */
@@ -193,5 +210,13 @@ body{
 @media (max-width:720px) {
     .acesso-rapido-dash{
         flex:1 0 auto;
+    }
+    #grafico{
+        position: relative;
+         height:70vh;
+          width:100vw;
+          
+          margin: 0 auto;
+          
     }
 }
