@@ -95,7 +95,7 @@
         foreach($listaQtdePontos5 as $linha){
             $qtdePontos5 = $linha['qtdeObservacao'];
         }
-
+        
         $qtdeMediaAlunoEscola = number_format($qtdeMediaAlunoEscola, 2, '.', '');
         $qtdeMediaTurmaEscola = number_format($qtdeMediaTurmaEscola, 2, '.', '');
 
@@ -326,7 +326,7 @@
                 <div>
                     <div class="acesso-dash-btns">
                         <a id="botao-grafico1" onclick="gerarGraficoGravidadeObservacao()"><button>Gravidade das Observações</button></a>
-                        <a id="botao-grafico2" onclick="gerarGraficoAlunoEscola()"><button>Alunos por Turma</button></a>
+                        <a id="botao-grafico2" onclick="gerarGraficoAlunoEscola()"><button>Alunos por Escola</button></a>
                     </div>
                     <div class="grafico">
                         <canvas id="grafico" height="500" responsive></canvas>
