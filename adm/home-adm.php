@@ -199,7 +199,7 @@
             <li class="links-name">
                 <a href="home-adm.php" class="active-nav">
                     <i class="fas fa-calendar"></i>
-                    <span class="links-name">Mural</span>
+                    <span class="links-name">Dashboard</span>
                 </a>
             </li>
             <li class="links-name">
@@ -211,7 +211,7 @@
             <li class="links-name">
                 <a href="alterar-dados.php">
                     <i class="fas fa-school"></i>
-                    <span class="links-name">Visualizar Dados</span>
+                    <span class="links-name">Listar Dados</span>
                 </a>
             </li>
         </div>

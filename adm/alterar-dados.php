@@ -18,7 +18,7 @@
         include("sentinela.php");
         include("globalAdm.php");
     ?>
-    <header>
+<header>
 
 <nav class="nav-bar">
     <a href=""><img class="logo-img" src="../img/pai_coruja_branca.png"></a>
@@ -45,19 +45,19 @@
             <li class="links-name">
                 <a href="home-adm.php">
                     <i class="fas fa-calendar"></i>
-                    <span class="links-name">Mural</span>
+                    <span class="links-name">Dashboard</span>
                 </a>
             </li>
             <li class="links-name">
-                <a href="cadastrar-escola.php" class="active-nav">
+                <a href="cadastrar-escola.php">
                     <i class="fas fa-school"></i>
                     <span class="links-name">Cadastrar Escola</span>
                 </a>
             </li>
             <li class="links-name">
-                <a href="alterar-dados.php">
+                <a href="alterar-dados.php" class="active-nav">
                     <i class="fas fa-school"></i>
-                    <span class="links-name">Alterar/Visualizar Dados</span>
+                    <span class="links-name">Listar Dados</span>
                 </a>
             </li>
         </div>
