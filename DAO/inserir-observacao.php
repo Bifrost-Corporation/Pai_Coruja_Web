@@ -14,9 +14,9 @@
         $nomeAluno = $_POST['txtAluno'];
         $turmaAluno = $_POST['txtTurma'];
         $aluno = new Aluno();
-        $listaAluno = $aluno->listar();
+        $listaAluno = $aluno->listar($_SESSION['idEscola']);
         $turma = new Turma();
-        $listaTurma = $turma->listar();
+        $listaTurma = $turma->listar($_SESSION['idEscola']);
         $idTurma = 0;
         $alunoInexistente = true;
         foreach($listaTurma as $linha){
