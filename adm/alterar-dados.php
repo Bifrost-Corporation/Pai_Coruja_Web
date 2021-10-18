@@ -55,7 +55,7 @@
                 </a>
             </li>
             <li class="links-name">
-                <a href="cadastrar-escola.php">
+                <a href="alterar-dados.php">
                     <i class="fas fa-school"></i>
                     <span class="links-name">Alterar/Visualizar Dados</span>
                 </a>

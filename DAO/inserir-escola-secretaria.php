@@ -5,7 +5,7 @@
     include("../classes/Usuario.php");
 
     try{
-        header("location: ../adm/cadastrar-dados.php");
+        header("location: ../adm/cadastrar-escola.php");
         $nomeEscola = $_POST['txtNomeEscola'];
         unset($_SESSION['emailSecretaria']);
         unset($_SESSION['escolaSecretaria']);
