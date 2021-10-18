@@ -31,7 +31,7 @@
                 }
                 if(isset($linha['idResponsavel'])){
                     $responsavel = new Responsavel();
-                    $listaResponsavel = $responsavel->listar();
+                    $listaResponsavel = $responsavel->listarAlternativo();
                     foreach($listaResponsavel as $linha2){
                         if($linha['idResponsavel'] == $linha2['idResponsavel']){
                             if($linha2['codNovaSenha'] == $codRecuperacao){
