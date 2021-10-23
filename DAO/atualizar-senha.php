@@ -19,7 +19,7 @@
                     foreach($listaProfessor as $linha2){
                         if($linha['idProfessor'] == $linha2['idProfessor']){
                             $professor->setIdProfessor($linha2['idProfessor']);
-                            $professor->setSenhaProfessor($senha);
+                            $professor->setSenhaProfessor(md5($senha));
                             echo $professor->updateSenha($professor);
                             unset($_SESSION['permissao']);
                             unset($_SESSION['idUsuario']);
@@ -31,11 +31,11 @@
                 }
                 if(isset($linha['idResponsavel'])){
                     $responsavel = new Responsavel();
-                    $listaResponsavel = $responsavel->listar();
+                    $listaResponsavel = $responsavel->listarAlternativo();
                     foreach($listaResponsavel as $linha2){
                         if($linha['idResponsavel'] == $linha2['idResponsavel']){
                             $responsavel->setIdResponsavel($linha['idResponsavel']);
-                            $responsavel->setSenhaResponsavel($senha);
+                            $responsavel->setSenhaResponsavel(md5($senha));
                             echo $responsavel->updateSenha($responsavel);
                             unset($_SESSION['permissao']);
                             unset($_SESSION['idUsuario']);
@@ -51,7 +51,7 @@
                     foreach($listaSecretaria as $linha2){
                         if($linha['idSecretaria'] == $linha2['idSecretaria']){
                             $secretaria->setIdSecretaria($linha2['idSecretaria']);
-                            $secretaria->setSenhaSecretaria($senha);
+                            $secretaria->setSenhaSecretaria(md5($senha));
                             echo $secretaria->updateSenha($secretaria);
                             unset($_SESSION['permissao']);
                             unset($_SESSION['idUsuario']);

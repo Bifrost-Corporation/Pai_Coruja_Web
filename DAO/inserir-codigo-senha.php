@@ -1,6 +1,6 @@
 <?php
 
-    include("../forgetPassword.php");
+    //include("../forgetPassword.php");
     include("../classes/Conexao.php");
     include("../classes/Responsavel.php");
     include("../classes/Professor.php");
@@ -8,10 +8,9 @@
     include("../classes/Usuario.php");
 
     try{
-        header("Location: ../codigoRecuperarSenha.php");
         $conexao = Conexao::conectar();
-        $idUsuario = $_SESSION['idUsuario'];
-        $codRecuperacao = $_SESSION['codRecuperacao'];
+        $idUsuario = $_GET['idUsuario'];
+        $codRecuperacao = $_GET['codRecuperacao'];
         $usuario = new Usuario();
         $responsavel = new Responsavel();
         $professor = new Professor();
@@ -36,6 +35,7 @@
                 }
             }
         }
+        header("Location: ../codigoRecuperarSenha.php?idUsuario=$idUsuario");
     }catch(Exception $e){
         echo $e->getMessage();
     }

@@ -1,6 +1,6 @@
 <?php
 
-    include_once("../codigoRecuperarSenha.php");
+    //include_once("../codigoRecuperarSenha.php");
     include_once("../classes/Conexao.php");
     include_once("../classes/Professor.php");
     include_once("../classes/Secretaria.php");
@@ -21,7 +21,7 @@
                         if($linha['idProfessor'] == $linha2['idProfessor']){
                             if($linha2['codNovaSenha'] == $codRecuperacao){
                                 $_SESSION['idUsuario'] = $linha['idUsuario'];
-                                header("Location: ../novaSenha.php");
+                                header("Location: ../novaSenha.php?idUsuario=$idUsuario");
                             }else{
                                 $_SESSION['codInvalido'] = $codRecuperacao;
                                 header("Location: ../codigoRecuperarSenha.php");
@@ -36,7 +36,7 @@
                         if($linha['idResponsavel'] == $linha2['idResponsavel']){
                             if($linha2['codNovaSenha'] == $codRecuperacao){
                                 $_SESSION['idUsuario'] = $linha['idUsuario'];
-                                header("Location: ../novaSenha.php");
+                                header("Location: ../novaSenha.php?idUsuario=$idUsuario");
                             }else{
                                 $_SESSION['codInvalido'] = $codRecuperacao;
                                 header("Location: ../codigoRecuperarSenha.php");
@@ -51,7 +51,7 @@
                         if($linha['idSecretaria'] == $linha2['idSecretaria']){
                             if($linha2['codNovaSenha'] == $codRecuperacao){
                                 $_SESSION['idUsuario'] = $linha['idUsuario'];
-                                header("Location: ../novaSenha.php");
+                                header("Location: ../novaSenha.php?idUsuario=$idUsuario");
                             }else{
                                 $_SESSION['codInvalido'] = $codRecuperacao;
                                 header("Location: ../codigoRecuperarSenha.php");

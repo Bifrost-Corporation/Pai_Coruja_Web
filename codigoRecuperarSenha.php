@@ -8,22 +8,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
     <link rel="manifest" href="manifest.json">
 
-    <link rel="stylesheet" type="text/css" href="assests/css/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <title>Código para recuperar a senha - Pai Coruja</title>
 </head>
 
 <body>
-    <?php
-        session_start();
-        if($_SESSION['permissao'] != true){
-            unset($_SESSION['permissao']);
-            unset($_SESSION['idUsuario']);
-            unset($_SESSION['codRecuperacao']);
-            session_destroy();
-            echo 'aq deu ruim';
-            //header("Location: index.php");
-        }
-    ?>
+    
     <main class="bg-login">
         <section class="card-login">
             <div class="ReturnToLogin">
@@ -39,7 +29,7 @@
             </div>
             <form name="form-login" method="POST" action="DAO/consulta-codigoSenha.php">
                 <div class="div-titulo3">
-                    <input type="hidden" id="idUsuario" name="idUsuario" value="<?php echo $_SESSION['idUsuario'] ?>">
+                    <input type="hidden" id="idUsuario" name="idUsuario" value="<?php echo $_GET['idUsuario'] ?>">
                     <label class="label-erro" id="label-codigo"></label>
                     <input type="text" class="input-email" name="txtCodigo" id="txtCodigo"
                         placeholder="Informe o código de recuperação">

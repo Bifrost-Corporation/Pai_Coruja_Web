@@ -1,6 +1,6 @@
 <?php
 
-    include_once("../DAO/consulta-email.php");
+    //include_once("../DAO/consulta-email.php");
     include_once("../classes/Usuario.php");
     include_once("../classes/Professor.php");
     include_once("../classes/Responsavel.php");
@@ -14,7 +14,7 @@
     require 'src/SMTP.php';
 
     //$nome = $_POST['nomeEmail'];
-    $email = $_SESSION['emailCerto'];
+    $email = $_GET['email'];
     //$assunto = $_POST['assuntoEmail'];
     //$mensagem = $_POST['mensagemEmail'];
 
@@ -70,14 +70,14 @@
 
     $mail->setFrom('bifrost.suporte@gmail.com', 'Suporte | Pai Coruja');
     
-    $mail->addAddress("$email");
+    $mail->addAddress($email);
 
     $mail->Subject = 'Resetar senha de acesso ao Pai Coruja';
     $mail->Body = 'Olá, fomos informados de que você perdeu o acesso à sua conta do Pai Coruja, utilize esse código para recuperar a sua senha Código de recuperação: ' . $codPagina;
     $_SESSION['permissao'] = true;
     $_SESSION['idUsuario'] = $idUsuario;
     $_SESSION['codRecuperacao'] = $codPagina;
-    header("Location: ../DAO/inserir-codigo-senha.php");
+    header("Location: ../DAO/inserir-codigo-senha.php?idUsuario=$idUsuario&codRecuperacao=$codPagina");
 
     if(!$mail->Send()){
         echo "Erro ao enviar email: ".$mail->ErrorInfo;
