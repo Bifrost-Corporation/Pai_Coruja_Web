@@ -6,10 +6,16 @@
     include_once("../classes/Professor.php");
     include_once("../classes/Secretaria.php");
     include_once("../classes/Responsavel.php");
+    
 
     try{
-        $verificaEmail = false;
+
+        //header("Location: ../forgetPassword.php");
+        if(isset($_SESSION['emailCerto'])){
+            unset($_SESSION['emailCerto']);
+        }
         $email = $_POST['txtEmail'];
+        $verificaEmail;
         $professor = new Professor();
         $listaProfessor = $professor->listar();
         $responsavel = new Responsavel();
@@ -31,9 +37,10 @@
                 $verificaEmail = true;
             }
         }
-        if($verificaEmail){
+        //echo $verificaEmail;
+        if($verificaEmail == true){
             $_SESSION['emailCerto'] = $email;
-            header("Location: ../PHPMailer/enviar-email.php");
+            header("Location: ../PHPMailer/enviar-email.php?email=$email");
             
         } else {
             $_SESSION['email'] = $email;
