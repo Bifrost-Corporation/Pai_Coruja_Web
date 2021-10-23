@@ -129,7 +129,7 @@
                                 <small>Data: 06/06/2006</small>
                             </div>
                             <div>
-                                <a href="#"><button>Saiba Mais</button></a>
+                                <button id="myBtn">Saiba Mais</button>
                             </div>
                         </div>
                         
@@ -148,30 +148,40 @@
         </main>
 
 
-
         <div class="nav-footer">
-        <ul>
-            <li class="active">
-                <a href="home-responsavel.php">
-                    <i class="fas fa-calendar"></i>
-                    <span class="links-name">Mural</span>
-                </a>
-            </li>
-            <li class="">
-                <a href="#">
-                    <i class="fas fa-chalkboard-teacher"></i>
-                    <span class="links-name">Avaliação</span>
-                </a>
-            </li>
-            <li class="">
-                <a href="#">
-                    <i class="fas fa-calendar-day"></i>
-                    <span class="links-name">Eventos</span>
-                </a>
-            </li>
-        </ul>
+            <ul>
+                <li class="active">
+                    <a href="home-responsavel.php">
+                        <i class="fas fa-calendar"></i>
+                        <span class="links-name">Mural</span>
+                    </a>
+                </li>
+                <li class="">
+                    <a href="#">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                        <span class="links-name">Avaliação</span>
+                    </a>
+                </li>
+                <li class="">
+                    <a href="#">
+                        <i class="fas fa-calendar-day"></i>
+                        <span class="links-name">Eventos</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>Some text in the Modal..</p>
+        </div>
+
     </div>
 
+    <script src="../assets/js/modal.js"></script>
     <script src="../assets/js/nav.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.js"></script>
