@@ -38,7 +38,7 @@
 /* Add a thumb */
 
 ::-webkit-scrollbar-thumb {
-    background-color: var(--branco);
+    background-color: var(--cinzamaisclaro);
     border-radius: 7px;
 }
 
