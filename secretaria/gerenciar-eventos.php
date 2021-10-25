@@ -129,7 +129,7 @@
                                 <small>Data: 06/06/2006</small>
                             </div>
                             <div>
-                                <button id="myBtn">Saiba Mais</button>
+                                <button id="btnOpenModal">Saiba Mais</button>
                             </div>
                         </div>
                         
@@ -171,12 +171,25 @@
             </ul>
         </div>
     
-    <div id="myModal" class="modal">
-
-        <!-- Modal content -->
-        <div class="modal-content">
-        <span class="close">&times;</span>
-        <p>Some text in the Modal..</p>
+        <div id="myModal" class="modal modal-evento">
+            
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="closeModal"><i class="fas fa-times"></i></span>
+                <div class="bg-modal">
+                    <div class="title-modal">
+                        <h1>Um Evento Legal</h1>
+                        <!-- <button><i class="fas fa-bookmark"></i> Tenho Interesse</button> -->
+                    </div>
+                    
+                </div>  
+            <div class="modal-text-description">
+                <div class="info-modal">
+                    <h5>Data do Evento: 04/04/2004</h5>
+                </div>
+                <h4>Descrição</h4>
+                <p> 45vy h 5g45y  4 y 5y 5 qe dfweferg rgrgrgegergerg gre re hr her rer t tts ry 45t 45y  fg fgdf gf g ergr gregregrgregrgr eg rgh 54y5y 4h5hky h 5g45y  4 y 5y 5 qe dfweferg rgrgrgegergerg gre re hr her rer t tts ry 45t 45y  fg fgdf gf g ergr gregregrgregrgr eg rgh 54y5y 4h5hky h 5g45y  4 y 5y 5 qe dfweferg rgrgrgegergerg gre re hr her rer t tts ry 45t 45y  fg fgdf gf g ergr gregregrgregrgr eg rgh 54y5y 4h5hky h 5g45y  4 y 5y 5 qe dfweferg rgrgrgegergerg gre re hr her rer t tts ry 45t 45y  fg fgdf gf g ergr gregregrgregrgr eg rgh 54y5y 4h5hky h 5g45y  4 y 5y 5 qe dfweferg rgrgrgegergerg gre re hr her rer t tts ry 45t 45y  fg fgdf gf g ergr gregregrgregrgr eg rgh 54y5y 4h5hkwrj jhrt hsrjg ergçjerlgelrjg elrjg ergerhbg jerg eralgherrg34 g erjg jerh gjer g erg erg reghera a  aeg r grejl gerr gre gerlgjgr jlg jgrj <strong>marcos</strong>  berhgerhgebrglerjbg</p>
+            </div>
         </div>
 
     </div>
