@@ -201,8 +201,9 @@ CREATE TABLE `tbprofessor` (
   `nomeProfessor` varchar(50) NOT NULL,
   `emailProfessor` varchar(150) NOT NULL,
   `senhaProfessor` varchar(150) NOT NULL,
-  `idEscola` int(11) DEFAULT NULL,
-  `codNovaSenha` char(10) DEFAULT NULL
+  `primeiroAcessoProfessor` char(1) NOT NULL,
+  `codNovaSenha` char(10) DEFAULT NULL,
+  `idEscola` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -230,8 +231,9 @@ CREATE TABLE `tbresponsavel` (
   `cpfResponsavel` char(14) NOT NULL,
   `emailResponsavel` varchar(150) NOT NULL,
   `senhaResponsavel` varchar(150) NOT NULL,
-  `idAluno` int(11) DEFAULT NULL,
-  `codNovaSenha` char(10) DEFAULT NULL
+  `primeiroAcessoResponsavel` char(1) NOT NULL,
+  `codNovaSenha` char(10) DEFAULT NULL,
+  `idAluno` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -245,9 +247,10 @@ CREATE TABLE `tbsecretaria` (
   `nomeSecretaria` varchar(50) NOT NULL,
   `emailSecretaria` varchar(150) NOT NULL,
   `senhaSecretaria` varchar(150) NOT NULL,
+  `primeiroAcessoSecretaria` char(1) NOT NULL,
+  `codNovaSenha` char(10) DEFAULT NULL,
   `idEscola` int(11) DEFAULT NULL,
-  `idAdministrador` int(11) DEFAULT NULL,
-  `codNovaSenha` char(10) DEFAULT NULL
+  `idAdministrador` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------

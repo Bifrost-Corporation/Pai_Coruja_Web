@@ -8,6 +8,7 @@
         private $nomeSecretaria;
         private $emailSecretaria;
         private $senhaSecretaria;
+        private $primeiroAcessoSecretaria;
         private $idEscola;
         private $idAdministrador;
         private $codNovaSenha;
@@ -44,6 +45,14 @@
             $this->senhaSecretaria = $senhaSecretaria;
         }
 
+        public function getPrimeiroAcessoSecretaria(){
+            return $this->primeiroAcessoSecretaria;
+        }
+
+        public function setPrimeiroAcessoSecretaria($primeiroAcessoSecretaria){
+            $this->primeiroAcessoSecretaria = $primeiroAcessoSecretaria;
+        }
+
         public function getIdEscola(){
             return $this->idEscola;
         }
@@ -70,20 +79,21 @@
 
         public function cadastrar($secretaria){
             $conexao = Conexao::conectar();
-            $stmt = $conexao->prepare("INSERT INTO tbsecretaria (nomeSecretaria, emailSecretaria, senhaSecretaria, idEscola, idAdministrador)
-                                            VALUES (?,?,?,?,?)");
+            $stmt = $conexao->prepare("INSERT INTO tbsecretaria (nomeSecretaria, emailSecretaria, senhaSecretaria, primeiroAcessoSecretaria, idEscola, idAdministrador)
+                                            VALUES (?,?,?,?,?,?)");
             $stmt->bindParam(1, $secretaria->getNomeSecretaria());
             $stmt->bindParam(2, $secretaria->getEmailSecretaria());
             $stmt->bindParam(3, $secretaria->getSenhaSecretaria());
-            $stmt->bindParam(4, $secretaria->getIdEscola());
-            $stmt->bindParam(5, $secretaria->getIdAdministrador());
+            $stmt->bindParam(4, $secretaria->getPrimeiroAcessoSecretaria());
+            $stmt->bindParam(5, $secretaria->getIdEscola());
+            $stmt->bindParam(6, $secretaria->getIdAdministrador());
             $stmt->execute();
             return 'Cadastro da secretária realizado com sucesso!';
         }
 
         public function listar(){
             $conexao = Conexao::conectar();
-            $querySecretaria = 'SELECT idSecretaria, nomeSecretaria, emailSecretaria, senhaSecretaria, tbsecretaria.idEscola, tbsecretaria.idAdministrador, codNovaSenha, nomeEscola FROM tbsecretaria INNER JOIN tbescola ON tbsecretaria.idEscola = tbescola.idEscola';
+            $querySecretaria = 'SELECT idSecretaria, nomeSecretaria, emailSecretaria, senhaSecretaria, primeiroAcessoSecretaria, tbsecretaria.idEscola, tbsecretaria.idAdministrador, codNovaSenha, nomeEscola FROM tbsecretaria INNER JOIN tbescola ON tbsecretaria.idEscola = tbescola.idEscola';
             $resultadoSecretaria = $conexao->query($querySecretaria);
             $listaSecretaria = $resultadoSecretaria->fetchAll(PDO::FETCH_ASSOC);
             return $listaSecretaria;
@@ -129,7 +139,7 @@
 
         public function updateSenha($secretaria){
             $conexao = Conexao::conectar();
-            $stmt = $conexao->prepare("UPDATE tbsecretaria SET senhaSecretaria = ?, codNovaSenha = '' WHERE idSecretaria = ?");
+            $stmt = $conexao->prepare("UPDATE tbsecretaria SET senhaSecretaria = ?, codNovaSenha = '', primeiroAcessoSecretaria = 'F' WHERE idSecretaria = ?");
             $stmt->bindParam(1, $secretaria->getSenhaSecretaria());
             $stmt->bindParam(2, $secretaria->getIdSecretaria());
             $stmt->execute();

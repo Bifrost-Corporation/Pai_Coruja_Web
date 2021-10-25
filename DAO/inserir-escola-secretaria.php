@@ -36,6 +36,7 @@
             $secretaria->setSenhaSecretaria(md5($senhaSecretaria));
             $secretaria->setIdEscola($idEscola);
             $secretaria->setIdAdministrador($idAdministrador);
+            $secretaria->setPrimeiroAcessoSecretaria('V');
             echo $secretaria->cadastrar($secretaria);
             $listaSecretaria = $secretaria->selecionarUltimoSecretaria();
             foreach($listaSecretaria as $linha2){

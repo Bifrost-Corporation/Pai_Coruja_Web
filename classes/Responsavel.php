@@ -9,6 +9,7 @@
         private $cpfResponsavel;
         private $emailResponsavel;
         private $senhaResponsavel;
+        private $primeiroAcessoResponsavel;
         private $idAluno;
         private $codNovaSenha;
 
@@ -50,6 +51,14 @@
 
         public function setSenhaResponsavel($senhaResponsavel){
             $this->senhaResponsavel = $senhaResponsavel;
+        }
+
+        public function getPrimeiroAcessoResponsavel(){
+            return $this->primeiroAcessoResponsavel;
+        }
+
+        public function setPrimeiroAcessoResponsavel($primeiroAcessoResponsavel){
+            $this->primeiroAcessoResponsavel = $primeiroAcessoResponsavel;
         }
 
         public function getIdAluno(){
