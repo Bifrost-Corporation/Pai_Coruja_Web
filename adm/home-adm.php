@@ -261,7 +261,7 @@
                     </div>
                 </div>
                 <div class="dados-escolares-dash">
-                    <h4>Dados do Sistema Geral </h4>
+                    <!-- <h4>Dados do Sistema Geral </h4> -->
                     <div class="dados-escolares-container">
                         <div class="dados-escolares-linha">
                             <div class="dado-escolar">

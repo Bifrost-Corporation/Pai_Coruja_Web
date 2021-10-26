@@ -213,7 +213,6 @@
                     </div>
                 </div>
                 <div class="dados-escolares-dash">
-                    <h4>Dados Escolares - <?php echo $_SESSION['nomeEscola'] ?></h4>
                     <div class="dados-escolares-container">
                         <div class="dados-escolares-linha">
                             <div class="dado-escolar">

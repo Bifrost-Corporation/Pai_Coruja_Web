@@ -16,7 +16,7 @@ body{
     flex-direction: column;
     margin-left: 240px;
     background-color: var(--cinzaBackground);
-    background-image: url(../../../img/background.svg);
+    /* background-image: url(../../../img/background.png); */
     transition: 200ms ease;
     /* background-position: center top; */
     background-size: 100% 100%;
@@ -41,7 +41,7 @@ body{
 }
 
 
-.acesso-rapido-dash,.dados-escolares-dash,.msg-chat-dash{
+.acesso-rapido-dash,.msg-chat-dash{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -50,6 +50,9 @@ body{
     border-radius: 1rem;
     gap: 1rem;
     width: auto;
+
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.063);
+
     
 }
 .acesso-rapido-dash{
@@ -76,6 +79,14 @@ body{
 }
 
 .dados-escolares-dash{
+    background-color: transparent;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.msg-chat-dash{
+    
     width:max-content;
     flex:1 0 auto;
 }
@@ -84,22 +95,32 @@ body{
 .dados-escolares-container{
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.5rem;
     
 }
 
 .dados-escolares-container .dados-escolares-linha{
     display: flex;
     justify-content: space-between;
-    gap:2.5rem;
+    gap:0.5rem;
 } 
 
 .dado-escolar{
+    padding: 1rem;
+
+    border-radius: 1rem;
+    border-top: solid;
+    border-top-width: 5px var(--azulnavbar);
+    background-color: var(--cinzamaisclaro);
+
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.063);
+
     display: flex;
-    justify-content: space-between;
+    justify-content: start;
     align-items: center;
     gap: 0.6rem;
-    width: 170px;
+    width: 220px;
+    height: 76PX;
 }
 
 .dado-escolar i{
@@ -107,7 +128,7 @@ body{
 }
 
 .dado-escolar h5{
-    font-size: 0.7rem;
+    font-size: 0.6rem;
     line-height: 0.8rem;
     color: var(--cinza);
 }
@@ -125,6 +146,9 @@ body{
     padding: 1rem;
     border-radius: 1rem;
     background: var(--cinzamaisclaro);
+
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.063);
+
 }
 
 #grafico{

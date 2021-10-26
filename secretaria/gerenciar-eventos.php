@@ -171,10 +171,10 @@
             </ul>
         </div>
     
-        <div id="myModal" class="modal modal-evento">
+    <div id="myModal" class="modal modal-evento">
             
             <!-- Modal content -->
-            <div class="modal-content">
+        <div class="modal-content">
                 <span class="closeModal"><i class="fas fa-times"></i></span>
                 <div class="bg-modal">
                     <div class="title-modal">

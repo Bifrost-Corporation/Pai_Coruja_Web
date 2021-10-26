@@ -344,7 +344,7 @@
                                         <td><?php echo $linha['cpfResponsavel'] ?></td>
                                         <td><?php echo $linha['emailResponsavel'] ?></td>
                                         <td><?php echo $linha['nomeAluno'] ?></td>
-                                        <td><?php echo "<a class'opcao-icone' href='?idResponsavel={$linha['idResponsavel']}&nomeResponsavel={$linha['nomeResponsavel']}&cpfResponsavel={$linha['cpfResponsavel']}&emailResponsavel={$linha['emailResponsavel']}&idAluno={$linha['idAluno']}&nomeAluno={$linha['nomeAluno']}&turma={$linha['turmaAluno']}&telefoneResponsavel={$linha['numTelefoneResponsavel']}&cep={$linha['cepEnderecoResponsavel']}&rua={$linha['logradouroEnderecoResponsavel']}&numCasa={$linha['numCasaEnderecoResponsavel']}&complemento={$linha['complementoEnderecoResponsavel']}&bairro={$linha['bairroEnderecoResponsavel']}&cidade={$linha['cidadeEnderecoResponsavel']}'>"?><i
+                                        <td><?php echo "<a class'opcao-icone btnOpenModal' href='?idResponsavel={$linha['idResponsavel']}&nomeResponsavel={$linha['nomeResponsavel']}&cpfResponsavel={$linha['cpfResponsavel']}&emailResponsavel={$linha['emailResponsavel']}&idAluno={$linha['idAluno']}&nomeAluno={$linha['nomeAluno']}&turma={$linha['turmaAluno']}&telefoneResponsavel={$linha['numTelefoneResponsavel']}&cep={$linha['cepEnderecoResponsavel']}&rua={$linha['logradouroEnderecoResponsavel']}&numCasa={$linha['numCasaEnderecoResponsavel']}&complemento={$linha['complementoEnderecoResponsavel']}&bairro={$linha['bairroEnderecoResponsavel']}&cidade={$linha['cidadeEnderecoResponsavel']}'>"?><i
                                                 class="icons-table fa fa-cog opcao-icone"></i><?php echo "</a>" ?></td>
                                         <td><?php echo "<a href='../DAO/excluir-responsavel.php?idResponsavel={$linha['idResponsavel']}'"?>
                                             onclick="return confirm('Você está prestes a excluir a conta do responsável:
@@ -366,8 +366,49 @@
         </div>
     </main>
 
+    <div id="myModal" class="modal modal-evento">
+            
+            <!-- Modal content -->
+        <div class="modal-content">
+                <span class="closeModal"><i class="fas fa-times"></i></span>
+                <div class="bg-modal">
+                    <div class="title-modal">
+                        <h1>Um Evento Legal</h1>
+                        <!-- <button><i class="fas fa-bookmark"></i> Tenho Interesse</button> -->
+                    </div>
+                    
+                </div>  
+            <div class="modal-text-description">
+                <div class="info-modal">
+                    <h5>Data do Evento: 04/04/2004</h5>
+                </div>
+                <h4>Descrição</h4>
+                <p> 45vy h 5g45y  4 y 5y 5 qe dfweferg rgrgrgegergerg gre re hr her rer t tts ry 45t 45y  fg fgdf gf g ergr gregregrgregrgr eg rgh 54y5y 4h5hky h 5g45y  4 y 5y 5 qe dfweferg rgrgrgegergerg gre re hr her rer t tts ry 45t 45y  fg fgdf gf g ergr gregregrgregrgr eg rgh 54y5y 4h5hky h 5g45y  4 y 5y 5 qe dfweferg rgrgrgegergerg gre re hr her rer t tts ry 45t 45y  fg fgdf gf g ergr gregregrgregrgr eg rgh 54y5y 4h5hky h 5g45y  4 y 5y 5 qe dfweferg rgrgrgegergerg gre re hr her rer t tts ry 45t 45y  fg fgdf gf g ergr gregregrgregrgr eg rgh 54y5y 4h5hky h 5g45y  4 y 5y 5 qe dfweferg rgrgrgegergerg gre re hr her rer t tts ry 45t 45y  fg fgdf gf g ergr gregregrgregrgr eg rgh 54y5y 4h5hkwrj jhrt hsrjg ergçjerlgelrjg elrjg ergerhbg jerg eralgherrg34 g erjg jerh gjer g erg erg reghera a  aeg r grejl gerr gre gerlgjgr jlg jgrj <strong>marcos</strong>  berhgerhgebrglerjbg</p>
+            </div>
+        </div>
+
+    </div>
 
 
+
+
+    <script src="../assets/js/modal.js"></script>
+    <script>
+        let modals = document.getElementById("myModal");
+        let url = window.location.href
+        if(url.indexOf("?")){
+            modals.classList.toggle("modal-active");
+        }
+        span.onclick = function() {
+            modals.classList.toggle("modal-active");
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modals.classList.toggle("modal-active");
+            }
+        }
+    </script>
     <script src="../assets/js/dash-cadastro.js"></script>
     <script src="../assets/js/formStepsBySteps.js"></script>
     <script src="../assets/js/nav.js"></script>
