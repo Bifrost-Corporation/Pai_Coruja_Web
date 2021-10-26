@@ -36,6 +36,7 @@
     .content-card-link2 {
         min-width: 100%;
     }
+    
 }
 
 @media (min-width:720px) {
@@ -48,6 +49,12 @@
     .container-main,.container-dash {
         padding-top: 10vh;
         margin-left: 0px;
+    }
+    .name-job{
+        display: none;
+    }
+    .profile-content {
+        width: auto;
     }
 }
 

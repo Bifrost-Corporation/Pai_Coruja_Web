@@ -124,7 +124,8 @@
                             <input type="hidden" id="idReceber" name="idReceber" value="<?php echo $_SESSION['idSecretaria'] ?>">
                             <div class="box-submit-message">
                             <input type="text" class="caixa-mensagem" placeholder="Converse com a Secretária" id="txtMensagem" name="txtMensagem">
-                            <button class="botao-enviar" id="botao-enviar" name="botao-enviar"><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+                            <button class="botao-enviar" id="botao-enviar" name="botao-enviar"><i class="fa fa-paper-plane" aria-hidden="true"></i>
+</button>
 </div>
                         </form>
                     </div>
