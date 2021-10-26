@@ -37,6 +37,19 @@
     display: flex;
     align-items: flex-end;
   }
+
+  .bg-modal-senha{
+    border-radius:  1rem 1rem 0 0;
+    background-size: contain;
+    background-image: url(../../img/reset_senha.jpg);
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .divSenha{
+    margin-top: 25px;
+    text-align: center;
+  }
   
   .title-modal{
     padding: 1rem;
