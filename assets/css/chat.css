@@ -11,8 +11,8 @@
     align-items: center;
     height: 10vh;
     display: flex;
-    background:#dcdcdc;
-    
+    background:#f3f3f3;
+    box-shadow: 0rem 0rem 0.5rem #1d1d1d;
 }
 .nav-chat img{
     background-color: #163677;
@@ -21,30 +21,32 @@
     border-radius: 51%;
 }
 .name-user-chat{
-    font-size: 1.5rem;
-    color: #163677;
+    font-size: 1.25rem;
+    color: #1d1d1d;
 }
 
 .caixa-chat{
     width: 75%;
     background-color: #f3f3f3;
-    height: 90vh;
+    height: 70vh;
     float: right;
 }
 
 .caixa-chat2{
     width: 100%;
     background-color: #f3f3f3;
-    height: 90vh;
+    height: 70vh;
     float: right;
     
     
 }
-
+.chat-actived{
+    width: 100%;
+}
 .caixa-mensagens{
     
     width: 100%;
-    height: 80vh;
+    height: 70vh;
     padding: 20px;
     overflow-y: scroll;
     background-color: transparent;
@@ -120,13 +122,13 @@
     align-items: center;
     height: 10vh;
     display: grid;
-    background-color:#dcdcdc;
+    background-color:#f3f3f3;
 }
 .box-submit-message{
     width:100%;
     padding: 10px 20px;
     
-    background-color: #f3f3f3;
+    background-color: #dcdcdc;
 }
 .caixa-mensagem{
     
@@ -141,9 +143,11 @@
 .botao-enviar{
     background-color: #163677;
     padding: 5px 25px;
+    border-radius: 100px;
     border: none;
     cursor: pointer;
     color:#f3f3f3;
+    font-size: 1rem;
 }
 
 /* FIM */
@@ -156,12 +160,13 @@
 
 .header-menu-lateral-title{
     width:100%;
-    color: #f3f3f3;
+    color: #1d1d1d;
     display: flex;
     align-items: center;
+    justify-content: center;
     padding: 0px 20px;
     height:10vh;
-    background-color: #11244b;
+    background-color: #f3f3f3;
 }
 
 
@@ -170,8 +175,9 @@
    font-weight: bold;
 }
 .header-menu-lateral-title a{
-    color: #f7f7f7;
-    display: none;
+    display:none;
+    color: #1d1d1d;
+    
 
 }
 
@@ -185,8 +191,8 @@
     display: flex;
     flex-direction: column;
     
-    height:100vh;
-    background-color:#163677;
+    height:90vh;
+    background-color:#f3f3f3;
     float: left;
 
     overflow-y: scroll;
@@ -194,44 +200,56 @@
 }
 
 .area-botao-conversa{
-    border-bottom: 1px solid #11244b;
+    border-bottom: 1px solid #dcdcdc;
     
-    padding: 20px 20px 20px 10px;
+    padding: 10px 20px 10px 10px;
 }
 
 .area-botao-conversa .botao-contato{
 
     
-    display: grid;
-    grid-template-columns:  1fr 5fr;
-    gap:10px;
+    display:flex;
     align-items: center;
+    gap: 0.5rem;
 
     cursor: pointer;
     outline: none;
     border: none;
     background-color: transparent;
 
-    padding: 0px 30px;
+    padding: 0px 10px;
 
     width: 100%;
-    color: #f7f7f7;
+    color: #1d1d1d;
     font-size: 1rem;
     
 
 }
 .area-botao-conversa .botao-contato img{
 
-    width: 38px;
-    grid-row: span 2;
+    width: 55px;
     
 
 }
+.container-texts-conversa{
+    width:100%;
+    text-align:start;
+}
 .title-conversa{
     font-weight: bold;
-    color:#eee;
+    color:#1d1d1d;
     align-items: center;
 }
-
+.data-conversa{
+    font-size: .75rem;
+}
+.text-conversa p{
+    display: inline-block;
+    font-size: .75rem;
+    width:100px;
+    white-space: nowrap;
+    overflow: hidden; 
+    text-overflow:ellipsis;
+}
 
 /* FIM */

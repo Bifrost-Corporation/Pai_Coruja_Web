@@ -11,7 +11,7 @@ body{
 
 .container-dash{
     color: var(--cinzafonte);
-    padding-bottom: 40px;
+    
     display: flex;
     flex-direction: column;
     margin-left: 240px;
@@ -20,7 +20,8 @@ body{
     transition: 200ms ease;
     /* background-position: center top; */
     background-size: 100% 100%;
-    padding: 4% 2rem;
+    padding: 15vh 2rem 0 2rem;
+    
     height: 100vh;
     gap: 1rem;
 }

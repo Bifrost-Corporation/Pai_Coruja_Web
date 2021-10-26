@@ -4,8 +4,8 @@
 .container-main {
     color: var(--cinzafonte);
     flex-wrap: wrap;
-    /* padding-top: 10vh; */
-    padding-bottom: 20px;
+    padding-top: 10vh;
+    padding-bottom: 0px;
     position: relative;
     display: flex;
     flex-direction: column;
