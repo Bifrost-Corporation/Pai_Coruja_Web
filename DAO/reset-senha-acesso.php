@@ -22,6 +22,9 @@
                         if($linha['idProfessor'] == $linha2['idProfessor']){
                             $professor->setIdProfessor($linha2['idProfessor']);
                             $professor->setSenhaProfessor(md5($senha));
+                            $professor->setPrimeiroAcessoProfessor('F');
+                            $_SESSION['primeiroAcesso'] = 'F';
+                            echo $_SESSION['primeiroAcesso'];
                             echo $professor->updateSenha($professor);
                             header("Location: ../professor/home-professor.php");
                         }
@@ -32,8 +35,11 @@
                     $listaResponsavel = $responsavel->listarAlternativo();
                     foreach($listaResponsavel as $linha2){
                         if($linha['idResponsavel'] == $linha2['idResponsavel']){
-                            $responsavel->setIdResponsavel($linha['idResponsavel']);
+                            $responsavel->setIdResponsavel($linha2['idResponsavel']);
                             $responsavel->setSenhaResponsavel(md5($senha));
+                            $responsavel->setPrimeiroAcessoResponsavel('F');
+                            $_SESSION['primeiroAcesso'] = 'F';
+                            echo $_SESSION['primeiroAcesso'];
                             echo $responsavel->updateSenha($responsavel);
                             header("Location: ../responsavel/home-responsavel.php");
                         }

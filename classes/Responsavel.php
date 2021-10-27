@@ -79,13 +79,14 @@
 
         public function cadastrar($responsavel){
             $conexao = Conexao::conectar();
-            $stmt = $conexao->prepare("INSERT INTO tbresponsavel (nomeResponsavel, cpfResponsavel, emailResponsavel, senhaResponsavel, idAluno)
-                                            VALUES (?, ?, ?, ?, ?)");
+            $stmt = $conexao->prepare("INSERT INTO tbresponsavel (nomeResponsavel, cpfResponsavel, emailResponsavel, senhaResponsavel, primeiroAcessoResponsavel, idAluno)
+                                            VALUES (?, ?, ?, ?, ?, ?)");
             $stmt->bindParam(1, $responsavel->getNomeResponsavel());
             $stmt->bindParam(2, $responsavel->getCpfResponsavel());
             $stmt->bindParam(3, $responsavel->getEmailResponsavel());
             $stmt->bindParam(4, $responsavel->getSenhaResponsavel());
-            $stmt->bindParam(5, $responsavel->getIdAluno());
+            $stmt->bindParam(5, $responsavel->getPrimeiroAcessoResponsavel());
+            $stmt->bindParam(6, $responsavel->getIdAluno());
             $stmt->execute();
             return 'Cadastro do responsável realizado com sucesso!';
         }
@@ -154,7 +155,7 @@
 
         public function updateSenha($responsavel){
             $conexao = Conexao::conectar();
-            $stmt = $conexao->prepare("UPDATE tbresponsavel SET senhaResponsavel = ?, codNovaSenha = '' WHERE idResponsavel = ?");
+            $stmt = $conexao->prepare("UPDATE tbresponsavel SET senhaResponsavel = ?, codNovaSenha = '', primeiroAcessoResponsavel = 'F' WHERE idResponsavel = ?");
             $stmt->bindParam(1, $responsavel->getSenhaResponsavel());
             $stmt->bindParam(2, $responsavel->getIdResponsavel());
             $stmt->execute();

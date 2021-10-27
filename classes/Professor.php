@@ -8,6 +8,7 @@
         private $nomeProfessor;
         private $emailProfessor;
         private $senhaProfessor;
+        private $primeiroAcessoProfessor;
         private $idEscola;
         private $codNovaSenha;
 
@@ -43,6 +44,14 @@
             $this->senhaProfessor = $senhaProfessor;
         }
 
+        public function getPrimeiroAcessoProfessor(){
+            return $this->primeiroAcessoProfessor;
+        }
+
+        public function setPrimeiroAcessoProfessor($primeiroAcessoProfessor){
+            $this->primeiroAcessoProfessor = $primeiroAcessoProfessor;
+        }
+
         public function getIdEscola(){
             return $this->idEscola;
         }
@@ -61,19 +70,20 @@
 
         public function cadastrar($professor){
             $conexao = Conexao::conectar();
-            $stmt = $conexao->prepare("INSERT INTO tbprofessor (nomeProfessor, emailProfessor, senhaProfessor, idEscola)
-                                            VALUES (?, ?, ?, ?)");
+            $stmt = $conexao->prepare("INSERT INTO tbprofessor (nomeProfessor, emailProfessor, senhaProfessor, primeiroAcessoProfessor, idEscola)
+                                            VALUES (?, ?, ?, ?, ?)");
             $stmt->bindParam(1, $professor->getNomeProfessor());
             $stmt->bindParam(2, $professor->getEmailProfessor());
             $stmt->bindParam(3, $professor->getSenhaProfessor());
-            $stmt->bindParam(4, $professor->getIdEscola());
+            $stmt->bindParam(4, $professor->getPrimeiroAcessoProfessor());
+            $stmt->bindParam(5, $professor->getIdEscola());
             $stmt->execute();
             return 'Cadastro do professor realizado com sucesso!';
         }
 
         public function listar(){
             $conexao = Conexao::conectar();
-            $queryProfessor = 'SELECT idProfessor, nomeProfessor, emailProfessor, senhaProfessor, idEscola, codNovaSenha FROM tbprofessor';
+            $queryProfessor = 'SELECT idProfessor, nomeProfessor, emailProfessor, senhaProfessor, idEscola, codNovaSenha, primeiroAcessoProfessor FROM tbprofessor';
             $respostaProfessor = $conexao->query($queryProfessor);
             $listaProfessor = $respostaProfessor->fetchAll(PDO::FETCH_ASSOC);
             return $listaProfessor;
@@ -81,7 +91,7 @@
 
         public function listarEscola($idEscola){
             $conexao = Conexao::conectar();
-            $queryProfessor = "SELECT idProfessor, nomeProfessor, emailProfessor, senhaProfessor, idEscola, codNovaSenha FROM tbprofessor WHERE idEscola LIKE '$idEscola'";
+            $queryProfessor = "SELECT idProfessor, nomeProfessor, emailProfessor, senhaProfessor, idEscola, codNovaSenha, primeiroAcessoProfessor FROM tbprofessor WHERE idEscola LIKE '$idEscola'";
             $respostaProfessor = $conexao->query($queryProfessor);
             $listaProfessor = $respostaProfessor->fetchAll(PDO::FETCH_ASSOC);
             return $listaProfessor;
@@ -134,7 +144,7 @@
 
         public function updateSenha($professor){
             $conexao = Conexao::conectar();
-            $stmt = $conexao->prepare("UPDATE tbprofessor SET senhaProfessor = ?, codNovaSenha = '' WHERE idProfessor = ?");
+            $stmt = $conexao->prepare("UPDATE tbprofessor SET senhaProfessor = ?, codNovaSenha = '', primeiroAcessoProfessor = 'F' WHERE idProfessor = ?");
             $stmt->bindParam(1, $professor->getSenhaProfessor());
             $stmt->bindParam(2, $professor->getIdProfessor());
             $stmt->execute();
