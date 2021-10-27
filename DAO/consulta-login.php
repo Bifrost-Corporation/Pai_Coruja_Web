@@ -10,8 +10,8 @@
         $verificalogin = false;
         $queryadm = "SELECT idAdministrador, loginAdministrador, senhaAdministrador FROM tbadministrador";
         $querysecretaria = "SELECT idSecretaria, nomeSecretaria, emailSecretaria, senhaSecretaria, primeiroAcessoSecretaria, tbsecretaria.idEscola, tbescola.nomeEscola FROM tbsecretaria INNER JOIN tbescola ON tbsecretaria.idEscola = tbescola.idEscola";
-        $queryprofessor = "SELECT idEscola, idProfessor, nomeProfessor, emailProfessor, senhaProfessor FROM tbprofessor";
-        $queryresponsavel = "SELECT tbresponsavel.idResponsavel, nomeResponsavel, emailResponsavel, senhaResponsavel, tbsecretaria.idSecretaria FROM tbresponsavel INNER JOIN tbaluno ON tbaluno.idAluno = tbresponsavel.idAluno INNER JOIN tbsecretaria ON tbsecretaria.idEscola = tbaluno.idEscola";
+        $queryprofessor = "SELECT idEscola, idProfessor, nomeProfessor, emailProfessor, senhaProfessor, primeiroAcessoProfessor FROM tbprofessor";
+        $queryresponsavel = "SELECT tbresponsavel.idResponsavel, nomeResponsavel, emailResponsavel, senhaResponsavel, primeiroAcessoResponsavel, tbsecretaria.idSecretaria FROM tbresponsavel INNER JOIN tbaluno ON tbaluno.idAluno = tbresponsavel.idAluno INNER JOIN tbsecretaria ON tbsecretaria.idEscola = tbaluno.idEscola";
         $resultadoadm = $conexao->query($queryadm);
         $listaadm = $resultadoadm->fetchAll(PDO::FETCH_ASSOC);
         foreach($listaadm as $linha){
@@ -50,6 +50,7 @@
                 $_SESSION['nomeProfessor'] = $linha['nomeProfessor'];
                 $_SESSION['emailProfessor'] = $emailForm;
                 $_SESSION['senhaProfessor'] = $senhaForm;
+                $_SESSION['primeiroAcesso'] = $linha['primeiroAcessoProfessor'];
                 $_SESSION['autorizacaoProfessor'] = true;
                 header('location: ../professor/home-professor.php');
             }
@@ -64,6 +65,7 @@
                 $_SESSION['emailResponsavel'] = $emailForm;
                 $_SESSION['senhaResponsavel'] = $senhaForm;
                 $_SESSION['idSecretaria'] = $linha['idSecretaria'];
+                $_SESSION['primeiroAcesso'] = $linha['primeiroAcessoResponsavel'];
                 $_SESSION['autorizacaoResponsavel'] = true;
                 header('location: ../responsavel/home-responsavel.php');
             }

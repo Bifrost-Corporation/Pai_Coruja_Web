@@ -29,6 +29,7 @@
             $professor->setNomeProfessor($nomeProfessor);
             $professor->setEmailProfessor($emailProfessor);
             $professor->setSenhaProfessor(md5($senhaProfessor));
+            $professor->setPrimeiroAcessoProfessor('V');
             $professor->setIdEscola($idEscola);
             echo $professor->cadastrar($professor);
             $listaProfessor = $professor->selecionarUltimoProfessor();

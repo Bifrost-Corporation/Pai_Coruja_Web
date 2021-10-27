@@ -318,6 +318,9 @@
             <!-- Modal content -->
             <div class="modal-content">
                 <div class="bg-modal-senha">
+                    <div class="div-imagem">
+                        <img src="../img/reset_senha.jpg" class="img-card">
+                    </div>
                     <div class="title-modal">
                         <h1>RESETE SUA SENHA</h1>
                         <!-- <button><i class="fas fa-bookmark"></i> Tenho Interesse</button> -->
