@@ -97,40 +97,50 @@
         <main class="container-main">
 
             <section class="area-chat">
-                <div class="menu-lateral">
+            <div class="menu-lateral">
                     <div class="header-menu-lateral-title">
-                        <a href="#"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
-                        <h3>Responsáveis</h3>
+                        <div class="container-box-search">
+                            <form action="">
+                                <input type="text" placeholder="Buscar..">
+                                <button><i class="fa fa-search" aria-hidden="true"></i></button>
+                            </form>
+                        </div>
+
                     </div>
+                    <div class="container-area-conversa">
+                        <div class="header-container-area-conversa">
+
+                        </div>
+
                     <?php
                         $secretaria = new Secretaria();
                         $listaContatos = $secretaria->listarResponsaveis($_SESSION['idEscola']);
                         foreach($listaContatos as $linha){
                     ?>
-                    <!--
-                            <p></p>-->
                     <div class="area-botao-conversa">
                         <button class="botao-contato"id="<?php echo $linha['idResponsavel'] ?>">
-                        <img src="../img/usuario-de-perfil.png" alt="">
+                        <i class="fa fa-user-circle img" aria-hidden="true"></i>
                         <div class="container-texts-conversa">
                         <div class="title-conversa">
                                 <?php echo $linha['nomeResponsavel'] ?>
                             </div>
                             <div class="text-conversa">
                                 <p>mingau ajsak ajshja jajshj ahsjh</p>
-                                
+
                             </div>
                         </div>
-                            
+
                         </button>
                     </div>
                     <?php
                         }
                     ?>
+                    </div>
+
                 </div>
                 <div class="caixa-chat ">
                     <div class="nav-chat">
-                    <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                    <button class="botao-contato-abrir"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
                         <h1 class="name-user-chat"><?php echo $linha['nomeResponsavel'] ?></h1>
                     </div>
                     <div class="caixa-mensagens">
@@ -186,28 +196,60 @@
     <script src="../assets/js/carousel.js"></script>
 
     <script>
-        jQuery('.botao-contato').on('click', function(){
-            $('#idReceber').val(this.id);
-            (function attMensagens () {
-                var idSecretaria = $('#idEnviar').val();
-                var idResponsavel = $('#idReceber').val();
-                var query = idSecretaria + ' ' + idResponsavel;
-                $.ajax({
-                url: '../DAO/listar-mensagens-secretaria.php',
-                method: 'POST',
-                data: {
-                    query: query
-                },
-                success: function(retorno){
-                    $("#mensagens").html(retorno);
-                },
-                complete: function () {
-                    setTimeout(attMensagens, 1000);
-                }
-                });
-            })();
-        });
 
+
+        if(window.innerWidth > 720){
+            const botaoContato = document.querySelector(".botao-contato")
+
+            botaoContato.addEventListener("click", function() {
+                
+                console.log("SE APARECER O MARCOS É GUEI")
+            });
+            
+        }else{
+            const botaoContato = document.querySelector(".botao-contato")
+            const botaoContatoAbrir = document.querySelector(".botao-contato-abrir")
+            const menuLateralChat = document.querySelector('.menu-lateral')
+            const containerChat = document.querySelector('.caixa-chat')
+            
+            botaoContato.addEventListener("click", function() {
+                console.log("S O MARCOS É GUEI")
+                menuLateralChat.classList.toggle("menu-lateral-active")
+                
+            });
+            botaoContatoAbrir.addEventListener("click", function() {
+                console.log("S O MARCOS É GUEI")
+                menuLateralChat.classList.toggle("menu-lateral-active")
+            });
+                    
+
+        }
+        jQuery('.botao-contato').on('click', function(){    
+            $('#idReceber').val(this.id);
+
+                (function attMensagens () {
+                    var idSecretaria = $('#idEnviar').val();
+                    var idResponsavel = $('#idReceber').val();
+                    
+                    var query = idSecretaria + ' ' + idResponsavel;
+                    
+                
+                    $.ajax({
+                    url: '../DAO/listar-mensagens-secretaria.php',
+                    method: 'POST',
+                    data: {
+                        query: query
+                    },
+                    success: function(retorno){
+                        $("#mensagens").html(retorno);
+                    },
+                    complete: function () {
+                        setTimeout(attMensagens, 1000);
+                    }
+                    });
+                })();
+        });
+        
         jQuery('form').on('submit', function(e){
             e.preventDefault();
         });
@@ -229,6 +271,7 @@
                 });
             }
         });
+        
         /*
         $(document).ready(function() {
             var idSecretaria = $('#idEnviar').val();
