@@ -70,7 +70,7 @@
                             </a>
                         </li>
                         <li class="links-name">
-                            <a href="visualizar-dados.php">
+                        <a href="visualizar-dados.php">
                                 <i class="fas fa-school"></i>
                                 <span class="links-name">Alterar Dados</span>
                             </a>
@@ -99,6 +99,7 @@
             <section class="area-chat">
             <div class="menu-lateral">
                     <div class="header-menu-lateral-title">
+                        <h3>Chat</h3>
                         <div class="container-box-search">
                             <form action="">
                                 <input type="text" placeholder="Buscar..">
@@ -109,15 +110,16 @@
                     </div>
                     <div class="container-area-conversa">
                         <div class="header-container-area-conversa">
-
+                        <h3>Recentes</h3>
                         </div>
-
+                        
+                    <ul>
                     <?php
                         $secretaria = new Secretaria();
                         $listaContatos = $secretaria->listarResponsaveis($_SESSION['idEscola']);
                         foreach($listaContatos as $linha){
                     ?>
-                    <div class="area-botao-conversa">
+                        <li><div class="area-botao-conversa">
                         <button class="botao-contato"id="<?php echo $linha['idResponsavel'] ?>">
                         <i class="fa fa-user-circle img" aria-hidden="true"></i>
                         <div class="container-texts-conversa">
@@ -131,18 +133,24 @@
                         </div>
 
                         </button>
-                    </div>
+                    </div></li>
                     <?php
                         }
                     ?>
+                    </ul>
+                    
                     </div>
+                    <div class="footer-area-conversa">
 
+                    </div>
                 </div>
                 <div class="caixa-chat ">
+                
                     <div class="nav-chat">
                     <button class="botao-contato-abrir"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
                         <h1 class="name-user-chat"><?php echo $linha['nomeResponsavel'] ?></h1>
                     </div>
+                    
                     <div class="caixa-mensagens">
                         <div id="mensagens">
                         </div>
@@ -198,35 +206,11 @@
     <script>
 
 
-        if(window.innerWidth > 720){
-            const botaoContato = document.querySelector(".botao-contato")
-
-            botaoContato.addEventListener("click", function() {
-                
-                console.log("SE APARECER O MARCOS É GUEI")
-            });
-            
-        }else{
-            const botaoContato = document.querySelector(".botao-contato")
-            const botaoContatoAbrir = document.querySelector(".botao-contato-abrir")
-            const menuLateralChat = document.querySelector('.menu-lateral')
-            const containerChat = document.querySelector('.caixa-chat')
-            
-            botaoContato.addEventListener("click", function() {
-                console.log("S O MARCOS É GUEI")
-                menuLateralChat.classList.toggle("menu-lateral-active")
-                
-            });
-            botaoContatoAbrir.addEventListener("click", function() {
-                console.log("S O MARCOS É GUEI")
-                menuLateralChat.classList.toggle("menu-lateral-active")
-            });
-                    
-
-        }
-        jQuery('.botao-contato').on('click', function(){    
+       
+        jQuery('.botao-contato').on('click', function(){  
+             
             $('#idReceber').val(this.id);
-
+            
                 (function attMensagens () {
                     var idSecretaria = $('#idEnviar').val();
                     var idResponsavel = $('#idReceber').val();
@@ -271,7 +255,35 @@
                 });
             }
         });
+        if(window.innerWidth > 720){
+            const botaoContato = document.querySelectorAll(".botao-contato")
+
+            botaoContato.addEventListener("click", function() {
+                
+                console.log("SE APARECER O MARCOS É GUEI")
+            });
+            
+        }else{
+            const botaoContato = document.querySelectorAll(".botao-contato")
+            const botaoContatoAbrir = document.querySelector(".botao-contato-abrir")
+            const menuLateralChat = document.querySelector('.menu-lateral')
+            const containerChat = document.querySelector('.caixa-chat')
+            
+            for(i of botaoContato){
         
+                i.addEventListener("click", function() {
+        setTimeout(()=> {
+                console.log("Abriu")
+                menuLateralChat.classList.toggle("menu-lateral-active")
+        },600)
+            });
+            botaoContatoAbrir.addEventListener("click", function() {
+                console.log("Fechou")
+                menuLateralChat.classList.remove("menu-lateral-active")
+            });
+            }     
+
+        }
         /*
         $(document).ready(function() {
             var idSecretaria = $('#idEnviar').val();

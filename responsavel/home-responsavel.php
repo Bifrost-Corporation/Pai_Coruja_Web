@@ -39,12 +39,23 @@
     ?>
     <header>
 
-<nav class="nav-bar">
-    <a href=""><img class="logo-img" src="../img/pai_coruja_branca.png"></a>
-    <ul class="ul-area-btn">
-        <li class="nav-li"><a class="btn-nav-open"><i class="fas fa-bars"></i></a></li>
-    </ul>
-</nav>
+    <nav class="nav-bar">
+                <div class="content-logo-btn">
+                <ul class="ul-area-btn">
+                    <li class="nav-li"><a class="btn-nav-open"><i class="fas fa-bars"></i></a></li>
+                </ul>
+                <a href=""><img class="logo-img" src="../img/pai_coruja_branca.png"></a>
+                </div>
+                    <div class="profile">
+                        <div class="profile-details">
+                            <img src="../img/macacopc.gif" alt="">
+                            <div class="name-job">
+                                <div class="name-menu"><?php echo $_SESSION['nomeResponsavel'] ?></div>
+                                <div class="job-menu">Olá Responsável</div>
+                            </div>
+                        </div>
+                    </div>
+            </nav>
 
 <div class="sidebar">
     <div class="logo-content">
@@ -90,7 +101,7 @@
             </li>
             <li class="links-name">
                 <a href="chat-responsavel.php">
-                    <i class="fas fa-calendar-day"></i>
+                <i class="fa fa-comment" aria-hidden="true"></i>
                     <span class="links-name">Chat</span>
                 </a>
             </li>
@@ -112,7 +123,7 @@
                 <img src="../img/usuario-de-perfil.png" alt="">
                 <div class="name-job">
                     <div class="name-menu"><?php echo $_SESSION['nomeResponsavel'] ?></div>
-                    <div class="job-menu">Olá Professor(a)</div>
+                    <div class="job-menu">Olá Responsável</div>
                 </div>
             </div>
         </div>
@@ -167,6 +178,7 @@
             <i aria-label="Previous" class="fa fa-chevron-left carousel-destaque-prev"></i>
             <div role="tablist" class="carousel-destaque-dots"></div>
             <i aria-label="Next" class="fa fa-chevron-right carousel-destaque-next"></i>
+            
             
             </div>
         </div>

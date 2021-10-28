@@ -55,7 +55,7 @@
                 </a>
             </li>
             <li class="links-name">
-                <a href="visualizar-dados.php" class="active-nav">
+            <a href="visualizar-dados.php" class="active-nav">
                     <i class="fas fa-school"></i>
                     <span class="links-name">Listar Dados</span>
                 </a>

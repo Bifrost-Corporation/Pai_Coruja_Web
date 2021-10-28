@@ -122,7 +122,7 @@
 .box-submit-message{
     width:100%;
     padding: 10px 20px;
-    
+    border-radius: 20px;
     background-color: #dcdcdc;
 }
 .caixa-mensagem{
@@ -154,20 +154,22 @@
 /*Titulo menu lateral*/
 
 .header-menu-lateral-title{
+    position: relative;
     width:100%;
     color: #1d1d1d;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    padding: 0px 0px;
-    height:10vh;
+    padding: 1rem;
     background-color:#f7f7f7;
 }
 
 
 .header-menu-lateral-title h3{
-    text-align: center;
+    
+    color:var(--cinzafonte);
+    font-size: 1.5rem;
+    text-align: left;
    font-weight: bold;
 }
 .header-menu-lateral-title a{
@@ -178,6 +180,7 @@
 }
 
 .container-box-search{
+    position: relative;
     width: 100%;
     display: flex;
     align-items:center;
@@ -192,6 +195,7 @@
     width: 100%;
     justify-content: space-around;
     background:#dcdcdc;
+    border-radius: 25px;
     padding: 0.7rem;
     margin: 0rem 0rem;
 }
@@ -199,11 +203,15 @@
     outline:none;
     border:none;
     background-color: transparent;
+    font-size: 1.2rem;
+    color:var(--cinzafonte);
+
 }
 .container-box-search form input{
     outline:none;
     border:none;
     background-color: transparent;
+    font-weight:bold;
 }
 
 /*fffffffim*/
@@ -215,7 +223,7 @@
 
     display: flex;
     flex-direction: column;
-    
+    position: relative;
     height:90vh;
     background: #f7f7f7;
     float: left;
@@ -224,16 +232,22 @@
 }
 .container-area-conversa{
     display: flex;
+    height: 40vh;
     flex-direction: column;
     overflow-y:auto ;
 }
 
 .area-botao-conversa{
+    position: relative;
     border-bottom: 1px solid #dcdcdc;
     
     padding: 10px 20px 10px 10px;
 }
-
+.header-container-area-conversa{
+    width: 100%;
+    padding: 10px 20px 10px 10px;
+    position: relative;
+}
 .area-botao-conversa .botao-contato{
 
     
@@ -256,8 +270,8 @@
 }
 .area-botao-conversa .botao-contato img,.img{
 
-    width: 50px;
-    font-size: 50px;
+    width: 40px;
+    font-size: 40px;
     color:var(--cinzafonte);
     
 
@@ -299,6 +313,7 @@
         display: none;
    }
     .menu-lateral{
+        
         width: 100%;
         z-index: 1;
     }
@@ -307,6 +322,16 @@
         position: absolute;
         z-index: 0;
     }
+    .caixa-mensagem{
+    
+        width: 70% ;
+        background-color: transparent;
+        border: none;
+        outline: none;
+        
+        
+    }
+
 
 }
 @media(min-width:720px){
