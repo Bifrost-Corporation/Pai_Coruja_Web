@@ -11,6 +11,12 @@
     <title>Cadastrar Escola</title>
 
 
+    <style>
+        form{
+            display:none;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -55,7 +61,7 @@
                         </a>
                     </li>
                     <li class="links-name">
-                        <a href="alterar-dados.php" class="active-nav">
+                        <a href="visualizar-dados.php" class="active-nav">
                             <i class="fas fa-school"></i>
                             <span class="links-name">Alterar Dados</span>
                         </a>
@@ -370,45 +376,215 @@
             
             <!-- Modal content -->
         <div class="modal-content">
-                <span class="closeModal"><i class="fas fa-times"></i></span>
-                <div class="bg-modal">
-                    <div class="title-modal">
-                        <h1>Um Evento Legal</h1>
-                        <!-- <button><i class="fas fa-bookmark"></i> Tenho Interesse</button> -->
+        <form class="formulario" name="form-professor" id="formProfessor" action="../DAO/inserir-professor.php" method="POST">
+                <div class="user-details">
+                    <input id="idProfessor" name="idProfessor" type="hidden" value="<?php echo@$_GET['idProfessor'] ?>">
+                    <div class="input-box-width100">
+                        <h2>Nome do Professor:</h2>
+                        <label class="label-erro" id="label-nome"></label>
+                        <input name="txtNomeProfessor" id="txtNomeProfessor" type="text"
+                            placeholder="Insira o nome do professor" value="<?php echo @$_GET['nomeProfessor'] ?>">
                     </div>
-                    
-                </div>  
-            <div class="modal-text-description">
-                <div class="info-modal">
-                    <h5>Data do Evento: 04/04/2004</h5>
+                    <div class="input-box-width100">
+                        <h2>Email Professor:</h2>
+                        <label class="label-erro" id="label-email"></label>
+                        <input name="txtEmailProfessor" id="txtEmailProfessor" type="email"
+                            placeholder="Insira o email do professor" value="<?php if(isset($_SESSION['emailProfessor'])){
+                                                                                                                        echo $_SESSION['emailProfessor'];
+                                                                                                                    }else{
+                                                                                                                        echo @$_GET['emailProfessor'];
+                                                                                                                    } ?>">
+                    </div>
+                    <div class="input-box">
+                        <h2>Senha Professor:</h2>
+                        <label class="label-erro" id="label-senha1"></label>
+                        <input name="txtSenhaProfessor" id="txtSenhaProfessor" type="password" placeholder="********">
+                    </div>
+                    <div class="input-box">
+                        <h2>Confirmar senha:</h2>
+                        <label class="label-erro" id="label-senha2"></label>
+                        <input name="txtConfirmarSenhaProfessor" id="txtConfirmarSenhaProfessor" type="password"
+                            placeholder="********">
+                    </div>
+                    <div class="button">
+                        <input type="submit" class="btn-nav-exit" value="Cadastrar">
+                    </div>
                 </div>
-                <h4>Descrição</h4>
-                <p> 45vy h 5g45y  4 y 5y 5 qe dfweferg rgrgrgegergerg gre re hr her rer t tts ry 45t 45y  fg fgdf gf g ergr gregregrgregrgr eg rgh 54y5y 4h5hky h 5g45y  4 y 5y 5 qe dfweferg rgrgrgegergerg gre re hr her rer t tts ry 45t 45y  fg fgdf gf g ergr gregregrgregrgr eg rgh 54y5y 4h5hky h 5g45y  4 y 5y 5 qe dfweferg rgrgrgegergerg gre re hr her rer t tts ry 45t 45y  fg fgdf gf g ergr gregregrgregrgr eg rgh 54y5y 4h5hky h 5g45y  4 y 5y 5 qe dfweferg rgrgrgegergerg gre re hr her rer t tts ry 45t 45y  fg fgdf gf g ergr gregregrgregrgr eg rgh 54y5y 4h5hky h 5g45y  4 y 5y 5 qe dfweferg rgrgrgegergerg gre re hr her rer t tts ry 45t 45y  fg fgdf gf g ergr gregregrgregrgr eg rgh 54y5y 4h5hkwrj jhrt hsrjg ergçjerlgelrjg elrjg ergerhbg jerg eralgherrg34 g erjg jerh gjer g erg erg reghera a  aeg r grejl gerr gre gerlgjgr jlg jgrj <strong>marcos</strong>  berhgerhgebrglerjbg</p>
-            </div>
-        </div>
+            </form>
 
+
+            <form class="formulario" name="formDisciplina" id="formDisciplina" action="../DAO/inserir-disciplina.php"
+                method="POST">
+                <div class="user-details">
+                    <input type="hidden" id="idDisciplina" name="idDisciplina" value="<?php echo @$_GET['idDisciplina'] ?>">
+                    <div class="input-box-width100">
+                        <h2>Nome da disciplina:</h2>
+                        <label class="label-erro" id="label-nome"></label>
+                        <input name="txtNomeDisciplina" id="txtNomeDisciplina" type="text"
+                            placeholder="Insira o nome da disciplina" value="<?php echo @$_GET['nomeDisciplina'] ?>">
+                    </div>
+                    <div class="input-box-width100">
+                        <h2>Professor:</h2>
+                        <label class="label-erro" id="label-professor"></label>
+                        <input name="txtProfessor" id="txtProfessor" type="text"
+                            placeholder="Insira o professor responsável pela disciplina" value="<?php echo @$_GET['nomeProfessor'] ?>">
+                        <div id="retornoPesquisa">
+                            
+                        </div>
+                    </div>
+                    <div class="button">
+                        <input type="submit" class="btn-nav-exit" value="Cadastrar">
+                    </div>
+                </div>
+            </form>
+
+
+            
+            
+            
+            <form name="nomeTurma" class="formulario" id="formTurma" method="POST" action="../DAO/inserir-turma.php">
+                <div class="user-details">
+                    <input type="hidden" id="idTurma" name="idTurma" value="<?php echo @$_GET['idTurma'] ?>">
+                    <div class="input-box-width100">
+                        <h2>Nome da Turma:</h2>
+                        <label class="label-erro" id="label-nome"></label>
+                        <input name="txtNomeTurma" id="txtNomeTurma" type="text" placeholder="Insira o nome da turma" value="<?php echo @$_GET['nomeTurma'] ?>">
+                    </div>
+                    <div class="button">
+                        <input type="submit" class="btn-nav-exit" value="Cadastrar">
+                    </div>
+                </div>
+            </form>
+
+            <form class="formulario" name="formAluno" id="formAluno" action="../DAO/inserir-aluno.php" method="POST">
+                <div class="user-details">
+                    <input type="hidden" id="idAluno" name="idAluno" value="<?php echo @$_GET['idAluno']; ?>">
+                    <div class="input-box-width100">
+                        <h2>Nome do aluno:</h2>
+                        <label class="label-erro" id="label-nome"></label>
+                        <input name="txtNomeAluno" id="txtNomeAluno" type="text" placeholder="Insira o nome do aluno" value="<?php echo @$_GET['nomeAluno']; ?>">
+                    </div>
+                    <div class="input-box">
+                        <h2>Data de Nascimento:</h2>
+                        <label class="label-erro" id="label-dataNasc"></label>
+                        <input name="dataNasc" id="dataNasc" type="date" placeholder="Insira a data de nascimento do aluno" value="<?php echo @$_GET['dataNascAluno']; ?>">
+                    </div>
+                    <div class="input-box">
+                        <h2>Turma:</h2>
+                        <label class="label-erro" id="label-turma"></label>
+                        <input name="txtTurma" id="txtTurma" type="text" placeholder="Insira a turma do aluno" value="<?php if(isset($_SESSION['turmaInvalida'])){
+                                                                                                                                                                echo $_SESSION['turmaInvalida'];
+                                                                                                                                                            }else{
+                                                                                                                                                                echo @$_GET['nomeTurma'];
+                                                                                                                                                            } ?>">
+                        <div id="retornoPesquisa">
+
+                        </div>
+                    </div>
+                    <div class="button">
+                        <input type="submit" class="btn-nav-exit" value="Cadastrar">
+                    </div>
+                </div>
+            </form>
+
+            <form class="formulario" name="formResponsavel" id="formResponsavel" action="../DAO/inserir-responsavel.php" method="POST">
+                <div class="user-details">
+                    <input type="hidden" id="idResponsavel" name="idResponsavel" value="<?php echo @$_GET['idResponsavel']; ?>">
+                    <div class="input-box-width100">
+                        <h2>Nome Responsável</h2>
+                        <label class="label-erro" id="label-nome"></label>
+                        <input name="txtNome" id="txtNome" type="text" placeholder="Insira o nome do Responsável" value="<?php echo @$_GET['nomeResponsavel'] ?>">
+                    </div>
+                    <div class="input-box-width100">
+                        <h2>Email Responsável</h2>
+                        <label class="label-erro" id="label-email"></label>
+                        <input name="txtEmail" id="txtEmail" type="text" placeholder="Insira o email do Responsável" value="<?php if(isset($_SESSION['emailResponsavel'])){
+                                                                                                                                                                            echo $_SESSION['emailResponsavel'];
+                                                                                                                                                                        }else{
+                                                                                                                                                                            echo @$_GET['emailResponsavel'];
+                                                                                                                                                                        } ?>">
+                    </div>
+                    <div class="input-box">
+                        <h2>Senha Responsável</h2>
+                        <label class="label-erro" id="label-senha1"></label>
+                        <input name="txtSenha" id="txtSenha" type="password" placeholder="********">
+                    </div>
+                    <div class="input-box">
+                        <h2>Confirmar senha:</h2>
+                        <label class="label-erro" id="label-senha2"></label>
+                        <input name="txtConfirmaSenha" id="txtConfirmaSenha" type="password" placeholder="********">
+                    </div>
+                    <div class="input-box">
+                        <h2>Telefone do Responsável:</h2>
+                        <label class="label-erro" id="label-telefone"></label>
+                        <input name="txtTelefone" id="txtTelefone" type="tel"
+                            placeholder="Insira o numero de telefone do Responsável" value="<?php echo @$_GET['telefoneResponsavel']; ?>">
+                    </div>
+                    <div class="input-box">
+                        <h2>CPF Responsável:</h2>
+                        <label class="label-erro" id="label-cpf"></label>
+                        <input name="txtCpf" id="txtCpf" type="tel" placeholder="Insira CPF do Responsável" value="<?php if(isset($_SESSION['cpfResponsavel'])){
+                                                                                                                                                                        echo $_SESSION['cpfResponsavel'];
+                                                                                                                                                                    }else{
+                                                                                                                                                                        echo @$_GET['cpfResponsavel'];
+                                                                                                                                                                    } ?>">
+                    </div>
+                    <div class="input-box-width100">
+                        <h2>CEP:</h2>
+                        <label class="label-erro" id="label-cep"></label>
+                        <input name="txtCep" id="txtCep" type="text"
+                            placeholder="Insira o CEP do endereço do Reponsável" value="<?php echo @$_GET['cep']; ?>">
+                    </div>
+                    <div class="input-box-width100">
+                        <h2>Rua:</h2>
+                        <label class="label-erro" id="label-rua"></label>
+                        <input name="txtRua" id="txtRua" type="text"
+                            placeholder="Insira a rua do endereço do Responsável" value="<?php echo @$_GET['rua']; ?>">
+                    </div>
+                    <div class="input-box">
+                        <h2>Número:</h2>
+                        <label class="label-erro" id="label-numero"></label>
+                        <input name="txtNumero" id="txtNumero" type="text" placeholder="Insira o número da residência" value="<?php echo @$_GET['numCasa']; ?>">
+                    </div>
+                    <div class="input-box">
+                        <h2>Complemento:</h2>
+                        <label class="label-erro" id="label-complemento"></label>
+                        <input name="txtComplemento" id="txtComplemento" type="text" placeholder="Insira o complemento" value="<?php echo @$_GET['complemento']; ?>">
+                    </div>
+                    <div class="input-box">
+                        <h2>Bairro:</h2>
+                        <label class="label-erro" id="label-bairro"></label>
+                        <input name="txtBairro" id="txtBairro" type="text" placeholder="Insira o bairro" value="<?php echo @$_GET['bairro']; ?>">
+                    </div>
+                    <div class="input-box">
+                        <h2>Cidade:</h2>
+                        <label class="label-erro" id="label-cidade"></label>
+                        <input name="txtCidade" id="txtCidade" type="text" placeholder="Insira a cidade" value="<?php echo @$_GET['cidade']; ?>">
+                    </div>
+                    <div class="input-box-width100">
+                        <h2>De qual aluno você é responsável:</h2>
+                        <label class="label-erro" id="label-aluno"></label>
+                        <input name="txtAluno" id="txtAluno" type="text" placeholder="Insira o nome do aluno"  value="<?php if(isset($_SESSION['nomeAluno'])){
+                                                                                                                                                                echo $_SESSION['nomeAluno'];
+                                                                                                                                                            }else{
+                                                                                                                                                                echo @$_GET['nomeAluno'] ?> <?php echo @$_GET['turma'];
+                                                                                                                                                            } ?>">
+                        <div id="retornoPesquisa">
+
+                        </div>
+                    </div>
+                    <div class="button">
+                        <input type="submit" class="btn-nav-exit" value="Cadastrar">
+                    </div>
+                </div>
+            </form>
     </div>
 
 
 
-
+    
     <script src="../assets/js/modal.js"></script>
-    <script>
-        let modals = document.getElementById("myModal");
-        let url = window.location.href
-        if(url.indexOf("?")){
-            modals.classList.toggle("modal-active");
-        }
-        span.onclick = function() {
-            modals.classList.toggle("modal-active");
-        }
-
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modals.classList.toggle("modal-active");
-            }
-        }
-    </script>
+    <script src="../assets/js/alterar-dados.js"></script>
     <script src="../assets/js/dash-cadastro.js"></script>
     <script src="../assets/js/formStepsBySteps.js"></script>
     <script src="../assets/js/nav.js"></script>

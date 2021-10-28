@@ -209,7 +209,7 @@
                 </a>
             </li>
             <li class="links-name">
-                <a href="alterar-dados.php">
+                <a href="visualizar-dados.php">
                     <i class="fas fa-school"></i>
                     <span class="links-name">Listar Dados</span>
                 </a>
@@ -257,7 +257,7 @@
                     <h4>Acesso Rápido</h4>
                     <div class="acesso-dash-btns">
                         <a href="cadastrar-escola.php"><button>Cadastrar Escola</button></a>
-                        <a href="alterar-dados.php"><button>Visualizar Dados</button></a>
+                        <a href="visualizar-dados.php"><button>Visualizar Dados</button></a>
                     </div>
                 </div>
                 <div class="dados-escolares-dash">
