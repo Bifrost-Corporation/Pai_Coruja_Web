@@ -31,15 +31,15 @@
                 </ul>
                 <a href=""><img class="logo-img" src="../img/pai_coruja_branca.png"></a>
                 </div>
-                    <div class="profile">
+                    <button class="profile">
                         <div class="profile-details">
                             <img src="../img/macacopc.gif" alt="">
                             <div class="name-job">
                                 <div class="name-menu"><?php echo $_SESSION['nomeSecretaria'] ?></div>
-                                <div class="job-menu">Olá Secretário(a)</div>
+                                <small class="job-menu">Olá Secretário(a)</small>
                             </div>
                         </div>
-                    </div>
+                    </button>
             </nav>
 
             <div class="sidebar">
