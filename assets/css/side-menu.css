@@ -73,18 +73,15 @@
 }
 
 .nav-bar {
-   
     position:fixed;
     z-index: 1;
-    padding: 0 5%;
-    align-items: center;
+    padding: 0 2rem;
     width: 100%;
-    height: 10vh;
+    height: 56px;
     background-color: var(--azulumpoucosaturado);
-    
     display: flex;
     justify-content:space-between;
-    
+    align-items: center;
 }
 .content-logo-btn{
     display: flex;
@@ -197,7 +194,7 @@
 .sidebar ul li a {
     margin: 0.3rem;
     padding: 1rem;
-    border-radius: 15px;
+    border-radius: 0px 20px 20px 0px;
     color: var(--cinzaclaro100);
     display: flex;
     align-items: center;
@@ -206,7 +203,7 @@
 }
 
 .sidebar ul li .active-nav {
-    border-radius: 15px;
+    border-radius: 0px 20px 20px 0px;
     color: var(--branco);
     background-color: var(--azulbtnsair);
     font-weight: bold;
@@ -214,7 +211,7 @@
 }
 
 .sidebar ul li a:hover {
-    border-radius: 15px;
+    border-radius: 0px 20px 20px 0px;
     color: var(--cinzafonte);
     background-color: var(--cinzamaisclaro);
     font-weight: bold;
@@ -235,14 +232,28 @@
 }
 
 .profile {
-    position: relative;
-    width: 200px;
-    align-items: center;
     color: var(--cinzaclaro100);
-    justify-content: center;
+    border: 0;
+    background-color: var(--azulumpoucosaturado);
+
 }
 .profile .profile-details{
+    background-color: var(--azulumpoucosaturado);
+    padding: 0.2rem 0.5rem;
+    border-radius: 0.5rem;
     display: flex;
+    flex-direction: row-reverse;
+    gap: 0.5rem;
+
+    transition: 200ms;
+}
+.profile .profile-details:hover{
+    background-color: var(--cinzamaisclaro);
+    padding: 0.2rem 0.5rem;
+    border-radius: 0.5rem;
+    color: var(--cinzafonte);
+
+    transition: 200ms;
 }
 
 .profile .profile-details img {
@@ -257,7 +268,9 @@
 }
 
 .profile .profile-details .name-job {
-    margin-left: 10px;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
 }
 
 .profile .profile-details .name-menu {
@@ -266,7 +279,7 @@
 }
 
 .profile .profile-details .job-menu {
-    font-size: 10px;
+    font-size: 8px;
     font-weight: 400;
 }
 /*
