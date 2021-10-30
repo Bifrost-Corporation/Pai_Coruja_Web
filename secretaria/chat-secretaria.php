@@ -31,15 +31,44 @@
                 </ul>
                 <a href=""><img class="logo-img" src="../img/pai_coruja_branca.png"></a>
                 </div>
-                    <button class="profile">
-                        <div class="profile-details">
-                            <img src="../img/macacopc.gif" alt="">
-                            <div class="name-job">
-                                <div class="name-menu"><?php echo $_SESSION['nomeSecretaria'] ?></div>
-                                <small class="job-menu">Olá Secretário(a)</small>
-                            </div>
+                <button class="profile">
+                    <div class="profile-details">
+                        <img src="../img/macacopc.gif" alt="">
+                        <!-- <div class="name-job">
+                            <div class="name-menu"><?php echo $_SESSION['nomeSecretaria'] ?></div>                                <small class="job-menu">Olá Secretário(a)</small>
+                        </div> -->
+                    </div>
+                </button>
+
+                <div class="dropdown-menu-profile">
+                    <div class="profile-details">
+                        <img src="../img/macacopc.gif" alt="">
+                        <div class="name-job">
+                            <div class="name-menu"><?php echo $_SESSION['nomeSecretaria'] ?></div>
+                            <small class="job-menu">Olá Secretário(a)</small>
                         </div>
-                    </button>
+                    </div>
+                    <ul class="opcoes-drop-profile">
+                        <li>
+                            <i class="fas fa-info"></i>
+                            <small>Alterar Imagem de perfil</small>
+                        </li>
+                        <li>
+                            <i class="fas fa-info"></i>
+                            <small>Alterar Imagem de perfil</small>
+                        </li>
+                        <li>
+                            <i class="fas fa-info"></i>
+                            <small>Alterar Imagem de perfil</small>
+                        </li>
+                        
+
+                    </ul>
+                </div>
+
+
+
+
             </nav>
 
             <div class="sidebar">
