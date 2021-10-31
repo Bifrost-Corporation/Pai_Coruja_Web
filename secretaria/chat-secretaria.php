@@ -49,17 +49,20 @@
                         </div>
                     </div>
                     <ul class="opcoes-drop-profile">
-                        <li>
-                            <i class="fas fa-info"></i>
-                            <small>Alterar Imagem de perfil</small>
+                        <li class="online-li">
+                            <label for="">Online</label>
+                            <label class="switch">
+                                <input type="checkbox" checked>
+                                <span class="slider round"></span>
+                            </label>
                         </li>
-                        <li>
-                            <i class="fas fa-info"></i>
-                            <small>Alterar Imagem de perfil</small>
+                        <li class="drop-profile-li">
+                            <i class="fas fa-user-cog"></i>
+                            <small>Trocar Imagem de Perfil</small>
                         </li>
-                        <li>
-                            <i class="fas fa-info"></i>
-                            <small>Alterar Imagem de perfil</small>
+                        <li class="drop-profile-li">
+                            <i class="fas fa-sign-out-alt" id="logout-user"></i>
+                            <small>Sair</small>
                         </li>
                         
 
