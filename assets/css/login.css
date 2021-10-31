@@ -1,7 +1,7 @@
 /* TELA LOGIN */
 
 .bg-login {
-    background-color: var(--azulbtnsair);
+    background-color: var(--azulumpoucosaturado);
     height: 97vh;
     width: 100%;
     display: flex;
@@ -9,13 +9,13 @@
 }
 
 .card-login {
-    width: 500px;
+    width: 450px;
     height: auto;
     margin-left: auto;
     margin-right: auto;
-    background-color: var(--cinzamaisclaro);
+    background-color:var(--cinzaclaro);
     padding: 1rem;
-    border-radius: 1rem;
+    border-radius: 0.5rem;
 }
 
 .card-login .ReturnToLogin {
@@ -50,29 +50,43 @@
 }
 
 .label-login {
-    color: var(--azulbtnsair);
-    padding: 0.5rem;
+    color:var(--azulumpoucosaturado);
+    padding: 1rem;
     font-size: 2rem;
-    text-align: center;
+    text-align: left;
     font-weight: bold;
 }
 
-.input-senha,
-.input-email {
-    background-color: var(--branco);
+.input-box{
+    display: flex;
+    border-radius: 10px;
+    padding: 18px 20px;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--cinzaBackground);
     font-family: 'Poppins';
     font-weight: bold;
     width: 100%;
     font-size: 1rem;
     color: var(--cinzaescuro);
-    margin-top: 10px;
-    padding: 13px 18px;
-    border-radius: 10px;
-    outline: 0px;
-    border-style: solid;
-    border-width: 1px;
-    border-color: var(--azulmenulateral);
+    margin-top: 5px;
 }
+.input-box .input-email{
+    width: 100%;
+    border: none;
+    outline: none;
+    
+    background-color: transparent;
+    
+}
+.input-box .input-senha{
+    width: 100%;
+    border: none;
+    outline: none;
+    
+    background-color: transparent;
+}
+
 
 .div-titulo2 {
     padding: 0.2rem 1rem;
@@ -89,6 +103,7 @@
 
 .div-login {
     padding: 0.5rem;
+    margin-top: 10px;
     display: flex;
     justify-content: center;
 }
@@ -149,11 +164,11 @@
     cursor: pointer;
     padding: 1rem;
     width: 30%;
-    background-color: var(--azulbtnsair);
+    background-color: var(--azulumpoucosaturado);
     color: var(--branco);
     font-weight: bold;
     font-size: 1rem;
-    border-radius: 1rem;
+    border-radius: 20px;
     margin-left: 10px;
     margin-right: 10px;
     border-width: 0px;
@@ -169,11 +184,11 @@
     cursor: pointer;
     padding: 1rem;
     width: 30%;
-    background-color: var(--branco);
+    background-color:transparent;
     text-decoration: none;
     font-weight: bold;
     font-size: 1rem;
-    border-radius: 1rem;
+    border-radius: 20px;
     margin-left: 10px;
     margin-right: 10px;
     border-width: 1px;

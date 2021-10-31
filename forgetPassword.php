@@ -32,10 +32,11 @@
             <form name="form-senha" id="form-senha" method="POST" action="DAO/consulta-email.php">
                 <div class="div-titulo3">
                     <label class="label-erro" id="label-email"></label>
+                    <div class="input-box">
                     <input type="text" class="input-email" name="txtEmail" id="txtEmail"
                         placeholder="Digite seu email para recuperar sua conta..." value="<?php if(isset($_SESSION['email'])){
                                                                                                                                     echo $_SESSION['email'];
-                                                                                                                                } ?>">
+                                                                                                                                } ?>"><i class="fa fa-envelope" aria-hidden="true"></i></div>
                 </div>
                 <div class="div-login">
                     <button class="btn-login" name="btn-senha" id="btn-senha" type="submit">Enviar</button>

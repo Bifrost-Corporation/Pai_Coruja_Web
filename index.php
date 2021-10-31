@@ -6,8 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#042243">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <link rel="manifest" href="manifest.json">
+    
     <title>Login - Pai Coruja</title>
 </head>
 
@@ -17,17 +19,21 @@
         <div class="content-logoPaiCoruja">
                 <img src="img/pai_coruja_3.png" class="logo-login">
             </div>
-            <div>
+            <div class="container-title-hr-login">
                 <p class="label-login">Login</p>
+                
             </div>
             <form name="form-login" method="POST" action="DAO/consulta-login.php">
                 <div class="div-titulo3">
                     <label class="label-erro" id="label-email"></label>
-                    <input type="email" class="input-email" name="txtEmail" id="txtEmail" placeholder="Digite seu email">
-                </div>
+                    <div class="input-box">
+                    <input type="email" class="input-email" name="txtEmail" id="txtEmail" placeholder="Digite seu email"><i class="fa fa-envelope" aria-hidden="true"></i>
+                    </div>
+                 </div>
                 <div class="div-titulo3">
                     <label class="label-erro" id="label-senha"></label>
-                    <input type="password" class="input-senha" name="txtSenha" id="txtSenha" placeholder="Digite sua senha">
+                    <div class="input-box"><input type="password" class="input-senha" name="txtSenha" id="txtSenha" placeholder="Digite sua senha"><i class="fa fa-unlock-alt" aria-hidden="true"></i></div>
+                    
                 </div>
                 <div class="div-login">
                     <input type="checkbox" name="checkbox" id="checkbox" class="cb-conectado">
@@ -35,7 +41,7 @@
                 </div>
                 <div class="div-login">
                     <button class="btn-esqueci"><a href="forgetPassword.php">Esqueci</a></button>
-                    <button class="btn-login" name="btn-login" id="btn-login" type="submit">Entrar</button>
+                    <button class="btn-login" name="btn-login" id="btn-login" type="submit">Entrar ></button>
                 </div>
             </form>
             <div class="div-login">
