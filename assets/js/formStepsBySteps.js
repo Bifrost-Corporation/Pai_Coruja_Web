@@ -187,6 +187,7 @@ function linkEtapa2Form2(){
     $progressCheckForm2[current - 1].classList.remove('actived')
 }
 function linkEtapa3Form2(){
+    /*
     var nomeTurma = $('#txtNomeTurma').val();
     if (nomeTurma.length != 3) {
         $('#label-nomeTurma').html('Por favor, preencha o campo de nome para a turma corretamente!');
@@ -197,11 +198,14 @@ function linkEtapa3Form2(){
             $('#txtNomeTurma').removeClass('erro-form');
         }, 5000);
     }else{
+    */
             $slidePageForm2.style.marginLeft = "-50%"
             $bulletsForm2[current - 1].classList.add('actived')
             $progressTextForm2[current - 1].classList.add('actived')
             $progressCheckForm2[current - 1].classList.add('actived')
+    /*
     }
+    */
     
 }
 function linkEtapa4Form2(){
