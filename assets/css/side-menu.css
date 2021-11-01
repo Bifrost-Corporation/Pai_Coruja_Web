@@ -327,7 +327,7 @@
     flex-direction: column;
     list-style: none;
 }
-.dropdown-menu-profile .opcoes-drop-profile li{
+.dropdown-menu-profile .opcoes-drop-profile .online-li{
     padding: 0.5rem 1rem;
     font-size: 0.8rem;
     display: flex;
@@ -335,10 +335,20 @@
     gap: 1rem;
 }
 
+.drop-profile-li a{
+    padding: 0.5rem 1rem;
+    color: var(--cinzamaisclaro);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.8rem;
+}
+
 .dropdown-menu-profile .opcoes-drop-profile .drop-profile-li:hover{
     background-color: var(--cinzaescuro);
     cursor: pointer;
-    user-select: none;
+    user-select:none;
 }
 
 
@@ -404,6 +414,7 @@
   .slider.round:before {
     border-radius: 50%;
   }
+
 
 /* MENU COMPACTO WEB */
 @media (min-width: 720px) {

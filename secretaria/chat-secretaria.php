@@ -56,20 +56,22 @@
                                 <span class="slider round"></span>
                             </label>
                         </li>
-                        <li class="drop-profile-li">
-                            <i class="fas fa-user-cog"></i>
-                            <small>Trocar Imagem de Perfil</small>
+                        <li class="drop-profile-li" id="alterar-imagem-perfil">
+                            <a>
+                                <i class="fas fa-user-cog"></i>
+                                <small>Trocar Imagem de Perfil</small>
+                            </a>
                         </li>
                         <li class="drop-profile-li">
-                            <i class="fas fa-sign-out-alt" id="logout-user"></i>
-                            <small>Sair</small>
+                            <a href="logout.php">
+                                <i class="fas fa-sign-out-alt" id="logout-user"></i>
+                                <small>Sair</small>
+                            </a>
                         </li>
-                        
-
                     </ul>
                 </div>
 
-
+            
 
 
             </nav>
@@ -230,6 +232,42 @@
         </ul>
     </div>-->
 
+
+    <div id="modalProfile" class="modal modal-profile">
+            
+            <!-- Modal content -->
+        <div class="modal-content-profile">
+            <div class="card-perfil">
+                <span class="closeModalProfile"><i class="fas fa-times"></i></span>
+                <div class="perfil-modal-body">
+                    <img src="../img/usuario-de-perfil.png" alt="Sua Foto de Perfil" style="align-self: center;">
+                    <div>
+                        <h1><?php echo $_SESSION['nomeSecretaria'] ?></h1>
+                        <small>Secretário(a) Escolar</small>
+                    </div>
+                    <form class="formulario" name="formImagemPerfil" id="formImagemPerfil" action="../DAO/inserir-imagem-secretaria.php" method="POST" enctype="multipart/form-data">
+                        <div class="user-details">
+                            <div class="input-box-width100">
+                                <label class="label-erro" id="label-foto"></label>
+                                <div>
+                                    <label class="carregar-imagem-perfil" for="arquivo">Carregar Imagem Perfil</label>
+                                    <input name="arquivo" id="arquivo" type="file" accept="image/*">
+                                    <label class="label-erro" id="label-arquivo"></label>
+                                    <span id="nome-arquivo"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <input class="btn-nav-exit cadastrar-prof-step" type="submit" value="Enviar">
+                    </form> 
+                </div>
+                
+            </div>
+        </div>
+
+    </div>
+
+    <script src="../assets/js/modalProfile.js"></script>
     <script src="../assets/js/nav.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.js"></script>

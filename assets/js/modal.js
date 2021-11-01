@@ -23,3 +23,4 @@ window.onclick = function(event) {
     modal.classList.toggle("modal-active");
   }
 }
+

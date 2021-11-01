@@ -1,7 +1,7 @@
 .card-perfil{
-    margin: auto auto;
+    margin: auto 30%;
     box-shadow: 0rem 0.5rem 2rem 0.2 var(--cinzaclaro);
-    padding: 3rem;
+    /* padding: 3rem; */
     border-radius: 1rem;
     gap: 1rem;
     background-color: var(--branco);
@@ -10,7 +10,13 @@
     text-align: center;
 }
 
+.perfil-modal-body{
+    padding: 1rem;
+    color: var(--cinzafonte);
+}
+
 .card-perfil img{
+    margin: auto auto;
     border-radius: 50%;
     height: 250px;
     width: 250px;
@@ -27,3 +33,21 @@
     color: var(--cinzamaisclaro);
     font-weight: bold;
 }
+
+.closeModalProfile {
+    margin-top: 10px;
+    margin-left: 30.5%;
+    display: flex;
+    justify-content: end;
+    position: absolute;
+    color: #aaaaaa;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .closeModalProfile:hover,
+  .closeModalProfile:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
