@@ -15,6 +15,6 @@ modalProfileClose.onclick = function() {
 
 window.onclick = function(event) {
   if (event.target == modalProfileContent) {
-    modalProfileContent.classList.target("modal-active");
+    modalProfileContent.classList.toggle("modal-active");
   }
 }

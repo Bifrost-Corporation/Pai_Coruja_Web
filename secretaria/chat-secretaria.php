@@ -32,7 +32,7 @@
                 <a href=""><img class="logo-img" src="../img/pai_coruja_branca.png"></a>
                 </div>
                 <button class="profile">
-                    <div class="profile-details">
+                    <div class="profile-details" id="openProfile">
                         <img src="../img/macacopc.gif" alt="">
                         <!-- <div class="name-job">
                             <div class="name-menu"><?php echo $_SESSION['nomeSecretaria'] ?></div>                                <small class="job-menu">Olá Secretário(a)</small>

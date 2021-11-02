@@ -247,13 +247,8 @@
     
     transition: 200ms;
 }
-.profile .profile-details:hover{
-    background-color: var(--cinzamaisclaro);
-    padding: 0.2rem 0.5rem;
-    border-radius: 0.5rem;
-    color: var(--cinzafonte);
-    transform: scale(0.9);
-    transition: 200ms;
+.profile .profile-details img:hover{
+    cursor: pointer;
 }
 
 .profile-details img {
@@ -292,7 +287,11 @@
     top: 52px;
     right: 35px;
     padding: 0.5rem 0;
+    display: none;
+}
 
+.dropdown-menu-profile-active{
+    display: block;
 }
 
 .dropdown-menu-profile .profile-details{
