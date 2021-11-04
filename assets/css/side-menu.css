@@ -77,7 +77,8 @@
     z-index: 1;
     padding: 0 2rem;
     width: 100%;
-    height: 56px;
+    height: 60px;
+
     background-color: var(--azulumpoucosaturado);
     display: flex;
     justify-content:space-between;
@@ -85,21 +86,26 @@
 }
 .content-logo-btn{
     display: flex;
+    align-items: center;
     color:var(--cinzamaisclaro);
     
+
+    font-size: 0.5rem;
 }
+
 .logo-img {
     align-items: center;
-    width: 100px;
+    width: 80px;
     margin-left: 20px;
 }
 
 .ul-area-btn {
+    align-items: center;
     list-style: none;
     text-align: center;
     align-items: center;
     display: flex;
-    font-size: 30px;
+    font-size: 20px;
 }
 
 .nav-li {
@@ -122,6 +128,8 @@
     overflow-x: hidden;
     transition: 200ms ease;
 }
+
+
 
 .sidebar .logo-content {
     margin-bottom: 40px;
@@ -239,7 +247,7 @@
 }
 .profile .profile-details{
     background-color: var(--azulumpoucosaturado);
-    padding: 0.2rem 0.5rem;
+    /* padding: 0.2rem 0.5rem; */
     border-radius: 0.5rem;
     display: flex;
     flex-direction: row-reverse;
@@ -414,8 +422,58 @@
     border-radius: 50%;
   }
 
-
 /* MENU COMPACTO WEB */
+
+.sidebar-compact {
+    height: 100vh;
+    width: auto;
+    background: var(--azulumpoucosaturado);
+    padding: 6px 14px;
+    position: fixed;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    transition: 200ms ease;
+}
+
+.sidebar-compact ul li a span {
+    display: none;
+    /* z-index: -1;
+    opacity: 0;
+    margin-left: 4rem;
+    font-size: 12px;
+    position: fixed;
+    line-height: 15px; */
+}
+
+
+.sidebar-compact ul li a i {
+    /* width: 10px; */
+    /* position: absolute; */
+    display: flex;
+    justify-content: center;
+}
+
+.sidebar-compact ul li a {
+    margin: 0.3rem;
+    padding: 1rem;
+    /* border-radius: 0px 20px 20px 0px; */
+    color: var(--cinzaclaro100);
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.sidebar-compact ul li a:hover .sidebar-compact ul li a span{
+    z-index: 10 !important;
+    opacity: 1 !important;
+    margin-left: 4rem;
+    font-size: 12px;
+    position: fixed;
+    line-height: 15px;
+}
+
 @media (min-width: 720px) {
     .container-maior{
         transition: 200ms ease;

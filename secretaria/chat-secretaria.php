@@ -26,10 +26,10 @@
         <header>
             <nav class="nav-bar">
                 <div class="content-logo-btn">
-                <ul class="ul-area-btn">
-                    <li class="nav-li"><a class="btn-nav-open"><i class="fas fa-bars"></i></a></li>
-                </ul>
-                <a href=""><img class="logo-img" src="../img/pai_coruja_branca.png"></a>
+                    <ul class="ul-area-btn">
+                        <li class="nav-li"><a class="btn-nav-pc-open"><i class="fas fa-bars"></i></a></li>
+                    </ul>
+                    <a href=""><img class="logo-img" src="../img/pai_coruja_branca.png"></a>
                 </div>
                 <button class="profile">
                     <div class="profile-details" id="openProfile">
@@ -125,7 +125,7 @@
                 </ul>
                 
             </div>
-            </header>
+        </header>
 
 
         <main class="container-main">

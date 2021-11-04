@@ -4,7 +4,7 @@
 .container-main {
     color: var(--cinzafonte);
     flex-wrap: wrap;
-    padding-top: 10vh;
+    padding-top: 60px;
     padding-bottom: 0px;
     position: relative;
     display: flex;
