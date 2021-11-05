@@ -220,7 +220,7 @@
         
     
 
-    <main>
+    <main class="container-main">
         
         
         

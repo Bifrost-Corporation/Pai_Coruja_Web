@@ -44,10 +44,9 @@ function Navbar1(botaoAbrir, menu, botaoFechar, container,container2) {
 
         menuNav.classList.toggle("sidebar-compact")
         containerMain.classList.toggle("container-maior")
-        containerDash.classList.toggle("container-maior")
     });
 
 }
 
-const mobileMenu3 = new Navbar1(".btn-nav-pc-open", ".sidebar", ".btn-nav-pc-open", ".container-main",".container-dash")
+const mobileMenu3 = new Navbar1(".btn-nav-pc-open", ".sidebar", ".btn-nav-pc-open", ".container-main")
 

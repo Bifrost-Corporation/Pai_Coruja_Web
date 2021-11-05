@@ -129,7 +129,7 @@
     height: 100vh;
     width: 240px;
     background: var(--azulumpoucosaturado);
-    padding: 6px 14px;
+    padding: 6px 6px;
     position: fixed;
     border-right: solid;
     border-color: var(--azulbtnsair);
