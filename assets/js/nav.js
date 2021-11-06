@@ -12,26 +12,6 @@ const dropdownProfile = document.querySelector(".dropdown-menu-profile")
   }
 
 
-// // COD PRA ABRIR O MENU NO MOBILE E OS DROPDOWN
-// function Navbar(botaoAbrir, menu, botaoFechar) {
-//     const botaoAbrirNav = document.querySelector(botaoAbrir)
-//     const menuNav = document.querySelector(menu)
-//     const botaoFecharNav = document.querySelector(botaoFechar)
-
-//     botaoAbrirNav.addEventListener("click", function() {
-//         console.log(menuNav)
-//         menuNav.style.display = "block"
-//     });
-
-//     botaoFecharNav.addEventListener("click", function() {
-//         console.log(menuNav)
-//         menuNav.style.display = "none"
-//     });
-
-// }
-
-// const mobileMenu = new Navbar(".btn-nav-open", ".sidebar", ".btn-nav-close", ".container-main")
-
 function valor_cookie(nome_cookie) {
     // Adiciona o sinal de = na frente do nome do cookie
     var cname = ' ' + nome_cookie + '=';
@@ -59,6 +39,8 @@ function valor_cookie(nome_cookie) {
     return cookies
 }
 
+
+
 // Verificar se o cookie do navbar compacto é true para deixar ativado quando trocar de pag
 {
     const containerMain = document.querySelector(".container-main")
@@ -67,7 +49,7 @@ function valor_cookie(nome_cookie) {
     let cookie = valor_cookie('Compact-Menu-boolean')
     console.log(cookie)
 
-    if (cookie == 'Enabled'){
+    if (cookie == 'True'){
         menuNav.classList.toggle("sidebar-compact")
         containerMain.classList.toggle("container-maior")
     }
@@ -80,29 +62,29 @@ function Navbar1(botaoAbrir, menu, botaoFechar, container) {
     const menuNav = document.querySelector(menu)
     const botaoFecharNav = document.querySelector(botaoFechar)
     const containerMain = document.querySelector(container)
+    
+    let cookie = valor_cookie('Compact-Menu-boolean')
+    console.log(cookie)
 
     botaoAbrirNav.addEventListener("click", function() {
-
-        let cookie = valor_cookie('Compact-Menu-boolean')
-        console.log(cookie)
-
         if (window.innerWidth > 720){
             console.log(menuNav)
-
-           
-            if (cookie == 'Enabled'){
+            if (cookie == 'True'){
                 menuNav.classList.toggle("sidebar-compact")
                 containerMain.classList.toggle("container-maior")
-                document.cookie = 'Compact-Menu-boolean=Disabled;path=/;';
+                console.log(cookie+"dfgfg")
+                document.cookie = 'Compact-Menu-boolean=False;path=/;';
             }else{
                 menuNav.classList.toggle("sidebar-compact")
                 containerMain.classList.toggle("container-maior")
-                document.cookie = 'Compact-Menu-boolean=Enabled;path=/;';
+                console.log(cookie+" nãoddddd")
+                document.cookie = 'Compact-Menu-boolean=True;path=/;';
             }
         }else{
-            if (cookie == 'Enabled'){
+            if (cookie == 'True'){
                 menuNav.classList.toggle("sidebar-mobile-active")
                 menuNav.classList.remove("sidebar-compact")
+                console.log(cookie)
             }else{
                 menuNav.classList.toggle("sidebar-mobile-active")
             }
@@ -111,64 +93,27 @@ function Navbar1(botaoAbrir, menu, botaoFechar, container) {
     });
 
     botaoFecharNav.addEventListener("click", function() {
-        let cookie = valor_cookie('Compact-Menu-boolean')
-        console.log(cookie)
-
-        if (cookie == 'Enabled'){
-            menuNav.classList.toggle("sidebar-mobile-active")
+        if (cookie == 'True'){
+            menuNav.classList.remove("sidebar-mobile-active")
             menuNav.classList.add("sidebar-compact")
+            console.log(cookie)
         }else{
-            menuNav.classList.toggle("sidebar-mobile-active")
+            menuNav.classList.remove("sidebar-mobile-active")
+        }
+    })
+
+    window.addEventListener('resize',()=>{
+        if (window.innerWidth > 720) {
+            if (cookie == 'True'){
+                menuNav.classList.remove("sidebar-mobile-active")
+                menuNav.classList.add("sidebar-compact")
+            }else{
+                menuNav.classList.remove("sidebar-mobile-active")
+            }
         }
     })
 }
 
 const mobileMenu3 = new Navbar1(".btn-nav-pc-open", ".sidebar", ".btn-nav-close", ".container-main")
 
-
-{
-    const containerMain = document.querySelector(".container-main")
-    const menuNav = document.querySelector(".sidebar")
-
-    const botaoAbrirNav = document.querySelector(".btn-nav-pc-open")
-
-    let cookie = valor_cookie('Compact-Menu-boolean')
-    console.log(cookie)
-    
-    if (window.innerWidth < 720 && cookie == "True") {
-        menuNav.classList.remove("sidebar-compact")
-    }
-    else if (window.innerWidth > 720 && cookie == "True") {
-        menuNav.classList.add("sidebar-compact")
-    }
-
-}
-
-
-window.addEventListener('resize',()=>{
-    let control = 0
-    const containerMain = document.querySelector(".container-main")
-    const menuNav = document.querySelector(".sidebar")
-    console.log("rfffr");
-
-    if (control == 0){
-        control += 1
-    }else{
-        if (window.innerWidth < 1000) {
-            menuNav.classList.toggle("sidebar-compact")
-            containerMain.classList.toggle("container-maior")
-        }
-    }
-
-    
-})
-    
-
-
-if (window.matchMedia("(max-width: 1000px)").matches) {
-    
-
-        
-        
-    }
 

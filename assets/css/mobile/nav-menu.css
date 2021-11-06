@@ -70,7 +70,7 @@
     align-items: center;
 }
 .sidebar {
-    margin-left: -50%;
+    margin-left: -240px;
     z-index: 100000;
 }
 .sidebar-mobile-active {
