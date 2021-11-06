@@ -173,78 +173,89 @@
         */
     ?>
 <header>
-
-<nav class="nav-bar">
-    <a href=""><img class="logo-img" src="../img/pai_coruja_branca.png"></a>
-    <ul class="ul-area-btn">
-        <li class="nav-li"><a class="btn-nav-open"><i class="fas fa-bars"></i></a></li>
-    </ul>
-</nav>
-
-<div class="sidebar">
-    <div class="logo-content">
-        <div class="logo">
-            <div class="logo-name"><a class="btn-nav-pc-open"><img src="../img/pai_coruja_branca.png"></a>
-            <!-- <i class="fas fa-bars">dffg</i> -->
-        </div>
-            <div class="close-mobile-navbar">
-                <span>Menu Pai Coruja</span>
-                <a class="btn-nav-close"><i class="far fa-window-close"></i></a>
-            </div>
-        </div>
-    </div>
-    <ul class="nav-list">
-        <div class="menu-container">
-            <!-- <span>fernfjk</span> -->
-            <li class="links-name">
-                <a href="home-adm.php" class="active-nav">
-                    <i class="fas fa-calendar"></i>
-                    <span class="links-name">Dashboard</span>
-                </a>
-            </li>
-            <li class="links-name">
-                <a href="cadastrar-escola.php">
-                    <i class="fas fa-school"></i>
-                    <span class="links-name">Cadastrar Escola</span>
-                </a>
-            </li>
-            <li class="links-name">
-            <a href="visualizar-dados.php">
-                    <i class="fas fa-school"></i>
-                    <span class="links-name">Listar Dados</span>
-                </a>
-            </li>
-        </div>
-    </ul>
-    <div class="profile-content">
-        <div class="profile-menu">
-            <a href="logout.php">
-                <i class="fas fa-sign-out-alt" id="logout-user"></i>
-                <span>Logout</span>
-            </a>
-            <a href="#">
-                <i class="fas fa-user-cog"></i>
-                <span>Configurações</span>
-            </a>
-        </div>
-        <div class="profile">
-            <div class="profile-details">
-                <img src="../img/usuario-de-perfil.png" alt="">
-                <div class="name-job">
-                    <div class="name-menu">Admin</div>
-                    <div class="job-menu">Olá Administrador(a)</div>
+            <nav class="nav-bar">
+                <div class="content-logo-btn">
+                    <ul class="ul-area-btn">
+                        <li class="nav-li"><a class="btn-nav-pc-open"><i class="fas fa-bars"></i></a></li>
+                    </ul>
+                    <a href="home-adm.php"><img class="logo-img" src="../img/pai_coruja_branca.png"></a>
                 </div>
+                <button class="profile">
+                    <div class="profile-details" id="openProfile">
+                        <img src="../img/macacopc.gif" alt="">
+                    </div>
+                </button>
+
+                <div class="dropdown-menu-profile">
+                    <div class="profile-details">
+                        <img src="../img/macacopc.gif" alt="">
+                        <div class="name-job">
+                            <div class="name-menu">Administrador</div>
+                            <small class="job-menu">Olá Administrador(a)</small>
+                        </div>
+                    </div>
+                    <ul class="opcoes-drop-profile">
+                        <li class="online-li">
+                            <label for="">Online</label>
+                            <label class="switch">
+                                <input type="checkbox" checked>
+                                <span class="slider round"></span>
+                            </label>
+                        </li>
+                        <li class="drop-profile-li">
+                            <a href="logout.php">
+                                <i class="fas fa-sign-out-alt" id="logout-user"></i>
+                                <small>Sair</small>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+            
+
+
+            </nav>
+
+            <div class="sidebar">
+                <div class="logo-content">
+                    <div class="logo">
+                        <div class="logo-name">
+                        <i class="fas fa-arrow-left"></i>
+                    </div>
+                        <div class="close-mobile-navbar">
+                            <span>Menu Pai Coruja</span>
+                            <a class="btn-nav-close"><i class="far fa-window-close"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <ul class="nav-list">
+                    <div class="menu-container">
+                        <li class="links-name">
+                            <a href="home-adm.php" class="active-nav">
+                                <i class="fas fa-calendar"></i>
+                                <span class="links-name tooltip">Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="links-name">
+                            <a href="cadastrar-escola.php">
+                                <i class="fas fa-school "></i>
+                                <span class="links-name tooltip">Cadastrar Escola</span>
+                            </a>
+                        </li>
+                        <li class="links-name">
+                        <a href="visualizar-dados.php">
+                                <i class="fas fa-school"></i>
+                                <span class="links-name tooltip">Visualizar Dados</span>
+                            </a>
+                        </li>
+                    </div>
+                </ul>
+                
             </div>
-        </div>
-    </div>
-</div>
-</header>
+        </header>
 
-        
-    
 
-    <main>
-        
+        <main class="container-main">
         
         
         <div class="container-dash">
