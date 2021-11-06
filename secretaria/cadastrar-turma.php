@@ -155,13 +155,20 @@
 
 
         <section class="main-section" id="Topo">
-            <form name="nomeTurma" class="formulario" method="POST" action="../DAO/inserir-turma.php">
+            <form name="nomeTurma" class="formulario" method="POST" action="../DAO/inserir-turma-planilha.php" enctype="multipart/form-data">
                 <div class="user-details">
                     <input type="hidden" id="idTurma" name="idTurma" value="<?php echo @$_GET['idTurma'] ?>">
                     <div class="input-box-width100">
                         <h2>Nome da Turma:</h2>
-                        <label class="label-erro" id="label-nome"></label>
-                        <input name="txtNomeTurma" id="txtNomeTurma" type="text" placeholder="Insira o nome da turma" value="<?php echo @$_GET['nomeTurma'] ?>">
+                        <div class="input-box-width100">
+                            <label class="label-erro" id="label-foto"></label>
+                            <div>
+                                <label class="carregar-imagem-perfil" for="arquivo">Carregar Planilha Turma</label>
+                                <input name="arquivo" id="arquivo" type="file">
+                                <label class="label-erro" id="label-arquivo"></label>
+                                <span id="nome-arquivo"></span>
+                            </div>
+                        </div>
                     </div>
                     <div class="button">
                         <input type="submit" class="btn-nav-exit" value="Cadastrar">
@@ -219,7 +226,7 @@
                    </thead>
                    <tbody>
                    <?php
-                        $listaTurma = $turma->listar();
+                        $listaTurma = $turma->listar($_SESSION['idEscola']);
                         foreach($listaTurma as $linha){
                    ?>
                         <tr>
