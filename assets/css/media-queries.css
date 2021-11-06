@@ -39,11 +39,7 @@
     
 }
 
-@media (min-width:720px) {
-    .sidebar {
-        display: block !important;
-    }
-}
+
 
 @media (max-width:720px) {
     .container-main,.container-dash {
@@ -56,6 +52,8 @@
     .profile-content {
         width: auto;
     }
+    
+
 }
 
 @media (max-width:550px) {

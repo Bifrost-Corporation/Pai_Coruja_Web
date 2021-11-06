@@ -302,7 +302,7 @@
 @media (min-width: 720px) {
     .container-maior{
         transition: 200ms ease;
-        margin-left: 70px !important;
+        margin-left: 65px !important;
     }
     
 }

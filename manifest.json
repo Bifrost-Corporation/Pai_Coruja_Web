@@ -5,8 +5,8 @@
   "display_override": ["window-control-overlay", "standalone"],
   "display": "standalone",
   "orientation": "portrait",
-  "theme_color": "#042243",
-  "background_color": "#042243",
+  "theme_color": "#0d2591",
+  "background_color": "#0d2591",
   "description": "Agora você pode conversar direto com o professor de seu filho, secretaria, ver as novidades da escola, consultar a ‘agenda escolar’ de seu filho sem intermediários, tudo de uma forma fácil e prática.",
   "screenshots": [{
     "src": "img/macos.png",
