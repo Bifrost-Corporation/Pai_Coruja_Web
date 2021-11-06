@@ -94,31 +94,31 @@
                         <li class="links-name">
                             <a href="dashboard.php">
                                 <i class="fas fa-calendar"></i>
-                                <span class="links-name">Dashboard</span>
+                                <span class="links-name tooltip">Dashboard</span>
                             </a>
                         </li>
                         <li class="links-name">
                             <a href="cadastrar-dados.php">
-                                <i class="fas fa-school"></i>
-                                <span class="links-name">Cadastrar Dados</span>
+                                <i class="fas fa-school "></i>
+                                <span class="links-name tooltip">Cadastrar Dados</span>
                             </a>
                         </li>
                         <li class="links-name">
                         <a href="visualizar-dados.php">
                                 <i class="fas fa-school"></i>
-                                <span class="links-name">Alterar Dados</span>
+                                <span class="links-name tooltip">Alterar Dados</span>
                             </a>
                         </li>
                         <li class="links-name">
                             <a href="cadastrar-evento.php">
                                 <i class="fas fa-school"></i>
-                                <span class="links-name">Gerenciar Eventos</span>
+                                <span class="links-name tooltip">Gerenciar Eventos</span>
                             </a>
                         </li>
                         <li class="links-name">
                             <a href="chat-secretaria.php" class="active-nav">
                             <i class="fa fa-comment" aria-hidden="true"></i>
-                                <span class="links-name">Pai Coruja Chat</span>
+                                <span class="links-name tooltip">Pai Coruja Chat</span>
                             </a>
                         </li>
                     </div>
