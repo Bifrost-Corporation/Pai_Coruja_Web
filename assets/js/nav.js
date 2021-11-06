@@ -56,7 +56,7 @@ function valor_cookie(nome_cookie) {
     cookies = cookies.split('=')[1];
     
     // Retorna apenas o valor do cookie
-    return decodeURI(cookies);
+    return cookies
 }
 
 // Verificar se o cookie do navbar compacto é true para deixar ativado quando trocar de pag
@@ -67,7 +67,7 @@ function valor_cookie(nome_cookie) {
     let cookie = valor_cookie('Compact-Menu-boolean')
     console.log(cookie)
 
-    if (cookie == 'True'){
+    if (cookie == 'Enabled'){
         menuNav.classList.toggle("sidebar-compact")
         containerMain.classList.toggle("container-maior")
     }
@@ -90,17 +90,17 @@ function Navbar1(botaoAbrir, menu, botaoFechar, container) {
             console.log(menuNav)
 
            
-            if (cookie == 'True'){
+            if (cookie == 'Enabled'){
                 menuNav.classList.toggle("sidebar-compact")
                 containerMain.classList.toggle("container-maior")
-                document.cookie = 'Compact-Menu-boolean=False';
+                document.cookie = 'Compact-Menu-boolean=Disabled;path=/;';
             }else{
                 menuNav.classList.toggle("sidebar-compact")
                 containerMain.classList.toggle("container-maior")
-                document.cookie = 'Compact-Menu-boolean=True';
+                document.cookie = 'Compact-Menu-boolean=Enabled;path=/;';
             }
         }else{
-            if (cookie == 'True'){
+            if (cookie == 'Enabled'){
                 menuNav.classList.toggle("sidebar-mobile-active")
                 menuNav.classList.remove("sidebar-compact")
             }else{
@@ -114,7 +114,7 @@ function Navbar1(botaoAbrir, menu, botaoFechar, container) {
         let cookie = valor_cookie('Compact-Menu-boolean')
         console.log(cookie)
 
-        if (cookie == 'True'){
+        if (cookie == 'Enabled'){
             menuNav.classList.toggle("sidebar-mobile-active")
             menuNav.classList.add("sidebar-compact")
         }else{
