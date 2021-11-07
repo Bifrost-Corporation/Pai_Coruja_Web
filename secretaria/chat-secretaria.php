@@ -133,7 +133,7 @@
             <section class="area-chat">
             <div class="menu-lateral">
                     <div class="header-menu-lateral-title">
-                        <h3>Chat</h3>
+                       
                         <div class="container-box-search">
                             <form action="">
                                 <input type="text" placeholder="Buscar..">
@@ -144,7 +144,7 @@
                     </div>
                     <div class="container-area-conversa">
                         <div class="header-container-area-conversa">
-                        <h3>Recentes</h3>
+                         
                         </div>
                         
                     <ul>
@@ -175,7 +175,7 @@
                     
                     </div>
                     <div class="footer-area-conversa">
-
+                        <a href=""><h3>Nova Conversa</h3></a>
                     </div>
                 </div>
                 <div class="caixa-chat ">
@@ -203,7 +203,35 @@
                     </div>
                 </div>
             </section>
-
+            <section class="modal-nova-conversa">
+                <div class="header-modal-nova-conversa">
+                    <h3><i class="fa fa-arrow-left" aria-hidden="true"></i> Lista de Contatos</h3>
+                </div>
+                <div class="container-checklist">
+                    <ul class="list-turma">
+                    <input type="checkbox" class="check-options-all"name="" id="option-all">
+                        <label for="option-all">1° A</label>
+                        <ul class="ul-checkbox-options">
+                            <li>
+                            <input class="check-options" type="checkbox" name="" id="responsavel1">
+                            <label for="responsavel1">Claudin</label>
+                            </li>
+                            <li>
+                            <input class="check-options" type="checkbox" name="" id="responsavel1">
+                            <label for="responsavel1">Claudin</label>
+                            </li>
+                            <li>
+                            <input class="check-options" type="checkbox" name="" id="responsavel1">
+                            <label for="responsavel1">Claudin</label>
+                            </li>
+                            <li>
+                            <input class="check-options" type="checkbox" name="" id="responsavel1">
+                            <label for="responsavel1">Claudin</label>
+                            </li> 
+                        </ul>
+                    </ul>
+                </div>
+            </section>            
         </main>
         
        

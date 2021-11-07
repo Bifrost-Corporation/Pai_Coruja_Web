@@ -17,18 +17,56 @@
     <?php
         include ('sentinela.php');
     ?>
-       <header>
+        <header>
             <nav class="nav-bar">
-                <a href=""><img class="logo-img" src="../img/pai_coruja_branca.png"></a>
-                <ul class="ul-area-btn">
-                    <li class="nav-li"><a class="btn-nav-open"><i class="fas fa-bars"></i></a></li>
-                </ul>
+                <div class="content-logo-btn">
+                    <ul class="ul-area-btn">
+                        <li class="nav-li"><a class="btn-nav-pc-open"><i class="fas fa-bars"></i></a></li>
+                    </ul>
+                    <a href="dashboard.php"><img class="logo-img" src="../img/pai_coruja_branca.png"></a>
+                </div>
+                <button class="profile">
+                    <div class="profile-details" id="openProfile">
+                        <img src="../img/macacopc.gif" alt="">
+                    </div>
+                </button>
+
+                <div class="dropdown-menu-profile">
+                    <div class="profile-details">
+                        <img src="../img/macacopc.gif" alt="">
+                        <div class="name-job">
+                            <div class="name-menu"><?php echo $_SESSION['nomeSecretaria'] ?></div>
+                            <small class="job-menu">Olá Secretário(a)</small>
+                        </div>
+                    </div>
+                    <ul class="opcoes-drop-profile">
+                        <li class="online-li">
+                            <label for="">Online</label>
+                            <label class="switch">
+                                <input type="checkbox" checked>
+                                <span class="slider round"></span>
+                            </label>
+                        </li>
+                        <li class="drop-profile-li" id="alterar-imagem-perfil">
+                            <a>
+                                <i class="fas fa-user-cog"></i>
+                                <small>Trocar Imagem de Perfil</small>
+                            </a>
+                        </li>
+                        <li class="drop-profile-li">
+                            <a href="logout.php">
+                                <i class="fas fa-sign-out-alt" id="logout-user"></i>
+                                <small>Sair</small>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </nav>
 
             <div class="sidebar">
                 <div class="logo-content">
                     <div class="logo">
-                        <div class="logo-name"><a href="home-adm.php"><img src="../img/pai_coruja_branca.png"></a>
+                        <div class="logo-name">
                         <i class="fas fa-arrow-left"></i>
                     </div>
                         <div class="close-mobile-navbar">
@@ -39,65 +77,50 @@
                 </div>
                 <ul class="nav-list">
                     <div class="menu-container">
-                        <!-- <span>fernfjk</span> -->
                         <li class="links-name">
                             <a href="dashboard.php">
                                 <i class="fas fa-calendar"></i>
-                                <span class="links-name">Dashboard</span>
+                                <span class="links-name tooltip">Dashboard</span>
                             </a>
                         </li>
                         <li class="links-name">
                             <a href="cadastrar-dados.php">
-                                <i class="fas fa-school"></i>
-                                <span class="links-name">Cadastrar Dados</span>
+                                <i class="fas fa-school "></i>
+                                <span class="links-name tooltip">Cadastrar Dados</span>
                             </a>
                         </li>
                         <li class="links-name">
                         <a href="visualizar-dados.php">
                                 <i class="fas fa-school"></i>
-                                <span class="links-name">Alterar Dados</span>
+                                <span class="links-name tooltip">Alterar Dados</span>
                             </a>
                         </li>
                         <li class="links-name">
                             <a href="cadastrar-evento.php" class="active-nav">
                                 <i class="fas fa-school"></i>
-                                <span class="links-name">Gerenciar Eventos</span>
+                                <span class="links-name tooltip">Gerenciar Eventos</span>
                             </a>
                         </li>
                         <li class="links-name">
-                            <a href="chat-secretaria.php">
-                                <i class="fas fa-school"></i>
-                                <span class="links-name">Pai Coruja Chat</span>
+                            <a href="chat-secretaria.php" >
+                            <i class="fa fa-comment" aria-hidden="true"></i>
+                                <span class="links-name tooltip">Pai Coruja Chat</span>
                             </a>
                         </li>
                     </div>
                 </ul>
-                <div class="profile-content">
-                    <div class="profile-menu">
-                        <a href="logout.php">
-                            <i class="fas fa-sign-out-alt" id="logout-user"></i>
-                            <span>Logout</span>
-                        </a>
-                        <a href="trocar-foto-perfil.php">
-                            <i class="fas fa-user-cog"></i>
-                            <span>Foto de perfil</span>
-                        </a>
-                    </div>
-                    <div class="profile">
-                        <div class="profile-details">
-                            <img src="../img/usuario-de-perfil.png" alt="">
-                            <div class="name-job">
-                                <div class="name-menu"><?php echo $_SESSION['nomeSecretaria'] ?></div>
-                                <div class="job-menu">Olá Secretário(a)</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
             </div>
-            </header>
+        </header>
 
+        
+    
 
-    <main class="container-dash">
+    <main class="container-main">
+        
+        
+
+        <div class="container-dash">
 
 
         <div class="ola-nav-dash">
@@ -142,6 +165,7 @@
                 </div>
             </form>
         </section>
+    </div>
     </main>
 
     <script src="../assets/js/nav.js"></script>

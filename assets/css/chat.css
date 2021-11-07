@@ -3,14 +3,11 @@
     display: flex;
 }
 .nav-chat{
-    padding-left: 2rem;
-
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+    padding: 0px 20px;
     width: 100%;
+    gap: 1rem;
     align-items: center;
-    height: 76px;
+    height: 10vh;
     display: flex;
     background:#f7f7f7;
 }
@@ -20,18 +17,17 @@
     margin-right:10px;
     border-radius: 51%;
 }
+.nav-chat .botao-contato-abrir{
+    outline: none;
+    border: none;
+    background-color: transparent;
+    font-size: 1rem;
+    display: none;
+}
 .name-user-chat{
     font-size: 1.25rem;
     
     color:var(--cinzafonte);
-}
-
-.botao-contato-abrir{
-    font-size: 1rem;
-    cursor: pointer;
-    color: var(--cinzafonte);
-    background-color: transparent;
-    border: 0;
 }
 
 .caixa-chat{
@@ -166,14 +162,18 @@
 /*Titulo menu lateral*/
 
 .header-menu-lateral-title{
-    position: relative;
+    position:absolute;
+    top: 0;
     width:100%;
     color: #1d1d1d;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 1rem;
-    background-color:#f7f7f7;
+    padding: 0.5rem 1rem;
+    background-color: var(--azulumpoucosaturado);
+    
+    
+    border-radius: 0rem 0rem 2rem 2rem;
 }
 
 
@@ -197,16 +197,15 @@
     display: flex;
     align-items:center;
     justify-content: center;
-    padding: 1rem 0rem;
+    padding: 0.5rem 0rem;
     
-    border-bottom: 1px solid #dcdcdc;
 }
 .container-box-search form{
     display: flex;
     flex-direction: row-reverse;
     width: 100%;
     justify-content: space-around;
-    background:#dcdcdc;
+    background-color: var(--cinzamaisclaro);
     border-radius: 25px;
     padding: 0.7rem;
     margin: 0rem 0rem;
@@ -244,9 +243,12 @@
 }
 .container-area-conversa{
     display: flex;
-    height: 40vh;
+    height: 80vh;
+    margin-top: 9vh;
+    padding-top: 5vh;
     flex-direction: column;
     overflow-y:auto ;
+    background-color: var(--cinzamaisclaro);
 }
 
 .area-botao-conversa{
@@ -308,7 +310,29 @@
     overflow: hidden; 
     text-overflow:ellipsis;
 }
+.footer-area-conversa{
+    display: flex;
+    border-radius: 1rem 1rem 0rem 0rem;
+    height: 10vh;
+    width: 100%;
+    color:var(--cinzamaisclaro);
+    background-color: var(--cinzaclaro100);
+    position:absolute;
+    bottom: 0;
+    align-items: center;
+    justify-content: center;
+    
 
+}
+.footer-area-conversa a{
+    padding:0.5rem 1.5rem;
+    border-radius: 1.5rem;
+    text-decoration: none;
+    background-color: var(--azulumpoucosaturado);
+    color: var(--cinzamaisclaro);
+    
+
+}
 /* FIM */
 
 .menu-lateral-active{
@@ -317,7 +341,61 @@
 
 /* FIM */
 
+/* MODAL NOVA CONVERSA */
+.modal-nova-conversa{
+    z-index:1;
+    position: absolute;
+    padding: 1rem;
+    align-items: center;
+    
+    background-color: var(--cinzamaisclaro);
+    box-shadow: 0rem 0rem 0.5rem 0.25rem var(--cinzafonte);
 
+}
+.container-checklist{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    padding:0rem;
+}
+
+.container-checklist .list-turma{
+    text-decoration: none;
+    list-style: none;
+    font-size: 1rem;
+    font-weight: 500;
+    padding:1rem ;
+    
+}
+.check-options-all{
+    
+    margin-bottom:1rem ;
+    
+}
+
+.container-checklist input[type="checkbox"]{
+    cursor: pointer;
+    
+    
+}
+.container-checklist label{
+
+    letter-spacing: 0.5px;
+
+    
+}
+
+
+.container-checklist .list-turma .ul-checkbox-options{
+    margin-left: 1rem;
+    text-decoration: none;
+    list-style: none;
+    font-size: 1rem;
+    font-weight: 400;
+    
+}
+
+/*FIM*/
 /* MEDIA */
 
 @media (max-width:720px){
@@ -343,10 +421,13 @@
         
         
     }
+    .nav-chat .botao-contato-abrir{
+        display: block;
+    }
 
 
 }
-@media(min-width:1000px){
+@media(min-width:720px){
     .menu-lateral{
         width: 25%;
 

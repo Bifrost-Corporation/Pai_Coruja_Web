@@ -16,20 +16,17 @@
         include ('sentinela.php');
         include ('globalSecretaria.php');
     ?>
-       <header>
+        <header>
             <nav class="nav-bar">
                 <div class="content-logo-btn">
                     <ul class="ul-area-btn">
                         <li class="nav-li"><a class="btn-nav-pc-open"><i class="fas fa-bars"></i></a></li>
                     </ul>
-                    <a href=""><img class="logo-img" src="../img/pai_coruja_branca.png"></a>
+                    <a href="dashboard.php"><img class="logo-img" src="../img/pai_coruja_branca.png"></a>
                 </div>
                 <button class="profile">
                     <div class="profile-details" id="openProfile">
                         <img src="../img/macacopc.gif" alt="">
-                        <!-- <div class="name-job">
-                            <div class="name-menu"><?php echo $_SESSION['nomeSecretaria'] ?></div>                                <small class="job-menu">Olá Secretário(a)</small>
-                        </div> -->
                     </div>
                 </button>
 
@@ -63,10 +60,6 @@
                         </li>
                     </ul>
                 </div>
-
-            
-
-
             </nav>
 
             <div class="sidebar">
@@ -83,7 +76,6 @@
                 </div>
                 <ul class="nav-list">
                     <div class="menu-container">
-                        <!-- <span>fernfjk</span> -->
                         <li class="links-name">
                             <a href="dashboard.php">
                                 <i class="fas fa-calendar"></i>
@@ -91,7 +83,7 @@
                             </a>
                         </li>
                         <li class="links-name">
-                            <a href="cadastrar-dados.php">
+                            <a href="cadastrar-dados.php" class="active-nav">
                                 <i class="fas fa-school "></i>
                                 <span class="links-name tooltip">Cadastrar Dados</span>
                             </a>
@@ -109,7 +101,7 @@
                             </a>
                         </li>
                         <li class="links-name">
-                            <a href="chat-secretaria.php" class="active-nav">
+                            <a href="chat-secretaria.php" >
                             <i class="fa fa-comment" aria-hidden="true"></i>
                                 <span class="links-name tooltip">Pai Coruja Chat</span>
                             </a>
@@ -120,9 +112,12 @@
             </div>
         </header>
 
+        
+    
+
     <main class="container-main">
-
-
+        
+        
 
         <div class="container-dash">
             <div class="ola-nav-dash">
