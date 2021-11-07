@@ -4,13 +4,13 @@
     include ('../classes/Turma.php');
 
     try{
-        header("location: ../secretaria/cadastrar-turma.php");
+        header("location: ../secretaria/cadastrar-dados.php");
+        $idEscola = $_SESSION['idEscola'];
+        $turma = new Turma();
         if(!empty($_FILES['arquivo']['tmp_name'])){
             $arquivo = new DOMDocument();
             $arquivo->load($_FILES['arquivo']['tmp_name']);
             $listaTurma = $arquivo->getElementsByTagName("Row");
-            $turma = new Turma();
-            $idEscola = $_SESSION['idEscola'];
             $i = 0;
             foreach($listaTurma as $linha){
                 if($i > 1){
@@ -21,6 +21,11 @@
                 }
                 $i++;
             }
+        } else {
+            $nomeTurma = $nomeTurma = $_POST['txtNomeTurma'];
+            $turma->setNomeTurma($nomeTurma);
+            $turma->setIdEscola($idEscola);
+            $turma->cadastrar($turma);
         }
     }catch(Exception $e) {
         echo $e->getMessage();

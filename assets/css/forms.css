@@ -786,5 +786,16 @@ input[type="file"] {
 
 /* ACabo */
 
+/* Planilhas */
+
+.texto-botao {
+    text-decoration: none;
+    color: var(--azulumpoucosaturado);
+}
+
+.texto-botao:hover {
+    color: #ffffff;
+}
+
 
 /* ACABOU O FORM*/
