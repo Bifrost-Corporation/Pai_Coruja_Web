@@ -155,7 +155,9 @@
                     ?>
                         <li><div class="area-botao-conversa">
                         <button class="botao-contato"id="<?php echo $linha['idResponsavel'] ?>">
-                        <i class="fa fa-user-circle img" aria-hidden="true"></i>
+                        <div class="profile-details list">
+                                <img src="../img/macacopc.gif" alt="">
+                            </div>
                         <div class="container-texts-conversa">
                         <div class="title-conversa">
                                 <?php echo $linha['nomeResponsavel'] ?>
@@ -175,7 +177,7 @@
                     
                     </div>
                     <div class="footer-area-conversa">
-                        <a href=""><h3>Nova Conversa</h3></a>
+                        <a class="" href=""><h4><i class="fa fa-plus" aria-hidden="true"></i>  Nova Conversa</h4></a>
                     </div>
                 </div>
                 <div class="caixa-chat ">
@@ -196,7 +198,7 @@
                             <div class="box-submit-message">
                             <input type="text" class="caixa-mensagem" placeholder="Converse com @<?php echo $linha['nomeResponsavel'] ?>" id="txtMensagem" name="txtMensagem">
                             <button class="botao-enviar" id="botao-enviar" name="botao-enviar"><i class="fa fa-paper-plane" aria-hidden="true"></i>
-</button>
+                    </button>
                        
                             </div>
                          </form>
@@ -205,60 +207,79 @@
             </section>
             <section class="modal-nova-conversa">
                 <div class="header-modal-nova-conversa">
-                    <h3><i class="fa fa-arrow-left" aria-hidden="true"></i> Lista de Contatos</h3>
+                    <h3><i class="fa fa-arrow-left" aria-hidden="true"></i> Selecione os Contatos</h3>
+                    <small>Você pode selecionar responsáveis ou professores</small>
                 </div>
                 <div class="container-checklist">
                     <ul class="list-turma">
-                    <input type="checkbox" class="check-options-all"name="" id="option-all">
+                        <input type="checkbox" class="check-options-all"name="" id="option-all">
                         <label for="option-all">1° A</label>
                         <ul class="ul-checkbox-options">
                             <li>
-                            <input class="check-options" type="checkbox" name="" id="responsavel1">
-                            <label for="responsavel1">Claudin</label>
+                            <div class="profile-details list">
+                                <img src="../img/macacopc.gif" alt="">
+                                <label for="check-options">Robertin</label>
+                            </div>
+                            <input class="check-options" type="checkbox" name="" id="check-options">
                             </li>
                             <li>
-                            <input class="check-options" type="checkbox" name="" id="responsavel1">
-                            <label for="responsavel1">Claudin</label>
+                            <div class="profile-details list">
+                                <img src="../img/macos.png" alt="">
+                                <label for="check-options">Claudin</label>
+                            </div>
+                            <input class="check-options" type="checkbox" name="" id="check-options">
                             </li>
                             <li>
-                            <input class="check-options" type="checkbox" name="" id="responsavel1">
-                            <label for="responsavel1">Claudin</label>
+                            <div class="profile-details list">
+                                <img src="../img/pai.png" alt="">
+                                <label for="check-options">JUbiscleiton</label>
+                            </div>
+                            <input class="check-options" type="checkbox" name="" id="check-options">
                             </li>
-                            <li>
-                            <input class="check-options" type="checkbox" name="" id="responsavel1">
-                            <label for="responsavel1">Claudin</label>
-                            </li> 
+                            
                         </ul>
                     </ul>
+                    <ul class="list-turma">
+                        <input type="checkbox" class="check-options-all"name="" id="option-all">
+                        <label for="option-all">1° B</label>
+                        <ul class="ul-checkbox-options">
+                            <li>
+                            <div class="profile-details list">
+                                <img src="../img/macacopc.gif" alt="">
+                                <label for="check-options">Osvaldo</label>
+                            </div>
+                            <input class="check-options" type="checkbox" name="" id="check-options">
+                            </li>
+                            <li>
+                            <div class="profile-details list">
+                                <img src="../img/macos.png" alt="">
+                                <label for="check-options">Orivalda</label>
+                            </div>
+                            <input class="check-options" type="checkbox" name="" id="check-options">
+                            </li>
+                            <li>
+                            <div class="profile-details list">
+                                <img src="../img/pai.png" alt="">
+                                <label for="check-options">Claudin</label>
+                            </div>
+                            <input class="check-options" type="checkbox" name="" id="check-options">
+                            </li>
+                            
+                        </ul>
+                    </ul>
+                </div>
+                <div class="footer-modal-nova-conversa">
+                    <button class="btn-mensagem-agrupada"href="" actived>Mensagem Agrupada</button>
+                    <form class="form-submit-message-agrupada">
+                        <input type="text" placeholder="..." id="txtMensagem" name="txtMensagem">
+                        <button id="botao-enviar" name="botao-enviar"><i class="fa fa-paper-plane" aria-hidden="true"></i>
+                        </button>
+                    </form>
                 </div>
             </section>            
         </main>
         
        
-
-        
-    <!--<div class="nav-footer">
-        <ul>
-            <li class="active">
-                <a href="home-responsavel.php">
-                    <i class="fas fa-calendar"></i>
-                    <span class="links-name">Mural</span>
-                </a>
-            </li>
-            <li class="">
-                <a href="#">
-                    <i class="fas fa-chalkboard-teacher"></i>
-                    <span class="links-name">Avaliação</span>
-                </a>
-            </li>
-            <li class="">
-                <a href="#">
-                    <i class="fas fa-calendar-day"></i>
-                    <span class="links-name">Eventos</span>
-                </a>
-            </li>
-        </ul>
-    </div>-->
 
 
     <div id="modalProfile" class="modal modal-profile">
@@ -302,6 +323,31 @@
     <script src="../assets/js/carousel.js"></script>
 
     <script>
+        
+        $('.btn-mensagem-agrupada').click(function(){
+           formGroup = document.querySelector('.form-submit-message-agrupada')
+           
+               console.log('UAU')
+               formGroup.style.display = 'flex'
+          
+            
+        })
+
+        $('.list-turma #option-all').click(function(event){
+
+            if(this.checked){
+                $('.ul-checkbox-options li :checkbox').each(function(){
+                    this.checked=true
+                })
+            }
+            else{
+                $('.ul-checkbox-options li :checkbox').each(function(){
+                    this.checked=false
+                })
+            }
+        })
+
+
 
 
        
@@ -382,6 +428,9 @@
             }     
 
         }
+        
+
+
         /*
         $(document).ready(function() {
             var idSecretaria = $('#idEnviar').val();

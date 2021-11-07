@@ -295,7 +295,7 @@
     text-align:start;
 }
 .title-conversa{
-    font-weight: bold;
+    font-weight: 600;
     color:var(--cinzafonte);
     align-items: center;
 }
@@ -347,14 +347,19 @@
     position: absolute;
     padding: 1rem;
     align-items: center;
-    
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     background-color: var(--cinzamaisclaro);
-    box-shadow: 0rem 0rem 0.5rem 0.25rem var(--cinzafonte);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.063);
+
 
 }
 .container-checklist{
     display: flex;
     width: 100%;
+    height: 65vh;
+    overflow-y: auto;
     flex-direction: column;
     padding:0rem;
 }
@@ -364,7 +369,7 @@
     list-style: none;
     font-size: 1rem;
     font-weight: 500;
-    padding:1rem ;
+    padding:0.5rem ;
     
 }
 .check-options-all{
@@ -387,13 +392,88 @@
 
 
 .container-checklist .list-turma .ul-checkbox-options{
-    margin-left: 1rem;
+    margin-left: 0rem;
     text-decoration: none;
     list-style: none;
     font-size: 1rem;
     font-weight: 400;
     
 }
+
+.ul-checkbox-options input[type=checkbox]:before{
+    width: 5rem;
+    
+}
+.ul-checkbox-options li{
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    justify-content: space-between;
+    
+}
+.ul-checkbox-options li .list{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    
+}
+.ul-checkbox-options li:hover{
+    background-color: #dcdcdc;
+    
+}
+.footer-modal-nova-conversa{
+    width: 100%;
+    
+}
+.footer-modal-nova-conversa .btn-mensagem-agrupada{
+    width: 100%;
+    display: block;
+    outline: none;
+    border: none;
+    background-color: var(--azulumpoucosaturado);
+    padding: .5rem 0rem;
+    text-align: center;
+    color: var(--cinzamaisclaro);
+    border-radius: 5px;
+    text-decoration: none;
+
+}
+.form-submit-message-agrupada{
+    display: none;
+    margin-top: .5rem;
+    justify-content: space-between;
+    width: 100%;
+    
+}
+
+.form-submit-message-agrupada input{
+    width: 80%;
+    outline: none;
+    border-radius: 0px;
+    padding: 0rem 1rem;
+    border:none;
+    background-color: var(--cinzaclaro100);
+}
+.form-submit-message-agrupada button{
+    background-color: var(--azulumpoucosaturado);
+    outline: none;
+    border: none;
+    border-radius: 2px;
+    padding: 0.5rem 1.5rem;
+    font-size: 1.1rem;
+    color:var(--cinzamaisclaro);
+}
+
+/*CHECKBOXES */
+
+.check-options{
+    border-width: 150px;
+}
+
+/*FIM*/
+
+
+
 
 /*FIM*/
 /* MEDIA */
@@ -424,7 +504,9 @@
     .nav-chat .botao-contato-abrir{
         display: block;
     }
-
+    .modal-nova-conversa{
+        width: 90%;
+    }
 
 }
 @media(min-width:720px){
