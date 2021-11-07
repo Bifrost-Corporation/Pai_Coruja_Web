@@ -95,6 +95,8 @@
 
 .btn-nav-pc-open{
     cursor: pointer;
+    display: flex;
+    align-items: center;
 }
 
 .logo-img {
@@ -132,7 +134,7 @@
     border-right: solid;
     border-color: var(--azulbtnsair);
     border-width: 4px;
-    transition: 200ms ease;
+    transition: 200ms;
 }
 
 
@@ -203,6 +205,7 @@
     list-style: none;
     list-style: none;
     line-height: 50px;
+    transition: 200ms ease;
 }
 
 .sidebar ul li a {
@@ -214,6 +217,7 @@
     align-items: center;
     text-decoration: none;
     font-weight: bold;
+    transition: 200ms ease;
 }
 
 .sidebar ul li .active-nav {
@@ -281,6 +285,7 @@
     text-decoration: none;
     justify-content: center;
     font-weight: bold;
+    transition: 200ms ease;
 }
 
 .sidebar-compact ul li a:hover .tooltip{
@@ -302,7 +307,7 @@
 @media (min-width: 720px) {
     .container-maior{
         transition: 200ms ease;
-        margin-left: 65px !important;
+        margin-left: 69px !important;
     }
     
 }
@@ -404,6 +409,10 @@
     display:flex;
     flex-direction: column;
     list-style: none;
+}
+
+.dropdown-menu-profile .opcoes-drop-profile i {
+    font-size: 1.2rem;
 }
 .dropdown-menu-profile .opcoes-drop-profile .online-li{
     padding: 0.5rem 1rem;

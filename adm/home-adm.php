@@ -176,7 +176,7 @@
             <nav class="nav-bar">
                 <div class="content-logo-btn">
                     <ul class="ul-area-btn">
-                        <li class="nav-li"><a class="btn-nav-pc-open"><i class="fas fa-bars"></i></a></li>
+                        <li class="nav-li"><a class="btn-nav-pc-open"><i class="material-icons-round">menu</i></a></li>
                     </ul>
                     <a href="home-adm.php"><img class="logo-img" src="../img/pai_coruja_branca.png"></a>
                 </div>
@@ -204,7 +204,7 @@
                         </li>
                         <li class="drop-profile-li">
                             <a href="logout.php">
-                                <i class="fas fa-sign-out-alt" id="logout-user"></i>
+                                <i id="logout-user" class="material-icons-round">logout</i>
                                 <small>Sair</small>
                             </a>
                         </li>
@@ -232,19 +232,19 @@
                     <div class="menu-container">
                         <li class="links-name">
                             <a href="home-adm.php" class="active-nav">
-                                <i class="fas fa-calendar"></i>
+                            <i class="material-icons-round">space_dashboard</i>
                                 <span class="links-name tooltip">Dashboard</span>
                             </a>
                         </li>
                         <li class="links-name">
                             <a href="cadastrar-escola.php">
-                                <i class="fas fa-school "></i>
+                                <i class="material-icons-round">school</i>
                                 <span class="links-name tooltip">Cadastrar Escola</span>
                             </a>
                         </li>
                         <li class="links-name">
                         <a href="visualizar-dados.php">
-                                <i class="fas fa-school"></i>
+                                <i class="material-icons-round">view_list</i>
                                 <span class="links-name tooltip">Visualizar Dados</span>
                             </a>
                         </li>
@@ -276,14 +276,14 @@
                     <div class="dados-escolares-container">
                         <div class="dados-escolares-linha">
                             <div class="dado-escolar">
-                                <i class="fas fa-school"></i>
+                                <i class="material-icons-round">school</i>
                                 <div>
                                     <h3><?php echo $qtdeEscolas ?></h3>
                                     <h5>Escolas Cadastradas</h5>
                                 </div> 
                             </div>
                             <div class="dado-escolar">
-                                <i class="fas fa-school"></i>
+                                <i class="material-icons-round">person</i>
                                 <div>
                                     <h3><?php echo $qtdeAlunos ?></h3>
                                     <h5>Alunos Cadastrados</h5>
@@ -292,14 +292,14 @@
                         </div>
                         <div class="dados-escolares-linha">
                             <div class="dado-escolar">
-                                <i class="fas fa-school"></i>
+                                <i class="material-icons-round">people</i>
                                 <div>
                                     <h3><?php echo $qtdeResponsaveis ?></h3>
                                     <h5>Responsáveis Cadastrados</h5>
                                 </div> 
                             </div>
                             <div class="dado-escolar">
-                                <i class="fas fa-school"></i>
+                                <i class="material-icons-round">person</i>
                                 <div>
                                     <h3><?php echo $qtdeProfessores ?></h3>
                                     <h5>Professores Cadastrados</h5>
@@ -308,14 +308,14 @@
                         </div>
                         <div class="dados-escolares-linha">
                             <div class="dado-escolar">
-                                <i class="fas fa-school"></i>
+                                <i class="material-icons-round">leaderboard</i>
                                 <div>
                                     <h3><?php echo $qtdeMediaTurmaEscola ?></h3>
                                     <h5>Média de Turmas por escola</h5>
                                 </div> 
                             </div>
                             <div class="dado-escolar">
-                                <i class="fas fa-school"></i>
+                                <i class="material-icons-round">leaderboard</i>
                                 <div>
                                     <h3><?php echo $qtdeMediaAlunoEscola ?></h3>
                                     <h5>Média de alunos por escola</h5>

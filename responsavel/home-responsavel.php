@@ -7,10 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.css">
-
+    
     <link rel="stylesheet" type="text/css"  href="../assets/css/style.css">
     <link rel="stylesheet" type="text/css"  href="../assets/css/modal.css">
-
+<!--     
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> -->
     <title>Home - Responsável</title>
 
 
@@ -37,101 +38,104 @@
             }
         }
     ?>
-    <header>
-
-    <nav class="nav-bar">
+        <header>
+            <nav class="nav-bar">
                 <div class="content-logo-btn">
-                <ul class="ul-area-btn">
-                    <li class="nav-li"><a class="btn-nav-open"><i class="fas fa-bars"></i></a></li>
-                </ul>
-                <a href=""><img class="logo-img" src="../img/pai_coruja_branca.png"></a>
+                    <ul class="ul-area-btn">
+                        <li class="nav-li"><a class="btn-nav-pc-open"><i class="fas fa-bars"></i></a></li>
+                    </ul>
+                    <a href="dashboard.php"><img class="logo-img" src="../img/pai_coruja_branca.png"></a>
                 </div>
-                    <div class="profile">
-                        <div class="profile-details">
-                            <img src="../img/macacopc.gif" alt="">
-                            <div class="name-job">
-                                <div class="name-menu"><?php echo $_SESSION['nomeResponsavel'] ?></div>
-                                <div class="job-menu">Olá Responsável</div>
-                            </div>
+                <button class="profile">
+                    <div class="profile-details" id="openProfile">
+                        <img src="../img/macacopc.gif" alt="">
+                    </div>
+                </button>
+
+                <div class="dropdown-menu-profile">
+                    <div class="profile-details">
+                        <img src="../img/macacopc.gif" alt="">
+                        <div class="name-job">
+                            <div class="name-menu"><?php echo $_SESSION['nomeSecretaria'] ?></div>
+                            <small class="job-menu">Olá Secretário(a)</small>
                         </div>
                     </div>
+                    <ul class="opcoes-drop-profile">
+                        <li class="online-li">
+                            <label for="">Online</label>
+                            <label class="switch">
+                                <input type="checkbox" checked>
+                                <span class="slider round"></span>
+                            </label>
+                        </li>
+                        <li class="drop-profile-li" id="alterar-imagem-perfil">
+                            <a>
+                                <i class="fas fa-user-cog"></i>
+                                <small>Trocar Imagem de Perfil</small>
+                            </a>
+                        </li>
+                        <li class="drop-profile-li">
+                            <a href="logout.php">
+                                <i class="fas fa-sign-out-alt" id="logout-user"></i>
+                                <small>Sair</small>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </nav>
 
-<div class="sidebar">
-    <div class="logo-content">
-        <div class="logo">
-            <div class="logo-name"><a href="home-responsavel.php"><img src="../img/pai_coruja_branca.png"></a>
-            <i class="fas fa-arrow-left"></i>
-        </div>
-            <div class="close-mobile-navbar">
-                <span>Menu Pai Coruja</span>
-                <a class="btn-nav-close"><i class="far fa-window-close"></i></a>
-            </div>
-        </div>
-    </div>
-    <ul class="nav-list">
-        <div class="menu-container">
-            <!-- <span>fernfjk</span> -->
-            <li class="links-name">
-                <a href="home-responsavel.php">
-                    <i class="fas fa-calendar"></i>
-                    <span class="links-name">Mural</span>
-                </a>
-            </li>
-            <li class="links-name">
-                <a href="#">
-                    <i class="fas fa-chalkboard-teacher"></i>
-                    <span class="links-name">Avaliação dos Professores</span>
-                </a>
-            </li>
-            <li class="links-name">
-                <a href="#">
-                    <i class="fas fa-calendar-day"></i>
-                    <span class="links-name">Eventos Programados</span>
-                </a>
-            </li>
-        </div>
-        <hr>
-        <div class="menu-container">
-            <li class="links-name">
-                <a href="cadastrar-imagem-perfil.php">
-                    <i class="fas fa-school"></i>
-                    <span class="links-name">Cadastrar imagem de perfil</span>
-                </a>
-            </li>
-            <li class="links-name">
-                <a href="chat-responsavel.php">
-                <i class="fa fa-comment" aria-hidden="true"></i>
-                    <span class="links-name">Chat</span>
-                </a>
-            </li>
-        </div>
-    </ul>
-    <div class="profile-content">
-        <div class="profile-menu">
-            <a href="logout.php">
-                <i class="fas fa-sign-out-alt" id="logout-user"></i>
-                <span>Logout</span>
-            </a>
-            <a href="#">
-                <i class="fas fa-user-cog"></i>
-                <span>Configurações</span>
-            </a>
-        </div>
-        <div class="profile">
-            <div class="profile-details">
-                <img src="../img/usuario-de-perfil.png" alt="">
-                <div class="name-job">
-                    <div class="name-menu"><?php echo $_SESSION['nomeResponsavel'] ?></div>
-                    <div class="job-menu">Olá Responsável</div>
+            <div class="sidebar">
+                <div class="logo-content">
+                    <div class="logo">
+                        <div class="logo-name">
+                        <i class="fas fa-arrow-left"></i>
+                    </div>
+                        <div class="close-mobile-navbar">
+                            <span>Menu Pai Coruja</span>
+                            <a class="btn-nav-close"><i class="far fa-window-close"></i></a>
+                        </div>
+                    </div>
                 </div>
+                <ul class="nav-list">
+                    <div class="menu-container">
+                        <li class="links-name">
+                            <a href="dashboard.php" class="active-nav">
+                                <i class="fas fa-calendar"></i>
+                                <span class="links-name tooltip">Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="links-name">
+                            <a href="cadastrar-dados.php">
+                                <i class="fas fa-school "></i>
+                                <span class="links-name tooltip">Cadastrar Dados</span>
+                            </a>
+                        </li>
+                        <li class="links-name">
+                        <a href="visualizar-dados.php">
+                                <i class="fas fa-school"></i>
+                                <span class="links-name tooltip">Alterar Dados</span>
+                            </a>
+                        </li>
+                        <li class="links-name">
+                            <a href="cadastrar-evento.php">
+                                <i class="fas fa-school"></i>
+                                <span class="links-name tooltip">Gerenciar Eventos</span>
+                            </a>
+                        </li>
+                        <li class="links-name">
+                            <a href="chat-secretaria.php" >
+                            <i class="fa fa-comment" aria-hidden="true"></i>
+                                <span class="links-name tooltip">Pai Coruja Chat</span>
+                            </a>
+                        </li>
+                    </div>
+                </ul>
+                
             </div>
-        </div>
-    </div>
-</div>
-</header>
+        </header>
 
-
+        
+    
 
     <main class="container-main">
         <div class="carousel">
@@ -182,8 +186,6 @@
             
             </div>
         </div>
-       
-
         <section class="cards-eventos">
             <h2>Eventos</h2>
             <div class="arrumar-cards carousel-evento">

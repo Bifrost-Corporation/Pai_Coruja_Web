@@ -22,7 +22,7 @@
             <nav class="nav-bar">
                 <div class="content-logo-btn">
                     <ul class="ul-area-btn">
-                        <li class="nav-li"><a class="btn-nav-pc-open"><i class="fas fa-bars"></i></a></li>
+                        <li class="nav-li"><a class="btn-nav-pc-open"><i class="material-icons-round">menu</i></a></li>
                     </ul>
                     <a href="home-adm.php"><img class="logo-img" src="../img/pai_coruja_branca.png"></a>
                 </div>
@@ -50,7 +50,7 @@
                         </li>
                         <li class="drop-profile-li">
                             <a href="logout.php">
-                                <i class="fas fa-sign-out-alt" id="logout-user"></i>
+                                <i id="logout-user" class="material-icons-round">logout</i>
                                 <small>Sair</small>
                             </a>
                         </li>
@@ -78,19 +78,19 @@
                     <div class="menu-container">
                         <li class="links-name">
                             <a href="home-adm.php">
-                                <i class="fas fa-calendar"></i>
+                            <i class="material-icons-round">space_dashboard</i>
                                 <span class="links-name tooltip">Dashboard</span>
                             </a>
                         </li>
                         <li class="links-name">
                             <a href="cadastrar-escola.php">
-                                <i class="fas fa-school "></i>
+                                <i class="material-icons-round">school</i>
                                 <span class="links-name tooltip">Cadastrar Escola</span>
                             </a>
                         </li>
                         <li class="links-name">
                         <a href="visualizar-dados.php" class="active-nav">
-                                <i class="fas fa-school"></i>
+                                <i class="material-icons-round">view_list</i>
                                 <span class="links-name tooltip">Visualizar Dados</span>
                             </a>
                         </li>
@@ -99,7 +99,6 @@
                 
             </div>
         </header>
-
 
         <main class="container-main">
         
