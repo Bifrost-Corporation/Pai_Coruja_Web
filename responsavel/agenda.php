@@ -10,8 +10,9 @@
     
     <link rel="stylesheet" type="text/css"  href="../assets/css/style.css">
     <link rel="stylesheet" type="text/css"  href="../assets/css/modal.css">
-<!--     
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> -->
+    
+  
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> 
     <title>Home - Responsável</title>
 
 
@@ -99,7 +100,7 @@
                 <ul class="nav-list">
                     <div class="menu-container">
                         <li class="links-name">
-                            <a href="dashboard.php" class="active-nav">
+                            <a href="home-responsavel.php" class="active-nav">
                                 <i class="fas fa-calendar"></i>
                                 <span class="links-name tooltip">Home</span>
                             </a>
@@ -117,7 +118,7 @@
                             </a>
                         </li>
                         <li class="links-name">
-                            <a href="agenda.php">
+                        <a href="agenda.php">
                             <i class="fas fa-calendar"></i>
                                 <span class="links-name tooltip">Agenda Escolar</span>
                             </a>
@@ -138,161 +139,143 @@
     
 
     <main class="container-main">
-        <div class="carousel">
-            <div class=" carousel-destaque">
-                <div class="destaque-card">
-                <div class="esquerda-destaque">
-                    <h1>Titulo<!--<?php echo $linha['tituloPublicacao'] ?>--></h1>
-                    <small>Subtitulo<!--<?php echo $linha['descPublicacao'] ?>--></small>
-                    <p>Para mais detalhes clique abaixo</p>
-
-                    <a href="#"><button class="saiba-mais-btn">Saiba Mais</button></a>
-                </div>
-                <div class="direita-destaque">
-
-                </div> 
-            </div>
+        <section class="content-agenda-calendario">
             
-            <div class="destaque-card">
-                <div class="esquerda-destaque">
-                    <h1>Titulo<!--<?php echo $linha['tituloPublicacao'] ?>--></h1>
-                    <small>Subtitulo<!--<?php echo $linha['descPublicacao'] ?>--></small>
-                    <p>Para mais detalhes clique abaixo</p>
-
-                    <a href="#"><button class="saiba-mais-btn">Saiba Mais</button></a>
+            <div class="container-agenda-large">
+                <div class="header-container-agenda-large">
+                <i class="material-icons-round">article</i>
+                    <h1>Agenda Escolar </h1>
                 </div>
-                <div class="direita-destaque">
-
-                </div> 
+                <div class="content-agenda-large">
+                    <table>
+                        <thead>
+                            <tr>
+                                <td>Segunda-Feira</td>
+                                <td>Terça-Feira</td>
+                                <td>Quarta-Feira</td>
+                                <td>Quinta-Feira</td>
+                                <td>Sexta-Feira</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Matematica</td>
+                                <td>Português</td>
+                                <td>Ciências</td>
+                                <td>Filosofia</td>
+                                <td>Naruto</td>
+                            </tr>
+                            <tr>
+                                <td>Matematica</td>
+                                <td>Português</td>
+                                <td>Ciências</td>
+                                <td>Filosofia</td>
+                                <td>Naruto</td>
+                            </tr>
+                            <tr>
+                                <td>Matematica</td>
+                                <td>Português</td>
+                                <td>Ciências</td>
+                                <td>Filosofia</td>
+                                <td>Naruto</td>
+                            </tr>
+                            <tr>
+                                <td>Matematica</td>
+                                <td>Português</td>
+                                <td>Ciências</td>
+                                <td>Filosofia</td>
+                                <td>Naruto</td>
+                            </tr>
+                            <tr>
+                                <td>Matematica</td>
+                                <td>Português</td>
+                                <td>Ciências</td>
+                                <td>Filosofia</td>
+                                <td>Naruto</td>
+                            </tr>
+                            <tr>
+                                <td>Matematica</td>
+                                <td>Português</td>
+                                <td>Ciências</td>
+                                <td>Filosofia</td>
+                                <td>Naruto</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-            <div class="destaque-card">
-                <div class="esquerda-destaque">
-                    <h1>Titulo<!--<?php echo $linha['tituloPublicacao'] ?>--></h1>
-                    <small>Subtitulo<!--<?php echo $linha['descPublicacao'] ?>--></small>
-                    <p>Para mais detalhes clique abaixo</p>
 
-                    <a href="#"><button class="saiba-mais-btn">Saiba Mais</button></a>
+
+
+
+            <div class="container-agenda">
+                <div class="header-container-agenda">
+                <i class="material-icons-round">article</i> 
+                <h2>Agenda Escolar</h2>
                 </div>
-                <div class="direita-destaque">
+                <div class="content-ul-agenda">
+                    <ul>
+                        <div class="title-day">
+                        <p>Segunda-feira</p><i class="material-icons-round">unfold_more</i>
+                        </div>
+                        <li><p>Matematica</p>Aula 1</li>
+                        <li><p>Matematica</p>Aula 2</li>
+                        <li><p>Matematica</p>Aula 3</li>
+                        <li><p>Matematica</p>Aula 4</li>
+                        <li><p>Matematica</p>Aula 5</li>
+                        <li><p>Matematica</p>Aula 6</li>
+                    </ul>
+                    <ul>
+                        <div class="title-day">
+                        <p>Terça-feira</p><i class="material-icons-round">unfold_more</i>
+                        </div>
+                        <li><p>Matematica</p>Aula 1</li>
+                        <li><p>Matematica</p>Aula 2</li>
+                        <li><p>Matematica</p>Aula 3</li>
+                        <li><p>Matematica</p>Aula 4</li>
+                        <li><p>Matematica</p>Aula 5</li>
+                        <li><p>Matematica</p>Aula 6</li>
+                    </ul>
+                    <ul>
+                        <div class="title-day">
+                        <p>Quarta-feira</p><i class="material-icons-round">unfold_more</i>
+                        </div>
+                        <li><p>Matematica</p>Aula 1</li>
+                        <li><p>Matematica</p>Aula 2</li>
+                        <li><p>Matematica</p>Aula 3</li>
+                        <li><p>Matematica</p>Aula 4</li>
+                        <li><p>Matematica</p>Aula 5</li>
+                        <li><p>Matematica</p>Aula 6</li>
+                    </ul>
+                    <ul>
+                        <div class="title-day">
+                        <p>Quinta-feira</p><i class="material-icons-round">unfold_more</i>
+                        </div>
+                        <li><p>Matematica</p>Aula 1</li>
+                        <li><p>Matematica</p>Aula 2</li>
+                        <li><p>Matematica</p>Aula 3</li>
+                        <li><p>Matematica</p>Aula 4</li>
+                        <li><p>Matematica</p>Aula 5</li>
+                        <li><p>Matematica</p>Aula 6</li>
+                    </ul>
+                    <ul>
+                        <div class="title-day">
+                        <p>Sexta-feira</p><i class="material-icons-round">unfold_more</i>
+                        </div>
+                        <li><p>Matematica</p>Aula 1</li>
+                        <li><p>Matematica</p>Aula 2</li>
+                        <li><p>Matematica</p>Aula 3</li>
+                        <li><p>Matematica</p>Aula 4</li>
+                        <li><p>Matematica</p>Aula 5</li>
+                        <li><p>Matematica</p>Aula 6</li>
+                    </ul>
                     
-                </div> 
-            </div>
-            </div>
-            <div class="indicadors-bar">
-            <div role="tablist" class="carousel-destaque-dots"></div>
-            <!--<i aria-label="Previous" class="fa fa-chevron-left carousel-destaque-prev"></i>
-            
-            <i aria-label="Next" class="fa fa-chevron-right carousel-destaque-next"></i>-->
-            
-            
-            </div>
-        </div>
-        <section class="cards-eventos">
-            <h2>Eventos</h2>
-            <div class="arrumar-cards carousel-evento">
-
-                <div class="evento-card">
-                    <div>
-                        <h1>Evento</h1>
-                        <small>Data: 06/06/2006</small>
-                    </div>
-                    <div>
-                        <a href="#"><button>Saiba Mais</button></a>
-                    </div>
+                    
                 </div>
-
-                <div class="evento-card">
-                    <div>
-                        <h1>Evento</h1>
-                        <small>Data: 06/06/2006</small>
-                    </div>
-                    <div>
-                        <a href="#"><button>Saiba Mais</button></a>
-                    </div>
-                </div>
-                <div class="evento-card">
-                    <div>
-                        <h1>Evento</h1>
-                        <small>Data: 06/06/2006</small>
-                    </div>
-                    <div>
-                        <a href="#"><button>Saiba Mais</button></a>
-                    </div>
-                </div>
-                <div class="evento-card">
-                    <div>
-                        <h1>Evento</h1>
-                        <small>Data: 06/06/2006</small>
-                    </div>
-                    <div>
-                        <a href="#"><button>Saiba Mais</button></a>
-                    </div>
-                </div>
-                <div class="evento-card">
-                    <div>
-                        <h1>Evento</h1>
-                        <small>Data: 06/06/2006</small>
-                    </div>
-                    <div>
-                        <a href="#"><button>Saiba Mais</button></a>
-                    </div>
-                </div>
-
-
-            </div>
-            <div class="indicadors-bar">
-            <div role="tablist" class="carousel-evento-dots"></div>
-            <!--<i aria-label="Previous" class="fa fa-chevron-left carousel-evento-prev"></i>
-            
-            <i aria-label="Next" class="fa fa-chevron-right carousel-evento-next"></i>-->
             </div>
         </section>
     </main>
 
-   
-
-    <div id="modalReset" class="modal modal-evento">
-            
-            <!-- Modal content -->
-            <div class="modal-content">
-                <div class="bg-modal-senha">
-                    <div class="div-imagem">
-                        <img src="../img/reset_senha.jpg" class="img-card">
-                    </div>
-                    <div class="title-modal">
-                        <h1>RESETE SUA SENHA</h1>
-                        <!-- <button><i class="fas fa-bookmark"></i> Tenho Interesse</button> -->
-                    </div>
-                    
-                </div>  
-            <div class="modal-text-description">
-                <div class="info-modal">
-                    <h5>Primeiro Acesso ao Pai Coruja?</h5>
-                </div>
-                <h4>Identificamos que esse é seu primeiro login no nosso sistema, e, por segurança, pedimos para que você modifique sua senha de acesso!</h4>
-                <form name="formAttSenha" id="formAttSenha" method="POST" action="../DAO/reset-senha-acesso.php">
-                    <div class="user-details slidePage">
-                        <input type="hidden" id="idUsuario" name="idUsuario" value="<?php echo $idUsuario ?>">
-                        <input type="hidden" value="<?php echo $_SESSION['primeiroAcesso'] ?>">
-                        <div class="input-box-width100 divSenha">
-                            <h5>Informe sua nova senha:</h5>
-                            <label class="label-erro" id="label-senha1"></label>
-                            <input type="password" name="txtSenha" id="txtSenha">
-                        </div>
-                        <div class="input-box-width100 divSenha">
-                            <h5>Confirme a senha:</h5>
-                            <label class="label-erro" id="label-senha2"></label>
-                            <input type="password" name="txtConfirmarSenha" id="txtConfirmarSenha">
-                        </div>
-                        <div class="input-box-width100 divSenha">
-                            <button class="btn-nav-exit nextBtnSkipTwo btn-page-next" type="submit">Trocar Senha</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-
-    </div>
 
     <div id="modalProfile" class="modal modal-profile">
             
@@ -336,7 +319,7 @@
     <script src="../assets/js/modal.js"></script>
 
     <script>
-        $(document).ready(function(){
+        /*$(document).ready(function(){
             var modal = document.getElementById("modalReset");
             var primeiroAcesso = "<?php echo $_SESSION['primeiroAcesso'] ?>";
             if(primeiroAcesso === "V"){
