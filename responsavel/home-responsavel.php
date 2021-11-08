@@ -123,7 +123,7 @@
                             </a>
                         </li>
                         <li class="links-name">
-                            <a href="chat-secretaria.php" >
+                            <a href="chat-responsavel.php" >
                             <i class="fa fa-comment" aria-hidden="true"></i>
                                 <span class="links-name tooltip">Pai Coruja Chat</span>
                             </a>
@@ -179,9 +179,10 @@
             </div>
             </div>
             <div class="indicadors-bar">
-            <i aria-label="Previous" class="fa fa-chevron-left carousel-destaque-prev"></i>
             <div role="tablist" class="carousel-destaque-dots"></div>
-            <i aria-label="Next" class="fa fa-chevron-right carousel-destaque-next"></i>
+            <!--<i aria-label="Previous" class="fa fa-chevron-left carousel-destaque-prev"></i>
+            
+            <i aria-label="Next" class="fa fa-chevron-right carousel-destaque-next"></i>-->
             
             
             </div>
@@ -240,9 +241,10 @@
 
             </div>
             <div class="indicadors-bar">
-            <i aria-label="Previous" class="fa fa-chevron-left carousel-evento-prev"></i>
             <div role="tablist" class="carousel-evento-dots"></div>
-            <i aria-label="Next" class="fa fa-chevron-right carousel-evento-next"></i>
+            <!--<i aria-label="Previous" class="fa fa-chevron-left carousel-evento-prev"></i>
+            
+            <i aria-label="Next" class="fa fa-chevron-right carousel-evento-next"></i>-->
             </div>
         </section>
     </main>

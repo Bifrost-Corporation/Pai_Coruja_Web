@@ -170,7 +170,7 @@
                     
                     </div>
                     <div class="footer-area-conversa">
-                        <a class="" href=""><h4><i class="fa fa-plus" aria-hidden="true"></i>  Nova Conversa</h4></a>
+                        <button class="btn-show-modal" href=""><h4><i class="fa fa-plus" aria-hidden="true"></i>  Nova Conversa</h4></button>
                     </div>
                 </div>
                 <div class="caixa-chat ">
@@ -200,7 +200,7 @@
             </section>
             <section class="modal-nova-conversa">
                 <div class="header-modal-nova-conversa">
-                    <h3><i class="fa fa-arrow-left" aria-hidden="true"></i> Selecione os Contatos</h3>
+                    <h3><button class="btn-close-modal-nova"><i class="fa fa-arrow-left" aria-hidden="true"></button></i> Selecione os Contatos</h3>
                     <small>Você pode selecionar responsáveis ou professores</small>
                 </div>
                 <div class="container-checklist">
@@ -316,7 +316,16 @@
     <script src="../assets/js/carousel.js"></script>
 
     <script>
-        
+        modalNovaConversa = document.querySelector('.modal-nova-conversa')
+        $('.btn-show-modal').click(function(event){
+            console.log('UAU')
+            
+            modalNovaConversa.style.display='block'       
+        })
+        $('.btn-close-modal-nova').click(function(){
+            modalNovaConversa.style.display = 'none'
+        })
+
         $('.btn-mensagem-agrupada').click(function(){
            formGroup = document.querySelector('.form-submit-message-agrupada')
            

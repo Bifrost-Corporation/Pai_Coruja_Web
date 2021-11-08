@@ -344,6 +344,7 @@
 /* MODAL NOVA CONVERSA */
 .modal-nova-conversa{
     z-index:1;
+    display: none;
     position: absolute;
     padding: 1rem;
     align-items: center;
