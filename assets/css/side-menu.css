@@ -131,9 +131,7 @@
     background: var(--azulumpoucosaturado);
     padding: 6px 6px;
     position: fixed;
-    border-right: solid;
-    border-color: var(--azulbtnsair);
-    border-width: 4px;
+    border: solid 4px var(--azulbtnsair);
     transition: 200ms;
 }
 

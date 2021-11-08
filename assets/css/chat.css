@@ -326,6 +326,7 @@
     text-decoration: none;
     outline: none;
     border: none;
+    cursor: pointer;
     background-color: var(--azulumpoucosaturado);
     color: var(--cinzamaisclaro);
     
@@ -353,6 +354,11 @@
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.063);
 
 
+}
+.btn-close-modal-nova{
+    outline: none;
+    border: none;
+    cursor: pointer;
 }
 .container-checklist{
     display: flex;

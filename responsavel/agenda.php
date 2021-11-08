@@ -10,8 +10,9 @@
     
     <link rel="stylesheet" type="text/css"  href="../assets/css/style.css">
     <link rel="stylesheet" type="text/css"  href="../assets/css/modal.css">
-<!--     
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> -->
+    
+  
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> 
     <title>Home - Responsável</title>
 
 
@@ -42,7 +43,7 @@
             <nav class="nav-bar">
                 <div class="content-logo-btn">
                     <ul class="ul-area-btn">
-                        <li class="nav-li"><a class="btn-nav-pc-open"><i class="material-icons-round">menu</i></a></li>
+                        <li class="nav-li"><a class="btn-nav-pc-open"><i class="fas fa-bars"></i></a></li>
                     </ul>
                     <a href="dashboard.php"><img class="logo-img" src="../img/pai_coruja_branca.png"></a>
                 </div>
@@ -56,8 +57,8 @@
                     <div class="profile-details">
                         <img src="../img/macacopc.gif" alt="">
                         <div class="name-job">
-                            <div class="name-menu"><?php echo $_SESSION['nomeResponsavel'] ?></div>
-                            <small class="job-menu">Olá Responsável(a)</small>
+                        <div class="name-menu"><?php echo $_SESSION['nomeResponsavel'] ?></div>
+                            <small class="job-menu">Olá Responsavel</small>
                         </div>
                     </div>
                     <ul class="opcoes-drop-profile">
@@ -70,13 +71,13 @@
                         </li>
                         <li class="drop-profile-li" id="alterar-imagem-perfil">
                             <a>
-                                <i class="material-icons-round">manage_accounts</i>
+                                <i class="fas fa-user-cog"></i>
                                 <small>Trocar Imagem de Perfil</small>
                             </a>
                         </li>
                         <li class="drop-profile-li">
                             <a href="logout.php">
-                                <i id="logout-user" class="material-icons-round">logout</i>
+                                <i class="fas fa-sign-out-alt" id="logout-user"></i>
                                 <small>Sair</small>
                             </a>
                         </li>
@@ -100,14 +101,14 @@
                     <div class="menu-container">
                         <li class="links-name">
                             <a href="home-responsavel.php" class="active-nav">
-                                <i class="material-icons-round">space_dashboard</i>
-                                <span class="links-name tooltip">Dashboard</span>
+                                <i class="fas fa-calendar"></i>
+                                <span class="links-name tooltip">Home</span>
                             </a>
                         </li>
                         <li class="links-name">
                             <a href="cadastrar-dados.php">
-                                <i class="material-icons-round">article</i>
-                                <span class="links-name tooltip">Agenda Escolar</span>
+                                <i class="fas fa-school "></i>
+                                <span class="links-name tooltip">Cadastrar Dados</span>
                             </a>
                         </li>
                         <li class="links-name">
@@ -117,14 +118,14 @@
                             </a>
                         </li>
                         <li class="links-name">
-                            <a href="agenda.php">
+                        <a href="agenda.php">
                             <i class="fas fa-calendar"></i>
                                 <span class="links-name tooltip">Agenda Escolar</span>
                             </a>
                         </li>
                         <li class="links-name">
                             <a href="chat-responsavel.php" >
-                                <i class="material-icons-round">chat_bubble</i>
+                            <i class="fa fa-comment" aria-hidden="true"></i>
                                 <span class="links-name tooltip">Pai Coruja Chat</span>
                             </a>
                         </li>
@@ -135,81 +136,146 @@
         </header>
 
         
-        
     
 
     <main class="container-main">
-        <div class="container-dash">
-            <div class="ola-nav-dash">
-                <h1>Olá Responsável</h1>
-            </div>
-
-            <div class="alternar-alunos-container">
-                <span>Alternar Alunos</span>
-                <div class="alternar-alunos-tab-flex">
-                    <div class="alternar-alunos-tab" >
-                        <img src="../img/Tony_Tony_Chopper_Anime_Pre_Timeskip_Infobox.png" alt="aluno">
-                        <div class="alternar-alunos-tab-title">
-                            <h5>Aluno 1</h5>
-                        </div>
-                    </div>
-                    <div class="alternar-alunos-tab">
-                        <img src="../img/macos.png" alt="aluno">
-                        <div class="alternar-alunos-tab-title">
-                            <h5>Aluno 2</h5>
-                        </div>
-                    </div>
+        <section class="content-agenda-calendario">
+            
+            <div class="container-agenda-large">
+                <div class="header-container-agenda-large">
+                <i class="material-icons-round">article</i>
+                    <h1>Agenda Escolar </h1>
+                </div>
+                <div class="content-agenda-large">
+                    <table>
+                        <thead>
+                            <tr>
+                                <td>Segunda-Feira</td>
+                                <td>Terça-Feira</td>
+                                <td>Quarta-Feira</td>
+                                <td>Quinta-Feira</td>
+                                <td>Sexta-Feira</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Matematica</td>
+                                <td>Português</td>
+                                <td>Ciências</td>
+                                <td>Filosofia</td>
+                                <td>Naruto</td>
+                            </tr>
+                            <tr>
+                                <td>Matematica</td>
+                                <td>Português</td>
+                                <td>Ciências</td>
+                                <td>Filosofia</td>
+                                <td>Naruto</td>
+                            </tr>
+                            <tr>
+                                <td>Matematica</td>
+                                <td>Português</td>
+                                <td>Ciências</td>
+                                <td>Filosofia</td>
+                                <td>Naruto</td>
+                            </tr>
+                            <tr>
+                                <td>Matematica</td>
+                                <td>Português</td>
+                                <td>Ciências</td>
+                                <td>Filosofia</td>
+                                <td>Naruto</td>
+                            </tr>
+                            <tr>
+                                <td>Matematica</td>
+                                <td>Português</td>
+                                <td>Ciências</td>
+                                <td>Filosofia</td>
+                                <td>Naruto</td>
+                            </tr>
+                            <tr>
+                                <td>Matematica</td>
+                                <td>Português</td>
+                                <td>Ciências</td>
+                                <td>Filosofia</td>
+                                <td>Naruto</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
 
-            
-        </div>
+
+
+
+            <div class="container-agenda">
+                <div class="header-container-agenda">
+                <i class="material-icons-round">article</i> 
+                <h2>Agenda Escolar</h2>
+                </div>
+                <div class="content-ul-agenda">
+                    <ul>
+                        <div class="title-day">
+                        <p>Segunda-feira</p><i class="material-icons-round">unfold_more</i>
+                        </div>
+                        <li><p>Matematica</p>Aula 1</li>
+                        <li><p>Matematica</p>Aula 2</li>
+                        <li><p>Matematica</p>Aula 3</li>
+                        <li><p>Matematica</p>Aula 4</li>
+                        <li><p>Matematica</p>Aula 5</li>
+                        <li><p>Matematica</p>Aula 6</li>
+                    </ul>
+                    <ul>
+                        <div class="title-day">
+                        <p>Terça-feira</p><i class="material-icons-round">unfold_more</i>
+                        </div>
+                        <li><p>Matematica</p>Aula 1</li>
+                        <li><p>Matematica</p>Aula 2</li>
+                        <li><p>Matematica</p>Aula 3</li>
+                        <li><p>Matematica</p>Aula 4</li>
+                        <li><p>Matematica</p>Aula 5</li>
+                        <li><p>Matematica</p>Aula 6</li>
+                    </ul>
+                    <ul>
+                        <div class="title-day">
+                        <p>Quarta-feira</p><i class="material-icons-round">unfold_more</i>
+                        </div>
+                        <li><p>Matematica</p>Aula 1</li>
+                        <li><p>Matematica</p>Aula 2</li>
+                        <li><p>Matematica</p>Aula 3</li>
+                        <li><p>Matematica</p>Aula 4</li>
+                        <li><p>Matematica</p>Aula 5</li>
+                        <li><p>Matematica</p>Aula 6</li>
+                    </ul>
+                    <ul>
+                        <div class="title-day">
+                        <p>Quinta-feira</p><i class="material-icons-round">unfold_more</i>
+                        </div>
+                        <li><p>Matematica</p>Aula 1</li>
+                        <li><p>Matematica</p>Aula 2</li>
+                        <li><p>Matematica</p>Aula 3</li>
+                        <li><p>Matematica</p>Aula 4</li>
+                        <li><p>Matematica</p>Aula 5</li>
+                        <li><p>Matematica</p>Aula 6</li>
+                    </ul>
+                    <ul>
+                        <div class="title-day">
+                        <p>Sexta-feira</p><i class="material-icons-round">unfold_more</i>
+                        </div>
+                        <li><p>Matematica</p>Aula 1</li>
+                        <li><p>Matematica</p>Aula 2</li>
+                        <li><p>Matematica</p>Aula 3</li>
+                        <li><p>Matematica</p>Aula 4</li>
+                        <li><p>Matematica</p>Aula 5</li>
+                        <li><p>Matematica</p>Aula 6</li>
+                    </ul>
+                    
+                    
+                </div>
+            </div>
+        </section>
     </main>
 
-   
-
-    <div id="modalReset" class="modal modal-evento">
-            
-            <!-- Modal content -->
-            <div class="modal-content">
-                <div class="bg-modal-senha">
-                    <div class="div-imagem">
-                        <img src="../img/reset_senha.jpg" class="img-card">
-                    </div>
-                    <div class="title-modal">
-                        <h1>RESETE SUA SENHA</h1>
-                        <!-- <button><i class="fas fa-bookmark"></i> Tenho Interesse</button> -->
-                    </div>
-                    
-                </div>  
-            <div class="modal-text-description">
-                <div class="info-modal">
-                    <h5>Primeiro Acesso ao Pai Coruja?</h5>
-                </div>
-                <h4>Identificamos que esse é seu primeiro login no nosso sistema, e, por segurança, pedimos para que você modifique sua senha de acesso!</h4>
-                <form name="formAttSenha" id="formAttSenha" method="POST" action="../DAO/reset-senha-acesso.php">
-                    <div class="user-details slidePage">
-                        <input type="hidden" id="idUsuario" name="idUsuario" value="<?php echo $idUsuario ?>">
-                        <input type="hidden" value="<?php echo $_SESSION['primeiroAcesso'] ?>">
-                        <div class="input-box-width100 divSenha">
-                            <h5>Informe sua nova senha:</h5>
-                            <label class="label-erro" id="label-senha1"></label>
-                            <input type="password" name="txtSenha" id="txtSenha">
-                        </div>
-                        <div class="input-box-width100 divSenha">
-                            <h5>Confirme a senha:</h5>
-                            <label class="label-erro" id="label-senha2"></label>
-                            <input type="password" name="txtConfirmarSenha" id="txtConfirmarSenha">
-                        </div>
-                        <div class="input-box-width100 divSenha">
-                            <button class="btn-nav-exit nextBtnSkipTwo btn-page-next" type="submit">Trocar Senha</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-
-    </div>
 
     <div id="modalProfile" class="modal modal-profile">
             
@@ -253,7 +319,7 @@
     <script src="../assets/js/modal.js"></script>
 
     <script>
-        $(document).ready(function(){
+        /*$(document).ready(function(){
             var modal = document.getElementById("modalReset");
             var primeiroAcesso = "<?php echo $_SESSION['primeiroAcesso'] ?>";
             if(primeiroAcesso === "V"){
