@@ -96,6 +96,12 @@
                     <span class="links-name">Cadastrar imagem de perfil</span>
                 </a>
             </li>
+            <li class="links-name">
+                <a href="chat-professor.php"  class="active-nav">
+                    <i class="material-icons-round">chat</i>
+                    <span class="links-name tooltip">Pai Coruja Chat</span>
+                </a>
+            </li>
         </div>
     </ul>
     <div class="profile-content">
