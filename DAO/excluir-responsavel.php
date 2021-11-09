@@ -6,7 +6,7 @@
     include("../classes/TelefoneResponsavel.php");
 
     try{
-        header("location: ../secretaria/cadastrar-responsavel.php");
+        header("location: ../secretaria/visualizar-dados.php");
         $idResponsavel = $_GET['idResponsavel'];
         $responsavel = new Responsavel();
         $usuario = new Usuario();
@@ -38,7 +38,7 @@
         $telefone->excluir($telefone);
         $responsavel->setIdResponsavel($idResponsavel);
         $responsavel->excluir($responsavel);
-        return 'Professor excluído com sucesso!';
+        return 'Responsável excluído com sucesso!';
         
     }catch(Exception $e){
         echo $e->getMessage();

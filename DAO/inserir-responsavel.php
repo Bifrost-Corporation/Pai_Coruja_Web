@@ -9,7 +9,7 @@
     include_once ('../classes/Usuario.php');
 
     try{
-        header('Location: ../secretaria/cadastrar-responsavel.php');
+        header('Location: ../secretaria/visualizar-dados.php');
         $idResponsavel = $_POST['idResponsavel'];
         $nomeResponsavel = $_POST['txtNome'];
         $emailResponsavel = $_POST['txtEmail'];
@@ -28,9 +28,9 @@
         $turma = new Turma();
         $endereco = new EnderecoResponsavel();
         $contato = new TelefoneResponsavel();
-        $listaResponsavel = $responsavel->listar();
-        $listaAluno = $aluno->listar();
-        $listaTurma = $turma->listar();
+        $listaResponsavel = $responsavel->listar($_SESSION['idEscola']);
+        $listaAluno = $aluno->listar($_SESSION['idEscola']);
+        $listaTurma = $turma->listar($_SESSION['idEscola']);
         if($idResponsavel > 0){
             $nomeTurma = $aluno->selecionarNomeTurma();
             foreach($nomeTurma as $linha){
@@ -75,70 +75,6 @@
             $usuario->setIdResponsavel($idResponsavel);
             echo $usuario->atualizar($usuario);
             return 'Dados atualizados com sucesso!';
-        }else{
-            $nomeTurma = $aluno->selecionarNomeTurma();
-            $repeteEmail = false;
-            $repeteCpf = false;
-            $repeteAluno = false;
-            foreach($nomeTurma as $linha){
-                $nomeBanco = $linha['nomeAluno'] . ' ' . $linha['nomeTurma'];
-                if($nomeAluno == $nomeBanco){
-                    foreach($listaResponsavel as $linha2){
-                        if($linha2['idAluno'] == $linha['idAluno']){
-                            $repeteAluno = true;
-                        }
-                    }
-                    if($repeteAluno == false){
-                        $idAluno = $linha['idAluno'];
-                    }
-                }
-            }
-            foreach($listaResponsavel as $linha){
-                if($emailResponsavel == $linha['emailResponsavel']){
-                    $repeteEmail = true;
-                }
-                if($cpfResponsavel == $linha['cpfResponsavel']){
-                    $repeteCpf = true;
-                }
-            }
-            if($repeteAluno == false && $repeteEmail == false && $repeteCpf == false){
-                $responsavel->setNomeResponsavel($nomeResponsavel);
-                $responsavel->setCpfResponsavel($cpfResponsavel);
-                $responsavel->setEmailResponsavel($emailResponsavel);
-                $responsavel->setSenhaResponsavel(md5($senhaResponsavel));
-                $responsavel->setIdAluno($idAluno);
-                $responsavel->cadastrar($responsavel);
-                $listaIdResponsavel = $responsavel->selecionarUltimoResponsavel();
-                $idResponsavel;
-                foreach($listaIdResponsavel as $linha){
-                    $idResponsavel = $linha['idResponsavel'];
-                }
-                $endereco->setLogradouroEnderecoResponsavel($logradouro);
-                $endereco->setNumCasaEnderecoResponsavel($numCasa);
-                $endereco->setComplementoEnderecoResponsavel($complemento);
-                $endereco->setCepEnderecoResponsavel($cep);
-                $endereco->setBairroEnderecoResponsavel($bairro);
-                $endereco->setCidadeEnderecoResponsavel($cidade);
-                $endereco->setIdResponsavel($idResponsavel);
-                $endereco->cadastrar($endereco);
-                $contato->setNumTelefoneResponsavel($telefone);
-                $contato->setIdResponsavel($idResponsavel);
-                $contato->cadastrar($contato);
-                $usuario = new Usuario();
-                $usuario->setIdResponsavel($idResponsavel);
-                echo $usuario->cadastrar($usuario);
-                return 'Dados cadastrados com sucesso!';
-            } else {
-                if($repeteAluno == true){
-                    $_SESSION['nomeAluno'] = $nomeAluno;
-                }
-                if($repeteCpf == true){
-                    $_SESSION['cpfResponsavel'] = $cpfResponsavel;
-                }
-                if($repeteEmail == true){
-                    $_SESSION['emailResponsavel'] = $emailResponsavel;
-                }
-            }
         }
 
         
