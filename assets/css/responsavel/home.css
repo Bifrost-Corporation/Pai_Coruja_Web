@@ -1,15 +1,15 @@
-.alternar-alunos-container{
+.alternar-alunos-container {
     display: flex;
     flex-direction: column;
 }
 
-.alternar-alunos-tab-flex{
+.alternar-alunos-tab-flex {
     display: flex;
     flex-direction: row;
     gap: 0.5rem;
 }
 
-.alternar-alunos-tab{
+.alternar-alunos-tab {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -28,17 +28,53 @@
     border-radius: 50%;
 }
 
-.alternar-alunos-tab div{
+.alternar-alunos-tab div {
     display: flex;
     justify-content: center;
     padding: 0 2rem;
     align-items: center;
 }
 
-.alternar-alunos-tab:hover{
+.alternar-alunos-tab:hover {
     user-select: none;
     cursor: pointer;
     background-color: var(--azulnavbar);
     color: var(--cinzamaisclaro);
 
+}
+
+.conteudo-responsavel {
+    background-color: var(--cinzamaisclaro);
+    border-radius: 1rem;
+    width: 100%;
+    height: 100%;
+}
+
+.aluno-banner {
+    border-radius: 1rem 1rem 0 0;
+
+    background-color: var(--cinzaclaro100);
+    height: 150px;
+    padding: 1rem;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mini-card-observacao {
+    background-color: #27AA41;
+    color: var(--cinzamaisclaro);
+    height: 100 px;
+    width: 100%;
+    padding: 1rem;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.conteudo-container-responsavel{
+    padding: 1rem;
 }

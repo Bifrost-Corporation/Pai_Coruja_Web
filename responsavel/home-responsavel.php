@@ -159,7 +159,83 @@
 
             <div class="conteudo-responsavel">
                 <div class="aluno-banner">
-                    ddf
+                    <div class="aluno-banner-left">
+                        <h1>Aluno Que não vai passar na fatec pq tirou R</h1>
+                        <h5>Aluno do 3°a</h5>
+                    </div>
+                    <div class="aluno-banner-right">
+                        <div class="mini-card-observacao">
+                            <div>
+                                <h3>Gravidade</h3>
+                                <h5>Observação</h5>
+                            </div>
+                            <div>
+                                <h2>Boa</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="conteudo-container-responsavel">
+                    <section class="cards-eventos">
+                        <h2>Eventos</h2>
+                        <div class="arrumar-cards carousel-evento">
+
+                            <div class="evento-card">
+                                <div>
+                                    <h1>Evento</h1>
+                                    <small>Data: 06/06/2006</small>
+                                </div>
+                                <div>
+                                    <a href="#"><button>Saiba Mais</button></a>
+                                </div>
+                            </div>
+
+                            <div class="evento-card">
+                                <div>
+                                    <h1>Evento</h1>
+                                    <small>Data: 06/06/2006</small>
+                                </div>
+                                <div>
+                                    <a href="#"><button>Saiba Mais</button></a>
+                                </div>
+                            </div>
+                            <div class="evento-card">
+                                <div>
+                                    <h1>Evento</h1>
+                                    <small>Data: 06/06/2006</small>
+                                </div>
+                                <div>
+                                    <a href="#"><button>Saiba Mais</button></a>
+                                </div>
+                            </div>
+                            <div class="evento-card">
+                                <div>
+                                    <h1>Evento</h1>
+                                    <small>Data: 06/06/2006</small>
+                                </div>
+                                <div>
+                                    <a href="#"><button>Saiba Mais</button></a>
+                                </div>
+                            </div>
+                            <div class="evento-card">
+                                <div>
+                                    <h1>Evento</h1>
+                                    <small>Data: 06/06/2006</small>
+                                </div>
+                                <div>
+                                    <a href="#"><button>Saiba Mais</button></a>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="indicadors-bar">
+                        <i aria-label="Previous" class="fa fa-chevron-left carousel-evento-prev"></i>
+                        <div role="tablist" class="carousel-evento-dots"></div>
+                        <i aria-label="Next" class="fa fa-chevron-right carousel-evento-next"></i>
+                        </div>
+                    </section>
                 </div>
             </div>
             

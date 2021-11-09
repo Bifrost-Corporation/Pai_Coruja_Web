@@ -9,7 +9,8 @@
     display: flex;
     flex-direction: column;
     margin-left: 240px;
-    background-color: var(--cinzamaisclaro);
+    background-color: var(--azulumpoucosaturado);
+    border-top-left-radius: 1rem;
    
 }
 
