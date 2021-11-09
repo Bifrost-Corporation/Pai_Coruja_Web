@@ -170,7 +170,7 @@
                     
                     </div>
                     <div class="footer-area-conversa">
-                        <button class="btn-show-modal" href=""><h4><i class="fa fa-plus" aria-hidden="true"></i>  Nova Conversa</h4></button>
+                        <button class="btn-show-modal" href=""><h4><i class="material-icons-round">ios_share</i>  Nova Conversa</h4></button>
                     </div>
                 </div>
                 <div class="caixa-chat ">
@@ -265,7 +265,7 @@
                     </ul>
                 </div>
                 <div class="footer-modal-nova-conversa">
-                    <button class="btn-mensagem-agrupada"href="" actived>Mensagem Agrupada</button>
+                    <button class="btn-mensagem-agrupada"href="" actived>Comunicado</button>
                     <form class="form-submit-message-agrupada">
                         <input type="text" placeholder="Mande sua mensagem" id="txtMensagem" name="txtMensagem">
                         <button id="botao-enviar" name="botao-enviar"><i class="fa fa-paper-plane" aria-hidden="true"></i>
@@ -407,10 +407,10 @@
         if(window.innerWidth > 720){
             const botaoContato = document.querySelectorAll(".botao-contato")
 
-            botaoContato.addEventListener("click", function() {
+            /*botaoContato.addEventListener("click", function() {
                 
                 console.log("SE APARECER O MARCOS É GUEI")
-            });
+            });*/
             
         }else{
             const botaoContato = document.querySelectorAll(".botao-contato")
