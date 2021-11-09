@@ -120,6 +120,7 @@ CREATE TABLE `tbevento` (
 CREATE TABLE `tbhorarioturma` (
   `idHorarioTurma` int(11) NOT NULL,
   `diaSemana` varchar(13) NOT NULL,
+  `ordemAulaDia` int(2) NOT NULL,
   `idTurma` int(11) DEFAULT NULL,
   `idDisciplina` int(11) DEFAULT NULL,
   `idEscola` int(11) DEFAULT NULL
@@ -322,6 +323,7 @@ CREATE TABLE `tbmensagem` (
   `idMensagem` int(11) NOT NULL,
   `textoMensagem` varchar(500) NOT NULL,
   `dataMensagem` datetime NOT NULL,
+  `statusMensagem` varchar(1) NOT NULL,
   `idOrigemMensagem` int(11) DEFAULT NULL,
   `idDestinoMensagem` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
