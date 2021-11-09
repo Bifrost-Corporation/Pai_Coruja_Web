@@ -42,7 +42,7 @@
             <nav class="nav-bar">
                 <div class="content-logo-btn">
                     <ul class="ul-area-btn">
-                        <li class="nav-li"><a class="btn-nav-pc-open"><i class="material-icons-round">menu</i></a></li>
+                        <li class="nav-li"><a class="btn-nav-pc-open"><i class="fas fa-bars"></i></a></li>
                     </ul>
                     <a href="dashboard.php"><img class="logo-img" src="../img/pai_coruja_branca.png"></a>
                 </div>
@@ -56,8 +56,8 @@
                     <div class="profile-details">
                         <img src="../img/macacopc.gif" alt="">
                         <div class="name-job">
-                            <div class="name-menu"><?php echo $_SESSION['nomeResponsavel'] ?></div>
-                            <small class="job-menu">Olá Responsável(a)</small>
+                        <div class="name-menu"><?php echo $_SESSION['nomeResponsavel'] ?></div>
+                            <small class="job-menu">Olá Responsavel</small>
                         </div>
                     </div>
                     <ul class="opcoes-drop-profile">
@@ -70,13 +70,13 @@
                         </li>
                         <li class="drop-profile-li" id="alterar-imagem-perfil">
                             <a>
-                                <i class="material-icons-round">manage_accounts</i>
+                                <i class="fas fa-user-cog"></i>
                                 <small>Trocar Imagem de Perfil</small>
                             </a>
                         </li>
                         <li class="drop-profile-li">
                             <a href="logout.php">
-                                <i id="logout-user" class="material-icons-round">logout</i>
+                                <i class="fas fa-sign-out-alt" id="logout-user"></i>
                                 <small>Sair</small>
                             </a>
                         </li>
@@ -99,15 +99,15 @@
                 <ul class="nav-list">
                     <div class="menu-container">
                         <li class="links-name">
-                            <a href="home-responsavel.php" class="active-nav">
-                                <i class="material-icons-round">space_dashboard</i>
-                                <span class="links-name tooltip">Dashboard</span>
+                            <a href="dashboard.php" class="active-nav">
+                                <i class="fas fa-calendar"></i>
+                                <span class="links-name tooltip">Home</span>
                             </a>
                         </li>
                         <li class="links-name">
                             <a href="cadastrar-dados.php">
-                                <i class="material-icons-round">article</i>
-                                <span class="links-name tooltip">Agenda Escolar</span>
+                                <i class="fas fa-school "></i>
+                                <span class="links-name tooltip">Cadastrar Dados</span>
                             </a>
                         </li>
                         <li class="links-name">
@@ -124,7 +124,7 @@
                         </li>
                         <li class="links-name">
                             <a href="chat-responsavel.php" >
-                                <i class="material-icons-round">chat_bubble</i>
+                            <i class="fa fa-comment" aria-hidden="true"></i>
                                 <span class="links-name tooltip">Pai Coruja Chat</span>
                             </a>
                         </li>
@@ -135,35 +135,118 @@
         </header>
 
         
-        
     
 
     <main class="container-main">
-        <div class="container-dash">
-            <div class="ola-nav-dash">
-                <h1>Olá Responsável</h1>
-            </div>
+        <div class="carousel">
+            <div class=" carousel-destaque">
+                <div class="destaque-card">
+                <div class="esquerda-destaque">
+                    <h1>Titulo<!--<?php echo $linha['tituloPublicacao'] ?>--></h1>
+                    <small>Subtitulo<!--<?php echo $linha['descPublicacao'] ?>--></small>
+                    <p>Para mais detalhes clique abaixo</p>
 
-            <div class="alternar-alunos-container">
-                <span>Alternar Alunos</span>
-                <div class="alternar-alunos-tab-flex">
-                    <div class="alternar-alunos-tab" >
-                        <img src="../img/Tony_Tony_Chopper_Anime_Pre_Timeskip_Infobox.png" alt="aluno">
-                        <div class="alternar-alunos-tab-title">
-                            <h5>Aluno 1</h5>
-                        </div>
+                    <a href="#"><button class="saiba-mais-btn">Saiba Mais</button></a>
+                </div>
+                <div class="direita-destaque">
+
+                </div> 
+            </div>
+            
+            <div class="destaque-card">
+                <div class="esquerda-destaque">
+                    <h1>Titulo<!--<?php echo $linha['tituloPublicacao'] ?>--></h1>
+                    <small>Subtitulo<!--<?php echo $linha['descPublicacao'] ?>--></small>
+                    <p>Para mais detalhes clique abaixo</p>
+
+                    <a href="#"><button class="saiba-mais-btn">Saiba Mais</button></a>
+                </div>
+                <div class="direita-destaque">
+
+                </div> 
+            </div>
+            <div class="destaque-card">
+                <div class="esquerda-destaque">
+                    <h1>Titulo<!--<?php echo $linha['tituloPublicacao'] ?>--></h1>
+                    <small>Subtitulo<!--<?php echo $linha['descPublicacao'] ?>--></small>
+                    <p>Para mais detalhes clique abaixo</p>
+
+                    <a href="#"><button class="saiba-mais-btn">Saiba Mais</button></a>
+                </div>
+                <div class="direita-destaque">
+                    
+                </div> 
+            </div>
+            </div>
+            <div class="indicadors-bar">
+            <div role="tablist" class="carousel-destaque-dots"></div>
+            <!--<i aria-label="Previous" class="fa fa-chevron-left carousel-destaque-prev"></i>
+            
+            <i aria-label="Next" class="fa fa-chevron-right carousel-destaque-next"></i>-->
+            
+            
+            </div>
+        </div>
+        <section class="cards-eventos">
+            <h2>Eventos</h2>
+            <div class="arrumar-cards carousel-evento">
+
+                <div class="evento-card">
+                    <div>
+                        <h1>Evento</h1>
+                        <small>Data: 06/06/2006</small>
                     </div>
-                    <div class="alternar-alunos-tab">
-                        <img src="../img/macos.png" alt="aluno">
-                        <div class="alternar-alunos-tab-title">
-                            <h5>Aluno 2</h5>
-                        </div>
+                    <div>
+                        <a href="#"><button>Saiba Mais</button></a>
                     </div>
                 </div>
-            </div>
 
+                <div class="evento-card">
+                    <div>
+                        <h1>Evento</h1>
+                        <small>Data: 06/06/2006</small>
+                    </div>
+                    <div>
+                        <a href="#"><button>Saiba Mais</button></a>
+                    </div>
+                </div>
+                <div class="evento-card">
+                    <div>
+                        <h1>Evento</h1>
+                        <small>Data: 06/06/2006</small>
+                    </div>
+                    <div>
+                        <a href="#"><button>Saiba Mais</button></a>
+                    </div>
+                </div>
+                <div class="evento-card">
+                    <div>
+                        <h1>Evento</h1>
+                        <small>Data: 06/06/2006</small>
+                    </div>
+                    <div>
+                        <a href="#"><button>Saiba Mais</button></a>
+                    </div>
+                </div>
+                <div class="evento-card">
+                    <div>
+                        <h1>Evento</h1>
+                        <small>Data: 06/06/2006</small>
+                    </div>
+                    <div>
+                        <a href="#"><button>Saiba Mais</button></a>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="indicadors-bar">
+            <div role="tablist" class="carousel-evento-dots"></div>
+            <!--<i aria-label="Previous" class="fa fa-chevron-left carousel-evento-prev"></i>
             
-        </div>
+            <i aria-label="Next" class="fa fa-chevron-right carousel-evento-next"></i>-->
+            </div>
+        </section>
     </main>
 
    
