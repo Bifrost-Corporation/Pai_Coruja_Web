@@ -4,7 +4,7 @@
     include("../classes/Usuario.php");
 
     try{
-        header("location: ../secretaria/cadastrar-professor.php");
+        header("location: ../secretaria/visualizar-dados.php");
         $idProfessor = $_GET['idProfessor'];
         $professor = new Professor();
         $usuario = new Usuario();

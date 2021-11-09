@@ -5,10 +5,11 @@
     include("../classes/Professor.php");
 
     try{
-        header("Location: ../secretaria/cadastrar-disciplina.php");
+        header("Location: ../secretaria/visualizar-dados.php");
         $idDisciplina = $_POST['idDisciplina'];
         $nomeDisciplinaInput = $_POST['txtNomeDisciplina'];
         $nomeProfessorInput = $_POST['txtProfessor'];
+        $idEscola = $_POST['idEscola'];
         $disciplina = new Disciplina();
         $professor = new Professor();
         $listaProfessor = $professor->listar();
@@ -18,13 +19,8 @@
                     $disciplina->setIdDisciplina($idDisciplina);
                     $disciplina->setNomeDisciplina($nomeDisciplinaInput);
                     $disciplina->setIdProfessor($linha['idProfessor']);
-                    $disciplina->setIdEscola($_SESSION['idEscola']);
+                    $disciplina->setIdEscola($idEscola);
                     echo $disciplina->atualizar($disciplina);
-                }else{
-                    $disciplina->setNomeDisciplina($nomeDisciplinaInput);
-                    $disciplina->setIdProfessor($linha['idProfessor']);
-                    $disciplina->setIdEscola($_SESSION['idEscola']);
-                    echo $disciplina->cadastrar($disciplina);
                 }
             }
         }

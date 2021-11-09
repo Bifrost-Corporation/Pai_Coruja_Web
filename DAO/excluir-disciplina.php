@@ -3,7 +3,7 @@
     include("../classes/Disciplina.php");
 
     try{
-        header("location: ../secretaria/cadastrar-disciplina.php");
+        header("location: ../secretaria/visualizar-dados.php");
         $idDisciplina = $_GET['idDisciplina'];
         $disciplina = new Disciplina();
         $disciplina->setIdDisciplina($idDisciplina);

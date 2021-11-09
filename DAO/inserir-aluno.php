@@ -5,22 +5,22 @@
     include("../classes/Turma.php");
 
     try{
-        header("Location: ../secretaria/cadastrar-aluno.php");
+        header("Location: ../secretaria/visualizar-dados.php");
         unset($_SESSION['turmaInvalida']);
         $idAluno = $_POST['idAluno'];
         $nomeAluno = $_POST['txtNomeAluno'];
         $dataNasc = $_POST['dataNasc'];
         $turmaAluno = $_POST['txtTurma'];
-        $idEscola = $_SESSION['idEscola'];
+        $idEscola = $_POST['idEscola'];
         if($idAluno > 0){
             $turma = new Turma();
-            $listaturma = $turma->listar();
+            $listaturma = $turma->listar($idEscola);
             $turmaInvalida = true;
             foreach($listaturma as $linha){
                 if($turmaAluno == $linha['nomeTurma'] && $idEscola == $linha['idEscola']){
                     $turmaInvalida = false;
                     $aluno = new Aluno();
-                    $listaAluno = $aluno->listar();
+                    $listaAluno = $aluno->listar($idEscola);
                     foreach($listaAluno as $linha2){
                         if($linha2['idAluno'] == $idAluno){
                             $aluno->setIdAluno($idAluno);
@@ -31,24 +31,6 @@
                             echo $aluno->atualizar($aluno);
                         }
                     }
-                }
-            }
-            if($turmaInvalida == true){
-                $_SESSION['turmaInvalida'] = $turmaAluno;
-            }
-        }else{
-            $turma = new Turma();
-            $listaturma = $turma->listar();
-            $turmaInvalida = true;
-            foreach($listaturma as $linha){
-                if($turmaAluno == $linha['nomeTurma'] && $idEscola == $linha['idEscola']){
-                    $turmaInvalida = false;
-                    $aluno = new Aluno();
-                    $aluno->setNomeAluno($nomeAluno);
-                    $aluno->setDataNascAluno($dataNasc);
-                    $aluno->setIdTurma($linha['idTurma']);
-                    $aluno->setIdEscola($idEscola);
-                    echo $aluno->cadastrar($aluno);
                 }
             }
             if($turmaInvalida == true){

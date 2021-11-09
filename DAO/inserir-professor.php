@@ -5,14 +5,14 @@
     include_once ("../classes/Usuario.php");
 
     try{
-        header("Location: ../secretaria/cadastrar-professor.php");
+        header("Location: ../secretaria/visualizar-dados.php");
         unset($_SESSION['repeteEmail']);
         unset($_SESSION['emailProfessor']);
         $idProfessor = $_POST['idProfessor'];
         $nomeProfessor = $_POST['txtNomeProfessor'];
         $emailProfessor = $_POST['txtEmailProfessor'];
         $senhaProfessor = $_POST['txtSenhaProfessor'];
-        $idEscola = $_SESSION['idEscola'];
+        $idEscola = $_POST['idEscola'];
         $professor = new Professor();
         $verificaEmail = false;
         $listaProfessor = $professor->listar();
@@ -21,9 +21,11 @@
             $professor->setNomeProfessor($nomeProfessor);
             $professor->setEmailProfessor($emailProfessor);
             $professor->setSenhaProfessor(md5($senhaProfessor));
+            $professor->setPrimeiroAcessoProfessor('F');
             $professor->setIdEscola($idEscola);
             echo $professor->atualizar($professor);
         }else{
+            /*
             foreach($listaProfessor as $linha){
                 if($linha['emailProfessor'] == $emailProfessor){
                     $verificaEmail = true;
@@ -47,6 +49,7 @@
                 $_SESSION['emailProfessor'] = $emailProfessor;
                 $_SESSION['repeteEmail'] = true;
             }
+            */
         }
         
     }catch(Exception $e){

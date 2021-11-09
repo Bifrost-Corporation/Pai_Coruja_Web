@@ -3,12 +3,12 @@
     include("../classes/Aluno.php");
 
     try{
-        header("location: ../secretaria/cadastrar-aluno.php");
+        header("location: ../secretaria/visualizar-dados.php");
         $idAluno = $_GET['idAluno'];
         $aluno = new Aluno();
         $aluno->setIdAluno($idAluno);
         $aluno->excluir($aluno);
-        return 'Escola excluída com sucesso!';
+        return 'Aluno excluído com sucesso!';
         
     }catch(Exception $e){
         echo $e->getMessage();

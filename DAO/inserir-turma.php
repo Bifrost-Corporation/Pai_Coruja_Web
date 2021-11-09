@@ -4,10 +4,10 @@
     include ('../classes/Turma.php');
 
     try{
-        header("location: ../secretaria/cadastrar-turma.php");
+        header("location: ../secretaria/visualizar-dados.php");
         $idTurma = $_POST['idTurma'];
         $nomeTurma = $_POST['txtNomeTurma'];
-        $idEscola = $_SESSION['idEscola'];
+        $idEscola = $_POST['idEscola'];
         $turma = new Turma();
         $turma->setNomeTurma($nomeTurma);
         $turma->setIdEscola($idEscola);

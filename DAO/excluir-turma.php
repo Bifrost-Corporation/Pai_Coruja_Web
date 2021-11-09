@@ -3,7 +3,7 @@
     include("../classes/Turma.php");
 
     try{
-        header("location: ../secretaria/cadastrar-turma.php");
+        header("location: ../secretaria/visualizar-dados.php");
         $idTurma = $_GET['idTurma'];
         $turma = new Turma();
         $turma->setIdTurma($idTurma);
