@@ -156,6 +156,12 @@
                 </div>
             </div>
 
+
+            <div class="conteudo-responsavel">
+                <div class="aluno-banner">
+                    ddf
+                </div>
+            </div>
             
         </div>
     </main>
