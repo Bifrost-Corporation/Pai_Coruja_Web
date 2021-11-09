@@ -143,27 +143,36 @@
                     <ul>
                     <?php
                         $secretaria = new Secretaria();
+                        $responsavel = new Responsavel();
                         $listaContatos = $secretaria->listarResponsaveis($_SESSION['idEscola']);
+                        $qtdeResponsaveis = $responsavel->contar($_SESSION['idEscola']);
+                        foreach($qtdeResponsaveis as $linha){
+                            $qtdeResponsaveis = $linha['qtdeResponsavel'];
+                        }
+                        $contaid = 1;
                         foreach($listaContatos as $linha){
                     ?>
-                        <li><div class="area-botao-conversa">
-                        <button class="botao-contato"id="<?php echo $linha['idResponsavel'] ?>">
-                        <div class="profile-details list">
-                                <img src="../img/macacopc.gif" alt="">
-                            </div>
-                        <div class="container-texts-conversa">
-                        <div class="title-conversa">
-                                <?php echo $linha['nomeResponsavel'] ?>
-                            </div>
-                            <div class="text-conversa">
-                                <p>mingau ajsak ajshja jajshj ahsjh</p>
+                        <li id="contato<?php echo $contaid; ?>">
+                            <div class="area-botao-conversa">
+                                <button class="botao-contato"id="<?php echo $linha['idResponsavel'] ?>">
+                                <div class="profile-details list">
+                                        <img src="../img/macacopc.gif" alt="">
+                                    </div>
+                                <div class="container-texts-conversa">
+                                    <div class="title-conversa">
+                                        <p id="nomeContato<?php echo $contaid; ?>"><?php echo $linha['nomeResponsavel'] ?></p>
+                                    </div>
+                                    <div class="text-conversa">
+                                        <p>mingau ajsak ajshja jajshj ahsjh</p>
 
-                            </div>
-                        </div>
+                                    </div>
+                                </div>
 
-                        </button>
-                    </div></li>
+                                </button>
+                            </div>
+                        </li>
                     <?php
+                            $contaid++;
                         }
                     ?>
                     </ul>
@@ -177,7 +186,7 @@
                 
                     <div class="nav-chat">
                     <button class="botao-contato-abrir"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
-                        <h1 class="name-user-chat"><?php echo $linha['nomeResponsavel'] ?></h1>
+                        <h1 class="name-user-chat" id="nomeContato"></h1>
                     </div>
                     
                     <div class="caixa-mensagens">
@@ -460,6 +469,18 @@
             })();
         });
         */
+
+        //Colocando o nome do contato na área do chat
+        <?php
+        for($i = 1; $i <= $qtdeResponsaveis; $i++){
+        ?> 
+            $("#contato<?php echo $i ?>").on('click', function(){
+                var nomeContato = $("#nomeContato<?php echo $i ?>").text();
+                $("#nomeContato").text(nomeContato);
+            });
+        <?php
+        }
+        ?>
     </script>
 </body>
 
