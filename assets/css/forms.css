@@ -223,7 +223,7 @@ input[type="file"] {
     flex-direction: row;
     gap: 0rem;
    
-    width: 100%;
+    width: 400%;
 }
 .page-form{
     align-items: center;
