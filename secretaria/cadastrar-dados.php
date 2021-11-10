@@ -227,13 +227,13 @@
                                                                                                                         echo @$_GET['emailProfessor'];
                                                                                                                     } ?>">
                                             </div>
-                                            <div class="input-box">
+                                            <div class="input-box-width100">
                                                 <h2>Senha Professor:</h2>
                                                 <label class="label-erro" id="label-senha1"></label>
                                                 <input name="txtSenhaProfessor" id="txtSenhaProfessor" type="password"
                                                     placeholder="********">
                                             </div>
-                                            <div class="input-box">
+                                            <div class="input-box-width100">
                                                 <h2>Confirmar senha:</h2>
                                                 <label class="label-erro" id="label-senha2"></label>
                                                 <input name="txtConfirmarSenhaProfessor" id="txtConfirmarSenhaProfessor"
@@ -523,7 +523,7 @@
                                                 <label class="label-erro" id="label-dataNasc"></label>
                                                 <input name="dataNasc" id="dataNasc" type="date" placeholder="Insira a data de nascimento do aluno" value="<?php echo @$_GET['dataNascAluno']; ?>">
                                             </div>
-                                            <div class="input-box">
+                                            <div class="input-box-width100">
                                                 <h2>Turma:</h2>
                                                 <label class="label-erro" id="label-turma"></label>
                                                 <input name="txtTurmaAluno" id="txtTurmaAluno" type="text" placeholder="Insira a turma do aluno" value="<?php if(isset($_SESSION['turmaInvalida'])){
@@ -591,23 +591,23 @@
                                                                                                                                                                                                     echo @$_GET['emailResponsavel'];
                                                                                                                                                                                                 } ?>">
                                             </div>
-                                            <div class="input-box">
+                                            <div class="input-box-width100">
                                                 <h2>Senha Responsável</h2>
                                                 <label class="label-erro" id="label-senha1Responsavel"></label>
                                                 <input name="txtSenhaResponsavel" id="txtSenhaResponsavel" type="password" placeholder="********">
                                             </div>
-                                            <div class="input-box">
+                                            <div class="input-box-width100">
                                                 <h2>Confirmar senha:</h2>
                                                 <label class="label-erro" id="label-senha2Responsavel"></label>
                                                 <input name="txtConfirmaSenhaResponsavel" id="txtConfirmaSenhaResponsavel" type="password" placeholder="********">
                                             </div>
-                                            <div class="input-box">
+                                            <div class="input-box-width100">
                                                 <h2>Telefone do Responsável:</h2>
                                                 <label class="label-erro" id="label-telefone"></label>
                                                 <input name="txtTelefone" id="txtTelefone" type="tel"
                                                     placeholder="Insira o numero de telefone do Responsável" value="<?php echo @$_GET['telefoneResponsavel']; ?>">
                                             </div>
-                                            <div class="input-box">
+                                            <div class="input-box-width100">
                                                 <h2>CPF Responsável:</h2>
                                                 <label class="label-erro" id="label-cpf"></label>
                                                 <input name="txtCpf" id="txtCpf" type="tel" placeholder="Insira CPF do Responsável" value="<?php if(isset($_SESSION['cpfResponsavel'])){
@@ -628,22 +628,22 @@
                                                 <input name="txtRua" id="txtRua" type="text"
                                                     placeholder="Insira a rua do endereço do Responsável" value="<?php echo @$_GET['rua']; ?>">
                                             </div>
-                                            <div class="input-box">
+                                            <div class="input-box-width100">
                                                 <h2>Número:</h2>
                                                 <label class="label-erro" id="label-numero"></label>
                                                 <input name="txtNumero" id="txtNumero" type="text" placeholder="Insira o número da residência" value="<?php echo @$_GET['numCasa']; ?>">
                                             </div>
-                                            <div class="input-box">
+                                            <div class="input-box-width100">
                                                 <h2>Complemento:</h2>
                                                 <label class="label-erro" id="label-complemento"></label>
                                                 <input name="txtComplemento" id="txtComplemento" type="text" placeholder="Insira o complemento" value="<?php echo @$_GET['complemento']; ?>">
                                             </div>
-                                            <div class="input-box">
+                                            <div class="input-box-width100">
                                                 <h2>Bairro:</h2>
                                                 <label class="label-erro" id="label-bairro"></label>
                                                 <input name="txtBairro" id="txtBairro" type="text" placeholder="Insira o bairro" value="<?php echo @$_GET['bairro']; ?>">
                                             </div>
-                                            <div class="input-box">
+                                            <div class="input-box-width100">
                                                 <h2>Cidade:</h2>
                                                 <label class="label-erro" id="label-cidade"></label>
                                                 <input name="txtCidade" id="txtCidade" type="text" placeholder="Insira a cidade" value="<?php echo @$_GET['cidade']; ?>">
