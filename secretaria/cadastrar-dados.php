@@ -385,33 +385,7 @@
                                                 </div>
                                         </div>
 
-                                        <div class="user-details page-form">
-                                            <div class="title-page-form">
-                                                <h1>Cadastrar Horário da Turma:</h1>
-                                            </div>
-                                            <input type="hidden" id="idDisciplina" name="idDisciplina"
-                                                value="<?php echo @$_GET['idDisciplina'] ?>">
-                                            <div class="input-box-width100">
-                                                <h2>Dia da semana</h2>
-                                                <label class="label-erro" id="label-dia"></label>
-                                                <input name="txtDiaSemana" id="txtDiaSemana" type="text" placeholder="Dia da semana da aula">
-                                            </div>
-                                            <div class="input-box-width100">
-                                            <h2>Nome da Disciplina</h2>
-                                                <label class="label-erro" id="label-disciplina"></label>
-                                                <input name="txtDisciplinaHorario" id="txtDisciplinaHorario" type="text" placeholder="Disciplina a ser dada na aula"  value="<?php if(isset($_SESSION['nomeDisciplina'])){
-                                                                                                                                                                                                                echo $_SESSION['nomeDisciplina'];
-                                                                                                                                                                                                            } ?>">
-                                                <div id="retornoPesquisaDisciplinaHorario">
-
-                                                </div>
-                                            </div>
-                                            <div class="button">
-                                                <input type="button" onclick="linkEtapa3Form2()" class="btn-nav-exit"
-                                                    value="Voltar">
-                                                <input type="submit" onclick="linkCadastrarForm2()" class="btn-nav-exit" value="Cadastrar">
-                                            </div>
-                                        </div>
+                                        
 
                                     </form>
                                 </div>
@@ -424,13 +398,13 @@
 
                                     <form id="formTurmaHorario" name="formTurmaHorario" class="" method="POST" action="../DAO/inserir-turma-horario.php">
                                         
-                                        <div class="user-details page-form">
+                                        <div class="user-details page-form slidePage-form4">
                                             <div class="btns-link-step-form">
                                                 <h2>Como deseja seguir seu cadastro?</h2>
                                                 <div>
                                                     <div class="btn-link-step">
                                                         <div class="button nextBtn">
-                                                            <button type="button" onclick="linkEtapa4Form2()" class=" btn-nav-exit btn-page-next cadastrar-prof-step" value="Cadastrar Disciplina">
+                                                            <button type="button" onclick="linkEtapa2Form4()" class=" btn-nav-exit btn-page-next cadastrar-prof-step" value="Cadastrar Disciplina">
                                                                 <div>
                                                                     <i class="fas fa-user"></i>
                                                                     <span>Cadastrar Horário da Turma</span>
@@ -446,10 +420,6 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="button">
-                                                    <input type="button" onclick="linkEtapa1Form2()" class="btn-nav-exit  btn-page-prev"
-                                                    value="Voltar">
-                                                </div>
                                             </div>
                                         </div>
 
@@ -475,7 +445,7 @@
                                                 </div>
                                             </div>
                                             <div class="button">
-                                                <input type="button" onclick="linkEtapa3Form2()" class="btn-nav-exit"
+                                                <input type="button" onclick="linkEtapa1Form4()" class="btn-nav-exit"
                                                     value="Voltar">
                                                 <input type="submit" onclick="linkCadastrarForm2()" class="btn-nav-exit" value="Cadastrar">
                                             </div>

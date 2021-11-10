@@ -162,31 +162,31 @@ function linkCadastrar(){
 */
 
 
-const $slidePageForm2 = document.querySelector('.slidePage-form2')
+const $slidePageForm4 = document.querySelector('.slidePage-form4')
 
-const $prevBtnThirdForm2 = document.querySelector('.prev-page-2-form2')
-const $submitBtnForm2 = document.querySelector('.submitBtn-form2')
-const $progressTextForm2 = document.querySelectorAll('.steps-form2 p')
-const $progressCheckForm2 = document.querySelectorAll('.steps-form2 .bullet-check-form2')
-const $bulletsForm2 = document.querySelectorAll('.steps-form2 .bullet-form2')
-let maxForm2 = 2
-let currentForm2 = 1
+const $prevBtnThirdForm4 = document.querySelector('.prev-page-2-form2')
+const $submitBtnForm4 = document.querySelector('.submitBtn-form2')
+const $progressTextForm4 = document.querySelectorAll('.steps-form2 p')
+const $progressCheckForm4 = document.querySelectorAll('.steps-form2 .bullet-check-form2')
+const $bulletsForm4 = document.querySelectorAll('.steps-form2 .bullet-form2')
+let maxForm4 = 4
+let currentForm4 = 1
 
-function linkEtapa1Form2(){
-    $slidePageForm2.style.marginLeft = "0%"
-    currentForm2 = 1
-    $bulletsForm2[current - 1].classList.remove('actived')
-    $progressTextForm2[current - 1].classList.remove('actived')
-    $progressCheckForm2[current - 1].classList.remove('actived')
+function linkEtapa1Form4(){
+    $slidePageForm4.style.marginLeft = "0%"
+    currentForm4 = 1
+    $bulletsForm4[current - 1].classList.remove('actived')
+    $progressTextForm4[current - 1].classList.remove('actived')
+    $progressCheckForm4[current - 1].classList.remove('actived')
 }
-function linkEtapa2Form2(){
-    $slidePageForm2.style.marginLeft = "-25%"
-    currentForm2 = 1
-    $bulletsForm2[current - 1].classList.remove('actived')
-    $progressTextForm2[current - 1].classList.remove('actived')
-    $progressCheckForm2[current - 1].classList.remove('actived')
+function linkEtapa2Form4(){
+    $slidePageForm4.style.marginLeft = "-25%"
+    // currentForm4 = 1
+    // $bulletsForm4[current - 1].classList.remove('actived')
+    // $progressTextForm4[current - 1].classList.remove('actived')
+    // $progressCheckForm4[current - 1].classList.remove('actived')
 }
-function linkEtapa3Form2(){
+function linkEtapa3Form4(){
     /*
     var nomeTurma = $('#txtNomeTurma').val();
     if (nomeTurma.length != 3) {
@@ -208,11 +208,11 @@ function linkEtapa3Form2(){
     */
     
 }
-function linkEtapa4Form2(){
+function linkEtapa4Form4(){
     $slidePageForm2.style.marginLeft = "-75%"
 }
 
-function linkCadastrarForm2(){  
+function linkCadastrarForm4(){  
     current = 2
     $bulletsForm2[current - 1].classList.add('actived')
     $progressTextForm2[current - 1].classList.add('actived')
@@ -321,3 +321,64 @@ function linkCadastrarform3(){
     alert('Cadastrado com sucesso!')
 }
 */
+
+
+
+
+const $slidePageForm2 = document.querySelector('.slidePage-form2')
+
+const $prevBtnThirdForm2 = document.querySelector('.prev-page-2-form2')
+const $submitBtnForm2 = document.querySelector('.submitBtn-form2')
+const $progressTextForm2 = document.querySelectorAll('.steps-form2 p')
+const $progressCheckForm2 = document.querySelectorAll('.steps-form2 .bullet-check-form2')
+const $bulletsForm2 = document.querySelectorAll('.steps-form2 .bullet-form2')
+let maxForm2 = 2
+let currentForm2 = 1
+
+function linkEtapa1Form2(){
+    $slidePageForm2.style.marginLeft = "0%"
+    currentForm2 = 1
+    $bulletsForm2[current - 1].classList.remove('actived')
+    $progressTextForm2[current - 1].classList.remove('actived')
+    $progressCheckForm2[current - 1].classList.remove('actived')
+}
+function linkEtapa2Form2(){
+    $slidePageForm2.style.marginLeft = "-25%"
+    currentForm2 = 1
+    $bulletsForm2[current - 1].classList.remove('actived')
+    $progressTextForm2[current - 1].classList.remove('actived')
+    $progressCheckForm2[current - 1].classList.remove('actived')
+}
+function linkEtapa3Form2(){
+    /*
+    var nomeTurma = $('#txtNomeTurma').val();
+    if (nomeTurma.length != 3) {
+        $('#label-nomeTurma').html('Por favor, preencha o campo de nome para a turma corretamente!');
+        $('#txtNomeTurma').addClass('erro-form');
+        $('#label-nomeTurma').show();
+        setTimeout(function () {
+            $('#label-nomeTurma').fadeOut(1);
+            $('#txtNomeTurma').removeClass('erro-form');
+        }, 5000);
+    }else{
+    */
+            $slidePageForm2.style.marginLeft = "-50%"
+            $bulletsForm2[current - 1].classList.add('actived')
+            $progressTextForm2[current - 1].classList.add('actived')
+            $progressCheckForm2[current - 1].classList.add('actived')
+    /*
+    }
+    */
+    
+}
+function linkEtapa4Form2(){
+    $slidePageForm2.style.marginLeft = "-75%"
+}
+
+function linkCadastrarForm2(){  
+    current = 2
+    $bulletsForm2[current - 1].classList.add('actived')
+    $progressTextForm2[current - 1].classList.add('actived')
+    $progressCheckForm2[current - 1].classList.add('actived')
+}
+
