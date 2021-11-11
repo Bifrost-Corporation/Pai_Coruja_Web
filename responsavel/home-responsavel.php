@@ -105,7 +105,7 @@
                             </a>
                         </li>
                         <li class="links-name">
-                            <a href="cadastrar-dados.php">
+                            <a href="agenda.php">
                                 <i class="material-icons-round">article</i>
                                 <span class="links-name tooltip">Agenda Escolar</span>
                             </a>
