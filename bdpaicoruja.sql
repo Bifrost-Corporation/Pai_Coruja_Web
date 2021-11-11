@@ -120,6 +120,7 @@ CREATE TABLE `tbevento` (
 CREATE TABLE `tbhorarioturma` (
   `idHorarioTurma` int(11) NOT NULL,
   `diaSemana` varchar(13) NOT NULL,
+  `ordemAulaDia` int(2) NOT NULL,
   `idTurma` int(11) DEFAULT NULL,
   `idDisciplina` int(11) DEFAULT NULL,
   `idEscola` int(11) DEFAULT NULL

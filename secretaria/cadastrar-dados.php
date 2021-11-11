@@ -396,60 +396,79 @@
                             
                                 <div class="container-steps-form">
 
-                                    <form id="formTurmaHorario" name="formTurmaHorario" class="" method="POST" action="../DAO/inserir-turma-horario.php">
+                                    <form id="formTurmaHorario" name="formTurmaHorario" class="" method="POST" action="../DAO/atualizar-planilha-horarioturma.php">
                                         
                                         <div class="user-details page-form slidePage-form4">
                                             <div class="btns-link-step-form">
-                                                <h2>Como deseja seguir seu cadastro?</h2>
-                                                <div>
-                                                    <div class="btn-link-step">
-                                                        <div class="button nextBtn">
-                                                            <button type="button" onclick="linkEtapa2Form4()" class=" btn-nav-exit btn-page-next cadastrar-prof-step" value="Cadastrar Disciplina">
-                                                                <div>
-                                                                    <i class="fas fa-user"></i>
-                                                                    <span>Cadastrar Horário da Turma</span>
-                                                                </div>
-                                                            </button>
-                                                        </div>
-                                                        <h5>Ou</h5>
-                                                        <div class="input-box-width100 input-link-step">
-                                                            <input type="text" placeholder="Procurar Horário da Turma">
-                                                            <button class=" btn-nav-exit btn-page-next">
-                                                                <i class="fas fa-search"></i>
-                                                            </button>
-                                                        </div>
-                                                    </div>
+                                                <h2>Selecione a turma para cadastrar o horário:</h2>
+                                                <div class="table-dados">
+                                                    <table>
+                                                        <thead>
+                                                            <tr>
+                                                                <td>Turma:</td>
+                                                                <td>Selecionar:</td>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <?php
+                                                            $turma = new Turma();
+                                                            $listaTurma = $turma->contar($_SESSION['idEscola']);
+                                                            $listaTurma = $turma->listar($_SESSION['idEscola']);
+                                                            foreach($listaTurma as $linha){
+                                                    ?>
+                                                            <tr>
+                                                                <td><?php echo $linha['nomeTurma'] ?></td>
+                                                                <td>
+                                                                    <div>
+                                                                        <div class="btn-link-step">
+                                                                            <div class="button nextBtn">
+                                                                                <button type="button" onclick="linkEtapa2Form4()" class=" btn-nav-exit btn-page-next cadastrar-prof-step" value="Cadastrar Disciplina">
+                                                                                    <div>
+                                                                                        <i class="fas fa-user"></i>
+                                                                                        <span>Cadastrar Horário da Turma</span>
+                                                                                    </div>
+                                                                                </button>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <?php
+                                                            }
+                                                    ?>
+                                                        </tbody>
+                                                    </table>
                                                 </div>
+                                                
                                             </div>
                                         </div>
 
                                         <div class="user-details page-form">
-                                            <div class="title-page-form">
-                                                <h1>Cadastrar Horário da Turma:</h1>
-                                            </div>
-                                            <input type="hidden" id="idDisciplina" name="idDisciplina"
-                                                value="<?php echo @$_GET['idDisciplina'] ?>">
                                             <div class="input-box-width100">
-                                                <h2>Dia da semana</h2>
-                                                <label class="label-erro" id="label-dia"></label>
-                                                <input name="txtDiaSemana" id="txtDiaSemana" type="text" placeholder="Dia da semana da aula">
-                                            </div>
-                                            <div class="input-box-width100">
-                                            <h2>Nome da Disciplina</h2>
-                                                <label class="label-erro" id="label-disciplina"></label>
-                                                <input name="txtDisciplinaHorario" id="txtDisciplinaHorario" type="text" placeholder="Disciplina a ser dada na aula"  value="<?php if(isset($_SESSION['nomeDisciplina'])){
-                                                                                                                                                                                                                echo $_SESSION['nomeDisciplina'];
-                                                                                                                                                                                                            } ?>">
-                                                <div id="retornoPesquisaDisciplinaHorario">
-
+                                                <h2>Baixe aqui o modelo básico da planilha para inserir novas turmas:</h2>
+                                                <div class="button aba-cadastro">
+                                                    <a href="planilhas/Planilha Modelo Inserir Turma.xml" download class="texto-botao">Baixar Modelo</a>
                                                 </div>
-                                            </div>
-                                            <div class="button">
-                                                <input type="button" onclick="linkEtapa1Form4()" class="btn-nav-exit"
-                                                    value="Voltar">
-                                                <input type="submit" onclick="linkCadastrarForm2()" class="btn-nav-exit" value="Cadastrar">
-                                            </div>
-                                        </div>
+                                                <h2>Envie o Arquivo .XML da planilha das turmas:</h2>
+                                                <label class="label-erro" name="label-nomeTurma" id="label-nomeTurma"></label>
+                                                <div class="input-box-width100">
+                                                    <label class="label-erro" id="label-foto"></label>
+                                                    <div>
+                                                        <label class="carregar-imagem-perfil" for="arquivo">Carregar Planilha Turma</label>
+                                                        <input name="arquivo" id="arquivo" type="file">
+                                                        <label class="label-erro" id="label-arquivo"></label>
+                                                        <span id="nome-arquivo"></span>
+                                                    </div>
+                                                </div>
+                                                    <!--<input name="txtNomeTurma" id="txtNomeTurma" type="text" placeholder="Insira o nome da turma" value="<?php echo @$_GET['nomeTurma'] ?>">-->
+                                                </div>
+                                                <div class="button">
+                                                    <input type="button" onclick="linkEtapa1Form4()" class="btn-nav-exit prev-page-1 "
+                                                        value="Voltar">
+                                                    <input type="submit" class="btn-nav-exit next-form-1 btn-page-next"
+                                                        value="Cadastrar">
+                                                </div>
+                                    </div>
 
                                     </form>
                                 </div>
