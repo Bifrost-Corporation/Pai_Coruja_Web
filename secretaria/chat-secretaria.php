@@ -287,32 +287,25 @@
        
 
 
-    <div id="modalProfile" class="modal modal-profile">
+        <div id="modalProfile" class="modal modal-profile">
             
             <!-- Modal content -->
         <div class="modal-content-profile">
             <div class="card-perfil">
                 <span class="closeModalProfile"><i class="fas fa-times"></i></span>
                 <div class="perfil-modal-body">
-                    <img src="../img/usuario-de-perfil.png" alt="Sua Foto de Perfil" style="align-self: center;">
-                    <div>
+                    <img src="../img/usuario-de-perfil.png" alt="Sua Foto de Perfil" style="align-self: center;box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.063);">
+                    <div class="title-perfil-modal">
                         <h1><?php echo $_SESSION['nomeSecretaria'] ?></h1>
                         <small>Secretário(a) Escolar</small>
+                        <small>Essa imagem será exibida para todos no Pai Coruja</small>
                     </div>
-                    <form class="formulario" name="formImagemPerfil" id="formImagemPerfil" action="../DAO/inserir-imagem-secretaria.php" method="POST" enctype="multipart/form-data">
-                        <div class="user-details">
-                            <div class="input-box-width100">
-                                <label class="label-erro" id="label-foto"></label>
-                                <div>
-                                    <label class="carregar-imagem-perfil" for="arquivo">Carregar Imagem Perfil</label>
+                    <form name="formImagemPerfil" id="formImagemPerfil" action="../DAO/inserir-imagem-secretaria.php" method="POST" class="botoes-perfil-upload" enctype="multipart/form-data">
+                                    <label class="botao-cadastrar-perfil" for="arquivo">Carregar Imagem Perfil</label>
                                     <input name="arquivo" id="arquivo" type="file" accept="image/*">
                                     <label class="label-erro" id="label-arquivo"></label>
                                     <span id="nome-arquivo"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <br>
-                        <input class="btn-nav-exit cadastrar-prof-step" type="submit" value="Enviar">
+                        <button class="botao-cadastrar-perfil" type="submit" value="Enviar">Enviar</button>
                     </form> 
                 </div>
                 

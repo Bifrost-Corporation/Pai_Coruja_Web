@@ -6,7 +6,7 @@
 
     try{
         if($_FILES['arquivo']['name'] != ''){
-            header("Location: ../secretaria/trocar-foto-perfil.php");
+            header("Location: ../secretaria/dashboard.php");
             $nomeImagem = $_FILES['arquivo']['name'];
             $arquivo = $_FILES['arquivo']['tmp_name'];
             $caminhoImagem = "../img/imgSecretaria/";

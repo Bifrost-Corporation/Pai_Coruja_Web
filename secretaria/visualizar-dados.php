@@ -54,12 +54,6 @@
                                 <span class="slider round"></span>
                             </label>
                         </li>
-                        <li class="drop-profile-li" id="alterar-imagem-perfil">
-                            <a>
-                                <i class="material-icons-round">manage_accounts</i>
-                                <small>Trocar Imagem de Perfil</small>
-                            </a>
-                        </li>
                         <li class="drop-profile-li">
                             <a href="logout.php">
                                 <i id="logout-user" class="material-icons-round">logout</i>
@@ -593,7 +587,7 @@
             </form>
     </div>
 
-
+ 
 
     
     <script src="../assets/js/modal.js"></script>
