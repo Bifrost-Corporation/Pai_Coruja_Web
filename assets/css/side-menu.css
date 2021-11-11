@@ -95,6 +95,7 @@
 }
 
 .btn-nav-pc-open{
+    user-select: none;
     cursor: pointer;
     display: flex;
     align-items: center;
