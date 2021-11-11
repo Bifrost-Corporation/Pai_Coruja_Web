@@ -170,8 +170,61 @@
         </div>
     </main>
 
-                                                                                                                            
 
+
+    <div id="myModal" class="modal modal-evento">
+            
+            <!-- Modal content -->
+        <div class="modal-content">
+            <form name="nomeEscola" class="formulario" id="formEscola" method="POST" action="../DAO/inserir-turma.php">
+            <div class="user-details">
+                    <input type="hidden" value="<?php echo @$_GET['idEscola']; ?>" id="idEscola" name="idEscola">
+                    <div class="input-box-width100">
+                        <h2>Nome da Escola: </h2>
+                        <label class="label-erro" id="label-escola"></label>
+                        <input name="txtNomeEscola" value="<?php echo @$_GET['nomeEscola'];?>" id="txtNomeEscola" type="text"
+                            placeholder="Insira o nome da escola">
+                    </div>
+                    <input type="hidden" id="idSecretaria" name="idSecretaria" value="<?php echo @$_GET['idSecretaria']; ?>">
+                    <div class="input-box-width100">
+                        <h2>Nome de usuário da Secretária:</h2>
+                        <label class="label-erro" id="label-usuario"></label>
+                        <input name="txtUsuarioSecretaria" id="txtUsuarioSecretaria" type="text"
+                            placeholder="Insira o nome de usuário para a secretaria" value="<?php echo @$_GET['nomeSecretaria']; ?>">
+                    </div>
+                    <div class="input-box-width100">
+                        <h2>Email Secretária:</h2>
+                        <label class="label-erro" id="label-email"></label>
+                        <input name="txtEmailSecretaria" id="txtEmailSecretaria" type="text"
+                            placeholder="Insira o email da secretaria"
+                            value="<?php if(isset($_SESSION['emailSecretaria'])){
+                                                                                                                                echo $_SESSION['emailSecretaria'];
+                                                                                                                            }else{
+                                                                                                                                echo @$_GET['emailSecretaria'];
+                                                                                                                            }  ?>">
+                    </div>
+                    <div class="input-box-width100">
+                        <h2>Senha Secretária:</h2>
+                        <label class="label-erro" id="label-senha1"></label>
+                        <input name="txtSenhaSecretaria" id="txtSenhaSecretaria" type="password" placeholder="********">
+                    </div>
+                    <div class="input-box-width100">
+                        <h2>Confirmar senha:</h2>
+                        <label class="label-erro" id="label-senha2"></label>
+                        <input name="txtConfirmaSenhaSecretaria" id="txtConfirmaSenhaSecretaria" type="password"
+                            placeholder="********">
+                    </div>
+                    <div class="button">
+                        <input type="submit" class="btn-nav-exit" value="Cadastrar">
+                    </div>
+                </div>
+            </form>
+
+    </div>
+
+                                                                                                                            
+    <script src="../assets/js/modal.js"></script>
+    <script src="../assets/js/alterar-dados.js"></script>
     <script src="../assets/js/dash-cadastro.js"></script>
     <script src="../assets/js/formStepsBySteps.js"></script>
     <script src="../assets/js/nav.js"></script>

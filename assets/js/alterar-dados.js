@@ -29,3 +29,20 @@ if(url.includes("php?idResponsavel")){
     let formProfessor = document.querySelector("#formResponsavel")
     formProfessor.style.display = "block"
 }
+
+
+
+
+//ADM
+if(url.includes("php?idEscola")){
+    modals.classList.toggle("modal-active");
+    let formEscola = document.querySelector("#formEscola")
+    formEscola.style.display = "block"
+}
+
+
+modals.onclick = function(event) {
+    if (event.target == modals) {
+      modals.classList.toggle("modal-active");
+    }
+  }
