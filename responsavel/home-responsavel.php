@@ -163,7 +163,7 @@
             <div class="conteudo-responsavel">
                 <div class="aluno-banner">
                     <div class="aluno-banner-left">
-                        <h1>Aluno Que não vai passar na fatec pq tirou R</h1>
+                        <h1>Clodoaldo da Silva Ribeiro</h1></h1>
                         <h5>Aluno do 3°a</h5>
                     </div>
                     <div class="aluno-banner-right">
