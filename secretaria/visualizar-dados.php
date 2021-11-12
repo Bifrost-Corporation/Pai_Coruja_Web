@@ -54,12 +54,6 @@
                                 <span class="slider round"></span>
                             </label>
                         </li>
-                        <li class="drop-profile-li" id="alterar-imagem-perfil">
-                            <a>
-                                <i class="material-icons-round">manage_accounts</i>
-                                <small>Trocar Imagem de Perfil</small>
-                            </a>
-                        </li>
                         <li class="drop-profile-li">
                             <a href="logout.php">
                                 <i id="logout-user" class="material-icons-round">logout</i>
@@ -110,7 +104,7 @@
                         </li>
                         <li class="links-name">
                             <a href="chat-secretaria.php" >
-                                <i class="material-icons-round">chat</i>
+                                <i class="material-icons-round">chat_bubble</i>
                                 <span class="links-name tooltip">Pai Coruja Chat</span>
                             </a>
                         </li>
@@ -593,7 +587,7 @@
             </form>
     </div>
 
-
+ 
 
     
     <script src="../assets/js/modal.js"></script>
