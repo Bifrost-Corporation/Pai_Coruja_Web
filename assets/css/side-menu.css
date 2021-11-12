@@ -13,7 +13,7 @@
     flex-direction: column;
     margin-left: 240px;
     min-height: 100vh;
-    /* background-color: var(--azulumpoucosaturado); */
+    background-color: var(--azulumpoucosaturado);
     border-top-left-radius: 1rem;
     transition: 200ms ease;
 }

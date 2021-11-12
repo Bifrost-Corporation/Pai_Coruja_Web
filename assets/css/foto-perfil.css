@@ -1,5 +1,5 @@
 .card-perfil{
-    margin: auto 20%;
+    margin: auto 30%;
     box-shadow: 0rem 0.5rem 2rem 0.2 var(--cinzaclaro);
     /* padding: 3rem; */
     border-radius: 1rem;
@@ -35,8 +35,8 @@
 }
 
 .closeModalProfile {
-    margin-top: 4px;
-    margin-left: 57.5%;
+    margin-top: 10px;
+    margin-left: 30.5%;
     display: flex;
     justify-content: end;
     position: absolute;
@@ -51,46 +51,4 @@
     color: #000;
     text-decoration: none;
     cursor: pointer;
-  }
-
-
-  .title-perfil-modal{
-    display: flex;
-    flex-direction: column;
-  }
-
-
-  .botoes-perfil-upload{
-      display: flex;
-      align-items: center;
-      padding: 2rem;
-      gap: 1rem;
-      justify-content: center;
-  }
-
-  .botao-cadastrar-perfil{
-      background-color: var(--azulumpoucosaturado);
-      padding: 0.5rem 2rem;
-    width: 100%;
-      border: 0;
-    font-size: 14px;
-    font-weight: 500;
-      height: 40px;
-
-      color: var(--cinzamaisclaro);
-      border-radius: 10px;
-
-      user-select: none;
-      cursor: pointer;
-
-      transition: 200ms;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .botao-cadastrar-perfil:hover{
-      transform: scale(1.03);
-      transition: 200ms;
   }
