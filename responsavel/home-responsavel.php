@@ -6,10 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/swiper/swiper-bundle.min.css"
-    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.css">
     
     <link rel="stylesheet" type="text/css"  href="../assets/css/style.css">
     <link rel="stylesheet" type="text/css"  href="../assets/css/modal.css">
@@ -135,8 +132,8 @@
         
     
 
-    <main class="container-main container-home-responsavel">
-    
+    <main class="container-main">
+        <div class="container-dash">
             <div class="ola-nav-dash">
                 <h1>Olá Responsável</h1>
             </div>
@@ -182,82 +179,7 @@
                 <div class="conteudo-container-responsavel">
                     <section class="cards-eventos">
                         <h2>Eventos</h2>
-
-                        <div class="swiper carousel-evento-responsavel">
-                            <!-- Additional required wrapper -->
-                            <div class="swiper-wrapper">
-                                <!-- Slides -->
-                            <div class="swiper-slide evento-card">
-                                <div>
-                                    <h1>Evento</h1>
-                                    <small>Data: 06/06/2006</small>
-                                </div>
-                                <div>
-                                    <a href="#"><button>Saiba Mais</button></a>
-                                </div>
-                            </div>
-                            <div class="swiper-slide evento-card">
-                                <div>
-                                    <h1>Evento</h1>
-                                    <small>Data: 06/06/2006</small>
-                                </div>
-                                <div>
-                                    <a href="#"><button>Saiba Mais</button></a>
-                                </div>
-                            </div>
-                            <div class="swiper-slide evento-card">
-                                <div>
-                                    <h1>Evento</h1>
-                                    <small>Data: 06/06/2006</small>
-                                </div>
-                                <div>
-                                    <a href="#"><button>Saiba Mais</button></a>
-                                </div>
-                            </div>
-                            <div class="swiper-slide evento-card">
-                                <div>
-                                    <h1>Evento</h1>
-                                    <small>Data: 06/06/2006</small>
-                                </div>
-                                <div>
-                                    <a href="#"><button>Saiba Mais</button></a>
-                                </div>
-                            </div>
-                            <div class="swiper-slide evento-card">
-                                <div>
-                                    <h1>Evento</h1>
-                                    <small>Data: 06/06/2006</small>
-                                </div>
-                                <div>
-                                    <a href="#"><button>Saiba Mais</button></a>
-                                </div>
-                            </div>
-                            <div class="swiper-slide evento-card">
-                                <div>
-                                    <h1>Evento</h1>
-                                    <small>Data: 06/06/2006</small>
-                                </div>
-                                <div>
-                                    <a href="#"><button>Saiba Mais</button></a>
-                                </div>
-                            </div>
-
-
-                            
-                            </div>
-                            <!-- If we need pagination -->
-                            <div class="swiper-pagination"></div>
-
-                            <!-- If we need navigation buttons -->
-                            <div class="swiper-button-prev"></div>
-                            <div class="swiper-button-next"></div>
-
-                            <!-- If we need scrollbar -->
-                            <div class="swiper-scrollbar"></div>
-                            </div> 
-
-
-                        <!--<div class="arrumar-cards carousel-evento">
+                        <div class="arrumar-cards carousel-evento">
 
                             <div class="evento-card">
                                 <div>
@@ -312,12 +234,12 @@
                         <i aria-label="Previous" class="fa fa-chevron-left carousel-evento-prev"></i>
                         <div role="tablist" class="carousel-evento-dots"></div>
                         <i aria-label="Next" class="fa fa-chevron-right carousel-evento-next"></i>
-                        </div>-->
+                        </div>
                     </section>
                 </div>
             </div>
             
-        
+        </div>
     </main>
 
     <div class="nav-footer">
@@ -388,10 +310,7 @@
 
     <script src="../assets/js/nav.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-    
-
-<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
-    
+    <script src="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.js"></script>
     <script src="../assets/js/carousel.js"></script>
     <script src="../assets/js/modal.js"></script>
 

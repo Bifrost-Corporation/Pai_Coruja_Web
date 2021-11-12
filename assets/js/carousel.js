@@ -1,26 +1,33 @@
+const $carouselDestaque = document.querySelector('.carousel-destaque')
+
+new Glider($carouselDestaque, {
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    itemHeight: 'auto',
+    duration: .1,
+    dots: '.carousel-destaque-dots',
+
+    scrollLock: true,
+    draggable: true,
+    arrows: {
+        prev: '.carousel-destaque-prev',
+        next: '.carousel-destaque-next',
+    }
+})
+
+const $carouselEventos = document.querySelector('.carousel-evento')
 
 
+new Glider($carouselEventos, {
+    slidesToShow: 2.5,
+    slidesToScroll: 1,
 
-const swiper = new Swiper(".carousel-evento-responsavel", {
+    dots: '.carousel-evento-dots',
 
-    slidesPerView: 1,
-    spaceBetween: 30,
-    navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-    },
-    breakpoints: {
-        640: {
-            slidesPerView: 2,
-            spaceBetween: 20,
-        },
-        768: {
-            slidesPerView: 2,
-            spaceBetween: 40,
-        },
-        1024: {
-            slidesPerView: 3.3,
-            spaceBetween: 50,
-        },
-    },
-});
+    scrollLock: true,
+    draggable: true,
+    arrows: {
+        prev: '.carousel-evento-prev',
+        next: '.carousel-evento-next',
+    }
+})
