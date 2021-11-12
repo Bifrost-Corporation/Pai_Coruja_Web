@@ -7,14 +7,10 @@
 
 .container-main {
     color: var(--cinzafonte);
-    flex-wrap: wrap;
-    padding-bottom: 0px;
     display: flex;
     flex-direction: column;
     margin-left: 240px;
-    min-height: 100vh;
-    /* background-color: var(--azulumpoucosaturado); */
-    border-top-left-radius: 1rem;
+    margin-top: 60px;
     transition: 200ms ease;
 }
 
@@ -83,7 +79,7 @@
     justify-content:space-between;
     align-items: center;
 
-
+    top: 0;
 }
 .content-logo-btn{
     display: flex;
@@ -135,6 +131,8 @@
     position: fixed;
     border-left: solid 4px var(--azulumpoucosaturado);
     transition: 200ms;
+
+    top: 0;
 }
 
 
