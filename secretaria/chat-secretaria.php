@@ -163,7 +163,7 @@
                                         <p id="nomeContato<?php echo $contaid; ?>"><?php echo $linha['nomeResponsavel'] ?></p>
                                     </div>
                                     <div class="text-conversa">
-                                        <p>mingau ajsak ajshja jajshj ahsjh</p>
+                                        <p>Responsável</p>
 
                                     </div>
                                 </div>
