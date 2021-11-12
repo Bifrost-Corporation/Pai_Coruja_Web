@@ -5,7 +5,7 @@
 
     try{
         if($_FILES['arquivo']['name'] != ''){
-            header("Location: ../professor/home-professor.php");
+            header("Location: ../professor/cadastrar-imagem-perfil.php");
             $nomeImagem = $_FILES['arquivo']['name'];
             $arquivo = $_FILES['arquivo']['tmp_name'];
             $caminhoImagem = "../img/imgProfessor/";

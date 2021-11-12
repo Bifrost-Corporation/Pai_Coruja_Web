@@ -91,9 +91,7 @@ small:first-child {
     background-color: #137AB1;
     color: var(--branco);
     border-radius: 15px;
-    height: 200px !important;
-    width: 300px !important;
-    min-width: 260px !important;
+    
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -129,3 +127,4 @@ small:first-child {
     font-weight: bold;
     cursor: pointer;
 }
+
