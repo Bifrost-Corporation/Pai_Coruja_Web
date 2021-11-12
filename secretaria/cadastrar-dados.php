@@ -102,7 +102,7 @@
                         </li>
                         <li class="links-name">
                             <a href="chat-secretaria.php" >
-                                <i class="material-icons-round">chat_bubble</i>
+                                <i class="material-icons-round">chat</i>
                                 <span class="links-name tooltip">Pai Coruja Chat</span>
                             </a>
                         </li>
@@ -396,7 +396,7 @@
                             
                                 <div class="container-steps-form">
 
-                                    <form id="formTurmaHorario" name="formTurmaHorario" class="" method="POST" action="../DAO/inserir-planilha-horarioturma.php" enctype="multipart/form-data">
+                                    <form id="formTurmaHorario" name="formTurmaHorario" class="" method="POST" action="../DAO/atualizar-planilha-horarioturma.php">
                                         
                                         <div class="user-details page-form slidePage-form4">
                                             <div class="btns-link-step-form">
@@ -414,17 +414,15 @@
                                                             $turma = new Turma();
                                                             $listaTurma = $turma->contar($_SESSION['idEscola']);
                                                             $listaTurma = $turma->listar($_SESSION['idEscola']);
-                                                            $i = 0;
                                                             foreach($listaTurma as $linha){
-                                                                $i++;
                                                     ?>
                                                             <tr>
-                                                                <td id="turma<?php echo $i ?>"><?php echo $linha['nomeTurma'] ?></td>
+                                                                <td><?php echo $linha['nomeTurma'] ?></td>
                                                                 <td>
                                                                     <div>
                                                                         <div class="btn-link-step">
                                                                             <div class="button nextBtn">
-                                                                                <button type="button" onclick="linkEtapa2Form4()" class=" btn-nav-exit btn-page-next cadastrar-prof-step" value="Cadastrar Disciplina" id="btn-SelecionarTurma<?php echo $i ?>" name="btn-SelecionarTurma">
+                                                                                <button type="button" onclick="linkEtapa2Form4()" class=" btn-nav-exit btn-page-next cadastrar-prof-step" value="Cadastrar Disciplina">
                                                                                     <div>
                                                                                         <i class="fas fa-user"></i>
                                                                                         <span>Cadastrar Horário da Turma</span>
@@ -447,19 +445,17 @@
 
                                         <div class="user-details page-form">
                                             <div class="input-box-width100">
-                                                <h2>Turma Selecionada:</h2>
-                                                <input id="nomeTurmaHorario" name="nomeTurmaHorario" type="text" readonly>
-                                                <h2>Baixe aqui o modelo básico da planilha para o horário da turma:</h2>
+                                                <h2>Baixe aqui o modelo básico da planilha para inserir novas turmas:</h2>
                                                 <div class="button aba-cadastro">
-                                                    <a href="planilhas/Planilha Modelo Inserir Horario Turma.xml" download class="texto-botao">Baixar Modelo</a>
+                                                    <a href="planilhas/Planilha Modelo Inserir Turma.xml" download class="texto-botao">Baixar Modelo</a>
                                                 </div>
-                                                <h2>Envie o Arquivo .XML da planilha do horário:</h2>
+                                                <h2>Envie o Arquivo .XML da planilha das turmas:</h2>
                                                 <label class="label-erro" name="label-nomeTurma" id="label-nomeTurma"></label>
                                                 <div class="input-box-width100">
-                                                    <label class="label-erro" id="label-horario"></label>
+                                                    <label class="label-erro" id="label-foto"></label>
                                                     <div>
-                                                        <label class="carregar-imagem-perfil" for="planilha-horario">Carregar Planilha Horário</label>
-                                                        <input name="planilha-horario" id="planilha-horario" type="file">
+                                                        <label class="carregar-imagem-perfil" for="arquivo">Carregar Planilha Turma</label>
+                                                        <input name="arquivo" id="arquivo" type="file">
                                                         <label class="label-erro" id="label-arquivo"></label>
                                                         <span id="nome-arquivo"></span>
                                                     </div>
@@ -711,34 +707,8 @@
         </div>
     </main>
 
-    <div id="modalProfile" class="modal modal-profile">
-            
-            <!-- Modal content -->
-        <div class="modal-content-profile">
-            <div class="card-perfil">
-                <span class="closeModalProfile"><i class="fas fa-times"></i></span>
-                <div class="perfil-modal-body">
-                    <img src="../img/usuario-de-perfil.png" alt="Sua Foto de Perfil" style="align-self: center;box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.063);">
-                    <div class="title-perfil-modal">
-                        <h1><?php echo $_SESSION['nomeSecretaria'] ?></h1>
-                        <small>Secretário(a) Escolar</small>
-                        <small>Essa imagem será exibida para todos no Pai Coruja</small>
-                    </div>
-                    <form name="formImagemPerfil" id="formImagemPerfil" action="../DAO/inserir-imagem-secretaria.php" method="POST" class="botoes-perfil-upload" enctype="multipart/form-data">
-                                    <label class="botao-cadastrar-perfil" for="arquivo">Carregar Imagem Perfil</label>
-                                    <input name="arquivo" id="arquivo" type="file" accept="image/*">
-                                    <label class="label-erro" id="label-arquivo"></label>
-                                    <span id="nome-arquivo"></span>
-                        <button class="botao-cadastrar-perfil" type="submit" value="Enviar">Enviar</button>
-                    </form> 
-                </div>
-                
-            </div>
-        </div>
+                                                                                                                            
 
-    </div>
-
-    
     <script src="../assets/js/dash-cadastro.js"></script>
     <script src="../assets/js/nav.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
@@ -746,7 +716,6 @@
     <script src="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.js"></script>
     <script src="../assets/js/carousel.js"></script>
     <script src="../assets/js/formStepsBySteps.js"></script>
-    <script src="../assets/js/modalProfile.js"><script>                                                                                                                      
 
     <script>
         //Script Form Disciplina/Professor
@@ -1182,20 +1151,6 @@
             }
 
         });
-
-        //Passando a turma selecionada para o campo input do horário turma
-        <?php
-            $i = 0; 
-            foreach($listaTurma as $linha){
-                $i++;
-        ?>
-            $("#btn-SelecionarTurma<?php echo $i ?>").on('click', function (){
-                var nomeTurma = $("#turma<?php echo $i ?>").text();
-                $("#nomeTurmaHorario").val(nomeTurma);
-            });
-        <?php
-            }
-        ?>
     </script>
 
 

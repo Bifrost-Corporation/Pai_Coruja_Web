@@ -4,7 +4,6 @@
 
         private $idHorarioTurma;
         private $diaSemana;
-        private $ordemAulaDia;
         private $idTurma;
         private $idDisciplina;
         private $idEscola;
@@ -23,14 +22,6 @@
 
         public function setDiaSemana($diaSemana){
             $this->diaSemana = $diaSemana;
-        }
-
-        public function getOrdemAulaDia(){
-            return $this->ordemAulaDia;
-        }
-
-        public function setOrdemAulaDia($ordemAulaDia){
-            $this->ordemAulaDia = $ordemAulaDia;
         }
 
         public function getIdTurma(){
@@ -59,18 +50,15 @@
 
         public function cadastrar($horarioTurma){
             $conexao = Conexao::conectar();
-            $stmt = $conexao->prepare("INSERT INTO tbhorarioturma (diaSemana, ordemAulaDia, idTurma, idDisciplina, idEscola)
-                                            VALUES (?, ?, ?, ?, ?)");
+            $stmt = $conexao->prepare("INSERT INTO tbhorarioturma (diaSemana, idTurma, idDisciplina, idEscola)
+                                            VALUES (?, ?, ?, ?)");
             $stmt->bindParam(1, $horarioTurma->getDiaSemana());
-            $stmt->bindParam(2, $horarioTurma->getOrdemAulaDia());
-            $stmt->bindParam(3, $horarioTurma->getIdTurma());
-            $stmt->bindParam(4, $horarioTurma->getIdDisciplina());
-            $stmt->bindParam(5, $horarioTurma->getIdEscola());
+            $stmt->bindParam(2, $horarioTurma->getIdTurma());
+            $stmt->bindParam(3, $horarioTurma->getIdDisciplina());
+            $stmt->bindParam(4, $horarioTurma->getIdEscola());
             $stmt->execute();
             return 'Cadastro do horário da turma realizado com sucesso!';
         }
-
-        //Atualizar o essas querys mais tarde
 
         public function atualizar($horarioTurma){
             $conexao = Conexao::conectar();

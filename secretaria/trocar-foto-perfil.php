@@ -106,7 +106,7 @@
 
         <main class="container-dash">
             <div class="card-perfil">
-                <img src="<?php echo $_SESSION['caminhoImagemPerfilSecretaria'] ?><?php echo $_SESSION['nomeImagemPerfilSecretaria'] ?>" alt="Sua Foto de Perfil" style="align-self: center;">
+                <img src="../img/usuario-de-perfil.png" alt="Sua Foto de Perfil" style="align-self: center;">
                 <div>
                     <h1><?php echo $_SESSION['nomeSecretaria'] ?></h1>
                     <small>Secretário(a) Escolar</small>
