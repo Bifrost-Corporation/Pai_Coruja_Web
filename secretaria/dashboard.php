@@ -194,7 +194,13 @@
                         <li class="links-name">
                             <a href="cadastrar-evento.php">
                                 <i class="material-icons-round">edit_calendar</i>
-                                <span class="links-name tooltip">Gerenciar Eventos</span>
+                                <span class="links-name tooltip">Cadastrar Eventos</span>
+                            </a>
+                        </li>
+                        <li class="links-name">
+                            <a href="cadastrar-publicacao.php">
+                                <i class="material-icons-round">notes</i>
+                                <span class="links-name tooltip">Cadastrar Publicação</span>
                             </a>
                         </li>
                         <li class="links-name">
