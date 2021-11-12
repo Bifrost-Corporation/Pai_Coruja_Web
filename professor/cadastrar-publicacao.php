@@ -17,92 +17,98 @@
     <?php
         include("sentinela.php");
     ?>
-    <header>
-
-<nav class="nav-bar">
-    <a href=""><img class="logo-img" src="../img/pai_coruja_branca.png"></a>
-    <ul class="ul-area-btn">
-        <li class="nav-li"><a class="btn-nav-open"><i class="fas fa-bars"></i></a></li>
-    </ul>
-</nav>
-
-<div class="sidebar">
-    <div class="logo-content">
-        <div class="logo">
-            <div class="logo-name"><a href="home-adm.php"><img src="../img/pai_coruja_branca.png"></a>
-            <i class="fas fa-arrow-left"></i>
-        </div>
-            <div class="close-mobile-navbar">
-                <span>Menu Pai Coruja</span>
-                <a class="btn-nav-close"><i class="far fa-window-close"></i></a>
-            </div>
-        </div>
-    </div>
-    <ul class="nav-list">
-        <div class="menu-container">
-            <!-- <span>fernfjk</span> -->
-            <li class="links-name">
-                <a href="home-professor.php">
-                    <i class="fas fa-calendar"></i>
-                    <span class="links-name">Mural</span>
-                </a>
-            </li>
-            <li class="links-name">
-                <a href="#">
-                    <i class="fas fa-chalkboard-teacher"></i>
-                    <span class="links-name">Avaliação dos Professores</span>
-                </a>
-            </li>
-            <li class="links-name">
-                <a href="#">
-                    <i class="fas fa-calendar-day"></i>
-                    <span class="links-name">Eventos Programados</span>
-                </a>
-            </li>
-        </div>
-        <hr>
-        <div class="menu-container">
-            <li class="links-name">
-                <a href="cadastrar-flags.php">
-                    <i class="fas fa-school"></i>
-                    <span class="links-name">Cadastrar Avaliação</span>
-                </a>
-            </li>
-            <li class="links-name">
-                <a href="cadastrar-imagem-perfil.php">
-                    <i class="fas fa-school"></i>
-                    <span class="links-name">Cadastrar imagem de perfil</span>
-                </a>
-            </li>
-        </div>
-    </ul>
-    <div class="profile-content">
-        <div class="profile-menu">
-            <a href="logout.php">
-                <i class="fas fa-sign-out-alt" id="logout-user"></i>
-                <span>Logout</span>
-            </a>
-            <a href="#">
-                <i class="fas fa-user-cog"></i>
-                <span>Configurações</span>
-            </a>
-        </div>
-        <div class="profile">
-            <div class="profile-details">
-                <img src="../img/usuario-de-perfil.png" alt="">
-                <div class="name-job">
-                    <div class="name-menu"><?php echo $_SESSION['nomeProfessor'] ?></div>
-                    <div class="job-menu">Olá Professor(a)</div>
+     <header>
+            <nav class="nav-bar">
+                <div class="content-logo-btn">
+                    <ul class="ul-area-btn">
+                        <li class="nav-li"><a class="btn-nav-pc-open"><i class="material-icons-round">menu</i></a></li>
+                    </ul>
+                    <a href="dashboard.php"><img class="logo-img" src="../img/pai_coruja_branca.png"></a>
                 </div>
+                <button class="profile">
+                    <div class="profile-details" id="openProfile">
+                        <img src="../img/macacopc.gif" alt="">
+                    </div>
+                </button>
+
+                <div class="dropdown-menu-profile">
+                    <div class="profile-details">
+                        <img src="../img/macacopc.gif" alt="">
+                        <div class="name-job">
+                            <div class="name-menu"><?php echo $_SESSION['nomeProfessor'] ?></div>
+                            <small class="job-menu">Olá Professor(a)</small>
+                        </div>
+                    </div>
+                    <ul class="opcoes-drop-profile">
+                        <li class="online-li">
+                            <label for="">Online</label>
+                            <label class="switch">
+                                <input type="checkbox" checked>
+                                <span class="slider round"></span>
+                            </label>
+                        </li>
+                        <li class="drop-profile-li" id="alterar-imagem-perfil">
+                            <a>
+                                <i class="material-icons-round">manage_accounts</i>
+                                <small>Trocar Imagem de Perfil</small>
+                            </a>
+                        </li>
+                        <li class="drop-profile-li">
+                            <a href="logout.php">
+                                <i id="logout-user" class="material-icons-round">logout</i>
+                                <small>Sair</small>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="sidebar">
+                <div class="logo-content">
+                    <div class="logo">
+                        <div class="logo-name">
+                        <i class="fas fa-arrow-left"></i>
+                    </div>
+                        <div class="close-mobile-navbar">
+                            <span>Menu Pai Coruja</span>
+                            <a class="btn-nav-close"><i class="far fa-window-close"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <ul class="nav-list">
+                    <div class="menu-container">
+                        <li class="links-name">
+                            <a href="home-professor.php">
+                                <i class="material-icons-round">space_dashboard</i>
+                                <span class="links-name tooltip">Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="links-name">
+                            <a href="cadastrar-publicacao.php" class="active-nav">
+                                <i class="material-icons-round">notes</i>
+                                <span class="links-name tooltip">Cadastrar Publicação</span>
+                            </a>
+                        </li>
+                        <li class="links-name">
+                        <a href="cadastrar-flags.php">
+                            <i class="material-icons-round">sticky_note_2</i>
+                                <span class="links-name tooltip">Cadastrar Observações</span>
+                            </a>
+                        </li>
+                        <li class="links-name">
+                            <a href="chat-professor.php" >
+                                <i class="material-icons-round">chat_bubble</i>
+                                <span class="links-name tooltip">Pai Coruja Chat</span>
+                            </a>
+                        </li>
+                    </div>
+                </ul>
+                
             </div>
-        </div>
-    </div>
-</div>
-</header>
+        </header>
 
 
-
-    <main class="container-dash">
+    <main class="container-main container-dash">
         
         <div class="ola-nav-dash">
             <h1>Cadastrar Publicação</h1>
