@@ -8,14 +8,14 @@
     <link rel="stylesheet" type="text/css"  href="../assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
 
-    <title>Nova Publicação</title>
+    <title>cadastrar - Publicação</title>
 
 
 </head>
 
 <body>
     <?php
-        include ('sentinela.php');
+        include("sentinela.php");
     ?>
         <header>
             <nav class="nav-bar">
@@ -96,13 +96,13 @@
                             </a>
                         </li>
                         <li class="links-name">
-                            <a href="cadastrar-evento.php" class="active-nav">
+                            <a href="cadastrar-evento.php">
                                 <i class="material-icons-round">edit_calendar</i>
                                 <span class="links-name tooltip">Cadastrar Eventos</span>
                             </a>
                         </li>
                         <li class="links-name">
-                            <a href="cadastrar-publicacao.php">
+                            <a href="cadastrar-publicacao.php" class="active-nav">
                                 <i class="material-icons-round">notes</i>
                                 <span class="links-name tooltip">Cadastrar Publicação</span>
                             </a>
@@ -120,146 +120,70 @@
         </header>
 
 
+
+    <main class="container-main container-dash">
         
-
-        
-    
-
-    <main class="container-main">
-        
-        
-
-        <div class="container-dash">
-
-
         <div class="ola-nav-dash">
-            <h1>Cadastrar Evento</h1>
+            <h1>Cadastrar Publicação</h1>
         </div>
 
 
-        <section class="">
-            <form class="formulario" name="formEvento" action="../DAO/inserir-evento.php" method="POST"
-                enctype="multipart/form-data">
+        <section class="container-dados-dash">
+            <form class="formulario" action="../DAO/inserir-publicacao.php" method="POST">
                 <div class="user-details">
                     <div class="input-box-width100">
-                        <h2 class="h2Adicionar">Adicionar imagem:</h2>
-                        <label class="label-erro" id="label-foto"></label>
-                        <div>
-                            <label class="carregar-imagem-pub" for="arquivo">Carregar Imagem Evento</label>
-                            <input name="arquivo" id="arquivo" type="file" accept="image/*">
-                            <label class="label-erro" id="label-arquivo"></label>
-                            <span id="nome-arquivo"></span>
-                        </div>
-                    </div>
-                    <div class="input-box-width100">
-                        <h2>Nome do evento:</h2>
+                        <h2>Título da Publicação:</h2>
                         <label class="label-erro" id="label-nome"></label>
-                        <input name="txtNomeEvento" id="txtNomeEvento" type="text"
-                            placeholder="Insira o nome da Publicação">
+                        <input name="txtNome" id="txtNome" type="text" placeholder="Insira o nome da Publicação">
                     </div>
                     <div class="input-box-width100">
-                        <h2>Descrição do evento:</h2>
+                        <h2>Descrição da Publicação:</h2>
                         <label class="label-erro" id="label-descricao"></label>
-                        <input name="txtDescricaoEvento" id="txtDescricaoEvento" type="text"
-                            placeholder="Insira a descrição...">
+                        <input name="txtDescricao" id="txtDescricao" type="text" placeholder="Insira a descrição...">
                     </div>
-                    <div class="input-box-width100">
-                        <h2>Data de realização do evento:</h2>
-                        <label class="label-erro" id="label-data"></label>
-                        <input name="txtData" id="txtData" type="date" placeholder="ex:00/00/00">
-                    </div>
+
                     <div class="button">
                         <input type="submit" class="btn-nav-exit">
                     </div>
                 </div>
             </form>
         </section>
-    </div>
     </main>
 
-
-    <div id="modalProfile" class="modal modal-profile">
-            
-            <!-- Modal content -->
-        <div class="modal-content-profile">
-            <div class="card-perfil">
-                <span class="closeModalProfile"><i class="fas fa-times"></i></span>
-                <div class="perfil-modal-body">
-                    <img src="../img/usuario-de-perfil.png" alt="Sua Foto de Perfil" style="align-self: center;box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.063);">
-                    <div class="title-perfil-modal">
-                        <h1><?php echo $_SESSION['nomeSecretaria'] ?></h1>
-                        <small>Secretário(a) Escolar</small>
-                        <small>Essa imagem será exibida para todos no Pai Coruja</small>
-                    </div>
-                    <form name="formImagemPerfil" id="formImagemPerfil" action="../DAO/inserir-imagem-secretaria.php" method="POST" class="botoes-perfil-upload" enctype="multipart/form-data">
-                                    <label class="botao-cadastrar-perfil" for="arquivo">Carregar Imagem Perfil</label>
-                                    <input name="arquivo" id="arquivo" type="file" accept="image/*">
-                                    <label class="label-erro" id="label-arquivo"></label>
-                                    <span id="nome-arquivo"></span>
-                        <button class="botao-cadastrar-perfil" type="submit" value="Enviar">Enviar</button>
-                    </form> 
-                </div>
-                
-            </div>
-        </div>
-
-    </div>
-
-    <script src="../assets/js/modalProfile.js"></script>
     <script src="../assets/js/nav.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 
     <script>
-
-        var $input = document.getElementById('arquivo'),
-        $fileName = document.getElementById('nome-arquivo');
-
-        $input.addEventListener('change', function(){
-            $fileName.textContent = this.value;
-        });
-
-        jQuery('form').on('submit', function (e) {
-            var nomeEvento = $('#txtNomeEvento').val();
-            var descricaoEvento = $('#txtDescricaoEvento').val();
-            var dataEvento = $('#txtData').val();
-            var nomeEventoSemEspaco = nomeEvento.trim();
-            var descricaoEventoSemEspaco = descricaoEvento.trim();
-            var dataEventoSemEspaco = dataEvento.trim();
-            if (nomeEvento.length == 0 || nomeEventoSemEspaco == '') {
-                $('#label-nome').html('Por favor, preencha o campo de nome para o evento!');
-                $('#txtNomeEvento').addClass('erro-form');
+        jQuery('form').on('submit', function(e){
+            var nome = $('#txtNome').val();
+            var descricao = $('#txtDescricao').val();
+            var nomeSemEspaco = nome.trim();
+            var descricaoSemEspaco = descricao.trim();
+            if(nome.length == 0 || nomeSemEspaco == ''){
+                $('#label-nome').html('De um título a publicação!');
+                $('#txtNome').addClass('erro-form');
                 $('#label-nome').show();
                 setTimeout(function () {
                     $('#label-nome').fadeOut(1);
-                    $('#txtNomeEvento').removeClass('erro-form');
+                    $('#txtNome').removeClass('erro-form');
                 }, 5000);
                 e.preventDefault();
             }
-            if (descricaoEvento.length == 0 || descricaoEventoSemEspaco == '') {
-                $('#label-descricao').html('Por favor, preencha o campo de descrição para o evento!');
-                $('#txtDescricaoEvento').addClass('erro-form');
+            if(descricao.length == 0 || descricaoSemEspaco == ''){
+                $('#label-descricao').html('Escreva uma descrição para a publicação!');
+                $('#txtDescricao').addClass('erro-form');
                 $('#label-descricao').show();
                 setTimeout(function () {
                     $('#label-descricao').fadeOut(1);
-                    $('#txtDescricaoEvento').removeClass('erro-form');
+                    $('#txtDescricao').removeClass('erro-form');
                 }, 5000);
                 e.preventDefault();
             }
-            if (dataEvento.length == 0 || dataEventoSemEspaco == '') {
-                $('#label-data').html('Por favor, preencha o campo de data para o evento!');
-                $('#txtData').addClass('erro-form');
-                $('#label-data').show();
-                setTimeout(function () {
-                    $('#label-data').fadeOut(1);
-                    $('#txtData').removeClass('erro-form');
-                }, 5000);
-                e.preventDefault();
-            }
+            
         });
     </script>
 
 </body>
-
 
 
 

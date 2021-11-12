@@ -58,7 +58,7 @@
                         <img src="../img/macacopc.gif" alt="">
                         <div class="name-job">
                             <div class="name-menu"><?php echo $_SESSION['nomeProfessor'] ?></div>
-                            <small class="job-menu">Olá Responsável(a)</small>
+                            <small class="job-menu">Olá Professor(a)</small>
                         </div>
                     </div>
                     <ul class="opcoes-drop-profile">
@@ -106,19 +106,19 @@
                             </a>
                         </li>
                         <li class="links-name">
-                            <a href="cadastrar-dados.php">
-                                <i class="material-icons-round">article</i>
-                                <span class="links-name tooltip">Agenda Escolar</span>
+                            <a href="cadastrar-publicacao.php">
+                                <i class="material-icons-round">notes</i>
+                                <span class="links-name tooltip">Cadastrar Publicação</span>
                             </a>
                         </li>
                         <li class="links-name">
-                        <a href="visualizar-dados.php">
-                            <i class="material-icons-round">grading</i>
+                        <a href="cadastrar-flags.php">
+                            <i class="material-icons-round">sticky_note_2</i>
                                 <span class="links-name tooltip">Cadastrar Observações</span>
                             </a>
                         </li>
                         <li class="links-name">
-                            <a href="chat-responsavel.php" >
+                            <a href="chat-professor.php" >
                                 <i class="material-icons-round">chat_bubble</i>
                                 <span class="links-name tooltip">Pai Coruja Chat</span>
                             </a>
