@@ -102,7 +102,7 @@
                         </li>
                         <li class="links-name">
                             <a href="chat-secretaria.php" >
-                                <i class="material-icons-round">chat</i>
+                                <i class="material-icons-round">chat_bubble</i>
                                 <span class="links-name tooltip">Pai Coruja Chat</span>
                             </a>
                         </li>
