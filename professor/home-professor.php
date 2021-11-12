@@ -57,7 +57,7 @@
                     <div class="profile-details">
                         <img src="../img/macacopc.gif" alt="">
                         <div class="name-job">
-                            <div class="name-menu"><?php echo $_SESSION['nomeResponsavel'] ?></div>
+                            <div class="name-menu"><?php echo $_SESSION['nomeProfessor'] ?></div>
                             <small class="job-menu">Olá Responsável(a)</small>
                         </div>
                     </div>
@@ -131,114 +131,169 @@
 
 
     <main class="container-main">
-        <div class="carousel">
-            <div class=" carousel-destaque">
-                <div class="destaque-card">
-                <div class="esquerda-destaque">
-                    <h1>Titulo<!--<?php echo $linha['tituloPublicacao'] ?>--></h1>
-                    <small>Subtitulo<!--<?php echo $linha['descPublicacao'] ?>--></small>
-                    <p>Para mais detalhes clique abaixo</p>
+    <div class="container-dash">
+            <div class="ola-nav-dash">
+                <h1>Olá Professor</h1>
+            </div>
 
-                    <a href="#"><button class="saiba-mais-btn">Saiba Mais</button></a>
+
+
+                <div class="conteudo-container-professor">
+                    <div class="informacoes-professor">
+                        <div class="mini-perfil-professor">
+                            <img src="../img/macos.png" alt="">
+                            <div>
+                                <h2>Professor</h2>
+                                <small>Bem Vindo de Volta!</small>
+                            </div>
+                        </div>
+                        <div class="detalhes-professor">
+                            <p><strong>Nome: </strong><?php echo $_SESSION['nomeProfessor'] ?></p>
+                            <p><strong>Email: </strong><?php echo $_SESSION['emailProfessor'] ?></p>
+                            <p><strong>Escola: </strong>Escolinha do clodo</p>
+                        </div>
+                        <!-- <small>Para alterar algum dado entre em contatocom a secretaria</small> -->
+                    </div>
+
+                    <section class="agenda-professor">
+                        
+                        <div class="container-agenda-large">
+                            <div class="header-container-agenda-large">
+                            <i class="material-icons-round">article</i>
+                                <h1>Sua Agenda Escolar </h1>
+                            </div>
+                            <div class="content-agenda-large">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <td>Segunda-Feira</td>
+                                            <td>Terça-Feira</td>
+                                            <td>Quarta-Feira</td>
+                                            <td>Quinta-Feira</td>
+                                            <td>Sexta-Feira</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Matematica</td>
+                                            <td>Português</td>
+                                            <td>Ciências</td>
+                                            <td>Filosofia</td>
+                                            <td>Naruto</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Matematica</td>
+                                            <td>Português</td>
+                                            <td>Ciências</td>
+                                            <td>Filosofia</td>
+                                            <td>Naruto</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Matematica</td>
+                                            <td>Português</td>
+                                            <td>Ciências</td>
+                                            <td>Filosofia</td>
+                                            <td>Naruto</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Matematica</td>
+                                            <td>Português</td>
+                                            <td>Ciências</td>
+                                            <td>Filosofia</td>
+                                            <td>Naruto</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Matematica</td>
+                                            <td>Português</td>
+                                            <td>Ciências</td>
+                                            <td>Filosofia</td>
+                                            <td>Naruto</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Matematica</td>
+                                            <td>Português</td>
+                                            <td>Ciências</td>
+                                            <td>Filosofia</td>
+                                            <td>Naruto</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="container-agenda">
+                            <div class="header-container-agenda">
+                            <i class="material-icons-round">article</i> 
+                            <h2>Agenda Escolar</h2>
+                            </div>
+                            <div class="content-ul-agenda">
+                                <ul>
+                                    <div class="title-day">
+                                    <p>Segunda-feira</p><i class="material-icons-round">unfold_more</i>
+                                    </div>
+                                    <li><p>Matematica</p>Aula 1</li>
+                                    <li><p>Matematica</p>Aula 2</li>
+                                    <li><p>Matematica</p>Aula 3</li>
+                                    <li><p>Matematica</p>Aula 4</li>
+                                    <li><p>Matematica</p>Aula 5</li>
+                                    <li><p>Matematica</p>Aula 6</li>
+                                </ul>
+                                <ul>
+                                    <div class="title-day">
+                                    <p>Terça-feira</p><i class="material-icons-round">unfold_more</i>
+                                    </div>
+                                    <li><p>Matematica</p>Aula 1</li>
+                                    <li><p>Matematica</p>Aula 2</li>
+                                    <li><p>Matematica</p>Aula 3</li>
+                                    <li><p>Matematica</p>Aula 4</li>
+                                    <li><p>Matematica</p>Aula 5</li>
+                                    <li><p>Matematica</p>Aula 6</li>
+                                </ul>
+                                <ul>
+                                    <div class="title-day">
+                                    <p>Quarta-feira</p><i class="material-icons-round">unfold_more</i>
+                                    </div>
+                                    <li><p>Matematica</p>Aula 1</li>
+                                    <li><p>Matematica</p>Aula 2</li>
+                                    <li><p>Matematica</p>Aula 3</li>
+                                    <li><p>Matematica</p>Aula 4</li>
+                                    <li><p>Matematica</p>Aula 5</li>
+                                    <li><p>Matematica</p>Aula 6</li>
+                                </ul>
+                                <ul>
+                                    <div class="title-day">
+                                    <p>Quinta-feira</p><i class="material-icons-round">unfold_more</i>
+                                    </div>
+                                    <li><p>Matematica</p>Aula 1</li>
+                                    <li><p>Matematica</p>Aula 2</li>
+                                    <li><p>Matematica</p>Aula 3</li>
+                                    <li><p>Matematica</p>Aula 4</li>
+                                    <li><p>Matematica</p>Aula 5</li>
+                                    <li><p>Matematica</p>Aula 6</li>
+                                </ul>
+                                <ul>
+                                    <div class="title-day">
+                                    <p>Sexta-feira</p><i class="material-icons-round">unfold_more</i>
+                                    </div>
+                                    <li><p>Matematica</p>Aula 1</li>
+                                    <li><p>Matematica</p>Aula 2</li>
+                                    <li><p>Matematica</p>Aula 3</li>
+                                    <li><p>Matematica</p>Aula 4</li>
+                                    <li><p>Matematica</p>Aula 5</li>
+                                    <li><p>Matematica</p>Aula 6</li>
+                                </ul>
+                                
+                                
+                            </div>
+                        </div>
+                    </section>
                 </div>
-                <div class="direita-destaque">
-
-                </div> 
             </div>
             
-            <div class="destaque-card">
-                <div class="esquerda-destaque">
-                    <h1>Titulo<!--<?php echo $linha['tituloPublicacao'] ?>--></h1>
-                    <small>Subtitulo<!--<?php echo $linha['descPublicacao'] ?>--></small>
-                    <p>Para mais detalhes clique abaixo</p>
-
-                    <a href="#"><button class="saiba-mais-btn">Saiba Mais</button></a>
-                </div>
-                <div class="direita-destaque">
-
-                </div> 
-            </div>
-            <div class="destaque-card">
-                <div class="esquerda-destaque">
-                    <h1>Titulo<!--<?php echo $linha['tituloPublicacao'] ?>--></h1>
-                    <small>Subtitulo<!--<?php echo $linha['descPublicacao'] ?>--></small>
-                    <p>Para mais detalhes clique abaixo</p>
-
-                    <a href="#"><button class="saiba-mais-btn">Saiba Mais</button></a>
-                </div>
-                <div class="direita-destaque">
-                    
-                </div> 
-            </div>
-            </div>
-            <div class="indicadors-bar">
-            <i aria-label="Previous" class="fa fa-chevron-left carousel-destaque-prev"></i>
-            <div role="tablist" class="carousel-destaque-dots"></div>
-            <i aria-label="Next" class="fa fa-chevron-right carousel-destaque-next"></i>
-            
-            </div>
         </div>
-       
-
-        <section class="cards-eventos">
-            <h2>Eventos</h2>
-            <div class="arrumar-cards carousel-evento">
-
-                <div class="evento-card">
-                    <div>
-                        <h1>Evento</h1>
-                        <small>Data: 06/06/2006</small>
-                    </div>
-                    <div>
-                        <a href="#"><button>Saiba Mais</button></a>
-                    </div>
-                </div>
-
-                <div class="evento-card">
-                    <div>
-                        <h1>Evento</h1>
-                        <small>Data: 06/06/2006</small>
-                    </div>
-                    <div>
-                        <a href="#"><button>Saiba Mais</button></a>
-                    </div>
-                </div>
-                <div class="evento-card">
-                    <div>
-                        <h1>Evento</h1>
-                        <small>Data: 06/06/2006</small>
-                    </div>
-                    <div>
-                        <a href="#"><button>Saiba Mais</button></a>
-                    </div>
-                </div>
-                <div class="evento-card">
-                    <div>
-                        <h1>Evento</h1>
-                        <small>Data: 06/06/2006</small>
-                    </div>
-                    <div>
-                        <a href="#"><button>Saiba Mais</button></a>
-                    </div>
-                </div>
-                <div class="evento-card">
-                    <div>
-                        <h1>Evento</h1>
-                        <small>Data: 06/06/2006</small>
-                    </div>
-                    <div>
-                        <a href="#"><button>Saiba Mais</button></a>
-                    </div>
-                </div>
-
-
-            </div>
-            <div class="indicadors-bar">
-            <i aria-label="Previous" class="fa fa-chevron-left carousel-evento-prev"></i>
-            <div role="tablist" class="carousel-evento-dots"></div>
-            <i aria-label="Next" class="fa fa-chevron-right carousel-evento-next"></i>
-            </div>
-        </section>
     </main>
 
     <div id="modalReset" class="modal modal-evento">
