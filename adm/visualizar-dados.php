@@ -148,14 +148,14 @@
                             </thead>
                             <tbody>
                             <?php
-                                $escola = new Escola();
-                                $listaEscola = $escola->listar();
-                                foreach($listaEscola as $linha){
+                                $secretaria = new Secretaria();
+                                $listaSecretaria = $secretaria->listar();
+                                foreach($listaSecretaria as $linha){
                             ?>
                                 <tr>
                                 <td><?php echo $linha['nomeEscola'] ?></td>
-                                <td><?php echo "<a class'opcao-icone' href='?idEscola={$linha['idEscola']}&nomeEscola={$linha['nomeEscola']}&idAdministrador={$linha['idAdministrador']}'>"?><i class="icons-table fa fa-cog opcao-icone"></i><?php echo "</a>" ?></td>
-                                <td><?php echo "<a href='../DAO/excluir-escola.php?idEscola={$linha['idEscola']}'"?> onclick="return confirm('Você está prestes a excluir a escola: <?php echo $linha['nomeEscola'] ?>, tem certeza?')"><i class="icons-table fas fa-times" aria-hidden="true"></i></td>
+                                <td><?php echo "<a class'opcao-icone' href='?idEscola={$linha['idEscola']}&nomeEscola={$linha['nomeEscola']}&idAdministrador={$linha['idAdministrador']}&nomeSecretaria={$linha['nomeSecretaria']}&emailSecretaria={$linha['emailSecretaria']}&idSecretaria={$linha['idSecretaria']}'>"?><i class="icons-table fa fa-cog opcao-icone"></i><?php echo "</a>" ?></td>
+                                <td><?php echo "<a href='../DAO/excluir-escola.php?idEscola={$linha['idEscola']}&idSecretaria={$linha['idSecretaria']}'"?> onclick="return confirm('Você está prestes a excluir a escola: <?php echo $linha['nomeEscola'] ?>, tem certeza?')"><i class="icons-table fas fa-times" aria-hidden="true"></i></td>
                                 </tr>
                             <?php
                             }
@@ -176,9 +176,10 @@
             
             <!-- Modal content -->
         <div class="modal-content">
-            <form name="nomeEscola" class="formulario" id="formEscola" method="POST" action="../DAO/inserir-turma.php">
+            <form name="alterarEscola" class="formulario" id="alterarEscola" method="POST" action="../DAO/atualizar-escola.php">
             <div class="user-details">
                     <input type="hidden" value="<?php echo @$_GET['idEscola']; ?>" id="idEscola" name="idEscola">
+                    <input type="hidden" value="<?php echo @$_GET['idAdministrador'] ?>" id="idAdministrador" name="idAdministrador">
                     <div class="input-box-width100">
                         <h2>Nome da Escola: </h2>
                         <label class="label-erro" id="label-escola"></label>
@@ -231,6 +232,118 @@
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.js"></script>
     <script src="../assets/js/carousel.js"></script>
+
+    <script>
+        jQuery('#alterarEscola').on('submit', function (e) {
+
+            //Parte Escola
+            var nomeEscola = $('#txtNomeEscola').val();
+            var nomeEscolaSemEspaco = nomeEscola.trim();
+            if (nomeEscolaSemEspaco.length == 0) {
+                $('#label-escola').html('Por favor, preencha o campo de nome da escola!');
+                $('#txtNomeEscola').addClass('erro-form');
+                $('#label-escola').show();
+                setTimeout(function () {
+                    $('#label-escola').fadeOut(1);
+                    $('#txtNomeEscola').removeClass('erro-form');
+                    $('#txtNomeEscola').val('');
+                }, 5000);
+                e.preventDefault();
+            }
+
+            //Parte Secretaria
+            var nome = $('#txtUsuarioSecretaria').val();
+            var email = $('#txtEmailSecretaria').val();
+            var senha1 = $('#txtSenhaSecretaria').val();
+            var senha2 = $('#txtConfirmaSenhaSecretaria').val();
+            var nomeSemEspaco = nome.trim();
+            var emailSemEspaco = email.trim();
+            var senha1SemEspaco = senha1.trim();
+            var senha2SemEspaco = senha2.trim();
+            if (nomeSemEspaco.length == 0) {
+                $('#label-usuario').html('Por favor, preencha o campo de nome para a secretaria!');
+                $('#txtUsuarioSecretaria').addClass('erro-form');
+                $('#label-usuario').show();
+                setTimeout(function () {
+                    $('#label-usuario').fadeOut(1);
+                    $('#txtUsuarioSecretaria').removeClass('erro-form');
+                }, 5000);
+                e.preventDefault();
+            }
+            if (emailSemEspaco.length == 0) {
+                $('#label-email').html('Por favor, preencha o campo de email para a secretaria!');
+                $('#txtEmailSecretaria').addClass('erro-form');
+                $('#label-email').show();
+                setTimeout(function () {
+                    $('#label-email').fadeOut(1);
+                    $('#txtEmailSecretaria').removeClass('erro-form');
+                }, 5000);
+                e.preventDefault();
+            } else {
+                var verificaarroba = false;
+                var verificaponto = false;
+                for (var i = 0; i < email.length; i++) {
+                    if (email.charAt(i) == '@' && i + 1 < email.length) {
+                        var posicaoarroba = i;
+                    }
+                    if (email.charAt(i) == '.' && i + 1 < email.length) {
+                        var posicaoponto = i;
+                    }
+                }
+                if (posicaoponto > posicaoarroba) {
+                    verificaarroba = true;
+                    verificaponto = true;
+                }
+                if (verificaarroba == false || verificaponto == false) {
+                    $('#label-email').html('Email inválido!');
+                    $('#txtEmailSecretaria').addClass('erro-form');
+                    $('#label-email').show();
+                    setTimeout(function () {
+                        $('#label-email').fadeOut(1);
+                        $('#txtEmailSecretaria').removeClass('erro-form');
+                    }, 5000);
+                    e.preventDefault();
+                }
+            }
+            if (senha1SemEspaco.length == 0) {
+                $('#label-senha1').html('Por favor, insira uma senha!');
+                $('#txtSenhaSecretaria').addClass('erro-form');
+                $('#label-senha1').show();
+                setTimeout(function () {
+                    $('#label-senha1').fadeOut(1);
+                    $('#txtSenhaSecretaria').removeClass('erro-form');
+                }, 5000);
+                e.preventDefault();
+            }
+            if (senha2SemEspaco.length == 0) {
+                $('#label-senha2').html('Por favor, confirme a senha!');
+                $('#txtConfirmaSenhaSecretaria').addClass('erro-form');
+                $('#label-senha2').show();
+                setTimeout(function () {
+                    $('#label-senha2').fadeOut(1);
+                    $('#txtConfirmaSenhaSecretaria').removeClass('erro-form');
+                }, 5000);
+                e.preventDefault();
+            }
+            if (senha1 != senha2) {
+                $('#label-senha1').html('As senhas não correspondem!');
+                $('#txtSenhaSecretaria').addClass('erro-form');
+                $('#label-senha1').show();
+                setTimeout(function () {
+                    $('#label-senha1').fadeOut(1);
+                    $('#txtSenhaSecretaria').removeClass('erro-form');
+                }, 5000);
+                $('#label-senha2').html('As senhas não correspondem!');
+                $('#txtConfirmaSenhaSecretaria').addClass('erro-form');
+                $('#label-senha2').show();
+                setTimeout(function () {
+                    $('#label-senha2').fadeOut(1);
+                    $('#txtConfirmaSenhaSecretaria').removeClass('erro-form');
+                }, 5000);
+                e.preventDefault();
+            }
+        });
+    </script>
 
 
 </body>

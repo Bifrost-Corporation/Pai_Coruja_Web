@@ -746,7 +746,7 @@
     <script src="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.js"></script>
     <script src="../assets/js/carousel.js"></script>
     <script src="../assets/js/formStepsBySteps.js"></script>
-    <script src="../assets/js/modalProfile.js"><script>                                                                                                                      
+    <script src="../assets/js/modalProfile.js"></script>                                                                                                                      
 
     <script>
         //Script Form Disciplina/Professor
