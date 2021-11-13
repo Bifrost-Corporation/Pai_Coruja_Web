@@ -102,8 +102,8 @@
                 <ul class="nav-list">
                     <div class="menu-container">
                         <li class="links-name">
-                            <a href="home-responsavel.php" class="active-nav">
-                                <i class="material-icons-round">space_dashboard</i>
+                            <a href="home-responsavel.php">
+                                <i class="material-icons-round">home</i>
                                 <span class="links-name tooltip">Home</span>
                             </a>
                         </li>
@@ -114,8 +114,8 @@
                             </a>
                         </li>
                         <li class="links-name">
-                        <a href="observacao-professor.php">
-                            <i class="material-icons-round">grading</i>
+                        <a href="observacao-professor.php" class="active-nav">
+                            <i class="material-icons-round">flag</i>
                                 <span class="links-name tooltip">Observações dos Professores</span>
                             </a>
                         </li>
@@ -135,9 +135,34 @@
         
     
 
-    <main class="container-main container-home-responsavel">
+    <main class="container-main container-dash">
+        <div class="aluno-info">
+            <div class="alternar-alunos-container">
+                <span>Alternar Alunos</span>
+                <div class="alternar-alunos-tab-flex">
+                    <div class="alternar-alunos-tab" >
+                        <img src="../img/Tony_Tony_Chopper_Anime_Pre_Timeskip_Infobox.png" alt="aluno">
+                        <div class="alternar-alunos-tab-title">
+                            <h5>Aluno 1</h5>
+                        </div>
+                    </div>
+                    <div class="alternar-alunos-tab">
+                        <img src="../img/macos.png" alt="aluno">
+                        <div class="alternar-alunos-tab-title">
+                            <h5>Aluno 2</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align:right">
+                <h1>Aluno 1</h1>
+                <small>Média de Observações: Boa</small>
 
+            </div>
+            
+        </div>
         <section class="container-observacao-do-professor">
+            
             <div class="header-observacao-professor">
             
                 <h2>Total de Observações</h2>

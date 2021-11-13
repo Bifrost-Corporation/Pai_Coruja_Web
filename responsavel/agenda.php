@@ -43,7 +43,7 @@
             <nav class="nav-bar">
                 <div class="content-logo-btn">
                     <ul class="ul-area-btn">
-                        <li class="nav-li"><a class="btn-nav-pc-open"><i class="fas fa-bars"></i></a></li>
+                        <li class="nav-li"><a class="btn-nav-pc-open"><i class="material-icons-round">menu</i></a></li>
                     </ul>
                     <a href="dashboard.php"><img class="logo-img" src="../img/pai_coruja_branca.png"></a>
                 </div>
@@ -57,8 +57,8 @@
                     <div class="profile-details">
                         <img src="../img/macacopc.gif" alt="">
                         <div class="name-job">
-                        <div class="name-menu"><?php echo $_SESSION['nomeResponsavel'] ?></div>
-                            <small class="job-menu">Olá Responsavel</small>
+                            <div class="name-menu"><?php echo $_SESSION['nomeResponsavel'] ?></div>
+                            <small class="job-menu">Olá Responsável(a)</small>
                         </div>
                     </div>
                     <ul class="opcoes-drop-profile">
@@ -71,13 +71,13 @@
                         </li>
                         <li class="drop-profile-li" id="alterar-imagem-perfil">
                             <a>
-                                <i class="fas fa-user-cog"></i>
+                                <i class="material-icons-round">manage_accounts</i>
                                 <small>Trocar Imagem de Perfil</small>
                             </a>
                         </li>
                         <li class="drop-profile-li">
                             <a href="logout.php">
-                                <i class="fas fa-sign-out-alt" id="logout-user"></i>
+                                <i id="logout-user" class="material-icons-round">logout</i>
                                 <small>Sair</small>
                             </a>
                         </li>
@@ -100,20 +100,20 @@
                 <ul class="nav-list">
                     <div class="menu-container">
                         <li class="links-name">
-                            <a href="home-responsavel.php" class="active-nav">
-                                <i class="material-icons-round">space_dashboard</i>
+                            <a href="home-responsavel.php">
+                                <i class="material-icons-round">home</i>
                                 <span class="links-name tooltip">Home</span>
                             </a>
                         </li>
                         <li class="links-name">
-                            <a href="agenda.php">
+                            <a href="agenda.php" class="active-nav">
                                 <i class="material-icons-round">article</i>
                                 <span class="links-name tooltip">Agenda Escolar</span>
                             </a>
                         </li>
                         <li class="links-name">
                         <a href="observacao-professor.php">
-                            <i class="material-icons-round">grading</i>
+                            <i class="material-icons-round">flag</i>
                                 <span class="links-name tooltip">Observações dos Professores</span>
                             </a>
                         </li>
@@ -126,14 +126,13 @@
                     </div>
                 </ul>
                 
-                
             </div>
         </header>
 
         
     
 
-    <main class="container-main">
+    <main class="container-main container-dash">
         <section class="content-agenda-calendario">
             
             <div class="container-agenda-large">

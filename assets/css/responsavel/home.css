@@ -78,20 +78,9 @@
 .conteudo-container-responsavel{
     padding: 1rem;
 }
-.container-home-responsavel{
 
-    background-color: var(--cinzaBackground);
-    
-    padding: 100px 2rem 0 2rem;
-    display:flex;
-    flex-direction:column;
-    gap:1rem;
-    
-}
-@media (max-width:720px){
-    .container-home-responsavel{
-
-        padding: 0px;
-        
-    }  
+.aluno-info{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }

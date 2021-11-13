@@ -16,7 +16,7 @@ body{
     background-color: var(--cinzaBackground);
     /* background-image: url(../../../img/background.png); */
     transition: 200ms ease;
-    padding: 5vh 2rem 0 2rem;
+    padding: 2rem;
     height: 100vh;
     gap: 1rem;
 }
