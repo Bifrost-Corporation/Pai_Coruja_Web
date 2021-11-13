@@ -104,7 +104,7 @@
                         <li class="links-name">
                             <a href="home-responsavel.php" class="active-nav">
                                 <i class="material-icons-round">space_dashboard</i>
-                                <span class="links-name tooltip">Dashboard</span>
+                                <span class="links-name tooltip">Home</span>
                             </a>
                         </li>
                         <li class="links-name">
@@ -114,7 +114,7 @@
                             </a>
                         </li>
                         <li class="links-name">
-                        <a href="visualizar-dados.php">
+                        <a href="observacao-professor.php">
                             <i class="material-icons-round">grading</i>
                                 <span class="links-name tooltip">Observações dos Professores</span>
                             </a>

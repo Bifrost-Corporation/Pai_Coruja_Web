@@ -13,7 +13,7 @@
     
   
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> 
-    <title>Home - Responsável</title>
+    <title>Agenda - Responsável</title>
 
 
 </head>
@@ -101,36 +101,31 @@
                     <div class="menu-container">
                         <li class="links-name">
                             <a href="home-responsavel.php" class="active-nav">
-                                <i class="fas fa-calendar"></i>
+                                <i class="material-icons-round">space_dashboard</i>
                                 <span class="links-name tooltip">Home</span>
                             </a>
                         </li>
                         <li class="links-name">
-                            <a href="cadastrar-dados.php">
-                                <i class="fas fa-school "></i>
-                                <span class="links-name tooltip">Cadastrar Dados</span>
-                            </a>
-                        </li>
-                        <li class="links-name">
-                        <a href="visualizar-dados.php">
-                                <i class="fas fa-school"></i>
-                                <span class="links-name tooltip">Alterar Dados</span>
-                            </a>
-                        </li>
-                        <li class="links-name">
-                        <a href="agenda.php">
-                            <i class="fas fa-calendar"></i>
+                            <a href="agenda.php">
+                                <i class="material-icons-round">article</i>
                                 <span class="links-name tooltip">Agenda Escolar</span>
                             </a>
                         </li>
                         <li class="links-name">
+                        <a href="observacao-professor.php">
+                            <i class="material-icons-round">grading</i>
+                                <span class="links-name tooltip">Observações dos Professores</span>
+                            </a>
+                        </li>
+                        <li class="links-name">
                             <a href="chat-responsavel.php" >
-                            <i class="fa fa-comment" aria-hidden="true"></i>
+                                <i class="material-icons-round">chat_bubble</i>
                                 <span class="links-name tooltip">Pai Coruja Chat</span>
                             </a>
                         </li>
                     </div>
                 </ul>
+                
                 
             </div>
         </header>

@@ -88,3 +88,10 @@
     gap:1rem;
     
 }
+@media (max-width:720px){
+    .container-home-responsavel{
+
+        padding: 0px;
+        
+    }  
+}

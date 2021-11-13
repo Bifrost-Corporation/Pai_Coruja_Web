@@ -1,0 +1,167 @@
+.container-observacao-do-professor{
+    width: 100%;
+    border-radius: 10px;
+    background-color: var(--cinzaclaro);
+    padding: 1rem;
+}
+.header-observacao-professor{
+    align-items: center;
+    display: flex;
+}
+.header-observacao-professor h2{
+
+    font-weight: 700;
+    color: var(--cinzafonte);
+    font-size: 1.5rem;
+}
+
+
+/* CONTAINER - TOTAL FLAGS */
+
+.container-total-flags{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 100%;
+    padding: 1rem 0rem;
+
+}
+.container-total-flags .flag{
+
+    padding: 1.5rem;
+    border-radius: 10px;
+    background-color: transparent;
+    width: 20%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.container-total-flags .flag-good{
+    background-color: rgb(178, 230, 178);
+    color: rgb(27, 180, 27);
+ }
+.container-total-flags .flag-medium{
+    background-color: rgb(245, 221, 177);
+   color: rgb(224, 155, 26);
+ }
+.container-total-flags .flag-bad{
+    background-color: rgb(233, 147, 147);
+   color: rgb(233, 24, 24);
+ }
+.container-total-flags .flag-toobad{
+    background-color: rgb(126, 126, 126);
+   color: rgb(34, 34, 34);
+ }
+
+
+
+/*FIM*/
+
+
+
+.card-flags{
+    border-radius: 15px;
+    width: 400px;
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    background-color: var(--cinzamaisclaro);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.063);
+}
+.card-flags .header-card{
+    display: flex;
+    border-radius: 15px;
+    padding: .5rem  0rem;
+    height:15%;
+    font-size: 1.2rem;
+    white-space: nowrap;
+    overflow: hidden; 
+    text-overflow:ellipsis;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.card-flags .content-card-flags{
+    display: flex;
+    align-items: center;
+    padding: .5rem 0rem;
+    width: 100%;
+    height: 65%;
+}
+.card-flags .content-card-flags .text-desc-flag{
+   width: 70%;
+   
+   overflow-y: auto;
+   display: flex;
+   flex-direction: column;
+}
+.card-flags .footer-card-flags .content-flag{
+   width: 100%;
+   display: flex;
+}
+.card-flags .footer-card-flags .content-flag .flag{
+   border-radius: 150px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   padding: 0.5rem;
+   background-color: transparent;
+}
+.card-flags .footer-card-flags .content-flag .flag-good{
+   background-color: rgb(178, 230, 178);
+   color: rgb(27, 180, 27);
+}
+.card-flags .footer-card-flags .content-flag .flag-good p{
+   
+   color: var(--cinzafonte);
+}
+
+.card-flags .footer-card-flags .content-flag .flag-medium{
+   background-color: rgb(245, 221, 177);
+   color: orange;
+}
+.card-flags .footer-card-flags .content-flag .flag-medium p{
+   
+   color: var(--cinzafonte);
+}
+
+.card-flags .footer-card-flags .content-flag .flag-bad{
+   background-color: rgb(233, 147, 147);
+   color: red;
+}
+.card-flags .footer-card-flags .content-flag .flag-bad p{
+   
+   color: var(--cinzafonte);
+}
+.card-flags .footer-card-flags .content-flag .flag-toobad{
+   background-color: rgb(126, 126, 126);
+   color: black;
+}
+.card-flags .footer-card-flags .content-flag .flag-toobad p{
+   color: black;
+}
+
+.card-flags .footer-card-flags{
+    display: flex;
+    width: 100%;
+    height: 20%;
+}
+@media (max-width:720px){
+    .container-total-flags .flag{
+
+        width: 50%;
+    
+    }
+    .swiper-button-prev{
+        display: none;
+        
+    }
+    .swiper-button-next{
+        display: none;
+
+    }
+}
