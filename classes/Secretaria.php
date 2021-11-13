@@ -210,6 +210,14 @@
             return $listaSecretaria;
         }
 
+        public function selecionarSecretaria($idEscola){
+            $conexao = Conexao::conectar();
+            $querySecretaria = "SELECT idSecretaria, nomeSecretaria, emailSecretaria, idEscola, idAdministrador FROM tbsecretaria WHERE idEscola = '$idEscola'";
+            $resultadoSecretaria = $conexao->query($querySecretaria);
+            $listaSecretaria = $resultadoSecretaria->fetchAll(PDO::FETCH_ASSOC);
+            return $listaSecretaria;
+        }
+
     }
 
 ?>

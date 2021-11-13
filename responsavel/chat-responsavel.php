@@ -22,11 +22,10 @@
         include("globalResponsavel.php");
     ?>
     <header>
-
-    <nav class="nav-bar">
+            <nav class="nav-bar">
                 <div class="content-logo-btn">
                     <ul class="ul-area-btn">
-                        <li class="nav-li"><a class="btn-nav-pc-open"><i class="fas fa-bars"></i></a></li>
+                        <li class="nav-li"><a class="btn-nav-pc-open"><i class="material-icons-round">menu</i></a></li>
                     </ul>
                     <a href="dashboard.php"><img class="logo-img" src="../img/pai_coruja_branca.png"></a>
                 </div>
@@ -41,7 +40,7 @@
                         <img src="../img/macacopc.gif" alt="">
                         <div class="name-job">
                             <div class="name-menu"><?php echo $_SESSION['nomeResponsavel'] ?></div>
-                            <small class="job-menu">Olá Responsavel</small>
+                            <small class="job-menu">Olá Responsável(a)</small>
                         </div>
                     </div>
                     <ul class="opcoes-drop-profile">
@@ -54,13 +53,13 @@
                         </li>
                         <li class="drop-profile-li" id="alterar-imagem-perfil">
                             <a>
-                                <i class="fas fa-user-cog"></i>
+                                <i class="material-icons-round">manage_accounts</i>
                                 <small>Trocar Imagem de Perfil</small>
                             </a>
                         </li>
                         <li class="drop-profile-li">
                             <a href="logout.php">
-                                <i class="fas fa-sign-out-alt" id="logout-user"></i>
+                                <i id="logout-user" class="material-icons-round">logout</i>
                                 <small>Sair</small>
                             </a>
                         </li>
@@ -84,31 +83,25 @@
                     <div class="menu-container">
                         <li class="links-name">
                             <a href="home-responsavel.php" class="active-nav">
-                                <i class="fas fa-calendar"></i>
-                                <span class="links-name tooltip">Home</span>
+                                <i class="material-icons-round">space_dashboard</i>
+                                <span class="links-name tooltip">Dashboard</span>
                             </a>
                         </li>
                         <li class="links-name">
-                            <a href="cadastrar-dados.php">
-                                <i class="fas fa-school "></i>
-                                <span class="links-name tooltip">Cadastrar Dados</span>
-                            </a>
-                        </li>
-                        <li class="links-name">
-                        <a href="visualizar-dados.php">
-                                <i class="fas fa-school"></i>
-                                <span class="links-name tooltip">Alterar Dados</span>
-                            </a>
-                        </li>
-                        <li class="links-name">
-                        <a href="agenda.php">
-                            <i class="fas fa-calendar"></i>
+                            <a href="agenda.php">
+                                <i class="material-icons-round">article</i>
                                 <span class="links-name tooltip">Agenda Escolar</span>
                             </a>
                         </li>
                         <li class="links-name">
+                        <a href="visualizar-dados.php">
+                            <i class="material-icons-round">grading</i>
+                                <span class="links-name tooltip">Observações dos Professores</span>
+                            </a>
+                        </li>
+                        <li class="links-name">
                             <a href="chat-responsavel.php" >
-                            <i class="fa fa-comment" aria-hidden="true"></i>
+                                <i class="material-icons-round">chat_bubble</i>
                                 <span class="links-name tooltip">Pai Coruja Chat</span>
                             </a>
                         </li>
@@ -116,7 +109,7 @@
                 </ul>
                 
             </div>
-</header>
+        </header>
 
 
 
@@ -142,17 +135,17 @@
         <ul>
         <?php
             $secretaria = new Secretaria();
-            $listaContatos = $secretaria->listarResponsaveis($_SESSION['idEscola']);
-            foreach($listaContatos as $linha){
+            $listaSecretaria = $secretaria->selecionarSecretaria($_SESSION['idEscola']);
+            foreach($listaSecretaria as $linha){
         ?>
             <li><div class="area-botao-conversa">
-            <button class="botao-contato"id="<?php echo $linha['idResponsavel'] ?>">
+            <button class="botao-contato"id="<?php echo $linha['idSecretaria'] ?>">
             <div class="profile-details list">
                     <img src="../img/macacopc.gif" alt="">
                 </div>
             <div class="container-texts-conversa">
             <div class="title-conversa">
-                    <?php echo $linha['nomeResponsavel'] ?>
+                    <?php echo $linha['nomeSecretaria'] ?>
                 </div>
                 <div class="text-conversa">
                     <p>mingau ajsak ajshja jajshj ahsjh</p>
@@ -176,7 +169,7 @@
     
         <div class="nav-chat">
         <button class="botao-contato-abrir"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
-            <h1 class="name-user-chat"><?php echo $linha['nomeResponsavel'] ?></h1>
+            <h1 class="name-user-chat"><?php echo $linha['nomeSecretaria'] ?></h1>
         </div>
         
         <div class="caixa-mensagens">
@@ -188,10 +181,10 @@
         </div>
         <div class="form-mensagem">
             <form name="form-chat" method="POST" action="../DAO/enviar-mensagem.php">
-                <input type="hidden" id="idEnviar" name="idEnviar" value="<?php echo $_SESSION['idSecretaria'] ?>">
-                <input type="hidden" id="idReceber" name="idReceber" value="#">
+                <input type="hidden" id="idEnviar" name="idEnviar" value="<?php echo $_SESSION['idResponsavel'] ?>">
+                <input type="hidden" id="idReceber" name="idReceber" value="<?php echo $_SESSION['idSecretaria'] ?>">
                 <div class="box-submit-message">
-                <input type="text" class="caixa-mensagem" placeholder="Converse com @<?php echo $linha['nomeResponsavel'] ?>" id="txtMensagem" name="txtMensagem">
+                <input type="text" class="caixa-mensagem" placeholder="Converse com @<?php echo $linha['nomeSecretaria'] ?>" id="txtMensagem" name="txtMensagem">
                 <button class="botao-enviar" id="botao-enviar" name="botao-enviar"><i class="fa fa-paper-plane" aria-hidden="true"></i>
         </button>
            
