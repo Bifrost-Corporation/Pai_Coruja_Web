@@ -23,6 +23,23 @@
     <?php
                 include ('sentinela.php');
                 include ('globalSecretaria.php');
+                include ('../classes/Secretaria.php');
+                include ('../classes/Usuario.php');
+                include ('../classes/ImagemSecretaria.php');
+
+                $usuario = new Usuario();
+                $listaUsuario = $usuario->listar();
+                
+                $imagemSecretaria = new ImagemSecretaria();
+                $listaImagem = $imagemSecretaria->listarImagem();
+
+                foreach($listaImagem as $linha){
+                    if($linha['idSecretaria'] == $_SESSION['idSecretaria']){
+                        foreach($listaUsuario as $linha2){
+                            $imagemPerfilsrc = $linha['caminhoImagemPerfilSecretaria'].$linha['nomeImagemPerfilSecretaria'];
+                        }
+                    }
+                }
     ?>
         <header>
             <nav class="nav-bar">
@@ -34,13 +51,13 @@
                 </div>
                 <button class="profile">
                     <div class="profile-details" id="openProfile">
-                        <img src="../img/macacopc.gif" alt="">
+                        <img src="../<?php echo($imagemPerfilsrc) ?>" alt="">
                     </div>
                 </button>
 
                 <div class="dropdown-menu-profile">
                     <div class="profile-details">
-                        <img src="../img/macacopc.gif" alt="">
+                        <img src="../<?php echo($imagemPerfilsrc) ?>" alt="">
                         <div class="name-job">
                             <div class="name-menu"><?php echo $_SESSION['nomeSecretaria'] ?></div>
                             <small class="job-menu">Olá Secretário(a)</small>
