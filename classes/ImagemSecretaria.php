@@ -1,7 +1,5 @@
 <?php
-
-    include ("Conexao.php");
-
+    // include ("Conexao.php");
     class ImagemSecretaria{
 
         private $idImagemSecretaria;
@@ -70,6 +68,15 @@
             $stmt->execute();
             return 'Imagem do Secretaria excluida com sucesso!';
         }
+
+        public function listarImagem(){
+            $conexao = Conexao::conectar();
+            $querySelect = "SELECT nomeImagemPerfilSecretaria,caminhoImagemPerfilSecretaria, idSecretaria FROM tbimagemperfilsecretaria 
+                              WHERE idSecretaria = (SELECT DISTINCT idSecretaria FROM tbsecretaria)";
+            $resultado = $conexao->query($querySelect);
+            $lista = $resultado->fetchAll();
+            return $lista;
+         }
 
     }
 

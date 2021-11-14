@@ -1,5 +1,6 @@
 <?php
 
+    include("../classes/Conexao.php");
     include("../secretaria/sentinela.php");
     include("../classes/ImagemSecretaria.php");
     include("../classes/ImagemResponsavel.php");

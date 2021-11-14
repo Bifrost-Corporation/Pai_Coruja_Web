@@ -23,6 +23,7 @@
         include ('../classes/Secretaria.php');
         include ('../classes/Turma.php');
         include ('../classes/Usuario.php');
+        include ('../classes/ImagemSecretaria.php');
 
         $secretaria = new Secretaria();
         $usuario = new Usuario();
@@ -33,6 +34,9 @@
 
         $listaSecretaria = $secretaria->listar();
         $listaUsuario = $usuario->listar();
+
+        $imagemSecretaria = new ImagemSecretaria();
+        $listaImagem = $imagemSecretaria->listarImagem();
 
         $listaQtdeAlunos = $secretaria->contarAlunos($_SESSION['idEscola']);
         $listaQtdeProfessores = $secretaria->contarProfessores($_SESSION['idEscola']);
@@ -57,6 +61,15 @@
                 }
             }
         }
+        foreach($listaImagem as $linha){
+            if($linha['idSecretaria'] == $_SESSION['idSecretaria']){
+                foreach($listaUsuario as $linha2){
+                    $imagemPerfilsrc = $linha['caminhoImagemPerfilSecretaria'].$linha['nomeImagemPerfilSecretaria'];
+                }
+            }
+        }
+
+        
 
         foreach($listaQtdeAlunos as $linha){
             $qtdeAlunos = $linha['qtdeAlunos'];
@@ -110,6 +123,10 @@
             $qtdePontos5 = $linha['qtdeObservacao'];
         }
 
+        
+           
+        
+
         $mediaAlunoTurma = number_format($mediaAlunoTurma, 1, '.', '');
         $mediaObservacoes = number_format($mediaObservacoes, 1, '.', '');
     ?>
@@ -123,13 +140,13 @@
                 </div>
                 <button class="profile">
                     <div class="profile-details" id="openProfile">
-                        <img src="../img/macacopc.gif" alt="">
+                        <img src="../<?php echo($imagemPerfilsrc) ?>" alt="">
                     </div>
                 </button>
 
                 <div class="dropdown-menu-profile">
                     <div class="profile-details">
-                        <img src="../img/macacopc.gif" alt="">
+                        <img src="../<?php echo($imagemPerfilsrc) ?>" alt="">
                         <div class="name-job">
                             <div class="name-menu"><?php echo $_SESSION['nomeSecretaria'] ?></div>
                             <small class="job-menu">Olá Secretário(a)</small>
@@ -389,7 +406,7 @@
             <div class="card-perfil">
                 <span class="closeModalProfile"><i class="fas fa-times"></i></span>
                 <div class="perfil-modal-body">
-                    <img src="../img/usuario-de-perfil.png" alt="Sua Foto de Perfil" style="align-self: center;box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.063);">
+                    <img src="../<?php echo($imagemPerfilsrc) ?>" alt="Sua Foto de Perfil" style="align-self: center;box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.063);">
                     <div class="title-perfil-modal">
                         <h1><?php echo $_SESSION['nomeSecretaria'] ?></h1>
                         <small>Secretário(a) Escolar</small>
