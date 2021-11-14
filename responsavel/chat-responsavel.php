@@ -307,29 +307,51 @@
     <script src="../assets/js/carousel.js"></script>
 
     <script>
-        $(document).ready(function(){
-            var idSecretaria = $('#idReceber').val();
-            var idResponsavel = $('#idEnviar').val();
 
-            var query = idSecretaria + ' ' + idResponsavel;
+        jQuery('.botao-contato').on('click', function(){  
+             
+             $('#idReceber').val(this.id);
+             
+                 (function attMensagens () {
+                     var idSecretaria = $('#idReceber').val();
+                     var idResponsavel = $('#idEnviar').val();
 
-            (function attMensagens () {
-                $.ajax({
-                url: '../DAO/listar-mensagens-responsavel.php',
-                method: 'POST',
-                data: {
-                    query: query
-                },
-                success: function(retorno){
-                        $("#mensagens").html(retorno);
-                },
-                complete: function () {
-                    setTimeout(attMensagens, 1000);
-                }
-                });
-            })();
-            
-        });
+                     var idUsuarioSecretaria = <?php 
+                                                    $usuario = new Usuario();
+                                                    $listaUsuario = $usuario->listar();
+                                                    foreach($listaUsuario as $linha) {
+                                                        if($linha['idSecretaria'] == $_SESSION['idSecretaria']){
+                                                            echo $linha['idUsuario'];
+                                                        }
+                                                    }
+                                                ?>;
+
+                     var idUsuarioResponsavel = <?php
+                                                    foreach($listaUsuario as $linha) {
+                                                        if($linha['idResponsavel'] == $_SESSION['idResponsavel']){
+                                                            echo $linha['idUsuario'];
+                                                        }
+                                                    }
+                                                ?>;                               
+                     
+                     var query = idUsuarioResponsavel + ' ' + idUsuarioSecretaria;
+                     
+                 
+                     $.ajax({
+                     url: '../DAO/listar-mensagens.php',
+                     method: 'POST',
+                     data: {
+                         query: query
+                     },
+                     success: function(retorno){
+                         $("#mensagens").html(retorno);
+                     },
+                     complete: function () {
+                         setTimeout(attMensagens, 1000);
+                     }
+                     });
+                 })();
+         });
 
         jQuery('form').on('submit', function(e){
             e.preventDefault();

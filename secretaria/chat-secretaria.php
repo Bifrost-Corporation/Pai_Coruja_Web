@@ -207,6 +207,7 @@
                         <form name="form-chat" method="POST" action="../DAO/enviar-mensagem.php">
                             <input type="hidden" id="idEnviar" name="idEnviar" value="<?php echo $_SESSION['idSecretaria'] ?>">
                             <input type="hidden" id="idReceber" name="idReceber" value="#">
+                            <input type="hidden" id="idUserResponsavel" name="idUserResponsavel" value="#">
                             <div class="box-submit-message">
                             <input type="text" class="caixa-mensagem" placeholder="Converse com @<?php echo $linha['nomeResponsavel'] ?>" id="txtMensagem" name="txtMensagem">
                             <button class="botao-enviar" id="botao-enviar" name="botao-enviar"><i class="fa fa-paper-plane" aria-hidden="true"></i>
@@ -371,23 +372,49 @@
             
                 (function attMensagens () {
                     var idSecretaria = $('#idEnviar').val();
-                    var idResponsavel = $('#idReceber').val();
                     
-                    var query = idSecretaria + ' ' + idResponsavel;
+
+                    var idUsuarioResponsavel = $("#idUserResponsavel").val();
+
+                    var idUsuarioSecretaria = <?php 
+                                                    $usuario = new Usuario();
+                                                    $listaUsuario = $usuario->listar();
+                                                    foreach($listaUsuario as $linha) {
+                                                        if($linha['idSecretaria'] == $_SESSION['idSecretaria']){
+                                                            echo $linha['idUsuario'];
+                                                        }
+                                                    }
+                                                ?>;
+
+                    var idResponsavel = $('#idReceber').val();
+
+                    $.ajax({
+                        url: '../DAO/pegar-id-responsavel.php',
+                        method: 'POST',
+                        data: {
+                            idResponsavel: idResponsavel
+                        },
+                        success: function(retorno){
+                            $("#idUserResponsavel").val(retorno);
+                        },
+                    });
+
+                     
+                    var query = idUsuarioSecretaria + ' ' + idUsuarioResponsavel;
                     
                 
                     $.ajax({
-                    url: '../DAO/listar-mensagens-secretaria.php',
-                    method: 'POST',
-                    data: {
-                        query: query
-                    },
-                    success: function(retorno){
-                        $("#mensagens").html(retorno);
-                    },
-                    complete: function () {
-                        setTimeout(attMensagens, 1000);
-                    }
+                        url: '../DAO/listar-mensagens.php',
+                        method: 'POST',
+                        data: {
+                            query: query
+                        },
+                        success: function(retorno){
+                            $("#mensagens").html(retorno);
+                        },
+                        complete: function () {
+                            setTimeout(attMensagens, 1000);
+                        }
                     });
                 })();
         });
