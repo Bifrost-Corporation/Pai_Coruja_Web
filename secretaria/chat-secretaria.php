@@ -374,8 +374,6 @@
                     var idSecretaria = $('#idEnviar').val();
                     
 
-                    var idUsuarioResponsavel = $("#idUserResponsavel").val();
-
                     var idUsuarioSecretaria = <?php 
                                                     $usuario = new Usuario();
                                                     $listaUsuario = $usuario->listar();
@@ -388,6 +386,7 @@
 
                     var idResponsavel = $('#idReceber').val();
 
+                    //Isso não me parece certo, mas só funcionou desse jeito ¯\_(ツ)_/¯, qualquer coisa tento refazer isso depois
                     $.ajax({
                         url: '../DAO/pegar-id-responsavel.php',
                         method: 'POST',
@@ -396,26 +395,27 @@
                         },
                         success: function(retorno){
                             $("#idUserResponsavel").val(retorno);
+                            var idUsuarioResponsavel = $("#idUserResponsavel").val();
+                     
+                            var query = idUsuarioSecretaria + ' ' + idUsuarioResponsavel;
+                        
+                            $.ajax({
+                                url: '../DAO/listar-mensagens.php',
+                                method: 'POST',
+                                data: {
+                                    query: query
+                                },
+                                success: function(retorno){
+                                    $("#mensagens").html(retorno);
+                                },
+                                complete: function () {
+                                    setTimeout(attMensagens, 1000);
+                                }
+                            });
                         },
                     });
 
-                     
-                    var query = idUsuarioSecretaria + ' ' + idUsuarioResponsavel;
                     
-                
-                    $.ajax({
-                        url: '../DAO/listar-mensagens.php',
-                        method: 'POST',
-                        data: {
-                            query: query
-                        },
-                        success: function(retorno){
-                            $("#mensagens").html(retorno);
-                        },
-                        complete: function () {
-                            setTimeout(attMensagens, 1000);
-                        }
-                    });
                 })();
         });
         
