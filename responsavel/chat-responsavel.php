@@ -21,7 +21,7 @@
         include("sentinela.php");
         include("globalResponsavel.php");
     ?>
-    <header>
+        <header>
             <nav class="nav-bar">
                 <div class="content-logo-btn">
                     <ul class="ul-area-btn">
@@ -82,9 +82,9 @@
                 <ul class="nav-list">
                     <div class="menu-container">
                         <li class="links-name">
-                            <a href="home-responsavel.php" class="active-nav">
-                                <i class="material-icons-round">space_dashboard</i>
-                                <span class="links-name tooltip">Dashboard</span>
+                            <a href="home-responsavel.php">
+                                <i class="material-icons-round">home</i>
+                                <span class="links-name tooltip">Home</span>
                             </a>
                         </li>
                         <li class="links-name">
@@ -94,13 +94,13 @@
                             </a>
                         </li>
                         <li class="links-name">
-                        <a href="visualizar-dados.php">
-                            <i class="material-icons-round">grading</i>
+                        <a href="observacao-professor.php">
+                            <i class="material-icons-round">flag</i>
                                 <span class="links-name tooltip">Observações dos Professores</span>
                             </a>
                         </li>
                         <li class="links-name">
-                            <a href="chat-responsavel.php" >
+                            <a href="chat-responsavel.php"  class="active-nav">
                                 <i class="material-icons-round">chat_bubble</i>
                                 <span class="links-name tooltip">Pai Coruja Chat</span>
                             </a>

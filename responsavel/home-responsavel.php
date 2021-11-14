@@ -103,8 +103,8 @@
                     <div class="menu-container">
                         <li class="links-name">
                             <a href="home-responsavel.php" class="active-nav">
-                                <i class="material-icons-round">space_dashboard</i>
-                                <span class="links-name tooltip">Dashboard</span>
+                                <i class="material-icons-round">home</i>
+                                <span class="links-name tooltip">Home</span>
                             </a>
                         </li>
                         <li class="links-name">
@@ -114,8 +114,8 @@
                             </a>
                         </li>
                         <li class="links-name">
-                        <a href="visualizar-dados.php">
-                            <i class="material-icons-round">grading</i>
+                        <a href="observacao-professor.php">
+                            <i class="material-icons-round">flag</i>
                                 <span class="links-name tooltip">Observações dos Professores</span>
                             </a>
                         </li>
@@ -131,11 +131,12 @@
             </div>
         </header>
 
+
         
         
     
 
-    <main class="container-main container-home-responsavel">
+    <main class="container-main container-dash">
     
             <div class="ola-nav-dash">
                 <h1>Olá Responsável</h1>
