@@ -151,6 +151,14 @@
             return 'Update da senha realizado com sucesso!';
         }
 
+        public function selecionarProfessorChat($idTurma, $idProfessor){
+            $conexao = Conexao::conectar();
+            $queryProfessor = "SELECT tbprofessor.idProfessor, nomeProfessor, emailProfessor, tbprofessor.idEscola, tbusuario.idUsuario FROM tbprofessor INNER JOIN tbaluno ON tbaluno.idEscola = tbprofessor.idEscola INNER JOIN tbusuario ON tbusuario.idProfessor = tbprofessor.idProfessor INNER JOIN tbresponsavel ON tbresponsavel.idAluno = tbaluno.idAluno INNER JOIN tbdisciplina ON tbdisciplina.idProfessor = tbprofessor.idProfessor INNER JOIN tbturma ON tbturma.idTurma = tbaluno.idTurma INNER JOIN tbhorarioturma ON tbhorarioturma.idTurma = tbturma.idTurma WHERE tbaluno.idTurma = '$idTurma' AND tbturma.idTurma = tbhorarioturma.idTurma AND tbhorarioturma.idDisciplina = tbdisciplina.idDisciplina AND tbprofessor.idProfessor = '$idProfessor' GROUP BY tbprofessor.idProfessor";
+            $resultadoProfessor = $conexao->query($queryProfessor);
+            $listaProfessor = $resultadoProfessor->fetchAll(PDO::FETCH_ASSOC);
+            return $listaProfessor;
+        }
+
     }
 
 ?>

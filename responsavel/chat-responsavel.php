@@ -138,25 +138,74 @@
             $listaSecretaria = $secretaria->selecionarSecretaria($_SESSION['idEscola']);
             foreach($listaSecretaria as $linha){
         ?>
-            <li><div class="area-botao-conversa">
-            <button class="botao-contato"id="<?php echo $linha['idSecretaria'] ?>">
-            <div class="profile-details list">
-                    <img src="../img/macacopc.gif" alt="">
-                </div>
-            <div class="container-texts-conversa">
-            <div class="title-conversa">
-                    <?php echo $linha['nomeSecretaria'] ?>
-                </div>
-                <div class="text-conversa">
-                    <p>mingau ajsak ajshja jajshj ahsjh</p>
+            <li id="contato1">
+                <div class="area-botao-conversa">
+                    <button class="botao-contato"id="<?php echo $linha['idUsuario'] ?>">
+                    <div class="profile-details list">
+                            <img src="../img/macacopc.gif" alt="">
+                        </div>
+                    <div class="container-texts-conversa">
+                    <div class="title-conversa">
+                            <p id="nomeContato1"><?php echo $linha['nomeSecretaria'] ?></p>
+                        </div>
+                        <div class="text-conversa">
+                            <p>Secretária</p>
+                        </div>
+                    </div>
 
+                    </button>
                 </div>
-            </div>
-
-            </button>
-        </div></li>
+            </li>
         <?php
             }
+
+            $professor = new Professor();
+            $qtdeProfessores = $professor->contar($_SESSION['idEscola']);
+            foreach($qtdeProfessores as $linha){
+                $qtdeProfessores = $linha['qtdeProfessor'];
+            }
+            $responsavel = new Responsavel();
+            $aluno = new Aluno();
+            $listaAlunos = $aluno->listar($_SESSION['idEscola']);
+            $listaResponsavel = $responsavel->listar($_SESSION['idEscola']);
+            foreach($listaResponsavel as $linha){
+                if($linha['idResponsavel'] == $_SESSION['idResponsavel']){
+                    foreach($listaAlunos as $linha2){
+                        if($linha['idAluno'] == $linha2['idAluno']){
+                            $idTurma = $linha2['idTurma'];
+                        }
+                    }
+                }
+            }
+            $listaProfessor = $professor->listarEscola($_SESSION['idEscola']);
+            $contaid = 2;
+            foreach($listaProfessor as $linha){
+                $listaChatProfessor = $professor->selecionarProfessorChat($idTurma, $linha['idProfessor']);
+                foreach($listaChatProfessor as $linha2){
+            ?>
+                <li id="contato<?php echo $contaid ?>">
+                    <div class="area-botao-conversa">
+                        <button class="botao-contato"id="<?php echo $linha2['idUsuario'] ?>">
+                        <div class="profile-details list">
+                                <img src="../img/macacopc.gif" alt="">
+                            </div>
+                        <div class="container-texts-conversa">
+                            <div class="title-conversa">
+                                <p id="nomeContato<?php echo $contaid; ?>"><?php echo $linha2['nomeProfessor'] ?></p>
+                            </div>
+                            <div class="text-conversa">
+                                <p>Professor</p>
+                            </div>
+                        </div>
+
+                        </button>
+                    </div>
+                </li>
+            <?php
+                    $contaid = $contaid + 1;
+                }
+            }
+            
         ?>
         </ul>
         
@@ -169,7 +218,7 @@
     
         <div class="nav-chat">
         <button class="botao-contato-abrir"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
-            <h1 class="name-user-chat"><?php echo $linha['nomeSecretaria'] ?></h1>
+            <h1 class="name-user-chat" id="nomeContato"></h1>
         </div>
         
         <div class="caixa-mensagens">
@@ -184,7 +233,7 @@
                 <input type="hidden" id="idEnviar" name="idEnviar" value="<?php echo $_SESSION['idResponsavel'] ?>">
                 <input type="hidden" id="idReceber" name="idReceber" value="<?php echo $_SESSION['idSecretaria'] ?>">
                 <div class="box-submit-message">
-                <input type="text" class="caixa-mensagem" placeholder="Converse com @<?php echo $linha['nomeSecretaria'] ?>" id="txtMensagem" name="txtMensagem">
+                <input type="text" class="caixa-mensagem" placeholder="Converse com A MAE JUANA" id="txtMensagem" name="txtMensagem">
                 <button class="botao-enviar" id="botao-enviar" name="botao-enviar"><i class="fa fa-paper-plane" aria-hidden="true"></i>
         </button>
            
@@ -308,6 +357,7 @@
 
     <script>
 
+        /*
         jQuery('.botao-contato').on('click', function(){  
              
              $('#idReceber').val(this.id);
@@ -352,6 +402,7 @@
                      });
                  })();
          });
+         */
 
         jQuery('form').on('submit', function(e){
             e.preventDefault();
@@ -374,6 +425,20 @@
                 });
             }
         });
+
+        //Colocando o nome do contato na área do chat COMPLETAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAR
+        <?php
+        $qtdeContatos = $qtdeProfessores + 1;
+        for($i = 1; $i <= $qtdeContatos; $i++){
+        ?> 
+            $("#contato<?php echo $i ?>").on('click', function(){
+                var nomeContato = $("#nomeContato<?php echo $i ?>").text();
+                $("#nomeContato").text(nomeContato);
+                console.log(nomeContato);
+            });
+        <?php
+        }
+        ?>
     </script>
 </body>
 
