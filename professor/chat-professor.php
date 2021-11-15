@@ -21,7 +21,7 @@
 <body>
     <?php
         include ('sentinela.php');
-        include ('globalSecretaria.php');
+        include ('globalProfessor.php');
     ?>
        <header>
             <nav class="nav-bar">
@@ -41,8 +41,8 @@
                     <div class="profile-details">
                         <img src="../img/macacopc.gif" alt="">
                         <div class="name-job">
-                            <div class="name-menu"><?php echo $_SESSION['nomeSecretaria'] ?></div>
-                            <small class="job-menu">Olá Secretário(a)</small>
+                            <div class="name-menu"><?php echo $_SESSION['nomeProfessor'] ?></div>
+                            <small class="job-menu">Olá Professor(a)</small>
                         </div>
                     </div>
                     <ul class="opcoes-drop-profile">
@@ -84,32 +84,26 @@
                 <ul class="nav-list">
                     <div class="menu-container">
                         <li class="links-name">
-                            <a href="dashboard.php">
+                            <a href="home-professor.php" class="active-nav">
                                 <i class="material-icons-round">space_dashboard</i>
                                 <span class="links-name tooltip">Dashboard</span>
                             </a>
                         </li>
                         <li class="links-name">
-                            <a href="cadastrar-dados.php">
-                                <i class="material-icons-round">app_registration</i>
-                                <span class="links-name tooltip">Cadastrar Dados</span>
+                            <a href="cadastrar-publicacao.php">
+                                <i class="material-icons-round">notes</i>
+                                <span class="links-name tooltip">Cadastrar Publicação</span>
                             </a>
                         </li>
                         <li class="links-name">
-                        <a href="visualizar-dados.php">
-                            <i class="material-icons-round">view_list</i>
-                                <span class="links-name tooltip">Alterar Dados</span>
+                        <a href="cadastrar-flags.php">
+                            <i class="material-icons-round">sticky_note_2</i>
+                                <span class="links-name tooltip">Cadastrar Observações</span>
                             </a>
                         </li>
                         <li class="links-name">
-                            <a href="cadastrar-evento.php">
-                                <i class="material-icons-round">edit_calendar</i>
-                                <span class="links-name tooltip">Gerenciar Eventos</span>
-                            </a>
-                        </li>
-                        <li class="links-name">
-                            <a href="chat-secretaria.php"  class="active-nav">
-                                <i class="material-icons-round">chat</i>
+                            <a href="chat-professor.php" >
+                                <i class="material-icons-round">chat_bubble</i>
                                 <span class="links-name tooltip">Pai Coruja Chat</span>
                             </a>
                         </li>
@@ -142,8 +136,8 @@
                         
                     <ul>
                     <?php
-                        $secretaria = new Secretaria();
-                        $listaContatos = $secretaria->listarResponsaveis($_SESSION['idEscola']);
+                        $responsavel = new Responsavel();
+                        $listaContatos = $responsavel->selecionarResponsavelChat($_SESSION['idProfessor']);
                         foreach($listaContatos as $linha){
                     ?>
                         <li><div class="area-botao-conversa">
@@ -156,7 +150,7 @@
                                 <?php echo $linha['nomeResponsavel'] ?>
                             </div>
                             <div class="text-conversa">
-                                <p>mingau ajsak ajshja jajshj ahsjh</p>
+                                <p>Responável</p>
 
                             </div>
                         </div>
@@ -188,8 +182,8 @@
                         </div>
                     </div>
                     <div class="form-mensagem">
-                        <form name="form-chat" method="POST" action="../DAO/enviar-mensagem.php">
-                            <input type="hidden" id="idEnviar" name="idEnviar" value="<?php echo $_SESSION['idSecretaria'] ?>">
+                        <form name="form-chat" method="POST" action="../DAO/enviar-mensagem-professor.php">
+                            <input type="hidden" id="idEnviar" name="idEnviar" value="<?php echo $_SESSION['idProfessor'] ?>">
                             <input type="hidden" id="idReceber" name="idReceber" value="#">
                             <div class="box-submit-message">
                             <input type="text" class="caixa-mensagem" placeholder="Converse com @<?php echo $linha['nomeResponsavel'] ?>" id="txtMensagem" name="txtMensagem">
@@ -278,45 +272,11 @@
        
 
 
-    <div id="modalProfile" class="modal modal-profile">
-            
-            <!-- Modal content -->
-        <div class="modal-content-profile">
-            <div class="card-perfil">
-                <span class="closeModalProfile"><i class="fas fa-times"></i></span>
-                <div class="perfil-modal-body">
-                    <img src="../img/usuario-de-perfil.png" alt="Sua Foto de Perfil" style="align-self: center;">
-                    <div>
-                        <h1><?php echo $_SESSION['nomeSecretaria'] ?></h1>
-                        <small>Secretário(a) Escolar</small>
-                    </div>
-                    <form class="formulario" name="formImagemPerfil" id="formImagemPerfil" action="../DAO/inserir-imagem-secretaria.php" method="POST" enctype="multipart/form-data">
-                        <div class="user-details">
-                            <div class="input-box-width100">
-                                <label class="label-erro" id="label-foto"></label>
-                                <div>
-                                    <label class="carregar-imagem-perfil" for="arquivo">Carregar Imagem Perfil</label>
-                                    <input name="arquivo" id="arquivo" type="file" accept="image/*">
-                                    <label class="label-erro" id="label-arquivo"></label>
-                                    <span id="nome-arquivo"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <br>
-                        <input class="btn-nav-exit cadastrar-prof-step" type="submit" value="Enviar">
-                    </form> 
-                </div>
-                
-            </div>
-        </div>
-
-    </div>
 
     <script src="../assets/js/modalProfile.js"></script>
     <script src="../assets/js/nav.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.js"></script>
-    <script src="../assets/js/carousel.js"></script>
 
     <script>
         modalNovaConversa = document.querySelector('.modal-nova-conversa')
@@ -361,25 +321,47 @@
             $('#idReceber').val(this.id);
             
                 (function attMensagens () {
-                    var idSecretaria = $('#idEnviar').val();
+                    var idProfessor = $('#idEnviar').val();
                     var idResponsavel = $('#idReceber').val();
-                    
-                    var query = idSecretaria + ' ' + idResponsavel;
-                    
-                
+
+                    var idUsuarioProfessor = <?php 
+                                                    $usuario = new Usuario();
+                                                    $listaUsuario = $usuario->listar();
+                                                    foreach($listaUsuario as $linha){
+                                                        if($linha['idProfessor'] == $_SESSION['idProfessor']){
+                                                            echo $linha['idUsuario'];
+                                                        }
+                                                    }
+                                                ?>
+
                     $.ajax({
-                    url: '../DAO/listar-mensagens-secretaria.php',
-                    method: 'POST',
-                    data: {
-                        query: query
-                    },
-                    success: function(retorno){
-                        $("#mensagens").html(retorno);
-                    },
-                    complete: function () {
-                        setTimeout(attMensagens, 1000);
-                    }
+                        url: '../DAO/pegar-id-responsavel.php',
+                        method: 'POST',
+                        data: {
+                            idResponsavel: idResponsavel
+                        },
+                        success: function(retorno){
+                            $("#idUserResponsavel").val(retorno);
+                            var idUsuarioResponsavel = $("#idUserResponsavel").val();
+                     
+                            var query = idUsuarioProfessor + ' ' + idResponsavel;
+                        
+                            $.ajax({
+                                url: '../DAO/listar-mensagens.php',
+                                method: 'POST',
+                                data: {
+                                    query: query
+                                },
+                                success: function(retorno){
+                                    $("#mensagens").html(retorno);
+                                },
+                                complete: function () {
+                                    setTimeout(attMensagens, 1000);
+                                }
+                            });
+                        },
                     });
+                    
                 })();
         });
         
@@ -392,7 +374,7 @@
                 var dados = {'idEnviar':jQuery('#idEnviar').val(),
                             'idReceber':jQuery('#idReceber').val(),
                             'txtMensagem':jQuery('#txtMensagem').val()};
-                var pageurl = '../DAO/enviar-mensagem.php';
+                var pageurl = '../DAO/enviar-mensagem-professor.php';
                 jQuery.ajax({
                     url: pageurl,
                     data: dados,
@@ -435,31 +417,6 @@
         }
         
 
-
-        /*
-        $(document).ready(function() {
-            var idSecretaria = $('#idEnviar').val();
-            var idResponsavel = $('#idReceber').val();
-
-            var query = idSecretaria + ' ' + idResponsavel;
-
-            (function attMensagens () {
-                $.ajax({
-                url: '../DAO/listar-mensagens-secretaria.php',
-                method: 'POST',
-                data: {
-                    query: query
-                },
-                success: function(retorno){
-                    $("#mensagens").html(retorno);
-                },
-                complete: function () {
-                    setTimeout(attMensagens, 1000);
-                }
-                });
-            })();
-        });
-        */
     </script>
 </body>
 

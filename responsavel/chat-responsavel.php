@@ -357,7 +357,7 @@
 
     <script>
 
-        /*
+        /* REFORMAS NECESSÁRIAS!!!!
         jQuery('.botao-contato').on('click', function(){  
              
              $('#idReceber').val(this.id);

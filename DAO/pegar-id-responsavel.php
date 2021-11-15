@@ -1,7 +1,6 @@
 <?php
 
     include("../classes/Usuario.php");
-    include("../secretaria/sentinela.php");
 
     $usuario = new Usuario();
     $listaUsuario = $usuario->listar();
