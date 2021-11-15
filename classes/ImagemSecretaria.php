@@ -69,10 +69,9 @@
             return 'Imagem do Secretaria excluida com sucesso!';
         }
 
-        public function listarImagem(){
+        public function listarImagem($idSecretaria){
             $conexao = Conexao::conectar();
-            $querySelect = "SELECT nomeImagemPerfilSecretaria,caminhoImagemPerfilSecretaria, idSecretaria FROM tbimagemperfilsecretaria 
-                              WHERE idSecretaria = (SELECT DISTINCT idSecretaria FROM tbsecretaria)";
+            $querySelect = "SELECT nomeImagemPerfilSecretaria,caminhoImagemPerfilSecretaria, idSecretaria FROM tbimagemperfilsecretaria WHERE idSecretaria = '$idSecretaria'";
             $resultado = $conexao->query($querySelect);
             $lista = $resultado->fetchAll();
             return $lista;

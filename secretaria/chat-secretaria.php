@@ -30,7 +30,7 @@
         $listaUsuario = $usuario->listar();
                 
         $imagemSecretaria = new ImagemSecretaria();
-        $listaImagem = $imagemSecretaria->listarImagem();
+        $listaImagem = $imagemSecretaria->listarImagem($_SESSION['idSecretaria']);
 
         foreach($listaImagem as $linha){
             if($linha['idSecretaria'] == $_SESSION['idSecretaria']){
@@ -326,8 +326,8 @@
                         <small>Essa imagem será exibida para todos no Pai Coruja</small>
                     </div>
                     <form name="formImagemPerfil" id="formImagemPerfil" action="../DAO/inserir-imagem-secretaria.php" method="POST" class="botoes-perfil-upload" enctype="multipart/form-data">
-                                    <label class="botao-cadastrar-perfil" for="arquivo">Carregar Imagem Perfil</label>
-                                    <input name="arquivo" id="arquivo" type="file" accept="image/*">
+                                    <label class="botao-cadastrar-perfil" for="imagemPerfil">Carregar Imagem Perfil</label>
+                                    <input name="imagemPerfil" id="imagemPerfil" type="file" accept="image/*">
                                     <label class="label-erro" id="label-arquivo"></label>
                                     <span id="nome-arquivo"></span>
                         <button class="botao-cadastrar-perfil" type="submit" value="Enviar">Enviar</button>

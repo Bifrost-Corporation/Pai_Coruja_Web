@@ -6,10 +6,10 @@
     include("../classes/ImagemResponsavel.php");
 
     try{
-        if($_FILES['arquivo']['name'] != ''){
+        if($_FILES['imagemPerfil']['name'] != ''){
             header("Location: ../secretaria/dashboard.php");
-            $nomeImagem = $_FILES['arquivo']['name'];
-            $arquivo = $_FILES['arquivo']['tmp_name'];
+            $nomeImagem = $_FILES['imagemPerfil']['name'];
+            $arquivo = $_FILES['imagemPerfil']['tmp_name'];
             $caminhoImagem = "../img/imgSecretaria/";
             move_uploaded_file($arquivo, $caminhoImagem . $nomeImagem);
             $caminhoImagem = "img/imgSecretaria/";
