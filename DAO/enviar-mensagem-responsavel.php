@@ -6,7 +6,7 @@
     include("../classes/Usuario.php");
 
     try{
-        header("Location: ../responsavel/chat-responsavel.php");
+        //header("Location: ../responsavel/chat-responsavel.php");
         $textoMensagem = $_POST['txtMensagem'];
         $idResponsavelOrigem = $_POST['idEnviar'];
         $idSecretariaDestino = $_POST['idReceber'];
@@ -21,11 +21,20 @@
         $origem = new OrigemMensagem();
         $origem->setIdUsuario($idEnvio);
         echo $origem->cadastrar($origem);
-        foreach($listaUsuario as $linha){
-            if($linha['idSecretaria'] == $idSecretariaDestino){
-                $idDestino = $linha['idUsuario'];
+        if($idSecretariaDestino == 1){
+            foreach($listaUsuario as $linha){
+                if($linha['idSecretaria'] == $idSecretariaDestino){
+                    $idDestino = $linha['idUsuario'];
+                }
+            }
+        }else{
+            foreach($listaUsuario as $linha){
+                if($linha['idProfessor'] == $idSecretariaDestino - 1){
+                    $idDestino = $linha['idUsuario'];
+                }
             }
         }
+        echo $idDestino;
         $destino = new DestinoMensagem();
         $destino->setIdUsuario($idDestino);
         echo $destino->cadastrar($destino);
