@@ -357,7 +357,7 @@
 
     <script>
 
-        /* REFORMAS NECESSÁRIAS!!!!
+        /* REFORMAS NECESSÁRIAS!!!! 
         jQuery('.botao-contato').on('click', function(){  
              
              $('#idReceber').val(this.id);
@@ -366,7 +366,7 @@
                      var idSecretaria = $('#idReceber').val();
                      var idResponsavel = $('#idEnviar').val();
 
-                     var idUsuarioSecretaria = <?php 
+                     var idUsuarioSecretaria = <?php
                                                     $usuario = new Usuario();
                                                     $listaUsuario = $usuario->listar();
                                                     foreach($listaUsuario as $linha) {
@@ -382,7 +382,13 @@
                                                             echo $linha['idUsuario'];
                                                         }
                                                     }
-                                                ?>;                               
+                                                ?>;
+                                                
+                     var idUsuarioProfessor = <?php
+                                                    foreach($listaUsuario as $linha){
+
+                                                    }
+                                                ?>
                      
                      var query = idUsuarioResponsavel + ' ' + idUsuarioSecretaria;
                      
@@ -402,7 +408,7 @@
                      });
                  })();
          });
-         */
+        */
 
         jQuery('form').on('submit', function(e){
             e.preventDefault();

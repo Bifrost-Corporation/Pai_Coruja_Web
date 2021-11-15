@@ -185,6 +185,7 @@
                         <form name="form-chat" method="POST" action="../DAO/enviar-mensagem-professor.php">
                             <input type="hidden" id="idEnviar" name="idEnviar" value="<?php echo $_SESSION['idProfessor'] ?>">
                             <input type="hidden" id="idReceber" name="idReceber" value="#">
+                            <input type="hidden" id="idUserResponsavel" name="idUserResponsavel" value="#">
                             <div class="box-submit-message">
                             <input type="text" class="caixa-mensagem" placeholder="Converse com @<?php echo $linha['nomeResponsavel'] ?>" id="txtMensagem" name="txtMensagem">
                             <button class="botao-enviar" id="botao-enviar" name="botao-enviar"><i class="fa fa-paper-plane" aria-hidden="true"></i>
@@ -344,8 +345,8 @@
                             $("#idUserResponsavel").val(retorno);
                             var idUsuarioResponsavel = $("#idUserResponsavel").val();
                      
-                            var query = idUsuarioProfessor + ' ' + idResponsavel;
-                        
+                            var query = idUsuarioProfessor + ' ' + idUsuarioResponsavel;
+
                             $.ajax({
                                 url: '../DAO/listar-mensagens.php',
                                 method: 'POST',
