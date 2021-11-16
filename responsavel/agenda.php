@@ -29,6 +29,12 @@
         $listaUsuario = $usuario->listar();
         $listaResponsavel = $responsavel->listarAlternativo();
 
+        $listaHorarioTurmaSegunda = $responsavel->selecionarHorarioTurma($_SESSION['idResponsavel'], 1);
+        $listaHorarioTurmaTerca = $responsavel->selecionarHorarioTurma($_SESSION['idResponsavel'], 2);
+        $listaHorarioTurmaQuarta = $responsavel->selecionarHorarioTurma($_SESSION['idResponsavel'], 3);
+        $listaHorarioTurmaQuinta = $responsavel->selecionarHorarioTurma($_SESSION['idResponsavel'], 4);
+        $listaHorarioTurmaSexta = $responsavel->selecionarHorarioTurma($_SESSION['idResponsavel'], 5);
+
         foreach($listaResponsavel as $linha){
             if($linha['idResponsavel'] == $_SESSION['idResponsavel']){
                 foreach($listaUsuario as $linha2){
@@ -153,47 +159,51 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Matematica</td>
-                                <td>Português</td>
-                                <td>Ciências</td>
-                                <td>Filosofia</td>
-                                <td>Biologia</td>
+                            <?php 
+                                foreach($listaHorarioTurmaSegunda as $linha){
+                            ?>
+                                <td><?php echo $linha['nomeDisciplina'] ?></td>
+                            <?php
+                                }
+                            ?>
                             </tr>
                             <tr>
-                                <td>Matematica</td>
-                                <td>Português</td>
-                                <td>Ciências</td>
-                                <td>Filosofia</td>
-                                <td>Biologia</td>
+                            <?php 
+                                foreach($listaHorarioTurmaTerca as $linha){
+                            ?>
+                                <td><?php echo $linha['nomeDisciplina'] ?></td>
+                            <?php
+                                }
+                            ?>
                             </tr>
                             <tr>
-                                <td>Matematica</td>
-                                <td>Português</td>
-                                <td>Ciências</td>
-                                <td>Filosofia</td>
-                                <td>Biologia</td>
+                            <?php 
+                                foreach($listaHorarioTurmaQuarta as $linha){
+                            ?>
+                                <td><?php echo $linha['nomeDisciplina'] ?></td>
+                            <?php
+                                }
+                            ?>
                             </tr>
                             <tr>
-                                <td>Matematica</td>
-                                <td>Português</td>
-                                <td>Ciências</td>
-                                <td>Filosofia</td>
-                                <td>Biologia</td>
+                            <?php 
+                                foreach($listaHorarioTurmaQuinta as $linha){
+                            ?>
+                                <td><?php echo $linha['nomeDisciplina'] ?></td>
+                            <?php
+                                }
+                            ?>
                             </tr>
                             <tr>
-                                <td>Matematica</td>
-                                <td>Português</td>
-                                <td>Ciências</td>
-                                <td>Filosofia</td>
-                                <td>Biologia</td>
+                            <?php 
+                                foreach($listaHorarioTurmaSexta as $linha){
+                            ?>
+                                <td><?php echo $linha['nomeDisciplina'] ?></td>
+                            <?php
+                                }
+                            ?>
                             </tr>
-                            <tr>
-                                <td>Matematica</td>
-                                <td>Português</td>
-                                <td>Ciências</td>
-                                <td>Filosofia</td>
-                                <td>Biologia</td>
-                            </tr>
+                            
                         </tbody>
                     </table>
                 </div>
