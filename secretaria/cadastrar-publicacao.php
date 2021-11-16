@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css"  href="../assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
 
-    <title>cadastrar - Publicação</title>
+    <title>Secretária - Nova Publicação</title>
 
 
 </head>
@@ -129,7 +129,7 @@
 
 
         <section class="container-dados-dash">
-            <form class="formulario" action="../DAO/inserir-publicacao.php" method="POST">
+            <form class="formulario" action="../DAO/inserir-publicacao-secretaria.php" method="POST">
                 <div class="user-details">
                     <div class="input-box-width100">
                         <h2>Título da Publicação:</h2>

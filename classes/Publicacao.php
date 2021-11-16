@@ -8,6 +8,7 @@
         private $tituloPublicacao;
         private $descPublicacao;
         private $idProfessor;
+        private $idSecretaria;
 
         public function getIdPublicacao(){
             return $this->idPublicacao;
@@ -41,24 +42,34 @@
             $this->idProfessor = $idProfessor;
         }
 
+        public function getIdSecretaria(){
+            return $this->idSecretaria;
+        }
+
+        public function setIdSecretaria($idSecretaria){
+            $this->idSecretaria = $idSecretaria;
+        }
+
         public function cadastrar($publicaco){
             $conexao = Conexao::conectar();
-            $stmt = $conexao->prepare("INSERT INTO tbpublicacao (tituloPublicacao, descPublicacao, idProfessor)
-                                            VALUES (?, ?, ?)");
+            $stmt = $conexao->prepare("INSERT INTO tbpublicacao (tituloPublicacao, descPublicacao, idProfessor, idSecretaria)
+                                            VALUES (?, ?, ?, ?)");
             $stmt->bindParam(1, $publicaco->getTituloPublicacao());
             $stmt->bindParam(2, $publicaco->getDescPublicacao());
             $stmt->bindParam(3, $publicaco->getIdProfessor());
+            $stmt->bindParam(4, $publicaco->getIdSecretaria());
             $stmt->execute();
             return 'Cadastro da publicação realizado com sucesso!';
         }
 
         public function atualizar($publicaco){
             $conexao = Conexao::conectar();
-            $stmt = $conexao->prepare('UPDATE tbpublicacao SET tituloPublicacao = ?, descPublicacao = ?, idProfessor = ? WHERE idPublicacao = ?');
+            $stmt = $conexao->prepare('UPDATE tbpublicacao SET tituloPublicacao = ?, descPublicacao = ?, idProfessor = ?, idSecretaria = ? WHERE idPublicacao = ?');
             $stmt->bindParam(1, $publicaco->getTituloPublicacao());
             $stmt->bindParam(2, $publicaco->getDescPublicacao());
             $stmt->bindParam(3, $publicaco->getIdProfessor());
-            $stmt->bindParam(4, $publicaco->getIdPublicacao());
+            $stmt->bindParam(4, $publicaco->getIdSecretaria());
+            $stmt->bindParam(5, $publicaco->getIdPublicacao());
             $stmt->execute();
             return 'Publicação atualizada com sucesso!';
         }

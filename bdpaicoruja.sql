@@ -217,7 +217,8 @@ CREATE TABLE `tbpublicacao` (
   `idPublicacao` int(11) NOT NULL,
   `tituloPublicacao` varchar(80) NOT NULL,
   `descPublicacao` varchar(500) NOT NULL,
-  `idProfessor` int(11) DEFAULT NULL
+  `idProfessor` int(11) DEFAULT NULL,
+  `idSecretaria` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -433,7 +434,8 @@ ALTER TABLE `tbprofessor`
 --
 ALTER TABLE `tbpublicacao`
   ADD PRIMARY KEY (`idPublicacao`),
-  ADD KEY `fk_publicacao_professor` (`idProfessor`);
+  ADD KEY `fk_publicacao_professor` (`idProfessor`),
+  ADD KEY `fk_publicacao_secretaria` (`idSecretaria`);
 
 --
 -- Índices de tabela `tbresponsavel`
@@ -716,7 +718,8 @@ ALTER TABLE `tbprofessor`
 -- Restrições para tabelas `tbpublicacao`
 --
 ALTER TABLE `tbpublicacao`
-  ADD CONSTRAINT `fk_publicacao_professor` FOREIGN KEY (`idProfessor`) REFERENCES `tbprofessor` (`idProfessor`);
+  ADD CONSTRAINT `fk_publicacao_professor` FOREIGN KEY (`idProfessor`) REFERENCES `tbprofessor` (`idProfessor`),
+  ADD CONSTRAINT `fk_publicacao_secretaria` FOREIGN KEY (`idSecretaria`) REFERENCES `tbsecretaria` (`idSecretaria`);
 
 --
 -- Restrições para tabelas `tbresponsavel`
