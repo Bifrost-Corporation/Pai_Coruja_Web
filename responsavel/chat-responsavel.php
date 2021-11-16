@@ -357,6 +357,39 @@
     <script src="../assets/js/carousel.js"></script>
 
     <script>
+        modalNovaConversa = document.querySelector('.modal-nova-conversa')
+        $('.btn-show-modal').click(function(event){
+            console.log('UAU')
+            
+            modalNovaConversa.style.display='block'       
+        })
+        $('.btn-close-modal-nova').click(function(){
+            modalNovaConversa.style.display = 'none'
+        })
+
+        $('.btn-mensagem-agrupada').click(function(){
+           formGroup = document.querySelector('.form-submit-message-agrupada')
+           
+               console.log('UAU')
+               formGroup.style.display = 'flex'
+          
+            
+        })
+
+        $('.list-turma #option-all').click(function(event){
+
+            if(this.checked){
+                $('.ul-checkbox-options li :checkbox').each(function(){
+                    this.checked=true
+                })
+            }
+            else{
+                $('.ul-checkbox-options li :checkbox').each(function(){
+                    this.checked=false
+                })
+            }
+        })
+
 
         /* REFORMAS NECESSÁRIAS!!!! */
         jQuery('.botao-contato').on('click', function(){  
