@@ -457,7 +457,7 @@
                     data: dados,
                     type: 'POST',
                     success:function(html){
-                        jQuery('html body').animate({scrollbottom:0},100);
+                        jQuery('html body').animate({scrollTop:9999 },100);
                         jQuery('html #txtMensagem').val('');
                     }
                 });

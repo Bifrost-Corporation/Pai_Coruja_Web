@@ -24,11 +24,12 @@
                 
         $imagemSecretaria = new ImagemSecretaria();
         $listaImagem = $imagemSecretaria->listarImagem($_SESSION['idSecretaria']);
-
+        $imagemPerfilsrc = "img/user.png";
         foreach($listaImagem as $linha){
             if($linha['idSecretaria'] == $_SESSION['idSecretaria']){
                 foreach($listaUsuario as $linha2){
                     $imagemPerfilsrc = $linha['caminhoImagemPerfilSecretaria'].$linha['nomeImagemPerfilSecretaria'];
+                        
                 }
             }
         }
@@ -56,13 +57,13 @@
                         </div>
                     </div>
                     <ul class="opcoes-drop-profile">
-                        <li class="online-li">
+                        <!-- <li class="online-li">
                             <label for="">Online</label>
                             <label class="switch">
                                 <input type="checkbox" checked>
                                 <span class="slider round"></span>
                             </label>
-                        </li>
+                        </li> -->
                         <li class="drop-profile-li" id="alterar-imagem-perfil">
                             <a>
                                 <i class="material-icons-round">manage_accounts</i>

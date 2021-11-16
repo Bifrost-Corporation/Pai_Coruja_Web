@@ -328,10 +328,10 @@
                     <form name="formImagemPerfil" id="formImagemPerfil" action="../DAO/inserir-imagem-secretaria.php" method="POST" class="botoes-perfil-upload" enctype="multipart/form-data">
                                     <label class="botao-cadastrar-perfil" for="imagemPerfil">Carregar Imagem Perfil</label>
                                     <input name="imagemPerfil" id="imagemPerfil" type="file" accept="image/*">
-                                    <label class="label-erro" id="label-arquivo"></label>
-                                    <span id="nome-arquivo"></span>
-                        <button class="botao-cadastrar-perfil" type="submit" value="Enviar">Enviar</button>
-                    </form> 
+                                    <label class="label-erro" id="label-arquivo-perfil"></label>
+                                    <span id="nome-arquivo-pefil"></span>
+                                </form> 
+                                <button class="botao-cadastrar-perfil"  form="formImagemPerfil" type="submit" value="Enviar">Enviar</button>
                 </div>
                 
             </div>
