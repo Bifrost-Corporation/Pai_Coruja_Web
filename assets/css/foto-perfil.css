@@ -11,7 +11,7 @@
 }
 
 .perfil-modal-body{
-    padding: 1rem;
+    padding: 2rem;
     color: var(--cinzafonte);
 }
 
@@ -63,14 +63,14 @@
   .botoes-perfil-upload{
       display: flex;
       align-items: center;
-      padding: 2rem;
+      padding: 0rem;
       gap: 1rem;
       justify-content: center;
   }
 
   .botao-cadastrar-perfil{
       background-color: var(--azulumpoucosaturado);
-      padding: 0.5rem 2rem;
+      margin-top:2rem;
     width: 100%;
       border: 0;
     font-size: 14px;

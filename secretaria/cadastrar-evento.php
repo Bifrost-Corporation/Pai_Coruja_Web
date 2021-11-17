@@ -16,6 +16,21 @@
 <body>
     <?php
         include ('sentinela.php');
+        include ('globalSecretaria.php');
+        include ('../classes/ImagemSecretaria.php');
+
+        $imagemSecretaria = new ImagemSecretaria();
+        $listaImagem = $imagemSecretaria->listarImagem($_SESSION['idSecretaria']);
+        
+        $imagemPerfilsrc = "img/user.png";
+        foreach($listaImagem as $linha){
+            if($linha['idSecretaria'] == $_SESSION['idSecretaria']){
+                foreach($listaUsuario as $linha2){
+                    $imagemPerfilsrc = $linha['caminhoImagemPerfilSecretaria'].$linha['nomeImagemPerfilSecretaria'];
+                        
+                }
+            }
+        }
     ?>
         <header>
             <nav class="nav-bar">
@@ -27,13 +42,13 @@
                 </div>
                 <button class="profile">
                     <div class="profile-details" id="openProfile">
-                        <img src="../img/macacopc.gif" alt="">
+                        <img src="../<?php echo $imagemPerfilsrc ?>" alt="">
                     </div>
                 </button>
 
                 <div class="dropdown-menu-profile">
                     <div class="profile-details">
-                        <img src="../img/macacopc.gif" alt="">
+                        <img src="../<?php echo $imagemPerfilsrc ?>" alt="">
                         <div class="name-job">
                             <div class="name-menu"><?php echo $_SESSION['nomeSecretaria'] ?></div>
                             <small class="job-menu">Olá Secretário(a)</small>
@@ -185,7 +200,7 @@
             <div class="card-perfil">
                 <span class="closeModalProfile"><i class="fas fa-times"></i></span>
                 <div class="perfil-modal-body">
-                    <img src="../img/usuario-de-perfil.png" alt="Sua Foto de Perfil" style="align-self: center;box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.063);">
+                    <img src="../<?php echo($imagemPerfilsrc) ?>" alt="Sua Foto de Perfil" style="align-self: center;box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.063);">
                     <div class="title-perfil-modal">
                         <h1><?php echo $_SESSION['nomeSecretaria'] ?></h1>
                         <small>Secretário(a) Escolar</small>
@@ -194,10 +209,10 @@
                     <form name="formImagemPerfil" id="formImagemPerfil" action="../DAO/inserir-imagem-secretaria.php" method="POST" class="botoes-perfil-upload" enctype="multipart/form-data">
                                     <label class="botao-cadastrar-perfil" for="imagemPerfil">Carregar Imagem Perfil</label>
                                     <input name="imagemPerfil" id="imagemPerfil" type="file" accept="image/*">
-                                    <label class="label-erro" id="label-arquivo"></label>
-                                    <span id="nome-arquivo"></span>
-                        <button class="botao-cadastrar-perfil" type="submit" value="Enviar">Enviar</button>
-                    </form> 
+                                    <label class="label-erro" id="label-arquivo-perfil"></label>
+                                    <span id="nome-arquivo-pefil"></span>
+                                </form> 
+                                <button class="botao-cadastrar-perfil"  form="formImagemPerfil" type="submit" value="Enviar">Enviar</button>
                 </div>
                 
             </div>

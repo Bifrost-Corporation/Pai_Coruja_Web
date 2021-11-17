@@ -32,6 +32,7 @@
         $imagemSecretaria = new ImagemSecretaria();
         $listaImagem = $imagemSecretaria->listarImagem($_SESSION['idSecretaria']);
 
+        $imagemPerfilsrc = "img/user.png";
         foreach($listaImagem as $linha){
             if($linha['idSecretaria'] == $_SESSION['idSecretaria']){
                 foreach($listaUsuario as $linha2){
@@ -312,7 +313,7 @@
        
 
 
-        <div id="modalProfile" class="modal modal-profile">
+    <div id="modalProfile" class="modal modal-profile">
             
             <!-- Modal content -->
         <div class="modal-content-profile">

@@ -61,6 +61,8 @@
                 }
             }
         }
+
+        $imagemPerfilsrc = "img/user.png";
         foreach($listaImagem as $linha){
             if($linha['idSecretaria'] == $_SESSION['idSecretaria']){
                 foreach($listaUsuario as $linha2){

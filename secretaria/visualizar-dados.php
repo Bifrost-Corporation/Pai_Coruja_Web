@@ -33,6 +33,7 @@
                 $imagemSecretaria = new ImagemSecretaria();
                 $listaImagem = $imagemSecretaria->listarImagem($_SESSION['idSecretaria']);
 
+                $imagemPerfilsrc = "img/user.png";
                 foreach($listaImagem as $linha){
                     if($linha['idSecretaria'] == $_SESSION['idSecretaria']){
                         foreach($listaUsuario as $linha2){
@@ -64,19 +65,19 @@
                         </div>
                     </div>
                     <ul class="opcoes-drop-profile">
-                        <li class="online-li">
+                        <!-- <li class="online-li">
                             <label for="">Online</label>
                             <label class="switch">
                                 <input type="checkbox" checked>
                                 <span class="slider round"></span>
                             </label>
-                        </li>
-                        <li class="drop-profile-li" id="alterar-imagem-perfil">
+                        </li> -->
+                        <!-- <li class="drop-profile-li" id="alterar-imagem-perfil">
                             <a>
                                 <i class="material-icons-round">manage_accounts</i>
                                 <small>Trocar Imagem de Perfil</small>
                             </a>
-                        </li>
+                        </li> -->
                         <li class="drop-profile-li">
                             <a href="logout.php">
                                 <i id="logout-user" class="material-icons-round">logout</i>
