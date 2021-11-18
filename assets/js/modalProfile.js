@@ -1,29 +1,45 @@
+// //MODAL DO ALTERAR IMAGEM
 
-//MODAL DO ALTERAR IMAGEM
+// const modalProfileButton = document.getElementById("alterar-imagem-perfil")
+// const modalProfileContent = document.getElementById("modalProfile")
+// const modalProfileContent2 = document.getElementsByClassName("modal-content-profile");
 
-const modalProfileButton = document.getElementById("alterar-imagem-perfil")
-const modalProfileContent = document.getElementById("modalProfile")
+// modalProfileButton.onclick = function() {
+//   modalProfileContent.classList.toggle("modal-active");
+// }
+
+
+
+// modalProfileContent.onclick = function(event) {
+//   if (event.target == modalProfileContent) {
+//     modalProfileContent.classList.toggle("modal-active");
+//   }
+// }
+// modalProfileContent2.addEventListener = function(event) {
+//   console.log("apapapapap");
+//   if (event.target == modalProfileContent2) {
+//     modalProfileContent2.classList.toggle("modal-active");
+//   }
+// }
+
+//Modal Profile
+
+const url = window.location.href
+const ModalProfile = document.querySelector("#modalProfile")
 const modalProfileClose = document.getElementsByClassName("closeModalProfile")[0];
-const modalProfileContent2 = document.getElementsByClassName("modal-content-profile");
 
-modalProfileButton.onclick = function() {
-  modalProfileContent.classList.toggle("modal-active");
+if (url.includes("php#ProfileEdit")) {
+  ModalProfile.classList.toggle("modal-active");
 }
 
-modalProfileClose.onclick = function() {
-  modalProfileContent.classList.toggle("modal-active");
-}
-
-modalProfileContent.onclick = function(event) {
-  if (event.target == modalProfileContent) {
-    modalProfileContent.classList.toggle("modal-active");
-  }
-}
-modalProfileContent2.addEventListener = function(event) {
-  console.log("apapapapap");
-  if (event.target == modalProfileContent2) {
-    modalProfileContent2.classList.toggle("modal-active");
+ModalProfile.onclick = function (event) {
+  if (event.target == ModalProfile) {
+    ModalProfile.classList.toggle("modal-active");
+    window.history.pushState("object or string", "Title", "#");
   }
 }
 
-
+modalProfileClose.onclick = function () {
+  ModalProfile.classList.toggle("modal-active");
+  window.history.pushState("object or string", "Title", "#");
+}

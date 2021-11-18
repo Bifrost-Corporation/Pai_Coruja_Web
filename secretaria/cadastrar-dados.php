@@ -66,9 +66,9 @@
                             </label>
                         </li> -->
                         <li class="drop-profile-li" id="alterar-imagem-perfil">
-                            <a>
+                            <a href="dashboard.php#ProfileEdit">
                                 <i class="material-icons-round">manage_accounts</i>
-                                <small>Trocar Imagem de Perfil</small>
+                                <small>Trocar Imagem de Perfil <i class="material-icons-round">open_in_new</i></small>
                             </a>
                         </li>
                         <li class="drop-profile-li">

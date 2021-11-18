@@ -420,6 +420,17 @@
     gap: 1rem;
 }
 
+.dropdown-menu-profile .opcoes-drop-profile #alterar-imagem-perfil small{
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.dropdown-menu-profile .opcoes-drop-profile #alterar-imagem-perfil small i{
+    font-size: 14px;
+    font-weight: 200;
+}
+
 .drop-profile-li a{
     padding: 0.5rem 1rem;
     color: var(--cinzamaisclaro);
