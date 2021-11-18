@@ -58,17 +58,17 @@
                         </div>
                     </div>
                     <ul class="opcoes-drop-profile">
-                        <li class="online-li">
+                        <!-- <li class="online-li">
                             <label for="">Online</label>
                             <label class="switch">
                                 <input type="checkbox" checked>
                                 <span class="slider round"></span>
                             </label>
-                        </li>
+                        </li> -->
                         <li class="drop-profile-li" id="alterar-imagem-perfil">
-                            <a>
+                            <a href="dashboard.php#ProfileEdit">
                                 <i class="material-icons-round">manage_accounts</i>
-                                <small>Trocar Imagem de Perfil</small>
+                                <small>Trocar Imagem de Perfil <i class="material-icons-round">open_in_new</i></small>
                             </a>
                         </li>
                         <li class="drop-profile-li">
@@ -196,33 +196,7 @@
     </main>
 
 
-    <div id="modalProfile" class="modal modal-profile">
-            
-            <!-- Modal content -->
-        <div class="modal-content-profile">
-            <div class="card-perfil">
-                <span class="closeModalProfile"><i class="fas fa-times"></i></span>
-                <div class="perfil-modal-body">
-                    <img src="../<?php echo($imagemPerfilsrc) ?>" alt="Sua Foto de Perfil" style="align-self: center;box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.063);">
-                    <div class="title-perfil-modal">
-                        <h1><?php echo $_SESSION['nomeSecretaria'] ?></h1>
-                        <small>Secretário(a) Escolar</small>
-                        <small>Essa imagem será exibida para todos no Pai Coruja</small>
-                    </div>
-                    <form name="formImagemPerfil" id="formImagemPerfil" action="../DAO/inserir-imagem-secretaria.php" method="POST" class="botoes-perfil-upload" enctype="multipart/form-data">
-                                    <label class="botao-cadastrar-perfil" for="imagemPerfil">Carregar Imagem Perfil</label>
-                                    <input name="imagemPerfil" id="imagemPerfil" type="file" accept="image/*">
-                                    <label class="label-erro" id="label-arquivo-perfil"></label>
-                                    <span id="nome-arquivo-pefil"></span>
-                                </form> 
-                                <button class="botao-cadastrar-perfil"  form="formImagemPerfil" type="submit" value="Enviar">Enviar</button>
-                </div>
-                
-            </div>
-        </div>
-
-    </div>
-
+  
     <script src="../assets/js/modalProfile.js"></script>
     <script src="../assets/js/nav.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>

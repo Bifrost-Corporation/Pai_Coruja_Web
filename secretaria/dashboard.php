@@ -155,17 +155,18 @@
                         </div>
                     </div>
                     <ul class="opcoes-drop-profile">
-                        <li class="online-li">
+                        <!-- <li class="online-li">
                             <label for="">Online</label>
                             <label class="switch">
                                 <input type="checkbox" checked>
                                 <span class="slider round"></span>
                             </label>
-                        </li>
+                        </li> -->
                         <li class="drop-profile-li" id="alterar-imagem-perfil">
-                            <a>
+                            <a href="#" onclick='window.history.pushState("object or string", "Title", "dashboard.php#ProfileEdit");;location.reload();'>
                                 <i class="material-icons-round">manage_accounts</i>
-                                <small>Trocar Imagem de Perfil</small>
+                                <small>Trocar Imagem de Perfil <i class="material-icons-round">open_in_new</i></small>
+                                <script></script>
                             </a>
                         </li>
                         <li class="drop-profile-li">
@@ -429,7 +430,6 @@
     </div>
 
     <script src="../assets/js/modalProfile.js"></script>
-
     <script src="../assets/js/nav.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.js"></script>
