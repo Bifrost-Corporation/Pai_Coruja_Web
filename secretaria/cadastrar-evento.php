@@ -21,6 +21,9 @@
 
         $imagemSecretaria = new ImagemSecretaria();
         $listaImagem = $imagemSecretaria->listarImagem($_SESSION['idSecretaria']);
+
+        $usuario = new Usuario();
+        $listaUsuario = $usuario->listar();
         
         $imagemPerfilsrc = "img/user.png";
         foreach($listaImagem as $linha){
