@@ -475,12 +475,12 @@
                             <?php echo $qtdePontos0.", ".$qtdePontos1.", ".$qtdePontos2.", ".$qtdePontos3.", ".$qtdePontos4.", ".$qtdePontos5.", " ?>
                         ],
                         backgroundColor: [
-                            'rgb(67, 225, 228)',
-                            'rgb(86, 229, 76)',
-                            'rgb(207, 227, 53)',
-                            'rgb(224, 131, 24)',
-                            'rgb(226, 38, 38)',
-                            'rgb(0, 0, 0)',
+                            '#b7d5e5',
+                            '#bdecb6',
+                            '#fdfd96',
+                            '#f7a156',
+                            '#ff6961',
+                            '#7d5b8c',
                         ],
                         hoverOffset: 4
                     }],
@@ -517,12 +517,12 @@
                             <?php echo $qtdePontos0.", ".$qtdePontos1.", ".$qtdePontos2.", ".$qtdePontos3.", ".$qtdePontos4.", ".$qtdePontos5.", " ?>
                         ],
                         backgroundColor: [
-                            'rgb(67, 225, 228)',
-                            'rgb(86, 229, 76)',
-                            'rgb(207, 227, 53)',
-                            'rgb(224, 131, 24)',
-                            'rgb(226, 38, 38)',
-                            'rgb(0, 0, 0)',
+                            '#b7d5e5',
+                            '#bdecb6',
+                            '#fdfd96',
+                            '#f7a156',
+                            '#ff6961',
+                            '#7d5b8c',
                         ],
                         hoverOffset: 4
                     }],
