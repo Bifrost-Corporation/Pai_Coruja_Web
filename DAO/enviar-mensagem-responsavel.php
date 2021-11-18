@@ -29,7 +29,7 @@
             }
         }else{
             foreach($listaUsuario as $linha){
-                if($linha['idProfessor'] == $idSecretariaDestino - 1){
+                if($linha['idUsuario'] == $idSecretariaDestino){
                     $idDestino = $linha['idUsuario'];
                 }
             }

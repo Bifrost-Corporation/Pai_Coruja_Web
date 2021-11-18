@@ -6,7 +6,7 @@
     $listaUsuario = $usuario->listar();
 
     foreach($listaUsuario as $linha) {
-        if($linha['idProfessor'] == $_POST['idProfessor']){
+        if($linha['idUsuario'] == $_POST['idProfessor']){
             echo $linha['idUsuario'];
         }
     }

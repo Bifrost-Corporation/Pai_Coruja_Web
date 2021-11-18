@@ -442,7 +442,8 @@
                         var idProfessor = $('#idReceber').val();
 
                         //Pegando o idUsuario quando o destino da mensagem for um professor (continua me parecendo errado...)
-                        idProfessor = idProfessor - 1;
+                        //alert(idProfessor);
+                        
                         $.ajax({
                             url: '../DAO/pegar-id-professor.php',
                             method: 'POST',
