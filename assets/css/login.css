@@ -60,7 +60,7 @@
 .input-box{
     display: flex;
     border-radius: 10px;
-    padding: 18px 20px;
+    /* padding: 18px 20px; */
     align-items: center;
     justify-content: space-between;
     background-color: var(--cinzaBackground);
@@ -75,7 +75,8 @@
     width: 100%;
     border: none;
     outline: none;
-    
+    padding: 18px 30px;
+
     background-color: transparent;
     
 }
@@ -83,8 +84,14 @@
     width: 100%;
     border: none;
     outline: none;
-    
+    padding: 18px 30px;
+
     background-color: transparent;
+}
+
+.input-box i{
+    position: absolute;
+    margin-left: 8px;
 }
 
 

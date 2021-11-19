@@ -149,8 +149,8 @@
                         </div>
                         <div class="detalhes-professor">
                             <p><strong>Nome: </strong><?php echo $_SESSION['nomeProfessor'] ?></p>
-                            <p><strong>Email: </strong><?php echo $_SESSION['emailSecretaria'] ?></p>
-                            
+                            <p><strong>Email: </strong><?php echo $_SESSION['emailProfessor'] ?></p>
+                            <p><strong>Escola: </strong>Escolinha do clodo</p>
                         </div>
                         <!-- <small>Para alterar algum dado entre em contatocom a secretaria</small> -->
                     </div>
