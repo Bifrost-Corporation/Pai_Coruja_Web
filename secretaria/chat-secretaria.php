@@ -491,17 +491,31 @@
                 var objMensagem = {};
                 <?php 
                     foreach($listaTurma as $linha){
+
                         foreach($listaResponsavel as $linha2){
                             if($linha2['idTurma'] == $linha['idTurma']){
                 ?>
-                                if($('check-options-<?php echo $linha2['idResponsavel'] ?>').is(":checked")){
-                                    alert("<?php echo $linha2['nomeResponsavel'] ?>");
+                                if($('#check-options-<?php echo $linha2['idResponsavel'] ?>').is(":checked")){
+                                    $("#idReceber").val(<?php echo $linha2['idResponsavel'] ?>)
+                                    var dados = {'idEnviar':jQuery('#idEnviar').val(),
+                                                'idReceber':jQuery('#idReceber').val(),
+                                                'txtMensagem':jQuery('#txtMensagemAgrupada').val()};
+                                    var pageurl = '../DAO/enviar-mensagem.php';
+                                    jQuery.ajax({
+                                        url: pageurl,
+                                        data: dados,
+                                        type: 'POST',
+                                        success:function(html){
+                                            $('#txtMensagemAgrupada').val('');
+                                            var modalNovaConversa = document.querySelector('.modal-nova-conversa');
+                                            modalNovaConversa.style.display = 'none';
+                                        }
+                                    });
                                 }
                 <?php
                             }
-                        
                 ?>
-                        objMensagem["turma"] = 1;
+                        alert($("#idReceber").val());
                 <?php
                         }
                     }    
