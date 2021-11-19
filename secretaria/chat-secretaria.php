@@ -242,69 +242,45 @@
                     <small>Você pode selecionar responsáveis ou professores</small>
                 </div>
                 <div class="container-checklist">
-                    <ul class="list-turma">
-                        <input type="checkbox" class="check-options-all"name="" id="option-all">
-                        <label for="option-all">1° A</label>
-                        <ul class="ul-checkbox-options">
-                            <li>
-                            <div class="profile-details list">
-                                <img src="../img/macacopc.gif" alt="">
-                                <label for="check-options">Robertin</label>
-                            </div>
-                            <input class="check-options" type="checkbox" name="" id="check-options">
-                            </li>
-                            <li>
-                            <div class="profile-details list">
-                                <img src="../img/macos.png" alt="">
-                                <label for="check-options">Claudin</label>
-                            </div>
-                            <input class="check-options" type="checkbox" name="" id="check-options">
-                            </li>
-                            <li>
-                            <div class="profile-details list">
-                                <img src="../img/pai.png" alt="">
-                                <label for="check-options">JUbiscleiton</label>
-                            </div>
-                            <input class="check-options" type="checkbox" name="" id="check-options">
-                            </li>
-                            
+                    <?php
+                        $turma = new Turma();
+                        $listaTurma = $turma->listar($_SESSION['idEscola']);
+                        foreach($listaTurma as $linha){
+                    ?>
+                        <ul class="list-turma">
+                            <input type="checkbox" class="check-options-all" name="option-all" id="option-all-<?php echo $linha['idTurma']; ?>">
+                            <label for="option-all"><?php echo $linha['nomeTurma'] ?></label>
+                            <ul class="ul-checkbox-options" id="ul-checkbox-options-<?php echo $linha['idTurma'] ?>">
+                                <?php
+                                    $responsavel = new Responsavel();
+                                    $listaResponsavel = $responsavel->listar($_SESSION['idEscola']);
+                                    foreach($listaResponsavel as $linha2){
+                                        if($linha2['idTurma'] == $linha['idTurma']){
+                                ?>
+                                <li>
+                                    <div class="profile-details list">
+                                        <img src="../img/macacopc.gif" alt="">
+                                        <label for="check-options"><?php echo $linha2['nomeResponsavel'] ?></label>
+                                    </div>
+                                    <input class="check-options" type="checkbox" name="check-options-<?php echo $linha2['idResponsavel'] ?>" id="check-options-<?php echo $linha2['idResponsavel'] ?>">
+                                </li>
+                                <?php
+                                        }
+                                    }
+                                ?>
+                                
+                            </ul>
                         </ul>
-                    </ul>
-                    <ul class="list-turma">
-                        <input type="checkbox" class="check-options-all"name="" id="option-all">
-                        <label for="option-all">1° B</label>
-                        <ul class="ul-checkbox-options">
-                            <li>
-                            <div class="profile-details list">
-                                <img src="../img/macacopc.gif" alt="">
-                                <label for="check-options">Osvaldo</label>
-                            </div>
-                            <input class="check-options" type="checkbox" name="" id="check-options">
-                            </li>
-                            <li>
-                            <div class="profile-details list">
-                                <img src="../img/macos.png" alt="">
-                                <label for="check-options">Orivalda</label>
-                            </div>
-                            <input class="check-options" type="checkbox" name="" id="check-options">
-                            </li>
-                            <li>
-                            <div class="profile-details list">
-                                <img src="../img/pai.png" alt="">
-                                <label for="check-options">Claudin</label>
-                            </div>
-                            <input class="check-options" type="checkbox" name="" id="check-options">
-                            </li>
-                            
-                        </ul>
-                    </ul>
+                    <?php
+                        }
+                    ?>
+                    
                 </div>
                 <div class="footer-modal-nova-conversa">
-                    <button class="btn-mensagem-agrupada"href="" actived>Comunicado</button>
-                    <form class="form-submit-message-agrupada">
-                        <input type="text" placeholder="Mande sua mensagem" id="txtMensagem" name="txtMensagem">
-                        <button id="botao-enviar" name="botao-enviar"><i class="fa fa-paper-plane" aria-hidden="true"></i>
-                        </button>
+                    <button class="btn-mensagem-agrupada" href="" actived>Comunicado</button>
+                    <form class="form-submit-message-agrupada" id="formMensagemAgrupada" name="formMensagemAgrupada">
+                        <input type="text" placeholder="Mande sua mensagem" id="txtMensagemAgrupada" name="txtMensagemAgrupada">
+                        <button id="botao-enviar-agrupado" name="botao-enviar-agrupado"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
                     </form>
                 </div>
             </section>            
@@ -338,19 +314,27 @@
             
         })
 
-        $('.list-turma #option-all').click(function(event){
+        <?php
+            foreach($listaTurma as $linha){
+        ?>
+            $('.list-turma #option-all-<?php echo $linha['idTurma']; ?>').click(function(event){
 
             if(this.checked){
-                $('.ul-checkbox-options li :checkbox').each(function(){
+                $('#ul-checkbox-options-<?php echo $linha['idTurma'] ?> li :checkbox').each(function(){
                     this.checked=true
                 })
             }
             else{
-                $('.ul-checkbox-options li :checkbox').each(function(){
+                $('#ul-checkbox-options-<?php echo $linha['idTurma'] ?> li :checkbox').each(function(){
                     this.checked=false
                 })
             }
-        })
+            })
+        <?php
+            }
+        ?>
+
+        
 
 
 
@@ -498,6 +482,35 @@
         <?php
         }
         ?>
+
+        //Mandar Mensagens para vários contatos
+        $('#botao-enviar-agrupado').on('click', function (){
+            var mensagem = $('#txtMensagemAgrupada').val();
+            var mensagemSemEspaco = mensagem.trim();
+            if(mensagem.length > 0 && mensagemSemEspaco.length > 0){
+                var objMensagem = {};
+                <?php 
+                    foreach($listaTurma as $linha){
+                        foreach($listaResponsavel as $linha2){
+                            if($linha2['idTurma'] == $linha['idTurma']){
+                ?>
+                                if($('check-options-<?php echo $linha2['idResponsavel'] ?>').is(":checked")){
+                                    alert("<?php echo $linha2['nomeResponsavel'] ?>");
+                                }
+                <?php
+                            }
+                        
+                ?>
+                        objMensagem["turma"] = 1;
+                <?php
+                        }
+                    }    
+                ?>
+            }else{
+                alert("AAAA");
+            }
+        });
+
     </script>
 </body>
 
