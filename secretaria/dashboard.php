@@ -248,6 +248,10 @@
             </div>
 
             <div class="container-dados-dash">
+                
+
+
+
                 <div class="acesso-rapido-dash">
                     <h4>Acesso Rápido</h4>
                     <div class="acesso-dash-btns">
@@ -256,6 +260,24 @@
                         <a href="alterar-dados.php"><button>Visualizar Dados</button></a>
                     </div>
                 </div>
+
+                <div class="msg-chat-dash">
+                    <!-- <h4>Bem vindo de Volta!</h4> -->
+                    <div class="mini-perfil-professor">
+                            <img src="../<?php echo($imagemPerfilsrc) ?>" alt="">
+                            <div>
+                                <h2><?php echo $_SESSION['nomeSecretaria'] ?></h2>
+                                <small>Bem Vindo de Volta!</small>
+                            </div>
+                    </div>
+                    <div class="detalhes-professor">
+                            <!-- <p><strong>Nome: </strong>Marocs</p> -->
+                            <p><strong>Email: </strong><?php echo $_SESSION['emailSecretaria'] ?></p>
+                            
+                        </div>
+                </div>
+
+
                 <div class="dados-escolares-dash">
                     <div class="dados-escolares-container">
                         <div class="dados-escolares-linha">
@@ -309,10 +331,7 @@
                         
                     </div>
                 </div>
-                <div class="msg-chat-dash">
-                    <h4>Bem vindo de Volta <?php echo $_SESSION['nomeSecretaria'] ?>!</h4>
-                    <!--<img src="../img/macacopc.gif">-->
-                </div>
+                
             </div>
             
             <div class="grafico-container-dash">
@@ -409,7 +428,7 @@
             <div class="card-perfil">
                 <span class="closeModalProfile"><i class="fas fa-times"></i></span>
                 <div class="perfil-modal-body">
-                    <img src="../<?php echo($imagemPerfilsrc) ?>" alt="Sua Foto de Perfil" style="align-self: center;box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.063);">
+                    <img src="../<?php echo($imagemPerfilsrc) ?>" id="imgPerfilPreview" alt="Sua Foto de Perfil" style="align-self: center;box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.063);">
                     <div class="title-perfil-modal">
                         <h1><?php echo $_SESSION['nomeSecretaria'] ?></h1>
                         <small>Secretário(a) Escolar</small>
@@ -417,13 +436,16 @@
                     </div>
                     <form name="formImagemPerfil" id="formImagemPerfil" action="../DAO/inserir-imagem-secretaria.php" method="POST" class="botoes-perfil-upload" enctype="multipart/form-data">
                                     <label class="botao-cadastrar-perfil" for="imagemPerfil">Carregar Imagem Perfil</label>
-                                    <input name="imagemPerfil" id="imagemPerfil" type="file" accept="image/*">
+                                    <input name="imagemPerfil" onchange="onFileSelected(event)" id="imagemPerfil" type="file" accept="image/*">
                                     <label class="label-erro" id="label-arquivo"></label>
                                     <span id="nome-arquivo"></span>
                         <button class="botao-cadastrar-perfil" type="submit" value="Enviar">Enviar</button>
                     </form> 
                 </div>
-                
+                <script>
+
+                        
+                </script>
             </div>
         </div>
 
