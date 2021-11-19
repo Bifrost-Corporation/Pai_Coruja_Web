@@ -216,7 +216,8 @@
                     
                     <div class="caixa-mensagens">
                         <div id="mensagens">
-                            <div class="mensagem-nao-tem-mensagem">
+                            <div class="container-no-message">
+                                <i class="material-icons-round">question_answer</i>
                                 <h3>Selecione uma conversa ou crie uma nova</h3>
                             </div>
                         </div>
