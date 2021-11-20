@@ -118,20 +118,15 @@
 <section class="area-chat">
 <div class="menu-lateral">
         <div class="header-menu-lateral-title">
-           <h3>Mensagens</h3>
-            <!--<div class="container-box-search">
-                <form action="">
-                    <input type="text" placeholder="Buscar..">
-                    <button><i class="fa fa-search" aria-hidden="true"></i></button>
-                </form>
-            </div>-->
-
-        </div>
-        <div class="container-area-conversa">
-            <div class="header-container-area-conversa">
-             
-            </div>
-            
+                       <h3>Mensagens</h3>
+                      
+                    </div>
+                    <div class="container-area-conversa">
+                        <div class="header-container-area-conversa">
+                            <h3>Recentes</h3>
+                            
+                        </div>
+                        
         <ul>
         <?php
             $secretaria = new Secretaria();
@@ -211,7 +206,7 @@
         
         </div>
         <div class="footer-area-conversa">
-            <button class="btn-show-modal" href=""><h4><i class="fa fa-plus" aria-hidden="true"></i>  Nova Conversa</h4></button>
+            <button class="btn-show-modal" href=""><h4><i class="fa fa-plus" aria-hidden="true"></i></h4></button>
         </div>
     </div>
     <div class="caixa-chat ">
