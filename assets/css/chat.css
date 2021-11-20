@@ -354,6 +354,9 @@
     background-color: var(--azulumpoucosaturado);
     color: var(--cinzamaisclaro);
     
+    align-items: center;
+    
+    box-shadow: 5px 5px 10px var(--cinzaBackground);
 
 }
 /* FIM */
