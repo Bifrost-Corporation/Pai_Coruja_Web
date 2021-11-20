@@ -109,10 +109,12 @@
     justify-items: start;
 }
 
+
 .remetente .text-message{
     background-color: #163677;
     color: #f3f3f3;
     border-radius: 15px 15px 0px 15px;
+    box-shadow: 5px 5px 10px var(--cinzaBackground);
 }
 
 /* FIM */
@@ -124,6 +126,7 @@
     background-color: var(--cinzaBackground);
     color:#1d1d1d;
     border-radius: 15px 15px 15px 0px;
+    box-shadow: 5px 5px 10px var(--cinzaBackground);
 }
 
 
