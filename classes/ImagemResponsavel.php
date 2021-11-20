@@ -70,9 +70,9 @@
         }
 
 
-        public function listarImagem($idSecretaria){
+        public function listarImagem($idResponsavel){
             $conexao = Conexao::conectar();
-            $querySelect = "SELECT nomeImagemPerfilSecretaria,caminhoImagemPerfilSecretaria, idSecretaria FROM tbimagemperfilsecretaria WHERE idSecretaria = '$idSecretaria'";
+            $querySelect = "SELECT nomeImagemPerfilResponsavel,caminhoImagemPerfilResponsavel, idResponsavel FROM tbimagemperfilresponsavel WHERE idResponsavel = '$idResponsavel'";
             $resultado = $conexao->query($querySelect);
             $lista = $resultado->fetchAll();
             return $lista;
