@@ -197,7 +197,7 @@
                     
                     </div>
                     <div class="footer-area-conversa">
-                        <button class="btn-show-modal" href=""><h4><i class="material-icons-round">ios_share</i>  Nova Conversa</h4></button>
+                        <button class="btn-show-modal" href=""><h4><i class="material-icons-round">ios_share</i></h4></button>
                     </div>
                 </div>
                 <div class="caixa-chat ">
