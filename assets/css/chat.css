@@ -86,15 +86,16 @@
     grid-template-columns: 70%;
 
 }
+
 .name-user{
 
 }
 .text-message{
-    padding: 9px 14px;
+    padding: 14px 20px;
     font-size: 1rem;
 }
 .date-message{
-
+    display: none;
     font-size: 0.75rem;
 }
 
@@ -120,7 +121,7 @@
 
 
 .destinatario .text-message{
-    background-color: #dcdcdc;
+    background-color: var(--cinzaBackground);
     color:#1d1d1d;
     border-radius: 15px 15px 15px 0px;
 }
@@ -358,6 +359,7 @@
 
 /* MODAL NOVA CONVERSA */
 .modal-nova-conversa{
+    border-radius: 15px;
     z-index:1;
     display: none;
     position: absolute;
@@ -421,10 +423,6 @@
     
 }
 
-.ul-checkbox-options input[type=checkbox]:before{
-    width: 5rem;
-    
-}
 .ul-checkbox-options li{
     display: flex;
     align-items: center;
@@ -487,9 +485,10 @@
 
 /*CHECKBOXES */
 
-.check-options{
-    border-width: 150px;
+.check-options-all{
 }
+
+
 
 /*FIM*/
 
