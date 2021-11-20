@@ -222,7 +222,7 @@
                             <input type="hidden" id="idReceber" name="idReceber" value="#">
                             <input type="hidden" id="idUserResponsavel" name="idUserResponsavel" value="#">
                             <div class="box-submit-message">
-                            <input type="text" class="caixa-mensagem" placeholder="Converse com @<?php echo $linha['nomeResponsavel'] ?>" id="txtMensagem" name="txtMensagem">
+                            <input type="text" class="caixa-mensagem" placeholder="Mande sua mensagem.." id="txtMensagem" name="txtMensagem">
                             <button class="botao-enviar" id="botao-enviar" name="botao-enviar"><i class="fa fa-paper-plane" aria-hidden="true"></i>
                     </button>
                        
