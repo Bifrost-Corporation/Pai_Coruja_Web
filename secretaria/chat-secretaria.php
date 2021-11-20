@@ -416,12 +416,7 @@
             }
         });
         if(window.innerWidth > 720){
-            const botaoContato = document.querySelectorAll(".botao-contato")
-
-            /*botaoContato.addEventListener("click", function() {
-                
-                console.log("SE APARECER O MARCOS É GUEI")
-            });*/
+            const botaoContato = document.querySelectorAll(".botao-contato");
             
         }else{
             const botaoContato = document.querySelectorAll(".botao-contato")
@@ -515,9 +510,6 @@
                                 }
                 <?php
                             }
-                ?>
-                        alert($("#idReceber").val());
-                <?php
                         }
                     }    
                 ?>
