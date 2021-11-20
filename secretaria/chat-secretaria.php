@@ -24,7 +24,10 @@
         include ('globalSecretaria.php');
 
         include ('../classes/Usuario.php');
+        include ('../classes/Responsavel.php');
+        
         include ('../classes/ImagemSecretaria.php');
+        include ('../classes/ImagemResponsavel.php');
 
         $usuario = new Usuario();
         $listaUsuario = $usuario->listar();
@@ -169,13 +172,24 @@
                         }
                         $contaid = 1;
 
+                        $imagemResponsavel = new ImagemResponsavel();
+                        
                         foreach($listaContatos as $linha){
+                            $listaImagemResponsavel = $imagemResponsavel->listarImagem($linha['idResponsavel']);
+
+                            $imagemPerfilResponsavel = "img/user.png";
+
+                            foreach($listaImagemResponsavel as $linha2){
+                                $imagemPerfilResponsavel = $linha2['caminhoImagemPerfilResponsavel'].$linha2['nomeImagemPerfilResponsavel'];
+
+                            }
+
                     ?>
                         <li id="contato<?php echo $contaid; ?>">
                             <div class="area-botao-conversa">
                                 <button class="botao-contato"id="<?php echo $linha['idResponsavel'] ?>">
                                 <div class="profile-details list">
-                                        <img src="../img/macacopc.gif" alt="">
+                                        <img src="../<?php echo $imagemPerfilResponsavel ?>" alt="">
                                     </div>
                                 <div class="container-texts-conversa">
                                     <div class="title-conversa">
@@ -251,10 +265,18 @@
                                     $listaResponsavel = $responsavel->listar($_SESSION['idEscola']);
                                     foreach($listaResponsavel as $linha2){
                                         if($linha2['idTurma'] == $linha['idTurma']){
+                                                $listaImagemResponsavel = $imagemResponsavel->listarImagem($linha2['idResponsavel']);
+                    
+                                                $imagemPerfilResponsavel = "img/user.png";
+                    
+                                                foreach($listaImagemResponsavel as $linha3){
+                                                    $imagemPerfilResponsavel = $linha3['caminhoImagemPerfilResponsavel'].$linha3['nomeImagemPerfilResponsavel'];
+                    
+                                                }
                                 ?>
                                 <li>
                                     <div class="profile-details list">
-                                        <img src="../img/macacopc.gif" alt="">
+                                        <img src="../<?php echo $imagemPerfilResponsavel ?>" alt="">
                                         <label for="check-options"><?php echo $linha2['nomeResponsavel'] ?></label>
                                     </div>
                                     <input class="check-options" type="checkbox" name="check-options-<?php echo $linha2['idResponsavel'] ?>" id="check-options-<?php echo $linha2['idResponsavel'] ?>">

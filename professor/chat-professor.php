@@ -169,13 +169,26 @@
                             $qtdeResponsaveis = $linha['qtdeResponsavel'];
                         }
                         $contaid = 1;
+                        $imagemResponsavel = new ImagemResponsavel();
+                        
                         foreach($listaContatos as $linha){
+                            $listaImagemResponsavel = $imagemResponsavel->listarImagem($linha['idResponsavel']);
+
+                            $imagemPerfilResponsavel = "img/user.png";
+
+                            foreach($listaImagemResponsavel as $linha2){
+                                $imagemPerfilResponsavel = $linha2['caminhoImagemPerfilResponsavel'].$linha2['nomeImagemPerfilResponsavel'];
+
+                            }
+
+
+                            
                     ?>
                         <li id="contato<?php echo $contaid; ?>">
                             <div class="area-botao-conversa">
                                 <button class="botao-contato"id="<?php echo $linha['idResponsavel'] ?>">
                                 <div class="profile-details list">
-                                        <img src="../img/macacopc.gif" alt="">
+                                        <img src="../<?php echo $imagemPerfilResponsavel ?>" alt="">
                                     </div>
                                 <div class="container-texts-conversa">
                                     <div class="title-conversa">

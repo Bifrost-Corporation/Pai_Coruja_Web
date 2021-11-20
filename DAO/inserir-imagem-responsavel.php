@@ -6,7 +6,7 @@
 
     try{
         if($_FILES['imagemPerfil']['name'] != ''){
-            // header("Location: ../responsavel/home-responsavel.php");
+            header("Location: ../responsavel/home-responsavel.php");
             $nomeImagem = $_FILES['imagemPerfil']['name'];
             $arquivo = $_FILES['imagemPerfil']['tmp_name'];
             $caminhoImagem = "../img/imgResponsavel/";
