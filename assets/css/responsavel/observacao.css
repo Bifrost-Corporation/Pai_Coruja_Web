@@ -39,22 +39,36 @@
     align-items: center;
 
 }
-.container-total-flags .flag-good{
-    background-color: rgb(178, 230, 178);
-    color: rgb(27, 180, 27);
+
+.container-total-flags .flag-nivel1{
+     background-color: #b7d5e5;
+     color: #4698c4;
  }
-.container-total-flags .flag-medium{
-    background-color: rgb(245, 221, 177);
-   color: rgb(224, 155, 26);
- }
-.container-total-flags .flag-bad{
-    background-color: rgb(233, 147, 147);
-   color: rgb(233, 24, 24);
- }
-.container-total-flags .flag-toobad{
-    background-color: rgb(126, 126, 126);
-   color: rgb(34, 34, 34);
- }
+
+.container-total-flags .flag-nivel2{
+    background-color: #bdecb6;
+    color: #56c745;
+}
+
+.container-total-flags .flag-nivel3{
+    background-color: #fdfd96;
+    color: #cccc23;
+}
+
+.container-total-flags .flag-nivel4{
+    background-color: #f7a156;
+    color: #eb8124;
+}
+
+.container-total-flags .flag-nivel5{
+    background-color: #ff6961;
+    color: #f13126;
+}
+
+.container-total-flags .flag-nivel6{
+    background-color: #7d5b8c;
+    color: #622c79;
+}
 
 
 
@@ -111,39 +125,53 @@
    padding: 0.5rem;
    background-color: transparent;
 }
-.card-flags .footer-card-flags .content-flag .flag-good{
-   background-color: rgb(178, 230, 178);
-   color: rgb(27, 180, 27);
+.card-flags .footer-card-flags .content-flag .flag-nivel1{
+    background-color: #b7d5e5;
+    color: #4698c4;
 }
-.card-flags .footer-card-flags .content-flag .flag-good p{
+.card-flags .footer-card-flags .content-flag .flag-nivel1 p{
    
    color: var(--cinzafonte);
 }
 
-.card-flags .footer-card-flags .content-flag .flag-medium{
-   background-color: rgb(245, 221, 177);
-   color: orange;
+.card-flags .footer-card-flags .content-flag .flag-nivel2{
+    background-color: #bdecb6;
+    color: #56c745;
 }
-.card-flags .footer-card-flags .content-flag .flag-medium p{
+.card-flags .footer-card-flags .content-flag .flag-nivel2 p{
    
    color: var(--cinzafonte);
 }
 
-.card-flags .footer-card-flags .content-flag .flag-bad{
-   background-color: rgb(233, 147, 147);
-   color: red;
+.card-flags .footer-card-flags .content-flag .flag-nivel3{
+    background-color: #fdfd96;
+    color: #cccc23;
 }
-.card-flags .footer-card-flags .content-flag .flag-bad p{
+.card-flags .footer-card-flags .content-flag .flag-nivel3 p{
    
    color: var(--cinzafonte);
 }
-.card-flags .footer-card-flags .content-flag .flag-toobad{
-   background-color: rgb(126, 126, 126);
+.card-flags .footer-card-flags .content-flag .flag-nivel4{
+    background-color: #f7a156;
+    color: #eb8124;
+}
+.card-flags .footer-card-flags .content-flag .flag-nivel4 p{
    color: black;
 }
-.card-flags .footer-card-flags .content-flag .flag-toobad p{
-   color: black;
-}
+.card-flags .footer-card-flags .content-flag .flag-nivel5{
+    background-color: #ff6961;
+    color: #f13126;
+ }
+ .card-flags .footer-card-flags .content-flag .flag-nivel5 p{
+    color: black;
+ }
+ .card-flags .footer-card-flags .content-flag .flag-nivel6{
+    background-color: #7d5b8c;
+    color: #622c79;
+ }
+ .card-flags .footer-card-flags .content-flag .flag-nivel6 p{
+    color: black;
+ }
 
 .card-flags .footer-card-flags{
     display: flex;

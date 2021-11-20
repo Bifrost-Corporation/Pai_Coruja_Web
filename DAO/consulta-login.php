@@ -11,7 +11,7 @@
         $queryadm = "SELECT idAdministrador, loginAdministrador, senhaAdministrador FROM tbadministrador";
         $querysecretaria = "SELECT idSecretaria, nomeSecretaria, emailSecretaria, senhaSecretaria, primeiroAcessoSecretaria, tbsecretaria.idEscola, tbescola.nomeEscola FROM tbsecretaria INNER JOIN tbescola ON tbsecretaria.idEscola = tbescola.idEscola";
         $queryprofessor = "SELECT idEscola, idProfessor, nomeProfessor, emailProfessor, senhaProfessor, primeiroAcessoProfessor FROM tbprofessor";
-        $queryresponsavel = "SELECT tbresponsavel.idResponsavel, nomeResponsavel, emailResponsavel, senhaResponsavel, primeiroAcessoResponsavel, tbsecretaria.idSecretaria, tbescola.idEscola FROM tbresponsavel INNER JOIN tbaluno ON tbaluno.idAluno = tbresponsavel.idAluno INNER JOIN tbsecretaria ON tbsecretaria.idEscola = tbaluno.idEscola INNER JOIN tbescola ON tbaluno.idEscola = tbescola.idEscola";
+        $queryresponsavel = "SELECT tbresponsavel.idResponsavel, nomeResponsavel, emailResponsavel, senhaResponsavel, primeiroAcessoResponsavel, tbsecretaria.idSecretaria, tbescola.idEscola, tbresponsavel.idAluno, tbaluno.nomeAluno FROM tbresponsavel INNER JOIN tbaluno ON tbaluno.idAluno = tbresponsavel.idAluno INNER JOIN tbsecretaria ON tbsecretaria.idEscola = tbaluno.idEscola INNER JOIN tbescola ON tbaluno.idEscola = tbescola.idEscola";
         $resultadoadm = $conexao->query($queryadm);
         $listaadm = $resultadoadm->fetchAll(PDO::FETCH_ASSOC);
         foreach($listaadm as $linha){
@@ -67,6 +67,8 @@
                 $_SESSION['idSecretaria'] = $linha['idSecretaria'];
                 $_SESSION['primeiroAcesso'] = $linha['primeiroAcessoResponsavel'];
                 $_SESSION['idEscola'] = $linha['idEscola'];
+                $_SESSION['idAluno'] = $linha['idAluno'];
+                $_SESSION['nomeAluno'] = $linha['nomeAluno'];
                 $_SESSION['autorizacaoResponsavel'] = true;
                 header('location: ../responsavel/home-responsavel.php');
             }

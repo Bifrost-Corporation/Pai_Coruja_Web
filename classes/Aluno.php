@@ -114,6 +114,30 @@
             return $listaAluno;
         }
 
+        public function selecionarObservacoes($idAluno){
+            $conexao = Conexao::conectar();
+            $queryObservacao = "SELECT tbobservacao.idObservacao, qtdePontosObservacao, descObservacao, tbobservacao.idAluno, tbobservacao.idProfessor, tbaluno.nomeAluno, tbprofessor.nomeProfessor FROM tbobservacao INNER JOIN tbaluno ON tbaluno.idAluno = tbobservacao.idAluno INNER JOIN tbprofessor ON tbprofessor.idProfessor = tbobservacao.idProfessor INNER JOIN tbresponsavel ON tbresponsavel.idAluno = tbaluno.idAluno WHERE tbresponsavel.idAluno = '$idAluno'";
+            $resultadoObservacao = $conexao->query($queryObservacao);
+            $listaObservacao = $resultadoObservacao->fetchAll(PDO::FETCH_ASSOC);
+            return $listaObservacao;
+        }
+
+        public function contarObservacoesGravidade($idAluno, $gravidade){
+            $conexao = Conexao::conectar();
+            $queryObservacao = "SELECT COUNT(idObservacao) AS 'qtdeGravidade' FROM tbobservacao INNER JOIN tbaluno ON tbaluno.idAluno = tbobservacao.idAluno INNER JOIN tbprofessor ON tbprofessor.idProfessor = tbobservacao.idProfessor INNER JOIN tbresponsavel ON tbresponsavel.idAluno = tbaluno.idAluno WHERE tbresponsavel.idAluno = '$idAluno' AND tbobservacao.qtdePontosObservacao = '$gravidade'";
+            $resultadoObservacao = $conexao->query($queryObservacao);
+            $listaObservacao = $resultadoObservacao->fetchAll(PDO::FETCH_ASSOC);
+            return $listaObservacao;
+        }
+
+        public function mediaObservacoes($idAluno){
+            $conexao = Conexao::conectar();
+            $queryObservacao = "SELECT AVG(qtdePontosObservacao) AS 'mediaPontosObservacoes' FROM tbobservacao INNER JOIN tbaluno ON tbaluno.idAluno = tbobservacao.idAluno INNER JOIN tbprofessor ON tbprofessor.idProfessor = tbobservacao.idProfessor INNER JOIN tbresponsavel ON tbresponsavel.idAluno = tbaluno.idAluno WHERE tbresponsavel.idAluno = '$idAluno'";
+            $resultadoObservacao = $conexao->query($queryObservacao);
+            $listaObservacao = $resultadoObservacao->fetchAll(PDO::FETCH_ASSOC);
+            return $listaObservacao;
+        }
+
     }
 
 ?>

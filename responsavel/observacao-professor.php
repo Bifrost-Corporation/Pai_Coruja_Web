@@ -134,6 +134,11 @@
         
         
     
+        <?php
+            $observacao = new Observacao();
+            $aluno = new Aluno();
+            $listaObservacoes = $aluno->selecionarObservacoes($_SESSION['idAluno']);
+        ?>    
 
     <main class="container-main container-dash">
         <div class="aluno-info">
@@ -155,12 +160,61 @@
                 </div>
             </div>
             <div style="text-align:right">
-                <h1>Aluno 1</h1>
-                <small>Média de Observações: Boa</small>
+                <h1><?php echo $_SESSION['nomeAluno'] ?></h1>
+                <?php
+                    $listaMediaPontosObservacao = $aluno->mediaObservacoes($_SESSION['idAluno']);
+                    foreach($listaMediaPontosObservacao as $linha){
+                        $mediaObservacoes = $linha['mediaPontosObservacoes'];
+                    }
+                    if($mediaObservacoes < 1){
+                        $mediaObservacoesEscrita = 'Anotação';
+                    }else if($mediaObservacoes > 1 && $mediaObservacoes < 2){
+                        $mediaObservacoes = 'Leve';
+                    }else if($mediaObservacoes > 2 && $mediaObservacoes < 3){
+                        $mediaObservacoes = 'Média';
+                    }else if($mediaObservacoes > 3 && $mediaObservacoes < 4){
+                        $mediaObservacoes = 'Grave';
+                    }else if($mediaObservacoes > 4 && $mediaObservacoes < 5){
+                        $mediaObservacoes = 'Muito Grave';
+                    }else if($mediaObservacoes > 5){
+                        $mediaObservacoes = 'Extremamente Grave';
+                    }else{
+                        $mediaObservacoes = 'Erro';
+                    }
+                ?>
+                <small>Média de Observações: <?php echo $mediaObservacoes ?></small>
 
             </div>
             
         </div>
+
+        <?php
+            $listraGravidade0 = $aluno->contarObservacoesGravidade($_SESSION['idAluno'], 0);
+            foreach($listraGravidade0 as $linha){
+                $qtdeGravidade0 = $linha['qtdeGravidade'];
+            }
+            $listraGravidade1 = $aluno->contarObservacoesGravidade($_SESSION['idAluno'], 1);
+            foreach($listraGravidade1 as $linha){
+                $qtdeGravidade1 = $linha['qtdeGravidade'];
+            }
+            $listraGravidade2 = $aluno->contarObservacoesGravidade($_SESSION['idAluno'], 2);
+            foreach($listraGravidade2 as $linha){
+                $qtdeGravidade2 = $linha['qtdeGravidade'];
+            }
+            $listraGravidade3 = $aluno->contarObservacoesGravidade($_SESSION['idAluno'], 3);
+            foreach($listraGravidade3 as $linha){
+                $qtdeGravidade3 = $linha['qtdeGravidade'];
+            }
+            $listraGravidade4 = $aluno->contarObservacoesGravidade($_SESSION['idAluno'], 4);
+            foreach($listraGravidade4 as $linha){
+                $qtdeGravidade4 = $linha['qtdeGravidade'];
+            }
+            $listraGravidade5 = $aluno->contarObservacoesGravidade($_SESSION['idAluno'], 5);
+            foreach($listraGravidade5 as $linha){
+                $qtdeGravidade5 = $linha['qtdeGravidade'];
+            }
+        ?>
+
         <section class="container-observacao-do-professor">
             
             <div class="header-observacao-professor">
@@ -169,25 +223,35 @@
                 
             </div>
             <div class="container-total-flags">
-                <div class="flag flag-good"> 
+                <div class="flag flag-nivel1"> 
                     <i class="material-icons-round">flag</i>
-                    <p>Bom</p>
-                    <h2>1</h2>
+                    <p>Anotação</p>
+                    <h2><?php echo $qtdeGravidade0 ?></h2>
                 </div>
-                <div class="flag flag-medium"> 
+                <div class="flag flag-nivel2"> 
+                    <i class="material-icons-round">flag</i>
+                    <p>Leve</p>
+                    <h2><?php echo $qtdeGravidade1 ?></h2>
+                </div>
+                <div class="flag flag-nivel3"> 
                     <i class="material-icons-round">flag</i>
                     <p>Média</p>
-                    <h2>1</h2>
+                    <h2><?php echo $qtdeGravidade2 ?></h2>
                 </div>
-                <div class="flag flag-bad"> 
+                <div class="flag flag-nivel4"> 
                     <i class="material-icons-round">flag</i>
-                    <p>Ruim</p>
-                    <h2>1</h2>
+                    <p>Grave</p>
+                    <h2><?php echo $qtdeGravidade3 ?></h2>
                 </div>
-                <div class="flag flag-toobad"> 
+                <div class="flag flag-nivel5"> 
                     <i class="material-icons-round">flag</i>
-                    <p>Muito Ruim</p>
-                    <h2>1</h2>
+                    <p>Muito Grave</p>
+                    <h2><?php echo $qtdeGravidade4 ?></h2>
+                </div>
+                <div class="flag flag-nivel6"> 
+                    <i class="material-icons-round">flag</i>
+                    <p>Extremamente Grave</p>
+                    <h2><?php echo $qtdeGravidade5 ?></h2>
                 </div>
             </div>
         </section>
@@ -206,110 +270,60 @@
                             <!-- Additional required wrapper -->
                             <div class="swiper-wrapper ">
                                 <!-- Slides -->
-                            <div class="swiper-slide card-flags">
-                                <div class="header-card">
-                                <div class="profile-details">
-                                    <img src="../img/macacopc.gif" alt="">
-                                </div>
-                                <h3>Claudineyson Pereira</h3>
-                                </div>
-                                <div class="footer-card-flags">
-                                    <div class="content-flag">
-                                            <div class="flag flag-good"> 
-                                                <i class="material-icons-round">flag</i>
-                                                <p>Boa</p>
+
+                                <?php
+                                    foreach($listaObservacoes as $linha){
+                                        if($linha['qtdePontosObservacao'] == 0){
+                                            $gravidade = 'Anotação';
+                                            $classeGravidade = '-nivel1';
+                                        }else if($linha['qtdePontosObservacao'] == 1){
+                                            $gravidade = 'Leve';
+                                            $classeGravidade = '-nivel2';
+                                        }else if($linha['qtdePontosObservacao'] == 2){
+                                            $gravidade = 'Média';
+                                            $classeGravidade = '-nivel3';
+                                        }else if($linha['qtdePontosObservacao'] == 3){
+                                            $gravidade = 'Grave';
+                                            $classeGravidade = '-nivel4';
+                                        }else if($linha['qtdePontosObservacao'] == 4){
+                                            $gravidade = 'Muito Grave';
+                                            $classeGravidade = '-nivel5';
+                                        }
+                                        else if($linha['qtdePontosObservacao'] == 5){
+                                            $gravidade = 'Extremamente Grave';
+                                            $classeGravidade = '-nivel6';
+                                        }else{
+                                            $gravidade = 'Inválida!';
+                                        }
+                                ?>
+                                <div class="swiper-slide card-flags">
+                                    <div class="header-card">
+                                    <div class="profile-details">
+                                        <img src="../img/macacopc.gif" alt="">
+                                    </div>
+                                    <h3>Professor: <?php echo $linha['nomeProfessor'] ?></h3>
+                                    </div>
+                                    <div class="footer-card-flags">
+                                        <div class="content-flag">
+                                                <div class="flag flag<?php echo $classeGravidade ?>"> 
+                                                    <i class="material-icons-round">flag</i>
+                                                    <p><?php echo $gravidade ?></p>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                <div class="content-card-flags">
-                                    
-                                    <div class="text-desc-flag">
-                                    <h3>Aluno: Souza</h3>
-                                        <p>Ganhou um torneiro de Tênis de mesa</p>
-                                    </div>
-                                    
-                                </div>
-                                
-                            </div>
-
-
-                            <div class="swiper-slide card-flags">
-                                <div class="header-card">
-                                <div class="profile-details">
-                                    <img src="../img/Tony_Tony_Chopper_Anime_Pre_Timeskip_Infobox.png" alt="">
-                                </div>
-                                <h3>Dilma Westbrook</h3>
-                                </div>
-                                <div class="footer-card-flags">
-                                <div class="content-flag">
-                                        <div class="flag flag-medium"> 
-                                            <i class="material-icons-round">flag</i>
-                                            <p>Média</p>
+                                    <div class="content-card-flags">
+                                        
+                                        <div class="text-desc-flag">
+                                        <h3>Aluno: <?php echo $linha['nomeAluno'] ?></h3>
+                                            <p><?php echo $linha['descObservacao'] ?></p>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="content-card-flags">
-                                    <div class="text-desc-flag">
-                                        <h3>Aluno: Souza</h3>
-                                        <p>Bateu no amiguinho enquanto virava um mortal para atrás, enquanto isso planejava em plantar uma bomba no refeitório</p>
+                                        
                                     </div>
                                     
                                 </div>
-                                
-                            </div>
-
-
-
-                            <div class="swiper-slide card-flags">
-                                <div class="header-card">
-                                <div class="profile-details">
-                                    <img src="../img/Tony_Tony_Chopper_Anime_Pre_Timeskip_Infobox.png" alt="">
-                                </div>
-                                <h3>Anthony Davis</h3>
-                                </div>
-                                <div class="footer-card-flags">
-                                <div class="content-flag">
-                                        <div class="flag flag-bad"> 
-                                            <i class="material-icons-round">flag</i>
-                                            <p>Ruim</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="content-card-flags">
-                                    <div class="text-desc-flag">
-                                    <h3>Aluno: Souza</h3>
-                                        <p>Bateu no amiguinho enquanto virava um mortal para atrás, enquanto isso planejava em plantar uma bomba no refeitório</p>
-                                    </div>
-                                    
-                                </div>
-                                
-                            </div>
-
-
-                            <div class="swiper-slide card-flags">
-                                <div class="header-card">
-                                <div class="profile-details">
-                                    <img src="../img/macacopc.gif" alt="">
-                                </div>
-                                <h3>Allen Iverson</h3>
-                                </div>
-                                <div class="footer-card-flags">
-                                    <div class="content-flag">
-                                        <div class="flag flag-toobad"> 
-                                            <i class="material-icons-round">flag</i>
-                                            <p>Muito Ruim</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="content-card-flags">
-                                    <div class="text-desc-flag">
-                                    <h3>Aluno: Souza</h3>
-                                        <p>Bateu no amiguinho enquanto virava um mortal para atrás, enquanto isso planejava em plantar uma bomba no refeitório</p>
-                                    </div>
-                                    
-                                </div>
-                                
-                            </div>
+                                <?php
+                                    }
+                                ?>
                            
                    
                             
