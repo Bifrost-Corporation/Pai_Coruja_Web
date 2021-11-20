@@ -2,7 +2,7 @@
 
 .bg-login {
     background-color: var(--azulumpoucosaturado);
-    height: 97vh;
+    height: 100vh;
     width: 100%;
     display: flex;
     align-items: center;
@@ -175,7 +175,7 @@
     color: var(--branco);
     font-weight: bold;
     font-size: 1rem;
-    border-radius: 20px;
+    border-radius: 12px;
     margin-left: 10px;
     margin-right: 10px;
     border-width: 0px;
@@ -195,7 +195,7 @@
     text-decoration: none;
     font-weight: bold;
     font-size: 1rem;
-    border-radius: 20px;
+    border-radius: 12px;
     margin-left: 10px;
     margin-right: 10px;
     border-width: 1px;

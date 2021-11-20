@@ -43,7 +43,6 @@
 
 @media (max-width:720px) {
     .container-main,.container-dash {
-        padding-top: 10vh;
         margin-left: 0px;
     }
     .name-job{

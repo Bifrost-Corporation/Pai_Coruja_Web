@@ -3,13 +3,17 @@
     display: flex;
 }
 .nav-chat{
+    position: fixed;
+    background-color:#f7f7f7af;
+
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
     padding: 0px 20px;
     width: 100%;
     gap: 1rem;
     align-items: center;
     height: 10vh;
     display: flex;
-    background:#f7f7f7;
 }
 .nav-chat img{
     background-color: #163677;
@@ -47,19 +51,24 @@
 }
 
 .caixa-mensagens{
-    
     width: 100%;
-    height: 70vh;
-    padding: 20px;
+    height: 80vh;
+    padding: 25px ;
+    padding-top: 76px;
     overflow-y: auto;
     background-color: transparent;
 
     display: flex;
     flex-direction: column;
 }
-.container-no-message{
 
-    width: 90%;
+#mensagens{
+    margin-top: 0vh;
+}
+.container-no-message{
+    user-select: none;
+    -webkit-user-select: none;
+    /* width: 90%; */
     
     display: flex;
     justify-content: center;
@@ -70,7 +79,7 @@
     
 }
 .container-no-message i{
-
+    margin-top: 100px;
     margin-bottom: 20px;
     font-size: 10rem;
 }
