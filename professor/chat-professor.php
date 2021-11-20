@@ -205,7 +205,7 @@
                     
                     </div>
                     <div class="footer-area-conversa">
-                        <button class="btn-show-modal" href=""><h4><i class="fa fa-plus" aria-hidden="true"></i>  Nova Conversa</h4></button>
+                        <button class="btn-show-modal" href=""><h4><i class="fa fa-plus" aria-hidden="true"></i></h4></button>
                     </div>
                 </div>
                 <div class="caixa-chat ">
