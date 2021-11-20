@@ -69,6 +69,14 @@
             return 'Imagem do responsável excluida com sucesso!';
         }
 
+
+        public function listarImagem($idSecretaria){
+            $conexao = Conexao::conectar();
+            $querySelect = "SELECT nomeImagemPerfilSecretaria,caminhoImagemPerfilSecretaria, idSecretaria FROM tbimagemperfilsecretaria WHERE idSecretaria = '$idSecretaria'";
+            $resultado = $conexao->query($querySelect);
+            $lista = $resultado->fetchAll();
+            return $lista;
+         }
     }
 
 ?>

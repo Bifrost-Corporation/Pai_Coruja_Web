@@ -22,6 +22,39 @@
     <?php
         include ('sentinela.php');
         include ('globalProfessor.php');
+        include("../classes/Usuario.php");
+        include("../classes/Professor.php");
+        include ('../classes/ImagemProfessor.php');
+
+        $usuario = new Usuario();
+        $professor = new Professor();
+
+        $listaUsuario = $usuario->listar();
+        $listaProfessor = $professor->listar();
+
+        $imagemProfessor = new ImagemProfessor();
+        $listaImagem = $imagemProfessor->listarImagem($_SESSION['idProfessor']);
+
+        
+        $imagemPerfilsrc = "img/user.png";
+        foreach($listaImagem as $linha){
+            if($linha['idProfessor'] == $_SESSION['idProfessor']){
+                foreach($listaUsuario as $linha2){
+                    $imagemPerfilsrc = $linha['caminhoImagemPerfilProfessor'].$linha['nomeImagemPerfilProfessor'];
+                }
+            }
+        }
+        
+        foreach($listaProfessor as $linha){
+            if($linha['idProfessor'] == $_SESSION['idProfessor']){
+                foreach($listaUsuario as $linha2){
+                    if($linha['idProfessor'] == $linha2['idProfessor']){
+                        $idUsuario = $linha2['idUsuario'];
+                    }
+                }
+            }
+        }
+
     ?>
        <header>
             <nav class="nav-bar">
@@ -33,28 +66,28 @@
                 </div>
                 <button class="profile">
                     <div class="profile-details" id="openProfile">
-                        <img src="../img/macacopc.gif" alt="">
+                        <img src="../<?php echo $imagemPerfilsrc ?>" alt="">
                     </div>
                 </button>
 
                 <div class="dropdown-menu-profile">
                     <div class="profile-details">
-                        <img src="../img/macacopc.gif" alt="">
+                        <img src="../<?php echo $imagemPerfilsrc ?>" alt="">
                         <div class="name-job">
                             <div class="name-menu"><?php echo $_SESSION['nomeProfessor'] ?></div>
                             <small class="job-menu">Olá Professor(a)</small>
                         </div>
                     </div>
                     <ul class="opcoes-drop-profile">
-                        <li class="online-li">
+                        <!-- <li class="online-li">
                             <label for="">Online</label>
                             <label class="switch">
                                 <input type="checkbox" checked>
                                 <span class="slider round"></span>
                             </label>
-                        </li>
+                        </li> -->
                         <li class="drop-profile-li" id="alterar-imagem-perfil">
-                            <a>
+                            <a href="home-professor.php#ProfileEdit">
                                 <i class="material-icons-round">manage_accounts</i>
                                 <small>Trocar Imagem de Perfil</small>
                             </a>
@@ -84,7 +117,7 @@
                 <ul class="nav-list">
                     <div class="menu-container">
                         <li class="links-name">
-                            <a href="home-professor.php" class="active-nav">
+                            <a href="home-professor.php">
                                 <i class="material-icons-round">space_dashboard</i>
                                 <span class="links-name tooltip">Dashboard</span>
                             </a>
@@ -102,7 +135,7 @@
                             </a>
                         </li>
                         <li class="links-name">
-                            <a href="chat-professor.php" >
+                            <a href="chat-professor.php"  class="active-nav">
                                 <i class="material-icons-round">chat_bubble</i>
                                 <span class="links-name tooltip">Pai Coruja Chat</span>
                             </a>

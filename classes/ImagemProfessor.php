@@ -1,6 +1,6 @@
 <?php
 
-    include_once("Conexao.php");
+    // include_once("Conexao.php");
 
     class ImagemProfessor{
 
@@ -71,6 +71,13 @@
             return 'Imagem do professor excluída com sucesso!';
         }
 
+        public function listarImagem($idProfessor){
+            $conexao = Conexao::conectar();
+            $querySelect = "SELECT nomeImagemPerfilProfessor,caminhoImagemPerfilProfessor, idProfessor FROM tbimagemperfilProfessor WHERE idProfessor = '$idProfessor'";
+            $resultado = $conexao->query($querySelect);
+            $lista = $resultado->fetchAll();
+            return $lista;
+         }
     }
 
 ?>

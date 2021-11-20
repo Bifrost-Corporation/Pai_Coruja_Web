@@ -21,6 +21,7 @@
 
         include("../classes/Usuario.php");
         include("../classes/Professor.php");
+        include ('../classes/ImagemProfessor.php');
 
         $usuario = new Usuario();
         $professor = new Professor();
@@ -28,20 +29,34 @@
         $listaUsuario = $usuario->listar();
         $listaProfessor = $professor->listar();
 
-        foreach($listaProfessor as $linha){
+        $imagemProfessor = new ImagemProfessor();
+        $listaImagem = $imagemProfessor->listarImagem($_SESSION['idProfessor']);
+
+        
+        $imagemPerfilsrc = "img/user.png";
+        foreach($listaImagem as $linha){
             if($linha['idProfessor'] == $_SESSION['idProfessor']){
                 foreach($listaUsuario as $linha2){
-                    if($linha['idProfessor'] == $linha2['idProfessor']){
-                        $idUsuario = $linha2['idUsuario'];
-                    }
+                    $imagemPerfilsrc = $linha['caminhoImagemPerfilProfessor'].$linha['nomeImagemPerfilProfessor'];
                 }
             }
         }
+        
+    foreach($listaProfessor as $linha){
+        if($linha['idProfessor'] == $_SESSION['idProfessor']){
+            foreach($listaUsuario as $linha2){
+                if($linha['idProfessor'] == $linha2['idProfessor']){
+                    $idUsuario = $linha2['idUsuario'];
+                }
+            }
+        }
+    }
+
     ?>
     
     <header>
-            <nav class="nav-bar">
-                <div class="content-logo-btn">
+        <nav class="nav-bar">
+            <div class="content-logo-btn">
                     <ul class="ul-area-btn">
                         <li class="nav-li"><a class="btn-nav-pc-open"><i class="material-icons-round">menu</i></a></li>
                     </ul>
@@ -49,28 +64,28 @@
                 </div>
                 <button class="profile">
                     <div class="profile-details" id="openProfile">
-                        <img src="../img/macacopc.gif" alt="">
+                        <img src="../<?php echo $imagemPerfilsrc ?>" alt="">
                     </div>
                 </button>
 
                 <div class="dropdown-menu-profile">
                     <div class="profile-details">
-                        <img src="../img/macacopc.gif" alt="">
+                        <img src="../<?php echo $imagemPerfilsrc ?>" alt="">
                         <div class="name-job">
                             <div class="name-menu"><?php echo $_SESSION['nomeProfessor'] ?></div>
                             <small class="job-menu">Olá Professor(a)</small>
                         </div>
                     </div>
                     <ul class="opcoes-drop-profile">
-                        <li class="online-li">
+                        <!-- <li class="online-li">
                             <label for="">Online</label>
                             <label class="switch">
                                 <input type="checkbox" checked>
                                 <span class="slider round"></span>
                             </label>
-                        </li>
+                        </li> -->
                         <li class="drop-profile-li" id="alterar-imagem-perfil">
-                            <a>
+                            <a href="#" onclick='window.history.pushState("object or string", "Title", "home-professor.php#ProfileEdit");;location.reload();'>
                                 <i class="material-icons-round">manage_accounts</i>
                                 <small>Trocar Imagem de Perfil</small>
                             </a>
@@ -141,9 +156,9 @@
                 <div class="conteudo-container-professor">
                     <div class="informacoes-professor">
                         <div class="mini-perfil-professor">
-                            <img src="../img/macos.png" alt="">
+                            <img src="../<?php echo $imagemPerfilsrc ?>" alt="">
                             <div>
-                                <h2>Professor</h2>
+                                <h2><?php echo $_SESSION['nomeProfessor'] ?></h2>
                                 <small>Bem Vindo de Volta!</small>
                             </div>
                         </div>
@@ -338,6 +353,38 @@
             </div>
     </div>
 
+
+    <div id="modalProfile" class="modal modal-profile">
+            
+            <!-- Modal content -->
+        <div class="modal-content-profile">
+            <div class="card-perfil">
+                <span class="closeModalProfile"><i class="fas fa-times"></i></span>
+                <div class="perfil-modal-body">
+                    <img src="../<?php echo($imagemPerfilsrc) ?>" id="imgPerfilPreview" alt="Sua Foto de Perfil" style="align-self: center;box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.063);">
+                    <div class="title-perfil-modal">
+                        <h1><?php echo $_SESSION['nomeProfessor'] ?></h1>
+                        <small>Professor(a)</small>
+                        <small>Essa imagem será exibida para todos no Pai Coruja</small>
+                    </div>
+                    <form name="formImagemPerfil" id="formImagemPerfil" action="../DAO/inserir-imagem-professor.php" method="POST" class="botoes-perfil-upload" enctype="multipart/form-data">
+                                    <label class="botao-cadastrar-perfil" for="imagemPerfil">Carregar Imagem Perfil</label>
+                                    <input name="imagemPerfil" onchange="onFileSelected(event)" id="imagemPerfil" type="file" accept="image/*">
+                                    <label class="label-erro" id="label-arquivo"></label>
+                                    <span id="nome-arquivo"></span>
+                        <button class="botao-cadastrar-perfil" type="submit" value="Enviar">Enviar</button>
+                    </form> 
+                </div>
+                <script>
+
+                        
+                </script>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="../assets/js/modalProfile.js"></script>
     <script src="../assets/js/nav.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.js"></script>
