@@ -168,6 +168,7 @@
                             $qtdeResponsaveis = $linha['qtdeResponsavel'];
                         }
                         $contaid = 1;
+
                         foreach($listaContatos as $linha){
                     ?>
                         <li id="contato<?php echo $contaid; ?>">
@@ -197,7 +198,7 @@
                     
                     </div>
                     <div class="footer-area-conversa">
-                        <button class="btn-show-modal" href=""><h4><i class="material-icons-round">ios_share</i></h4></button>
+                        <button class="btn-show-modal" href=""><i class="material-icons-round">add</i></button>
                     </div>
                 </div>
                 <div class="caixa-chat ">

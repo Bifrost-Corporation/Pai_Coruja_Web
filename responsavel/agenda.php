@@ -22,6 +22,9 @@
     <?php
         include("sentinela.php");
         include("globalResponsavel.php");
+        include("../classes/Usuario.php");
+        include("../classes/Responsavel.php");
+        include ('../classes/ImagemResponsavel.php');
 
         $usuario = new Usuario();
         $responsavel = new Responsavel();
@@ -44,6 +47,19 @@
                 }
             }
         }
+
+        $imagemResponsavel = new ImagemResponsavel();
+        $listaImagem = $imagemResponsavel->listarImagem($_SESSION['idResponsavel']);
+
+        
+        $imagemPerfilsrc = "img/user.png";
+        foreach($listaImagem as $linha){
+            if($linha['idResponsavel'] == $_SESSION['idResponsavel']){
+                foreach($listaUsuario as $linha2){
+                    $imagemPerfilsrc = $linha['caminhoImagemPerfilResponsavel'].$linha['nomeImagemPerfilResponsavel'];
+                }
+            }
+        }
     ?>
         <header>
             <nav class="nav-bar">
@@ -55,30 +71,30 @@
                 </div>
                 <button class="profile">
                     <div class="profile-details" id="openProfile">
-                        <img src="../img/macacopc.gif" alt="">
+                        <img src="../<?php echo $imagemPerfilsrc ?>" alt="">
                     </div>
                 </button>
 
                 <div class="dropdown-menu-profile">
                     <div class="profile-details">
-                        <img src="../img/macacopc.gif" alt="">
+                        <img src="../<?php echo $imagemPerfilsrc ?>" alt="">
                         <div class="name-job">
                             <div class="name-menu"><?php echo $_SESSION['nomeResponsavel'] ?></div>
                             <small class="job-menu">Olá Responsável(a)</small>
                         </div>
                     </div>
                     <ul class="opcoes-drop-profile">
-                        <li class="online-li">
+                        <!-- <li class="online-li">
                             <label for="">Online</label>
                             <label class="switch">
                                 <input type="checkbox" checked>
                                 <span class="slider round"></span>
                             </label>
-                        </li>
+                        </li> -->
                         <li class="drop-profile-li" id="alterar-imagem-perfil">
-                            <a>
+                            <a href="home-responsavel.php#ProfileEdit">
                                 <i class="material-icons-round">manage_accounts</i>
-                                <small>Trocar Imagem de Perfil</small>
+                                <small>Trocar Imagem de Perfil <i class="material-icons-round">open_in_new</i></small>
                             </a>
                         </li>
                         <li class="drop-profile-li">

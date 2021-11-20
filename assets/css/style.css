@@ -61,6 +61,14 @@
     --cinzaescuro: #47525E;
     --cinzafonte: #343F4B;
     --branco: #ffffff;
+
+    /* cores de teste pra serem aprovadas por vc q tá lendo */
+
+    --cinzaUltraClaro: #fafafa;
+    --cinzaEEEE: #eeeeee;
+    --cinzaAzuladoLeve: #c0c5ce;
+    --cinzaAzulado100: #a7adba;
+    --cinzaAzulado200: #65737e;
 }
 
 h1 {

@@ -24,12 +24,28 @@
     <?php
         include("sentinela.php");
         include("globalResponsavel.php");
+        include("../classes/Usuario.php");
+        include("../classes/Responsavel.php");
+        include ('../classes/ImagemResponsavel.php');
 
         $usuario = new Usuario();
         $responsavel = new Responsavel();
 
         $listaUsuario = $usuario->listar();
         $listaResponsavel = $responsavel->listarAlternativo();
+
+        $imagemResponsavel = new ImagemResponsavel();
+        $listaImagem = $imagemResponsavel->listarImagem($_SESSION['idResponsavel']);
+
+        
+        $imagemPerfilsrc = "img/user.png";
+        foreach($listaImagem as $linha){
+            if($linha['idResponsavel'] == $_SESSION['idResponsavel']){
+                foreach($listaUsuario as $linha2){
+                    $imagemPerfilsrc = $linha['caminhoImagemPerfilResponsavel'].$linha['nomeImagemPerfilResponsavel'];
+                }
+            }
+        }
 
         foreach($listaResponsavel as $linha){
             if($linha['idResponsavel'] == $_SESSION['idResponsavel']){
@@ -51,30 +67,30 @@
                 </div>
                 <button class="profile">
                     <div class="profile-details" id="openProfile">
-                        <img src="../img/macacopc.gif" alt="">
+                        <img src="../<?php echo $imagemPerfilsrc ?>" alt="">
                     </div>
                 </button>
 
                 <div class="dropdown-menu-profile">
                     <div class="profile-details">
-                        <img src="../img/macacopc.gif" alt="">
+                        <img src="../<?php echo $imagemPerfilsrc ?>" alt="">
                         <div class="name-job">
                             <div class="name-menu"><?php echo $_SESSION['nomeResponsavel'] ?></div>
                             <small class="job-menu">Olá Responsável(a)</small>
                         </div>
                     </div>
                     <ul class="opcoes-drop-profile">
-                        <li class="online-li">
+                        <!-- <li class="online-li">
                             <label for="">Online</label>
                             <label class="switch">
                                 <input type="checkbox" checked>
                                 <span class="slider round"></span>
                             </label>
-                        </li>
+                        </li> -->
                         <li class="drop-profile-li" id="alterar-imagem-perfil">
-                            <a>
+                            <a href="#" onclick='window.history.pushState("object or string", "Title", "home-responsavel.php#ProfileEdit");;location.reload();'>
                                 <i class="material-icons-round">manage_accounts</i>
-                                <small>Trocar Imagem de Perfil</small>
+                                <small>Trocar Imagem de Perfil <i class="material-icons-round">open_in_new</i></small>
                             </a>
                         </li>
                         <li class="drop-profile-li">
@@ -386,6 +402,38 @@
         </div>
 
     </div>
+
+    <div id="modalProfile" class="modal modal-profile">
+            
+            <!-- Modal content -->
+        <div class="modal-content-profile">
+            <div class="card-perfil">
+                <span class="closeModalProfile"><i class="fas fa-times"></i></span>
+                <div class="perfil-modal-body">
+                    <img src="../<?php echo($imagemPerfilsrc) ?>" id="imgPerfilPreview" alt="Sua Foto de Perfil" style="align-self: center;box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.063);">
+                    <div class="title-perfil-modal">
+                        <h1><?php echo $_SESSION['nomeResponsavel'] ?></h1>
+                        <small>Responsavel</small>
+                        <small>Essa imagem será exibida para todos no Pai Coruja</small>
+                    </div>
+                    <form name="formImagemPerfil" id="formImagemPerfil" action="../DAO/inserir-imagem-responsavel.php" method="POST" class="botoes-perfil-upload" enctype="multipart/form-data">
+                                    <label class="botao-cadastrar-perfil" for="imagemPerfil">Carregar Imagem Perfil</label>
+                                    <input name="imagemPerfil" onchange="onFileSelected(event)" id="imagemPerfil" type="file" accept="image/*">
+                                    <label class="label-erro" id="label-arquivo"></label>
+                                    <span id="nome-arquivo"></span>
+                        <button class="botao-cadastrar-perfil" type="submit" value="Enviar">Enviar</button>
+                    </form> 
+                </div>
+                <script>
+
+                        
+                </script>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="../assets/js/modalProfile.js"></script>
 
     <script src="../assets/js/nav.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
