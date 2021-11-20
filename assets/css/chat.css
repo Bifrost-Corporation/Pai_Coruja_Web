@@ -273,8 +273,14 @@
 }
 .header-container-area-conversa{
     width: 100%;
-    padding: 10px 20px 10px 10px;
-    position: relative;
+    padding: 10px 20px 10px 20px;
+    
+}
+.header-container-area-conversa h3{
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    
 }
 .area-botao-conversa .botao-contato{
 
@@ -310,6 +316,7 @@
 }
 .title-conversa{
     font-weight: 600;
+    letter-spacing: 1px;
     color:var(--cinzafonte);
     align-items: center;
 }
