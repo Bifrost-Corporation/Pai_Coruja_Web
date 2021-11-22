@@ -63,10 +63,6 @@
 
 /* MENU MOBILE */
 
-.nav-footer {
-    display: none;
-}
-
 .nav-bar {
     position:fixed;
     z-index: 1;

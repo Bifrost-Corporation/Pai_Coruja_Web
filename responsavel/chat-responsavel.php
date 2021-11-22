@@ -230,9 +230,6 @@
         </ul>
         
         </div>
-        <div class="footer-area-conversa">
-            <button class="btn-show-modal" href=""><h4><i class="fa fa-plus" aria-hidden="true"></i></h4></button>
-        </div>
     </div>
     <div class="caixa-chat ">
     
@@ -264,78 +261,7 @@
         </div>
     </div>
 </section>
-<section class="modal-nova-conversa">
-    <div class="header-modal-nova-conversa">
-        <h3><button class="btn-close-modal-nova"><i class="fa fa-arrow-left" aria-hidden="true"></button></i> Selecione os Contatos</h3>
-        <small>Você pode selecionar responsáveis ou professores</small>
-    </div>
-    <div class="container-checklist">
-        <ul class="list-turma">
-            <input type="checkbox" class="check-options-all"name="" id="option-all">
-            <label for="option-all">1° A</label>
-            <ul class="ul-checkbox-options">
-                <li>
-                <div class="profile-details list">
-                    <img src="../img/macacopc.gif" alt="">
-                    <label for="check-options">Robertin</label>
-                </div>
-                <input class="check-options" type="checkbox" name="" id="check-options">
-                </li>
-                <li>
-                <div class="profile-details list">
-                    <img src="../img/macos.png" alt="">
-                    <label for="check-options">Claudin</label>
-                </div>
-                <input class="check-options" type="checkbox" name="" id="check-options">
-                </li>
-                <li>
-                <div class="profile-details list">
-                    <img src="../img/pai.png" alt="">
-                    <label for="check-options">JUbiscleiton</label>
-                </div>
-                <input class="check-options" type="checkbox" name="" id="check-options">
-                </li>
-                
-            </ul>
-        </ul>
-        <ul class="list-turma">
-            <input type="checkbox" class="check-options-all"name="" id="option-all">
-            <label for="option-all">1° B</label>
-            <ul class="ul-checkbox-options">
-                <li>
-                <div class="profile-details list">
-                    <img src="../img/macacopc.gif" alt="">
-                    <label for="check-options">Osvaldo</label>
-                </div>
-                <input class="check-options" type="checkbox" name="" id="check-options">
-                </li>
-                <li>
-                <div class="profile-details list">
-                    <img src="../img/macos.png" alt="">
-                    <label for="check-options">Orivalda</label>
-                </div>
-                <input class="check-options" type="checkbox" name="" id="check-options">
-                </li>
-                <li>
-                <div class="profile-details list">
-                    <img src="../img/pai.png" alt="">
-                    <label for="check-options">Claudin</label>
-                </div>
-                <input class="check-options" type="checkbox" name="" id="check-options">
-                </li>
-                
-            </ul>
-        </ul>
-    </div>
-    <div class="footer-modal-nova-conversa">
-        <button class="btn-mensagem-agrupada"href="" actived>Mensagem Agrupada</button>
-        <form class="form-submit-message-agrupada">
-            <input type="text" placeholder="Mande sua mensagem" id="txtMensagem" name="txtMensagem">
-            <button id="botao-enviar" name="botao-enviar"><i class="fa fa-paper-plane" aria-hidden="true"></i>
-            </button>
-        </form>
-    </div>
-</section>            
+            
 </main>
 
 <div id="modalProfile" class="modal modal-profile">

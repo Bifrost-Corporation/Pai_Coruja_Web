@@ -1,62 +1,6 @@
 @import url(../style.css);
 
-/* NAV FOOTER */
 
-.nav-footer {
-    display: none;
-    position: fixed;
-    z-index: 10;
-    bottom: 0px;
-    
-    height: 70px;
-    width: 100vw;
-    background: var(--branco);
-}
-
-.nav-footer ul {
-    border-top-color: var(--cinza);
-    border-top-width: 1px;
-    border-top-style: solid;
-    height: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-}
-
-.nav-footer ul li {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    list-style: none;
-}
-
-.nav-footer ul li .links-name {
-    /* display: none; */
-}
-
-.nav-footer ul li a {
-    padding: 15px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    color: var(--azulnavbar);
-    text-decoration: none;
-    font-weight: 700;
-}
-
-.nav-footer ul .active a {
-    padding: 15px;
-    border-radius: 15px;
-    display: flex;
-    background: var(--azulnavbar);
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    color: var(--cinzamaisclaro);
-    text-decoration: none;
-    font-weight: 700;
-}
 
 
 

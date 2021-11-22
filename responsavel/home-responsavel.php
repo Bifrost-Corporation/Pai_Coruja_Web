@@ -337,28 +337,6 @@
         
     </main>
 
-    <div class="nav-footer">
-        <ul>
-            <li class="active">
-                <a href="home-responsavel.php">
-                    <i class="fas fa-calendar"></i>
-                    <span class="links-name">Mural</span>
-                </a>
-            </li>
-            <li class="">
-                <a href="#">
-                    <i class="fas fa-chalkboard-teacher"></i>
-                    <span class="links-name">Avaliação</span>
-                </a>
-            </li>
-            <li class="">
-                <a href="#">
-                    <i class="fas fa-calendar-day"></i>
-                    <span class="links-name">Eventos</span>
-                </a>
-            </li>
-        </ul>
-    </div>
 
     <div id="modalReset" class="modal modal-evento">
             

@@ -349,28 +349,6 @@
 
     </main>
 
-    <div class="nav-footer">
-        <ul>
-            <li class="active">
-                <a href="home-responsavel.php">
-                    <i class="fas fa-calendar"></i>
-                    <span class="links-name">Mural</span>
-                </a>
-            </li>
-            <li class="">
-                <a href="#">
-                    <i class="fas fa-chalkboard-teacher"></i>
-                    <span class="links-name">Avaliação</span>
-                </a>
-            </li>
-            <li class="">
-                <a href="#">
-                    <i class="fas fa-calendar-day"></i>
-                    <span class="links-name">Eventos</span>
-                </a>
-            </li>
-        </ul>
-    </div>
 
     <script src="../assets/js/nav.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>

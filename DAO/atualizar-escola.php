@@ -4,7 +4,7 @@
     include("../classes/Secretaria.php");
 
     try{
-        //header("location: ../adm/visualizar-dados.php");
+        header("location: ../adm/visualizar-dados.php");
         $idEscola = $_POST['idEscola'];
         $idAdministrador = $_POST['idAdministrador'];
         $nomeEscola = $_POST['txtNomeEscola'];
