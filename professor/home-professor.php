@@ -157,12 +157,12 @@
                     <div class="informacoes-professor">
                         <div class="mini-perfil-professor">
                             <img src="../<?php echo $imagemPerfilsrc ?>" alt="">
+                        </div>
+                        <div class="detalhes-professor">
                             <div>
                                 <h2><?php echo $_SESSION['nomeProfessor'] ?></h2>
                                 <small>Bem Vindo de Volta!</small>
                             </div>
-                        </div>
-                        <div class="detalhes-professor">
                             <p><strong>Nome: </strong><?php echo $_SESSION['nomeProfessor'] ?></p>
                             <p><strong>Email: </strong><?php echo $_SESSION['emailProfessor'] ?></p>
                             <p><strong>Escola: </strong>Escolinha do clodo</p>

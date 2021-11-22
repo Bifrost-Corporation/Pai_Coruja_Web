@@ -225,6 +225,34 @@ body{
     display: none;
 }
 
+.mini-perfil-secretaria{
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background-color: var(--cinzaBackground);
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    /* padding-bottom: 59px; */
+    height: 85px;
+    margin-bottom: 0.5rem;
+    align-items: center;
+}
+
+.mini-perfil-secretaria img{
+    object-fit: cover;
+    height: 100px;
+    width: 100px;
+    top: 25px;
+    left: 0px;
+    border-radius: 50%;
+    position: relative;
+}
+.detalhes-secretaria{
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
 
 
 @media (max-width:720px) {

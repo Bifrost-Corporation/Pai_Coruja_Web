@@ -263,18 +263,19 @@
 
                 <div class="msg-chat-dash">
                     <!-- <h4>Bem vindo de Volta!</h4> -->
-                    <div class="mini-perfil-professor">
+                    <div class="mini-perfil-secretaria">
                             <img src="../<?php echo($imagemPerfilsrc) ?>" alt="">
-                            <div>
-                                <h2><?php echo $_SESSION['nomeSecretaria'] ?></h2>
-                                <small>Bem Vindo de Volta!</small>
-                            </div>
-                    </div>
-                    <div class="detalhes-professor">
-                            <!-- <p><strong>Nome: </strong>Marocs</p> -->
-                            <p><strong>Email: </strong><?php echo $_SESSION['emailSecretaria'] ?></p>
                             
+                    </div>
+                    <div class="detalhes-secretaria">
+                        <div>
+                            <h2><?php echo $_SESSION['nomeSecretaria'] ?></h2>
+                            <small>Bem Vindo de Volta!</small>
                         </div>
+                        <!-- <p><strong>Nome: </strong>Marocs</p> -->
+                        <p><strong>Email: </strong><?php echo $_SESSION['emailSecretaria'] ?></p>
+                            
+                    </div>
                 </div>
 
 

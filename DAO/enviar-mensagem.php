@@ -6,7 +6,7 @@
     include("../classes/Usuario.php");
 
     try{
-        header("Location: ../secretaria/chat-secretaria.php");
+        // header("Location: ../secretaria/chat-secretaria.php");
         $textoMensagem = $_POST['txtMensagem'];
         $idResponsavelDestino = $_POST['idReceber'];
         $idSecretariaEnvio = $_POST['idEnviar'];

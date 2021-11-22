@@ -28,13 +28,13 @@
                 </div>
                 <button class="profile">
                     <div class="profile-details" id="openProfile">
-                        <img src="../img/macacopc.gif" alt="">
+                        <img src="../img/paiADM.png" alt="">
                     </div>
                 </button>
 
                 <div class="dropdown-menu-profile">
                     <div class="profile-details">
-                        <img src="../img/macacopc.gif" alt="">
+                        <img src="../img/paiADM.png" alt="">
                         <div class="name-job">
                             <div class="name-menu">Administrador</div>
                             <small class="job-menu">Olá Administrador(a)</small>

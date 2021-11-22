@@ -28,27 +28,29 @@
 
 .mini-perfil-professor{
     padding: 1rem;
-    border-radius: 1rem;
+    border-radius: 0.5rem;
     background-color: var(--cinzaBackground);
-
     display: flex;
     flex-direction: row;
-
     gap: 1rem;
+    /* padding-bottom: 59px; */
+    height: 85px;
+    margin-bottom: 0.5rem;
     align-items: center;
 }
 
 .mini-perfil-professor img{
     object-fit: cover;
-
     height: 100px;
     width: 100px;
-
+    top: 15px;
+    left: 0px;
     border-radius: 50%;
+    position: relative;
 }
-
 .detalhes-professor{
-    padding: 1rem;
+    padding: 0.5rem;
+    padding-top: 2rem;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
