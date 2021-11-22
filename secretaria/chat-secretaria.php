@@ -508,6 +508,7 @@
                                 if($('#check-options-<?php echo $linha2['idResponsavel'] ?>').is(":checked")){
                                     $('#idReceber').val(<?php echo $linha2['idResponsavel'] ?>);
                                     jQuery.ajax({
+                                        async: false,
                                         url: '../DAO/pegar-id-responsavel2.php',
                                         method: 'POST',
                                         data: {
@@ -515,12 +516,12 @@
                                         },
                                         success:function(retornoid){
                                             idReceber = retornoid;
-                                            alert(idReceber);
                                             var dados = {'idEnviar':jQuery('#idEnviar').val(),
                                                 'idReceber':idReceber,
                                                 'txtMensagem':mensagem};
                                             var pageurl = '../DAO/enviar-mensagem.php';
                                             jQuery.ajax({
+                                                async: false,
                                                 url: pageurl,
                                                 data: dados,
                                                 type: 'POST',
