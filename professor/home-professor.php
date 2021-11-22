@@ -167,7 +167,6 @@
                             <p><strong>Email: </strong><?php echo $_SESSION['emailProfessor'] ?></p>
                             <p><strong>Escola: </strong>Escolinha do clodo</p>
                         </div>
-                        <!-- <small>Para alterar algum dado entre em contatocom a secretaria</small> -->
                     </div>
 
                     <section class="agenda-professor">

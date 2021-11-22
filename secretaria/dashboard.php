@@ -155,13 +155,6 @@
                         </div>
                     </div>
                     <ul class="opcoes-drop-profile">
-                        <!-- <li class="online-li">
-                            <label for="">Online</label>
-                            <label class="switch">
-                                <input type="checkbox" checked>
-                                <span class="slider round"></span>
-                            </label>
-                        </li> -->
                         <li class="drop-profile-li" id="alterar-imagem-perfil">
                             <a href="#" onclick='window.history.pushState("object or string", "Title", "dashboard.php#ProfileEdit");;location.reload();'>
                                 <i class="material-icons-round">manage_accounts</i>
@@ -262,7 +255,6 @@
                 </div>
 
                 <div class="msg-chat-dash">
-                    <!-- <h4>Bem vindo de Volta!</h4> -->
                     <div class="mini-perfil-secretaria">
                             <img src="../<?php echo($imagemPerfilsrc) ?>" alt="">
                             
@@ -272,7 +264,6 @@
                             <h2><?php echo $_SESSION['nomeSecretaria'] ?></h2>
                             <small>Bem Vindo de Volta!</small>
                         </div>
-                        <!-- <p><strong>Nome: </strong>Marocs</p> -->
                         <p><strong>Email: </strong><?php echo $_SESSION['emailSecretaria'] ?></p>
                             
                     </div>
@@ -386,7 +377,6 @@
                     </div>
                     <div class="title-modal">
                         <h1>RESETE SUA SENHA</h1>
-                        <!-- <button><i class="fas fa-bookmark"></i> Tenho Interesse</button> -->
                     </div>
                     
                 </div>  

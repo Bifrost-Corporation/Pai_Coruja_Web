@@ -65,13 +65,6 @@
                         </div>
                     </div>
                     <ul class="opcoes-drop-profile">
-                        <!-- <li class="online-li">
-                            <label for="">Online</label>
-                            <label class="switch">
-                                <input type="checkbox" checked>
-                                <span class="slider round"></span>
-                            </label>
-                        </li> -->
                         <li class="drop-profile-li" id="alterar-imagem-perfil">
                             <a href="dashboard.php#ProfileEdit">
                                 <i class="material-icons-round">manage_accounts</i>

@@ -19,9 +19,6 @@ function ShowElement(botaoAbrir, divSection, botaoFechar) {
     });
 }
 
-// esse cod ainda n tá pronto, quero fazer ele adicionar style por classe
-// q aí vai dar pra usar em vários casos diferentes, mas eu quero arrumar os css daq antes
-// ent por enquanto, deixa assim, vamos esperar a apresentação primeiro
 
 const ExibirDadosSecretaria = new ShowElement(
     '#btn-show-div-exibir-dados',
