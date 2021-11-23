@@ -72,7 +72,7 @@
 
         public function listarImagem($idResponsavel){
             $conexao = Conexao::conectar();
-            $querySelect = "SELECT nomeImagemPerfilResponsavel,caminhoImagemPerfilResponsavel, idResponsavel FROM tbimagemperfilresponsavel WHERE idResponsavel = '$idResponsavel'";
+            $querySelect = "SELECT nomeImagemPerfilResponsavel,caminhoImagemPerfilResponsavel, idResponsavel FROM tbimagemperfilresponsavel WHERE idImagemPerfilResponsavel = (SELECT max(idImagemPerfilResponsavel) FROM tbimagemperfilResponsavel WHERE idResponsavel = '$idResponsavel');";
             $resultado = $conexao->query($querySelect);
             $lista = $resultado->fetchAll();
             return $lista;

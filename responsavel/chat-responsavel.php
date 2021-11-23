@@ -24,6 +24,9 @@
         include("../classes/Responsavel.php");
         include ('../classes/ImagemResponsavel.php');
 
+        include("../classes/Professor.php");
+        include ('../classes/ImagemProfessor.php');
+
         $usuario = new Usuario();
         $responsavel = new Responsavel();
 
@@ -156,13 +159,18 @@
         <?php
             $secretaria = new Secretaria();
             $listaSecretaria = $secretaria->selecionarSecretaria($_SESSION['idEscola']);
+            $imagemSecretaria = new ImagemSecretaria();
             foreach($listaSecretaria as $linha){
+                $listaImagemSecretaria = $imagemSecretaria->listarImagem($linha['idSecretaria']);
+                foreach($listaImagemSecretaria as $linha3){
+                    $imagemPerfilSecretaria = $linha3['caminhoImagemPerfilSecretaria'].$linha3['nomeImagemPerfilSecretaria'];  
+                }
         ?>
             <li id="contato1">
                 <div class="area-botao-conversa">
                     <button class="botao-contato"id="<?php echo $linha['idUsuario'] ?>">
                     <div class="profile-details list">
-                            <img src="../img/macacopc.gif" alt="">
+                            <img src="../<?php echo $imagemPerfilSecretaria ?>" alt="">
                         </div>
                     <div class="container-texts-conversa">
                     <div class="title-conversa">
@@ -199,15 +207,21 @@
             }
             $listaProfessor = $professor->listarEscola($_SESSION['idEscola']);
             $contaid = 2;
+            $imagemProfessor = new ImagemProfessor();
+            $imagemPerfilProfessor = "img/user.png";
             foreach($listaProfessor as $linha){
                 $listaChatProfessor = $professor->selecionarProfessorChat($idTurma, $linha['idProfessor']);
+                $listaImagemProfessor = $imagemProfessor->listarImagem($linha['idProfessor']);
                 foreach($listaChatProfessor as $linha2){
+                    foreach($listaImagemProfessor as $linha3){
+                        $imagemPerfilProfessor = $linha3['caminhoImagemPerfilProfessor'].$linha3['nomeImagemPerfilProfessor'];  
+                    }
             ?>
                 <li id="contato<?php echo $contaid ?>">
                     <div class="area-botao-conversa">
                         <button class="botao-contato"id="<?php echo $linha2['idUsuario'] ?>">
                         <div class="profile-details list">
-                                <img src="../img/macacopc.gif" alt="">
+                                <img src="../<?php echo $imagemPerfilProfessor ?>" alt="">
                             </div>
                         <div class="container-texts-conversa">
                             <div class="title-conversa">
@@ -225,6 +239,7 @@
                     $contaid = $contaid + 1;
                 }
             }
+        
             
         ?>
         </ul>

@@ -71,7 +71,7 @@
 
         public function listarImagem($idSecretaria){
             $conexao = Conexao::conectar();
-            $querySelect = "SELECT nomeImagemPerfilSecretaria,caminhoImagemPerfilSecretaria, idSecretaria FROM tbimagemperfilsecretaria WHERE idSecretaria = '$idSecretaria'";
+            $querySelect = "SELECT nomeImagemPerfilSecretaria,caminhoImagemPerfilSecretaria, idSecretaria FROM tbimagemperfilsecretaria WHERE idImagemPerfilSecretaria = (SELECT max(idImagemPerfilSecretaria) FROM tbimagemperfilSecretaria WHERE idSecretaria = '$idSecretaria');";
             $resultado = $conexao->query($querySelect);
             $lista = $resultado->fetchAll();
             return $lista;
