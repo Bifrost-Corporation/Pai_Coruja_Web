@@ -252,7 +252,7 @@
                                             <small>Data: <?php echo date('d/m/Y', strtotime($linha['dataEvento'])) ?></small>
                                         </div>
                                         <div>
-                                            <a href="#"><button>Saiba Mais</button></a>
+                                            <a href="#"><button id="btn-modal-evento<?php echo $linha['idEvento'] ?>">Saiba Mais</button></a>
                                         </div>
                                     </div>
                                 <?php
@@ -411,14 +411,36 @@
 
     </div>
 
-    <script src="../assets/js/modalProfile.js"></script>
+    <!-- Modal de Evento -->
+    <?php 
+        foreach($listaEventos as $linha){
+    ?>
+            <div id="modalEvento-<?php echo $linha['idEvento'] ?>" class="modal modal-evento">
+                <div class="modal-content">
+                        <span class="closeModal"><i class="fas fa-times"></i></span>
+                        <div class="bg-modal">
+                            <div class="title-modal">
+                                <h1><?php echo $linha['tituloEvento'] ?></h1>
+                            </div>
+                        </div>  
+                    <div class="modal-text-description">
+                        <div class="info-modal">
+                            <h5>Data do evento: <?php echo date('d/m/Y', strtotime($linha['dataEvento'])) ?></h5>
+                        </div>
+                        <h4>Descrição</h4>
+                        <p><?php echo $linha['descEvento'] ?></p>
+                    </div>
+                </div>
+            </div>
+    <?php
+        }
+    ?>
+    
 
+    <script src="../assets/js/modalProfile.js"></script>
     <script src="../assets/js/nav.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-    
-
-<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
-    
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
     <script src="../assets/js/carousel.js"></script>
     <script src="../assets/js/modal.js"></script>
 
@@ -433,18 +455,17 @@
             }
         });
 
-        /*
-        $(document).on('beforeunload', function (){
-            var modal = document.getElementById("modalReset");
-            var primeiroAcesso = "<?php echo $_SESSION['primeiroAcesso'] ?>";
-            if(primeiroAcesso === "V"){
-                modal.classList.toggle("modal-active");
-                alert('<?php echo $_SESSION['primeiroAcesso'] ?>');
-            }else{
-                alert('<?php echo $_SESSION['primeiroAcesso'] ?>');
-            }
+        //Funções dos modais de evento
+        <?php
+            foreach($listaEventos as $linha){
+        ?>
+        $("#btn-modal-evento<?php echo $linha['idEvento'] ?>").on('click', function(){
+            var modalEvento = document.getElementById("modalEvento-<?php echo $linha['idEvento'] ?>");
+            modalEvento.classList.toggle("modal-active");
         });
-        */
+        <?php
+            }
+        ?>
 
         $('#formAttSenha').on('submit', function(e){
             var senha1 = $('#txtSenha').val();
