@@ -88,42 +88,32 @@ small:first-child {
     margin-top: 1rem;
     margin-right: 1rem;
     padding: 1rem;
-    background-color: #137AB1;
-    color: var(--branco);
     border-radius: 15px;
     height: 200px !important;
-    width: 300px !important;
     min-width: 260px !important;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-}
+    background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
 
-.evento-card:nth-child(1) {
-    background-color: #137AB1;
 }
-
-.evento-card:nth-child(2) {
-    background-color: #1d1d1d;
-}
-
-.evento-card:nth-child(3) {
-    background-color: orange;
-}
-
-.evento-card:nth-child(4) {
-    background-color: pink;
-}
-
-.evento-card:nth-child(5) {
-    background-color: var(--cinzaescuro);
-}
-
-.evento-card div:last-child button {
+.evento-card .content-evento-card{
     color: var(--cinzafonte);
-    padding: 0.3rem;
-    justify-content: center;
-    width: 100%;
+}
+.evento-card .content-evento-card small{
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+.evento-card .footer-evento-card{
+    display: flex;
+    justify-content: right;
+}
+.evento-card .footer-evento-card button {
+    color: var(--cinzafonte);
+    padding: 1rem;
+    justify-content: right;
+    background-color: var(--cinzaclaro);
     border-radius: 15px;
     border-style: none;
     font-weight: bold;

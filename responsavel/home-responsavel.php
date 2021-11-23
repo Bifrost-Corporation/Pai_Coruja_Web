@@ -245,12 +245,17 @@
                                     foreach($listaEventos as $linha){
                                 ?>
                                     <div class="swiper-slide evento-card" id="evento-<?php echo $linha['idEvento'] ?>">
-                                        <div>
-                                            <h1><?php echo $linha['tituloEvento'] ?></h1>
-                                            <small>Data: <?php echo date('d/m/Y', strtotime($linha['dataEvento'])) ?></small>
+                                        <div class="content-img-evento">
+                                        
                                         </div>
-                                        <div>
-                                            <a href="#"><button id="btn-modal-evento<?php echo $linha['idEvento'] ?>">Saiba Mais</button></a>
+                                        <div class="content-evento-card">
+                                        <small><i class="material-icons-round">event_note</i>Data: <?php echo date('d/m/Y', strtotime($linha['dataEvento'])) ?></small>
+                                        <h1><?php echo $linha['tituloEvento'] ?></h1>
+                                            
+                                            
+                                        </div>
+                                        <div class="footer-evento-card">
+                                            <button id="btn-modal-evento<?php echo $linha['idEvento'] ?>">Saiba Mais</button>
                                         </div>
                                     </div>
                                 <?php
