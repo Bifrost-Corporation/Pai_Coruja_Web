@@ -765,6 +765,7 @@
     
     <script src="../assets/js/dash-cadastro.js"></script>
     <script src="../assets/js/nav.js"></script>
+    <script src="../assets/js/sweetAlert.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script src="../assets/js/jquery.mask.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.js"></script>
@@ -773,6 +774,25 @@
     <script src="../assets/js/modalProfile.js"></script>                                                                                                                      
 
     <script>
+        function feedback(type,title,text){
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 5000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+            })
+            Toast.fire({
+                    icon:type,
+                    title:title,
+                })
+            }
+            
+            feedback('success','Cadastro Realizado')
         //Script Form Disciplina/Professor
         jQuery('#formProfessorDisciplina').on('submit', function (e){
             var nomeDisciplina = $('#txtNomeDisciplina').val();
