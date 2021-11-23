@@ -30,12 +30,17 @@
 
         $usuario = new Usuario();
         $responsavel = new Responsavel();
+        $aluno = new Aluno();
+        $turma = new Turma();
 
         $listaUsuario = $usuario->listar();
         $listaResponsavel = $responsavel->listarAlternativo();
+        $listaAluno = $aluno->listar($_SESSION['idEscola']);
+        $listaTurmas = $turma->listar($_SESSION['idEscola']);
 
         $imagemResponsavel = new ImagemResponsavel();
         $listaImagem = $imagemResponsavel->listarImagem($_SESSION['idResponsavel']);
+        $listaMediaObservacoesAluno = $aluno->mediaObservacoes($_SESSION['idAluno']);
 
         
         $imagemPerfilsrc = "img/user.png";
@@ -56,6 +61,38 @@
                 }
             }
         }
+
+        foreach($listaMediaObservacoesAluno as $linha){
+            $mediaObservacoes = $linha['mediaPontosObservacoes'];
+        }
+
+        foreach($listaAluno as $linha){
+            if($linha['idAluno'] == $_SESSION['idAluno']){
+                foreach($listaTurmas as $linha2){
+                    if($linha2['idTurma'] == $linha['idTurma']){
+                        $nomeTurma = $linha2['nomeTurma'];
+                    }
+                }
+            }
+        }
+
+        if($mediaObservacoes < 1){
+            $mediaObservacoesEscrita = 'Anotação';
+        }else if($mediaObservacoes > 1 && $mediaObservacoes < 2){
+            $mediaObservacoesEscrita = 'Leve';
+        }else if($mediaObservacoes > 2 && $mediaObservacoes < 3){
+            $mediaObservacoesEscrita = 'Média';
+        }else if($mediaObservacoes > 3 && $mediaObservacoes < 4){
+            $mediaObservacoesEscrita = 'Grave';
+        }else if($mediaObservacoes > 4 && $mediaObservacoes < 5){
+            $mediaObservacoesEscrita = 'Muito Grave';
+        }else if($mediaObservacoes > 5){
+            $mediaObservacoesEscrita = 'Extremamente Grave';
+        }else{
+            $mediaObservacoesEscrita = 'Erro';
+        }
+
+
     ?>
         <header>
             <nav class="nav-bar">
@@ -155,7 +192,7 @@
     <main class="container-main container-dash">
     
             <div class="ola-nav-dash">
-                <h1>Olá Responsável</h1>
+                <h1>Olá <?php echo $_SESSION['nomeResponsavel'] ?></h1>
             </div>
 
             <div class="alternar-alunos-container">
@@ -180,8 +217,8 @@
             <div class="conteudo-responsavel">
                 <div class="aluno-banner">
                     <div class="aluno-banner-left">
-                        <h1>Clodoaldo da Silva Ribeiro</h1></h1>
-                        <h5>Aluno do 3°a</h5>
+                        <h1><?php echo $_SESSION['nomeAluno'] ?></h1></h1>
+                        <h5>Aluno do <?php echo $nomeTurma ?></h5>
                     </div>
                     <div class="aluno-banner-right">
                         <div class="mini-card-observacao">
@@ -190,7 +227,7 @@
                                 <h5>Observação</h5>
                             </div>
                             <div>
-                                <h2>Boa</h2>
+                                <h2><?php echo $mediaObservacoesEscrita ?></h2>
                             </div>
                         </div>
                     </div>
@@ -204,60 +241,23 @@
                             <!-- Additional required wrapper -->
                             <div class="swiper-wrapper">
                                 <!-- Slides -->
-                            <div class="swiper-slide evento-card">
-                                <div>
-                                    <h1>Evento</h1>
-                                    <small>Data: 06/06/2006</small>
-                                </div>
-                                <div>
-                                    <a href="#"><button>Saiba Mais</button></a>
-                                </div>
-                            </div>
-                            <div class="swiper-slide evento-card">
-                                <div>
-                                    <h1>Evento</h1>
-                                    <small>Data: 06/06/2006</small>
-                                </div>
-                                <div>
-                                    <a href="#"><button>Saiba Mais</button></a>
-                                </div>
-                            </div>
-                            <div class="swiper-slide evento-card">
-                                <div>
-                                    <h1>Evento</h1>
-                                    <small>Data: 06/06/2006</small>
-                                </div>
-                                <div>
-                                    <a href="#"><button>Saiba Mais</button></a>
-                                </div>
-                            </div>
-                            <div class="swiper-slide evento-card">
-                                <div>
-                                    <h1>Evento</h1>
-                                    <small>Data: 06/06/2006</small>
-                                </div>
-                                <div>
-                                    <a href="#"><button>Saiba Mais</button></a>
-                                </div>
-                            </div>
-                            <div class="swiper-slide evento-card">
-                                <div>
-                                    <h1>Evento</h1>
-                                    <small>Data: 06/06/2006</small>
-                                </div>
-                                <div>
-                                    <a href="#"><button>Saiba Mais</button></a>
-                                </div>
-                            </div>
-                            <div class="swiper-slide evento-card">
-                                <div>
-                                    <h1>Evento</h1>
-                                    <small>Data: 06/06/2006</small>
-                                </div>
-                                <div>
-                                    <a href="#"><button>Saiba Mais</button></a>
-                                </div>
-                            </div>
+                                <?php
+                                    $evento = new Evento();
+                                    $listaEventos = $evento->listarEventosEscola($_SESSION['idEscola']);
+                                    foreach($listaEventos as $linha){
+                                ?>
+                                    <div class="swiper-slide evento-card" id="evento-<?php echo $linha['idEvento'] ?>">
+                                        <div>
+                                            <h1><?php echo $linha['tituloEvento'] ?></h1>
+                                            <small>Data: <?php echo date('d/m/Y', strtotime($linha['dataEvento'])) ?></small>
+                                        </div>
+                                        <div>
+                                            <a href="#"><button>Saiba Mais</button></a>
+                                        </div>
+                                    </div>
+                                <?php
+                                    }
+                                ?>
 
 
                             
@@ -271,7 +271,7 @@
 
                             <!-- If we need scrollbar -->
                             <div class="swiper-scrollbar"></div>
-                            </div> 
+                        </div> 
 
 
                         <!--<div class="arrumar-cards carousel-evento">

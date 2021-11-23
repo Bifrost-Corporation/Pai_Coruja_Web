@@ -90,6 +90,14 @@
             return 'Evento excluido com sucesso!';
         }
 
+        public function listarEventosEscola($idEscola){
+            $conexao = Conexao::conectar();
+            $queryEvento = "SELECT tbevento.idEvento, tituloEvento, descEvento, dataEvento, tbevento.idSecretaria FROM tbevento INNER JOIN tbsecretaria ON tbsecretaria.idSecretaria = tbevento.idSecretaria INNER JOIN tbescola ON tbescola.idEscola = tbsecretaria.idEscola WHERE tbsecretaria.idEscola = '$idEscola'";
+            $resultadoEvento = $conexao->query($queryEvento);
+            $listaEvento = $resultadoEvento->fetchAll(PDO::FETCH_ASSOC);
+            return $listaEvento;
+        }
+
     }
 
 ?>

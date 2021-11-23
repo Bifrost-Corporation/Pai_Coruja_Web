@@ -462,34 +462,47 @@
             if(mensagem.length > 0 && mensagemSemEspaco.length > 0){
                 <?php 
                     foreach($listaTurma as $linha){
-
                         foreach($listaResponsavel as $linha2){
                             if($linha2['idTurma'] == $linha['idTurma']){
                 ?>
                                 if($('#check-options-<?php echo $linha2['idResponsavel'] ?>').is(":checked")){
-                                    $("#idReceber").val(<?php echo $linha2['idResponsavel'] ?>)
-                                    var dados = {'idEnviar':jQuery('#idEnviar').val(),
-                                                'idReceber':jQuery('#idReceber').val(),
-                                                'txtMensagem':jQuery('#txtMensagemAgrupada').val()};
-                                    var pageurl = '../DAO/enviar-mensagem-professor.php';
+                                    $('#idReceber').val(<?php echo $linha2['idResponsavel'] ?>);
                                     jQuery.ajax({
-                                        url: pageurl,
-                                        data: dados,
-                                        type: 'POST',
-                                        success:function(html){
-                                            $('#txtMensagemAgrupada').val('');
-                                            var modalNovaConversa = document.querySelector('.modal-nova-conversa');
-                                            modalNovaConversa.style.display = 'none';
+                                        async: false,
+                                        url: '../DAO/pegar-id-responsavel2.php',
+                                        method: 'POST',
+                                        data: {
+                                            idResponsavel: <?php echo $linha2['idResponsavel'] ?>
+                                        },
+                                        success:function(retornoid){
+                                            idReceber = retornoid;
+                                            var dados = {'idEnviar':jQuery('#idEnviar').val(),
+                                                'idReceber':idReceber,
+                                                'txtMensagem':mensagem};
+                                            var pageurl = '../DAO/enviar-mensagem-professor.php';
+                                            jQuery.ajax({
+                                                async: false,
+                                                url: pageurl,
+                                                data: dados,
+                                                type: 'POST',
+                                                success:function(html){
+                                                    
+                                                }
+                                            });
                                         }
                                     });
+                                    
                                 }
                 <?php
                             }
                         }
                     }    
                 ?>
+                $('#txtMensagemAgrupada').val('');
+                var modalNovaConversa = document.querySelector('.modal-nova-conversa');
+                modalNovaConversa.style.display = 'none';
             }else{
-                
+                alert("AAAA");
             }
         });
         

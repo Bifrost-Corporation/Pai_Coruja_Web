@@ -178,20 +178,20 @@
                     if($mediaObservacoes < 1){
                         $mediaObservacoesEscrita = 'Anotação';
                     }else if($mediaObservacoes > 1 && $mediaObservacoes < 2){
-                        $mediaObservacoes = 'Leve';
+                        $mediaObservacoesEscrita = 'Leve';
                     }else if($mediaObservacoes > 2 && $mediaObservacoes < 3){
-                        $mediaObservacoes = 'Média';
+                        $mediaObservacoesEscrita = 'Média';
                     }else if($mediaObservacoes > 3 && $mediaObservacoes < 4){
-                        $mediaObservacoes = 'Grave';
+                        $mediaObservacoesEscrita = 'Grave';
                     }else if($mediaObservacoes > 4 && $mediaObservacoes < 5){
-                        $mediaObservacoes = 'Muito Grave';
+                        $mediaObservacoesEscrita = 'Muito Grave';
                     }else if($mediaObservacoes > 5){
-                        $mediaObservacoes = 'Extremamente Grave';
+                        $mediaObservacoesEscrita = 'Extremamente Grave';
                     }else{
-                        $mediaObservacoes = 'Erro';
+                        $mediaObservacoesEscrita = 'Erro';
                     }
                 ?>
-                <small>Média de Observações: <?php echo $mediaObservacoes ?></small>
+                <small>Média de Observações: <?php echo $mediaObservacoesEscrita ?></small>
 
             </div>
             
