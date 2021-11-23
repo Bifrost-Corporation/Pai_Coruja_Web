@@ -417,7 +417,7 @@
     ?>
             <div id="modalEvento-<?php echo $linha['idEvento'] ?>" class="modal modal-evento">
                 <div class="modal-content">
-                        <span class="closeModal"><i class="fas fa-times"></i></span>
+                        <span class="closeModal" id="fechar-evento<?php echo $linha['idEvento'] ?>"><i class="fas fa-times"></i></span>
                         <div class="bg-modal">
                             <div class="title-modal">
                                 <h1><?php echo $linha['tituloEvento'] ?></h1>
@@ -459,10 +459,21 @@
         <?php
             foreach($listaEventos as $linha){
         ?>
+        var modalEvento = document.getElementById("modalEvento-<?php echo $linha['idEvento'] ?>");
+
         $("#btn-modal-evento<?php echo $linha['idEvento'] ?>").on('click', function(){
-            var modalEvento = document.getElementById("modalEvento-<?php echo $linha['idEvento'] ?>");
             modalEvento.classList.toggle("modal-active");
         });
+
+        $("#fechar-evento<?php echo $linha['idEvento'] ?>").on('click', function(){
+            modalEvento.classList.toggle("modal-active");
+        });
+
+        window.onclick = function(event) {
+            if (event.target == modalEvento) {
+                modalEvento.classList.toggle("modal-active");
+            }
+        }
         <?php
             }
         ?>
