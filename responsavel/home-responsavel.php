@@ -233,7 +233,7 @@
 
                 <div class="conteudo-container-responsavel">
                     <section class="cards-eventos">
-                        <h2>Eventos</h2>
+                        <h2>Mural Digital</h2>
 
                         <div class="swiper carousel-evento-responsavel">
                             <!-- Additional required wrapper -->
@@ -271,62 +271,6 @@
                             <div class="swiper-scrollbar"></div>
                         </div> 
 
-
-                        <!--<div class="arrumar-cards carousel-evento">
-
-                            <div class="evento-card">
-                                <div>
-                                    <h1>Evento</h1>
-                                    <small>Data: 06/06/2006</small>
-                                </div>
-                                <div>
-                                    <a href="#"><button>Saiba Mais</button></a>
-                                </div>
-                            </div>
-
-                            <div class="evento-card">
-                                <div>
-                                    <h1>Evento</h1>
-                                    <small>Data: 06/06/2006</small>
-                                </div>
-                                <div>
-                                    <a href="#"><button>Saiba Mais</button></a>
-                                </div>
-                            </div>
-                            <div class="evento-card">
-                                <div>
-                                    <h1>Evento</h1>
-                                    <small>Data: 06/06/2006</small>
-                                </div>
-                                <div>
-                                    <a href="#"><button>Saiba Mais</button></a>
-                                </div>
-                            </div>
-                            <div class="evento-card">
-                                <div>
-                                    <h1>Evento</h1>
-                                    <small>Data: 06/06/2006</small>
-                                </div>
-                                <div>
-                                    <a href="#"><button>Saiba Mais</button></a>
-                                </div>
-                            </div>
-                            <div class="evento-card">
-                                <div>
-                                    <h1>Evento</h1>
-                                    <small>Data: 06/06/2006</small>
-                                </div>
-                                <div>
-                                    <a href="#"><button>Saiba Mais</button></a>
-                                </div>
-                            </div>
-
-
-                        </div>
-                        <div class="indicadors-bar">
-                        <i aria-label="Previous" class="fa fa-chevron-left carousel-evento-prev"></i>
-                        <div role="tablist" class="carousel-evento-dots"></div>
-                        <i aria-label="Next" class="fa fa-chevron-right carousel-evento-next"></i>
                         </div>-->
                     </section>
                 </div>
@@ -410,14 +354,26 @@
     </div>
 
     <!-- Modal de Evento -->
-    <?php 
+    <?php
+        
+        $imagemEvento = new ImagemEvento();
         foreach($listaEventos as $linha){
+            $listaImagemEvento = $imagemEvento->selecionarImagemEvento($linha['idEvento']);
+            foreach($listaImagemEvento as $linha2){
+                $nomeImagemEvento = $linha2['nomeImagemEvento'];
+                if($nomeImagemEvento != ""){
+                    $caminhoImagemEvento = '../' . $linha2['caminhoImagemEvento'] . $linha2['nomeImagemEvento'];
+                }else{
+                    //Adicionar Imagem Padrão para os eventos
+                    $caminhoImagemEvento = '../img/thumb-1920-941898.jpg';
+                }
+            }
     ?>
             <div id="modalEvento-<?php echo $linha['idEvento'] ?>" class="modal modal-evento">
                 <div class="modal-content">
                         <span class="closeModal" id="fechar-evento<?php echo $linha['idEvento'] ?>"><i class="fas fa-times"></i></span>
                         <div class="bg-modal">
-                            <img src="../img/thumb-1920-941898.jpg" class="img-banner-modal-evento" alt="">
+                            <img src="<?php echo $caminhoImagemEvento ?>" class="img-banner-modal-evento" alt="">
                             <div class="title-modal">
                                 <h1><?php echo $linha['tituloEvento'] ?></h1>
                             </div>
@@ -458,19 +414,19 @@
         <?php
             foreach($listaEventos as $linha){
         ?>
-        var modalEvento = document.getElementById("modalEvento-<?php echo $linha['idEvento'] ?>");
+        var modalEvento<?php echo $linha['idEvento'] ?> = document.getElementById("modalEvento-<?php echo $linha['idEvento'] ?>");
 
         $("#btn-modal-evento<?php echo $linha['idEvento'] ?>").on('click', function(){
-            modalEvento.classList.toggle("modal-active");
+            modalEvento<?php echo $linha['idEvento'] ?>.classList.toggle("modal-active");
         });
 
         $("#fechar-evento<?php echo $linha['idEvento'] ?>").on('click', function(){
-            modalEvento.classList.toggle("modal-active");
+            modalEvento<?php echo $linha['idEvento'] ?>.classList.toggle("modal-active");
         });
 
         window.onclick = function(event) {
             if (event.target == modalEvento) {
-                modalEvento.classList.toggle("modal-active");
+                modalEvento<?php echo $linha['idEvento'] ?>.classList.toggle("modal-active");
             }
         }
         <?php

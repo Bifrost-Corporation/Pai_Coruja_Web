@@ -71,6 +71,22 @@
             return 'Imagem do evento excluída com sucesso!';
         }
 
+        public function selecionarImagemEvento($idEvento){
+            $conexao = Conexao::conectar();
+            $queryImagemEvento = "SELECT idImagemEvento, nomeImagemEvento, caminhoImagemEvento, idEvento FROM tbimagemevento WHERE idEvento = '$idEvento'";
+            $resultadoImagemEvento = $conexao->query($queryImagemEvento);
+            $listaImagemEvento = $resultadoImagemEvento->fetchAll(PDO::FETCH_ASSOC);
+            return $listaImagemEvento;
+        }
+
+        public function contarLinhasImagemEvento($idEvento){
+            $conexao = Conexao::conectar();
+            $queryImagemEvento = "SELECT idImagemEvento, nomeImagemEvento, caminhoImagemEvento, idEvento FROM tbimagemevento WHERE idEvento = '$idEvento'";
+            $resultadoImagemEvento = $conexao->query($queryImagemEvento);
+            $numeroLinhas = $resultadoImagemEvento->rowCount();
+            return $numeroLinhas;
+        }
+
     }
 
 ?>
