@@ -199,13 +199,11 @@
                 <span>Alternar Alunos</span>
                 <div class="alternar-alunos-tab-flex">
                     <div class="alternar-alunos-tab" >
-                        <img src="../img/Tony_Tony_Chopper_Anime_Pre_Timeskip_Infobox.png" alt="aluno">
                         <div class="alternar-alunos-tab-title">
                             <h5>Aluno 1</h5>
                         </div>
                     </div>
                     <div class="alternar-alunos-tab">
-                        <img src="../img/macos.png" alt="aluno">
                         <div class="alternar-alunos-tab-title">
                             <h5>Aluno 2</h5>
                         </div>
@@ -419,6 +417,7 @@
                 <div class="modal-content">
                         <span class="closeModal" id="fechar-evento<?php echo $linha['idEvento'] ?>"><i class="fas fa-times"></i></span>
                         <div class="bg-modal">
+                            <img src="../img/thumb-1920-941898.jpg" class="img-banner-modal-evento" alt="">
                             <div class="title-modal">
                                 <h1><?php echo $linha['tituloEvento'] ?></h1>
                             </div>
