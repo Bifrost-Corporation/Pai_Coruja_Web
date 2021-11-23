@@ -181,8 +181,9 @@
     border-width: 0px;
 }
 
-.btn-login:active {
-    background-color: #aa4452;
+.btn-login:focus {
+
+    box-shadow: 0px 0px 10px var(--azulbtnsair);
 }
 
 .btn-esqueci {
