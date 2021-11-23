@@ -164,11 +164,13 @@
     </main>
 
     <script src="../assets/js/nav.js"></script>
+    <script src="../assets/js/sweetAlert.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js"
         integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
     <script>
+        
         jQuery('form').on('submit', function (e) {
 
             //Parte Escola
@@ -185,6 +187,19 @@
                 }, 5000);
                 e.preventDefault();
             }
+            
+            //Modal de feedback 
+
+            function feedback(type,title,text){
+                Swal.fire({
+                    icon:type,
+                    title:title,
+                    text:text,
+                    showConfirmButton:false,
+                    timer:1500,
+                })
+            }
+            feedback('success','Sucesso!','Cadastro realizado!')
 
             //Parte Secretaria
             var nome = $('#txtUsuarioSecretaria').val();

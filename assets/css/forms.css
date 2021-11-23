@@ -302,15 +302,17 @@ input[type="file"] {
 
 .btn-nav-exit {
     cursor: pointer;
+    outline: none;
+    border: none;
     font-family: 'Poppins';
     text-decoration: none;
     background-color: transparent;
-    border-radius: 15px;
+    border-radius: 5px;
     font-weight: bold;
-    color: var(--cinza);
-    border: 3px solid var(--cinza);
-    padding: 10px 40px;
-    transition: 0.3s;
+    color: var(--cinzamaisclaro);
+    background-color: var(--azulumpoucosaturado);
+    padding: 10px 30px;
+    transition: 0.6s ease;
     transform: translateY(0px);
 }
 
@@ -318,6 +320,10 @@ input[type="file"] {
     background-color: var(--azulbtnsair);
     color: var(--cinzamaisclaro);
     transform: translateY(0px);
+}
+.btn-nav-exit:focus {
+
+    box-shadow: 0px 0px 10px var(--azulbtnsair);
 }
 
 .progress-bar{
@@ -781,6 +787,10 @@ input[type="file"] {
 .table-dados td {
     font-size: .9rem;
     padding: .5rem;
+}
+.table-dados td a{
+    color: var(--azulsaturado);
+    padding: 0.2rem;
 }
 
 
