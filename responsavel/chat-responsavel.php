@@ -146,6 +146,7 @@
 <section class="area-chat">
 <div class="menu-lateral">
         <div class="header-menu-lateral-title">
+            
                        <h3>Mensagens</h3>
                       
                     </div>

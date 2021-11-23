@@ -147,7 +147,15 @@
             <section class="area-chat">
             <div class="menu-lateral">
                    <div class="header-menu-lateral-title">
-                       <h3>Mensagens</h3>
+                   <div class="container-box-search">
+                        <form action="" method="GET">
+                        <input class="bar-search-user"type="text" name="" id="bar-search-user" placeholder="Busque..">
+                            <button class="btn-search-user" id="btn-search-user"><i class="material-icons-round">search</i></button> 
+                        </form>
+                     </div>
+                    </div>
+                    <div class="result-search-user">
+                        <h1>Nenhum resultado encontrado!</h1>
                     </div>
                     <div class="container-area-conversa">
                         <div class="header-container-area-conversa">
@@ -296,15 +304,18 @@
             </section>            
         </main>
         
-    
+        
 
     <script src="../assets/js/modalProfile.js"></script>
+   
     <script src="../assets/js/nav.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.js"></script>
     <script src="../assets/js/carousel.js"></script>
 
+   
     <script>
+
         modalNovaConversa = document.querySelector('.modal-nova-conversa')
         $('.btn-show-modal').click(function(event){
             console.log('UAU')
@@ -539,6 +550,19 @@
             }
         });
 
+    </script>
+    
+    <script>
+        /*const btnSearch = document.querySelector('.btn-search-user');
+        const searchBar = document.querySelector('.bar-search-user');
+        
+        btnSearch.onclick = ()=>{
+            console.log('teste');
+            document.querySelector('.result-search-user').classList.toggle('result-search-user-active');
+            btnSearch.classList.toggle('btn-search-active');
+
+        };
+        
     </script>
 </body>
 
