@@ -317,10 +317,9 @@
                 <div class="bg-modal-senha">
                     <div class="div-imagem">
                         <img src="../img/reset_senha.jpg" class="img-card">
-                    </div>
-                    <div class="title-modal">
-                        <h1>RESETE SUA SENHA</h1>
-                        <!-- <button><i class="fas fa-bookmark"></i> Tenho Interesse</button> -->
+                        <div style="padding:1rem; color: var(--cinzafonte)">
+                            <h1>RESET SUA SENHA</h1>
+                        </div>
                     </div>
                     
                 </div> 

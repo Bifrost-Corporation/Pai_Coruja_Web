@@ -210,9 +210,6 @@
                     </ul>
                     
                     </div>
-                    <div class="footer-area-conversa">
-                        <button class="btn-show-modal" href=""><h4><i class="fa fa-plus" aria-hidden="true"></i></h4></button>
-                    </div>
                 </div>
                 <div class="caixa-chat ">
                 
@@ -244,54 +241,6 @@
                     </div>
                 </div>
             </section>
-            <section class="modal-nova-conversa">
-                <div class="header-modal-nova-conversa">
-                    <h3><button class="btn-close-modal-nova"><i class="fa fa-arrow-left" aria-hidden="true"></button></i> Selecione os Contatos</h3>
-                    <small>Você pode selecionar responsáveis ou professores</small>
-                </div>
-                <div class="container-checklist">
-                    <?php
-                        $turma = new Turma();
-                        $listaTurma = $turma->listar($_SESSION['idEscola']);
-                        foreach($listaTurma as $linha){
-                    ?>
-                        <ul class="list-turma">
-                            <input type="checkbox" class="check-options-all" name="option-all" id="option-all-<?php echo $linha['idTurma']; ?>">
-                            <label for="option-all"><?php echo $linha['nomeTurma'] ?></label>
-                            <ul class="ul-checkbox-options" id="ul-checkbox-options-<?php echo $linha['idTurma'] ?>">
-                                <?php
-                                    $responsavel = new Responsavel();
-                                    $listaResponsavel = $responsavel->listar($_SESSION['idEscola']);
-                                    foreach($listaResponsavel as $linha2){
-                                        if($linha2['idTurma'] == $linha['idTurma']){
-                                ?>
-                                <li>
-                                    <div class="profile-details list">
-                                        <img src="../img/macacopc.gif" alt="">
-                                        <label for="check-options"><?php echo $linha2['nomeResponsavel'] ?></label>
-                                    </div>
-                                    <input class="check-options" type="checkbox" name="check-options-<?php echo $linha2['idResponsavel'] ?>" id="check-options-<?php echo $linha2['idResponsavel'] ?>">
-                                </li>
-                                <?php
-                                        }
-                                    }
-                                ?>
-                                
-                            </ul>
-                        </ul>
-                    <?php
-                        }
-                    ?>
-                    
-                </div>
-                <div class="footer-modal-nova-conversa">
-                    <button class="btn-mensagem-agrupada" href="" actived>Comunicado</button>
-                    <form class="form-submit-message-agrupada" id="formMensagemAgrupada" name="formMensagemAgrupada">
-                        <input type="text" placeholder="Mande sua mensagem" id="txtMensagemAgrupada" name="txtMensagemAgrupada">
-                        <button id="botao-enviar-agrupado" name="botao-enviar-agrupado"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
-                    </form>
-                </div>
-            </section>   
         </main>
         
        
