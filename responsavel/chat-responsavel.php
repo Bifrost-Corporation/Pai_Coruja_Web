@@ -209,10 +209,10 @@
             $listaProfessor = $professor->listarEscola($_SESSION['idEscola']);
             $contaid = 2;
             $imagemProfessor = new ImagemProfessor();
-            $imagemPerfilProfessor = "img/user.png";
             foreach($listaProfessor as $linha){
                 $listaChatProfessor = $professor->selecionarProfessorChat($idTurma, $linha['idProfessor']);
                 $listaImagemProfessor = $imagemProfessor->listarImagem($linha['idProfessor']);
+                $imagemPerfilProfessor = "img/user.png";
                 foreach($listaChatProfessor as $linha2){
                     foreach($listaImagemProfessor as $linha3){
                         $imagemPerfilProfessor = $linha3['caminhoImagemPerfilProfessor'].$linha3['nomeImagemPerfilProfessor'];  
