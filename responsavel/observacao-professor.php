@@ -333,7 +333,9 @@
                                 <?php
                                     }
                                 ?>
-                           
+                                <div class="container-no-observacoes">
+                                    <h3>Seu filho ainda não tem nenhuma Observação</h3>
+                                </div>
                    
                             
                             
