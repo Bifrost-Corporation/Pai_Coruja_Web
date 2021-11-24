@@ -260,6 +260,23 @@
                                     </div>
                                 <?php
                                     }
+                                    $publicacao = new Publicacao();
+                                    $listaPublicacao = $publicacao->listarPublicacoes($_SESSION['idAluno'], $_SESSION['idEscola']);
+                                    foreach($listaPublicacao as $linha){
+                                ?>
+                                    <div class="swiper-slide evento-card" id="publicacao-<?php echo $linha['idPublicacao'] ?>">
+                                        <div class="content-img-evento">
+                                        
+                                        </div>
+                                        <div class="content-evento-card">
+                                            <h1><?php echo $linha['tituloPublicacao'] ?></h1>
+                                        </div>
+                                        <div class="footer-evento-card">
+                                            <button id="btn-modal-publicacao<?php echo $linha['idPublicacao'] ?>">Saiba Mais</button>
+                                        </div>
+                                    </div>
+                                <?php
+                                    }
                                 ?>
 
 
@@ -276,7 +293,7 @@
                             <div class="swiper-scrollbar"></div>
                         </div> 
 
-                        </div>-->
+                        </div>
                     </section>
                 </div>
             </div>
@@ -395,6 +412,26 @@
     <?php
         }
     ?>
+
+    <!-- Modal da Publicação -->
+    <?php
+        foreach($listaPublicacao as $linha){
+    ?>
+            <div id="modalPublicacao-<?php echo $linha['idPublicacao'] ?>" class="modal modal-evento">
+                <div class="modal-content">
+                    <span class="closeModal" id="fechar-publicacao<?php echo $linha['idPublicacao'] ?>"><i class="fas fa-times"></i></span>  
+                    <div class="modal-text-description">
+                        <div class="info-modal">
+                            <h5>Informações da Publicação:</h5>
+                        </div>
+                        <h4>Descrição</h4>
+                        <p><?php echo $linha['descPublicacao'] ?></p>
+                    </div>
+                </div>
+            </div>
+    <?php
+        }
+    ?>
     
 
     <script src="../assets/js/modalProfile.js"></script>
@@ -430,8 +467,31 @@
         });
 
         window.onclick = function(event) {
-            if (event.target == modalEvento) {
+            if (event.target == modalEvento<?php echo $linha['idEvento'] ?>) {
                 modalEvento<?php echo $linha['idEvento'] ?>.classList.toggle("modal-active");
+            }
+        }
+        <?php
+            }
+        ?>
+
+        //Funções dos modais de publicação
+        <?php
+            foreach($listaPublicacao as $linha){
+        ?>
+        var modalPublicacao<?php echo $linha['idPublicacao'] ?> = document.getElementById("modalPublicacao-<?php echo $linha['idPublicacao'] ?>");
+        
+        $("#btn-modal-publicacao<?php echo $linha['idPublicacao'] ?>").on('click', function(){
+            modalPublicacao<?php echo $linha['idPublicacao'] ?>.classList.toggle("modal-active");
+        });
+
+        $("fechar-publicacao<?php echo $linha['idPublicacao'] ?>").on('click', function(){
+            modalPublicacao<?php echo $linha['idPublicacao'] ?>.classList.toggle("modal-active");
+        });
+
+        window.onclick = function(event) {
+            if(event.target == modalPublicacao<?php echo $linha['idPublicacao'] ?>) {
+                modalPublicacao<?php echo $linha['idPublicacao'] ?>.classList.toggle("modal-active");
             }
         }
         <?php

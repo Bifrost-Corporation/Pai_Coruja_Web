@@ -2,6 +2,7 @@
 
     include("../professor/sentinela.php");
     include("../classes/Publicacao.php");
+    include("../classes/Conexao.php");
 
     try{
         header("location: ../professor/cadastrar-publicacao.php");

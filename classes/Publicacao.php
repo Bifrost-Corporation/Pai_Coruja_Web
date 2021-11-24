@@ -1,7 +1,5 @@
 <?php
 
-    include("Conexao.php");
-
     class Publicacao{
 
         private $idPublicacao;
@@ -80,6 +78,14 @@
             $stmt->bindParam(1, $publicaco->getIdPublicacao());
             $stmt->execute();
             return 'Publicação excluida com sucesso!';
+        }
+
+        public function listarPublicacoes($idAluno, $idEscola){
+            $conexao = Conexao::conectar();
+            $queryPublicacao = "SELECT idPublicacao, tituloPublicacao, descPublicacao, tbprofessor.idProfessor FROM tbpublicacao INNER JOIN tbprofessor ON tbprofessor.idProfessor = tbpublicacao.idProfessor INNER JOIN tbdisciplina ON tbdisciplina.idProfessor = tbprofessor.idProfessor INNER JOIN tbhorarioturma ON tbhorarioturma.idDisciplina = tbdisciplina.idDisciplina INNER JOIN tbturma ON tbturma.idTurma = tbhorarioturma.idTurma INNER JOIN tbaluno ON tbaluno.idTurma = tbturma.idTurma WHERE tbaluno.idAluno = '$idAluno' UNION SELECT idPublicacao, tituloPublicacao, descPublicacao, tbsecretaria.idSecretaria FROM tbpublicacao INNER JOIN tbsecretaria ON tbsecretaria.idSecretaria = tbpublicacao.idSecretaria WHERE tbsecretaria.idEscola = '$idEscola'";
+            $resultadoPublicacao = $conexao->query($queryPublicacao);
+            $listaPublicacao = $resultadoPublicacao->fetchAll(PDO::FETCH_ASSOC);
+            return $listaPublicacao;
         }
 
     }
