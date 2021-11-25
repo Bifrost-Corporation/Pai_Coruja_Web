@@ -158,14 +158,14 @@
 
 
                 <div class="abas-container">
+                    <button class="aba-cadastro" onclick="openTab(event,'Turma-tab')">
+                        <h3>Turmas</h3>
+                    </button>
                     <button class="aba-cadastro" onclick="openTab(event,'Professor-tab')">
                         <h3>Professores</h3>
                     </button>
                     <button class="aba-cadastro" onclick="openTab(event,'Disciplina-tab')">
                         <h3>Diciplinas</h3>
-                    </button>
-                    <button class="aba-cadastro" onclick="openTab(event,'Turma-tab')">
-                        <h3>Turmas</h3>
                     </button>
                     <button class="aba-cadastro" onclick="openTab(event,'Aluno-tab')">
                         <h3>Alunos</h3>

@@ -156,11 +156,11 @@
 
 
                 <div class="abas-container">
-                    <button class="aba-cadastro" onclick="openTab(event,'Professor-tab')">
-                        <h3>Professor / Disciplina</h3>
-                    </button>
                     <button class="aba-cadastro" onclick="openTab(event,'Turma-tab')">
                         <h3>Turma</h3>
+                    </button>
+                    <button class="aba-cadastro" onclick="openTab(event,'Professor-tab')">
+                        <h3>Professor / Disciplina</h3>
                     </button>
                     <button class="aba-cadastro" onclick="openTab(event,'Horario-tab')">
                         <h3>Horário Turma</h3>
