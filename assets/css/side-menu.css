@@ -215,7 +215,7 @@
 }
 
 .sidebar ul li .active-nav {
-    border-radius: 1rem;
+    border-radius: 10px;
     color: var(--branco);
     background-color: var(--azulbtnsair);
     font-weight: bold;
@@ -223,7 +223,7 @@
 }
 
 .sidebar ul li a:hover {
-    border-radius: 1rem;
+    border-radius: 5px;
     color: var(--cinzafonte);
     background-color: var(--cinzamaisclaro);
     font-weight: bold;
@@ -295,7 +295,7 @@
     box-shadow: 5px 5px 10px rgb(0 0 0 / 6%);
 
     padding: 0.5rem;
-    border-radius: 0.5rem;
+    border-radius: 5px;
 }
 
 @media (min-width: 720px) {
