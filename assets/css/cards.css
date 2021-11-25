@@ -100,6 +100,13 @@ small:first-child {
 .evento-card .content-evento-card{
     color: var(--cinzafonte);
 }
+
+.evento-card .content-evento-card h1{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+}
 .evento-card .content-evento-card small{
     display: flex;
     gap: 0.5rem;
