@@ -301,7 +301,7 @@
     box-shadow: 5px 5px 10px var(--cinzaBackground);
 }
 .container-area-conversa ul{
-    height: 50vh;
+    height: 60vh;
     overflow-y:auto;
 }
 
