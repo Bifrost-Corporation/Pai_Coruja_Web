@@ -171,6 +171,10 @@
                     </div>
 
                     <section class="agenda-professor">
+
+                    <?php
+                        $listaHorarioProfessor = $professor->listarHorarioProfessor($_SESSION['idProfessor']);
+                    ?>
                         
                         <div class="container-agenda-large">
                             <div class="header-container-agenda-large">
@@ -181,56 +185,36 @@
                                 <table>
                                     <thead>
                                         <tr>
-                                            <td>Segunda-Feira</td>
-                                            <td>Terça-Feira</td>
-                                            <td>Quarta-Feira</td>
-                                            <td>Quinta-Feira</td>
-                                            <td>Sexta-Feira</td>
+                                            <td>Dia da Semana</td>
+                                            <td>Turma</td>
+                                            <td>Ordem da Aula no Dia</td>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        
+                                        <?php 
+                                            foreach($listaHorarioProfessor as $linha){
+                                        ?>
                                         <tr>
-                                            <td>Matematica</td>
-                                            <td>Português</td>
-                                            <td>Ciências</td>
-                                            <td>Filosofia</td>
-                                            <td>Naruto</td>
+                                            <td>
+                                                <?php 
+                                                    echo $linha['diaSemana'];
+                                                ?>
+                                            </td>
+                                            <td>
+                                                <?php 
+                                                    echo $linha['nomeTurma'];
+                                                ?>
+                                            </td>
+                                            <td>
+                                                <?php
+                                                    echo $linha['ordemAulaDia'] . "º Aula";
+                                                ?>
+                                            </td>
                                         </tr>
-                                        <tr>
-                                            <td>Matematica</td>
-                                            <td>Português</td>
-                                            <td>Ciências</td>
-                                            <td>Filosofia</td>
-                                            <td>Naruto</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Matematica</td>
-                                            <td>Português</td>
-                                            <td>Ciências</td>
-                                            <td>Filosofia</td>
-                                            <td>Naruto</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Matematica</td>
-                                            <td>Português</td>
-                                            <td>Ciências</td>
-                                            <td>Filosofia</td>
-                                            <td>Naruto</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Matematica</td>
-                                            <td>Português</td>
-                                            <td>Ciências</td>
-                                            <td>Filosofia</td>
-                                            <td>Naruto</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Matematica</td>
-                                            <td>Português</td>
-                                            <td>Ciências</td>
-                                            <td>Filosofia</td>
-                                            <td>Naruto</td>
-                                        </tr>
+                                        <?php
+                                            }
+                                        ?>
                                     </tbody>
                                 </table>
                             </div>
