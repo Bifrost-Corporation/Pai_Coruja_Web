@@ -37,6 +37,8 @@
                     
                 </div>
                 <div class="div-login">
+                    </div>
+                <div class="div-login">
                     <button class="btn-esqueci"><a href="forgetPassword.php">Esqueci</a></button>
                     <button class="btn-login" name="btn-login" id="btn-login" type="submit">Entrar ></button>
                 </div>
