@@ -842,17 +842,9 @@
         
 
         jQuery('#formTurma').on('submit', function(e){
-            e.preventDefault();
             var nomeTurma = $('#txtNomeTurma').val();
-            if (nomeTurma.length != 3) {
-                $('#label-nomeTurma').html('Por favor, preencha o campo de nome para a turma corretamente!');
-                $('#txtNomeTurma').addClass('erro-form');
-                $('#label-nomeTurma').show();
-                setTimeout(function () {
-                    $('#label-nomeTurma').fadeOut(1);
-                    $('#txtNomeTurma').removeClass('erro-form');
-                }, 5000);
-            }else{
+            if (nomeTurma.length == 3) {
+                e.preventDefault();
                 var dados = {'txtNomeTurma':nomeTurma};
                 $.ajax({
                     url: "../DAO/inserir-turma-planilha.php",
@@ -860,6 +852,8 @@
                     type: 'POST',
                     success: feedback('success', 'Cadastro da turma realizado com sucesso!')
                 });
+            }else{
+                //Tem como verificar o arquivo?
             }
         });
 
@@ -1016,6 +1010,9 @@
             var cidadeSemEspaco = cidade.trim();
             var bairroSemEspaco = bairro.trim();
             var alunoSemEspaco = aluno.trim();
+            var validarForm = true;
+
+            e.preventDefault();
 
             if (nome.length == 0 || nomeSemEspaco == '') {
                 $('#label-nomeResponsavel').html('Por favor, preencha o campo de nome para o responsável!');
@@ -1026,7 +1023,7 @@
                     $('#label-nomeResponsavel').fadeOut(1);
                     $('#txtNomeResponsavel').removeClass('erro-form');
                 }, 5000);
-                e.preventDefault();
+                validarForm = false;
             }
 
             if (email.length == 0 || emailSemEspaco == '') {
@@ -1038,7 +1035,7 @@
                     $('#label-emailResponsavel').fadeOut(1);
                     $('#txtEmailResponsavel').removeClass('erro-form');
                 }, 5000);
-                e.preventDefault();
+                validarForm = false;
             } else {
                 var verificaarroba = false;
                 var verificaponto = false;
@@ -1063,7 +1060,7 @@
                         $('#label-emailResponsavel').fadeOut(1);
                         $('#txtEmailResponsavel').removeClass('erro-form');
                     }, 5000);
-                    e.preventDefault();
+                    validarForm = false;
                 }
             }
             if (senha1.length == 0 || senha1SemEspaco == '') {
@@ -1075,7 +1072,7 @@
                     $('#label-senha1Responsavel').fadeOut(1);
                     $('#txtSenhaResponsavel').removeClass('erro-form');
                 }, 5000);
-                e.preventDefault();
+                validarForm = false;
             }
             if (senha2.length == 0 || senha2SemEspaco == '') {
                 $('#label-senha2Responsavel').html('Por favor, preencha o campo para confirmar a senha!');
@@ -1086,7 +1083,7 @@
                     $('#label-senha2Responsavel').fadeOut(1);
                     $('#txtConfirmaSenhaResponsavel').removeClass('erro-form');
                 }, 5000);
-                e.preventDefault();
+                validarForm = false;
             }
             if (senha1 != senha2) {
                 $('#label-senha1Responsavel').html('Senhas não correspondentes!');
@@ -1103,7 +1100,7 @@
                     $('#label-senha2Responsavel').fadeOut(1);
                     $('#txtConfirmaSenhaResponsavel').removeClass('erro-form');
                 }, 5000);
-                e.preventDefault();
+                validarForm = false;
 
             }
             if (telefone.length <= 8) {
@@ -1115,7 +1112,7 @@
                     $('#label-telefone').fadeOut(1);
                     $('#txtTelefone').removeClass('erro-form');
                 }, 5000);
-                e.preventDefault();
+                validarForm = false;
             }
             if (cpf.length != 14) {
                 $('#label-cpf').html('CPF inválido!');
@@ -1126,7 +1123,7 @@
                     $('#label-cpf').fadeOut(1);
                     $('#txtCpf').removeClass('erro-form');
                 }, 5000);
-                e.preventDefault();
+                validarForm = false;
             } else {
                 var cpfValido = true;
                 var arrayCpf = cpf.split("");
@@ -1151,7 +1148,7 @@
                         $('#label-cpf').fadeOut(1);
                         $('#txtCpf').removeClass('erro-form');
                     }, 5000);
-                        e.preventDefault();
+                    validarForm = false;
                 }else{
                     var teste1 = (digito1 * 10) + (digito2 * 9) + (digito3 * 8) + (digito4 * 7) + (digito5 * 6) + (digito6 * 5) + (digito7 * 4) + (digito8 * 3) + (digito9 * 2);
                     var resto1 = (teste1 * 10) % 11;
@@ -1180,7 +1177,7 @@
                             $('#label-cpf').fadeOut(1);
                             $('#txtCpf').removeClass('erro-form');
                         }, 5000);
-                        e.preventDefault();
+                        validarForm = false;
                     }
                 }
             }
@@ -1193,7 +1190,7 @@
                     $('#label-cep').fadeOut(1);
                     $('#txtCep').removeClass('erro-form');
                 }, 5000);
-                e.preventDefault();
+                validarForm = false;
             }
             if (rua.length == 0 || ruaSemEspaco == '') {
                 $('#label-rua').html('Informe a rua do responsável!');
@@ -1204,7 +1201,7 @@
                     $('#label-rua').fadeOut(1);
                     $('#txtRua').removeClass('erro-form');
                 }, 5000);
-                e.preventDefault();
+                validarForm = false;
             }
             if (numero.length == 0 || numeroSemEspaco == '') {
                 $('#label-numero').html('Informe o número do responsável!');
@@ -1215,7 +1212,7 @@
                     $('#label-numero').fadeOut(1);
                     $('#txtNumero').removeClass('erro-form');
                 }, 5000);
-                e.preventDefault();
+                validarForm = false;
             }
             if (cidade.length == 0 || cidadeSemEspaco == '') {
                 $('#label-cidade').html('Informe a cidade do responsável!');
@@ -1226,7 +1223,7 @@
                     $('#label-cidade').fadeOut(1);
                     $('#txtCidade').removeClass('erro-form');
                 }, 5000);
-                e.preventDefault();
+                validarForm = false;
             }
             if (bairro.length == 0 || bairroSemEspaco == '') {
                 $('#label-bairro').html('Informe o bairro do responsável!');
@@ -1237,7 +1234,7 @@
                     $('#label-bairro').fadeOut(1);
                     $('#txtBairro').removeClass('erro-form');
                 }, 5000);
-                e.preventDefault();
+                validarForm = false;
             }
             if (aluno.length == 0 || alunoSemEspaco == '') {
                 $('#label-alunoResponsavel').html('Informe o aluno do responsável!');
@@ -1248,7 +1245,30 @@
                     $('#label-alunoResponsavel').fadeOut(1);
                     $('#txtAlunoResponsavel').removeClass('erro-form');
                 }, 5000);
-                e.preventDefault();
+                validarForm = false;
+            }
+
+            if(validarForm == true){
+                var dados = {'txtNomeAluno':$('#txtNomeAluno').val(),
+                            'dataNasc':$('#dataNasc').val(),
+                            'txtTurmaAluno':$('#txtTurmaAluno').val(),
+                            'txtNomeResponsavel':$('#txtNomeResponsavel').val(),
+                            'txtEmailResponsavel':$('#txtEmailResponsavel').val(),
+                            'txtSenhaResponsavel':$('#txtSenhaResponsavel').val(),
+                            'txtCpf':$('#txtCpf').val(),
+                            'txtRua':$('#txtRua').val(),
+                            'txtNumero':$('#txtNumero').val(),
+                            'txtComplemento':$('#txtComplemento').val(),
+                            'txtCep':$('#txtCep').val(),
+                            'txtBairro':$('#txtBairro').val(),
+                            'txtCidade':$('#txtCidade').val(),
+                            'txtTelefone':$('#txtTelefone').val()};
+                $.ajax({
+                    url: "../DAO/inserir-aluno-responsavel.php",
+                    data: dados,
+                    type: 'POST',
+                    success: feedback('success', 'Cadastro do aluno e do responsável realizado com sucesso!')
+                });
             }
 
         });
