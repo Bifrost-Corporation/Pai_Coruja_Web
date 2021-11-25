@@ -64,7 +64,7 @@
                     <ul class="ul-area-btn">
                         <li class="nav-li"><a class="btn-nav-pc-open"><i class="material-icons-round">menu</i></a></li>
                     </ul>
-                    <a href="dashboard.php"><img class="logo-img" src="../img/pai_coruja_branca.png"></a>
+                    <a href="home-responsavel.php"><img class="logo-img" src="../img/pai_coruja_branca.png"></a>
                 </div>
                 <button class="profile">
                     <div class="profile-details" id="openProfile">

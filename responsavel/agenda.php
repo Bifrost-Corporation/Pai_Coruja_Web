@@ -68,7 +68,7 @@
                     <ul class="ul-area-btn">
                         <li class="nav-li"><a class="btn-nav-pc-open"><i class="material-icons-round">menu</i></a></li>
                     </ul>
-                    <a href="dashboard.php"><img class="logo-img" src="../img/pai_coruja_branca.png"></a>
+                    <a href="home-responsavel.php"><img class="logo-img" src="../img/pai_coruja_branca.png"></a>
                 </div>
                 <button class="profile">
                     <div class="profile-details" id="openProfile">
@@ -85,13 +85,6 @@
                         </div>
                     </div>
                     <ul class="opcoes-drop-profile">
-                        <!-- <li class="online-li">
-                            <label for="">Online</label>
-                            <label class="switch">
-                                <input type="checkbox" checked>
-                                <span class="slider round"></span>
-                            </label>
-                        </li> -->
                         <li class="drop-profile-li" id="alterar-imagem-perfil">
                             <a href="home-responsavel.php#ProfileEdit">
                                 <i class="material-icons-round">manage_accounts</i>
