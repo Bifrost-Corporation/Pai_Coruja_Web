@@ -22,16 +22,23 @@
 
         include("../classes/Usuario.php");
         include("../classes/Professor.php");
+        include("../classes/Escola.php");
         include ('../classes/ImagemProfessor.php');
 
         $usuario = new Usuario();
         $professor = new Professor();
+        $escola = new Escola();
 
         $listaUsuario = $usuario->listar();
         $listaProfessor = $professor->listar();
 
         $imagemProfessor = new ImagemProfessor();
         $listaImagem = $imagemProfessor->listarImagem($_SESSION['idProfessor']);
+
+        $listaNomeEscola = $escola->selecionarNomeEscola($_SESSION['idEscola']);
+        foreach($listaNomeEscola as $linha){
+            $nomeEscola = $linha['nomeEscola'];
+        }
 
         
         $imagemPerfilsrc = "img/user.png";
@@ -162,15 +169,19 @@
                         <div class="detalhes-professor">
                             <div>
                                 <h2><?php echo $_SESSION['nomeProfessor'] ?></h2>
-                                <small>Bem Vindo de Volta!</small>
+                                <small>Bem Vindo(a) de Volta!</small>
                             </div>
                             <p><strong>Nome: </strong><?php echo $_SESSION['nomeProfessor'] ?></p>
                             <p><strong>Email: </strong><?php echo $_SESSION['emailProfessor'] ?></p>
-                            <p><strong>Escola: </strong>Escolinha do clodo</p>
+                            <p><strong>Escola: </strong><?php echo $nomeEscola ?></p>
                         </div>
                     </div>
 
                     <section class="agenda-professor">
+
+                    <?php
+                        $listaHorarioProfessor = $professor->listarHorarioProfessor($_SESSION['idProfessor']);
+                    ?>
                         
                         <div class="container-agenda-large">
                             <div class="header-container-agenda-large">
@@ -181,56 +192,36 @@
                                 <table>
                                     <thead>
                                         <tr>
-                                            <td>Segunda-Feira</td>
-                                            <td>Terça-Feira</td>
-                                            <td>Quarta-Feira</td>
-                                            <td>Quinta-Feira</td>
-                                            <td>Sexta-Feira</td>
+                                            <td>Dia da Semana</td>
+                                            <td>Turma</td>
+                                            <td>Ordem da Aula no Dia</td>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        
+                                        <?php 
+                                            foreach($listaHorarioProfessor as $linha){
+                                        ?>
                                         <tr>
-                                            <td>Matematica</td>
-                                            <td>Português</td>
-                                            <td>Ciências</td>
-                                            <td>Filosofia</td>
-                                            <td>Naruto</td>
+                                            <td>
+                                                <?php 
+                                                    echo $linha['diaSemana'];
+                                                ?>
+                                            </td>
+                                            <td>
+                                                <?php 
+                                                    echo $linha['nomeTurma'];
+                                                ?>
+                                            </td>
+                                            <td>
+                                                <?php
+                                                    echo $linha['ordemAulaDia'] . "º Aula";
+                                                ?>
+                                            </td>
                                         </tr>
-                                        <tr>
-                                            <td>Matematica</td>
-                                            <td>Português</td>
-                                            <td>Ciências</td>
-                                            <td>Filosofia</td>
-                                            <td>Naruto</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Matematica</td>
-                                            <td>Português</td>
-                                            <td>Ciências</td>
-                                            <td>Filosofia</td>
-                                            <td>Naruto</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Matematica</td>
-                                            <td>Português</td>
-                                            <td>Ciências</td>
-                                            <td>Filosofia</td>
-                                            <td>Naruto</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Matematica</td>
-                                            <td>Português</td>
-                                            <td>Ciências</td>
-                                            <td>Filosofia</td>
-                                            <td>Naruto</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Matematica</td>
-                                            <td>Português</td>
-                                            <td>Ciências</td>
-                                            <td>Filosofia</td>
-                                            <td>Naruto</td>
-                                        </tr>
+                                        <?php
+                                            }
+                                        ?>
                                     </tbody>
                                 </table>
                             </div>

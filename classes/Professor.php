@@ -159,6 +159,14 @@
             return $listaProfessor;
         }
 
+        public function listarHorarioProfessor($idProfessor){
+            $conexao = Conexao::conectar();
+            $queryProfessor = "SELECT diaSemana, ordemAulaDia, tbhorarioturma.idTurma, tbhorarioturma.idDisciplina, tbhorarioturma.idEscola, tbturma.nomeTurma FROM tbhorarioturma INNER JOIN tbturma ON tbturma.idTurma = tbhorarioturma.idTurma INNER JOIN tbdisciplina ON tbdisciplina.idDisciplina = tbhorarioturma.idDisciplina INNER JOIN tbprofessor ON tbprofessor.idProfessor = tbdisciplina.idProfessor WHERE tbprofessor.idProfessor = '$idProfessor'";
+            $resultadoProfessor = $conexao->query($queryProfessor);
+            $listaProfessor = $resultadoProfessor->fetchAll(PDO::FETCH_ASSOC);
+            return $listaProfessor;
+        }
+
     }
 
 ?>
