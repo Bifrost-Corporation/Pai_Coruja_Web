@@ -202,7 +202,7 @@ body{
     background-color: var(--cinzamaisclaro);
     color: var(--cinzafonte);
     padding: 0.5rem 2rem;
-    border-radius: 1rem;
+    border-radius: 5px;
     text-align: center;
     font-weight: bold;
     transition: 300ms;
@@ -210,14 +210,14 @@ body{
 }
 
 .aba-cadastro:hover{
-    background-color: var(--azulnavbar);
+    background-color: var(--azulbtnsair);
     color: var(--cinzamaisclaro);
     transition: 300ms;
     cursor: pointer;
 }
 
 .aba-cadastro-active{
-    background-color: var(--azulbtnsair);
+    background-color: var(--azulumpoucosaturado);
     color: var(--cinzamaisclaro);
 }
 

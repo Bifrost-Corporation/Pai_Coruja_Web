@@ -148,8 +148,8 @@
                             ?>
                                 <tr>
                                 <td><?php echo $linha['nomeEscola'] ?></td>
-                                <td><?php echo "<a class'opcao-icone' href='?idEscola={$linha['idEscola']}&nomeEscola={$linha['nomeEscola']}&idAdministrador={$linha['idAdministrador']}&nomeSecretaria={$linha['nomeSecretaria']}&emailSecretaria={$linha['emailSecretaria']}&idSecretaria={$linha['idSecretaria']}'>"?><i class="icons-table fa fa-cog opcao-icone"></i><?php echo "</a>" ?></td>
-                                <td><?php echo "<a href='../DAO/excluir-escola.php?idEscola={$linha['idEscola']}&idSecretaria={$linha['idSecretaria']}'"?> onclick="return confirm('Você está prestes a excluir a escola: <?php echo $linha['nomeEscola'] ?>, tem certeza?')"><i class="icons-table fas fa-times" aria-hidden="true"></i></td>
+                                <td><?php echo "<a class'opcao-icone' href='?idEscola={$linha['idEscola']}&nomeEscola={$linha['nomeEscola']}&idAdministrador={$linha['idAdministrador']}&nomeSecretaria={$linha['nomeSecretaria']}&emailSecretaria={$linha['emailSecretaria']}&idSecretaria={$linha['idSecretaria']}'>"?><i class=" opcao-icone material-icons-round">edit</i><?php echo "</a>" ?></td>
+                                <td><?php echo "<a href='../DAO/excluir-escola.php?idEscola={$linha['idEscola']}&idSecretaria={$linha['idSecretaria']}'"?> onclick="return confirm('Você está prestes a excluir a escola: <?php echo $linha['nomeEscola'] ?>, tem certeza?')"><i class=" opcao-icone material-icons-round">delete</i></td>
                                 </tr>
                             <?php
                             }

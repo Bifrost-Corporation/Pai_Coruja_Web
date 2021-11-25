@@ -789,7 +789,11 @@ input[type="file"] {
     padding: .5rem;
 }
 .table-dados td a{
-    color: var(--azulsaturado);
+    color: var(--cinza);
+    padding: 0.2rem;
+}
+.table-dados td a:active{
+    color: var(--cinzafonte);
     padding: 0.2rem;
 }
 

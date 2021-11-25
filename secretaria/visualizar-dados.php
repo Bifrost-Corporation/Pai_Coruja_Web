@@ -184,7 +184,7 @@
                         <div class="box-titulo-bar-search">
                             <h1>Professores Cadastrados</h1>
                             <form action="#" class="box-search">
-                                <button class="btn-search"><i class="fa fa-search" aria-hidden="true"></i></button>
+                                <button class="btn-search"><i class="opcao-icone material-icons-round">edit</i></button>
                                 <input type="text" name="search" placeholder="Busque..">
                             </form>
                         </div>
@@ -209,10 +209,9 @@
                                         <td><?php echo $linha['nomeProfessor'] ?></td>
                                         <td><?php echo $linha['emailProfessor'] ?></td>
                                         <td><?php echo "<a class'opcao-icone' href='?idProfessor={$linha['idProfessor']}&nomeProfessor={$linha['nomeProfessor']}&emailProfessor={$linha['emailProfessor']}&idEscola={$linha['idEscola']}'>"; ?><i
-                                                class="icons-table fa fa-cog opcao-icone"></i><?php echo "</a>" ?></td>
+                                                class="icons-table opcao-icone material-icons-round">edit</i><?php echo "</a>" ?></td>
                                         <td><?php echo "<a href='../DAO/excluir-professor.php?idProfessor={$linha['idProfessor']}'"?>
-                                            onclick="return confirm('Você está prestes a excluir a conta do professor: <?php echo $linha['nomeProfessor'] ?> da escola, tem certeza?')"><i
-                                                class="icons-table fas fa-times" aria-hidden="true"></i></td>
+                                            onclick="return confirm('Você está prestes a excluir a conta do professor: <?php echo $linha['nomeProfessor'] ?> da escola, tem certeza?')"><i class="material-icons-round">delete</i></td>
                                     </tr>
                                     <?php
                                 }
@@ -227,7 +226,7 @@
                         <div class="box-titulo-bar-search">
                             <h1>Disciplinas Cadastradas</h1>
                             <form action="#" class="box-search">
-                                <button class="btn-search"><i class="fa fa-search" aria-hidden="true"></i></button>
+                                <button class="btn-search"><i class="opcao-icone material-icons-round">edit</i></button>
                                 <input type="text" name="search" placeholder="Busque..">
                             </form>
                         </div>
@@ -252,10 +251,10 @@
                                         <td><?php echo $linha['nomeDisciplina'] ?></td>
                                         <td><?php echo $linha['nomeProfessor'] ?></td>
                                         <td><?php echo "<a class'opcao-icone' href='?idDisciplina={$linha['idDisciplina']}&nomeDisciplina={$linha['nomeDisciplina']}&idProfessor={$linha['idProfessor']}&idEscola={$linha['idEscola']}&nomeProfessor={$linha['nomeProfessor']}'>"; ?><i
-                                                class="icons-table fa fa-cog opcao-icone"></i><?php echo "</a>" ?></td>
+                                                class=" opcao-icone material-icons-round">edit</i><?php echo "</a>" ?></td>
                                         <td><?php echo "<a href='../DAO/excluir-disciplina.php?idDisciplina={$linha['idDisciplina']}'"?>
                                             onclick="return confirm('Você está prestes a excluir a disciplina: <?php echo $linha['nomeDisciplina'] ?>, do professor: <?php echo $linha['nomeProfessor'] ?>, tem certeza?')"><i
-                                                class="icons-table fas fa-times" aria-hidden="true"></i></td>
+                                            class="material-icons-round">delete</i></td>
                                     </tr>
                                     <?php
                                 }
@@ -269,7 +268,7 @@
                         <div class="box-titulo-bar-search">
                             <h1>Disciplinas Cadastradas</h1>
                             <form action="#" class="box-search">
-                                <button class="btn-search"><i class="fa fa-search" aria-hidden="true"></i></button>
+                                <button class="btn-search"><i class="opcao-icone material-icons-round">edit</i></button>
                                 <input type="text" name="search" placeholder="Busque..">
                             </form>
                         </div>
@@ -292,10 +291,10 @@
                                     <tr>
                                         <td><?php echo $linha['nomeTurma'] ?></td>
                                         <td><?php echo "<a class'opcao-icone' href='?idTurma={$linha['idTurma']}&nomeTurma={$linha['nomeTurma']}&idEscola={$linha['idEscola']}'>"; ?><i
-                                                class="icons-table fa fa-cog opcao-icone"></i><?php echo "</a>" ?></td>
+                                                class=" opcao-icone material-icons-round">edit</i><?php echo "</a>" ?></td>
                                         <td><?php echo "<a href='../DAO/excluir-turma.php?idTurma={$linha['idTurma']}'"?>
                                             onclick="return confirm('Você está prestes a excluir a turma: <?php echo $linha['nomeTurma'] ?> da escola, tem certeza?')"><i
-                                                class="icons-table fas fa-times" aria-hidden="true"></i><a/></td>
+                                            class="material-icons-round">delete</i><a/></td>
                                     </tr>
                                     <?php
                                     }
@@ -308,7 +307,7 @@
                         <div class="box-titulo-bar-search">
                             <h1>Alunos Cadastrados</h1>
                             <form action="#" class="box-search">
-                                <button class="btn-search"><i class="fa fa-search" aria-hidden="true"></i></button>
+                                <button class="btn-search"><i class="opcao-icone material-icons-round">edit</i></button>
                                 <input type="text" name="search" placeholder="Busque..">
                             </form>
                         </div>
@@ -336,10 +335,10 @@
                                         <td><?php echo $linha['dataNascAluno'] ?></td>
                                         <td><?php echo $linha['nomeTurma'] ?></td>
                                         <td><?php echo "<a class'opcao-icone' href='?idAluno={$linha['idAluno']}&nomeAluno={$linha['nomeAluno']}&dataNascAluno={$linha['dataNascAluno']}&idTurma={$linha['idTurma']}&idEscola={$linha['idEscola']}&nomeTurma={$linha['nomeTurma']}'>"?><i
-                                                class="icons-table fa fa-cog opcao-icone"></i><?php echo "</a>" ?></td>
+                                                class=" opcao-icone material-icons-round">edit</i><?php echo "</a>" ?></td>
                                         <td><?php echo "<a href='../DAO/excluir-aluno.php?idAluno={$linha['idAluno']}'"?>
                                             onclick="return confirm('Você está prestes a excluir o aluno: <?php echo $linha['nomeAluno'] ?>, da série: <?php echo $linha['nomeTurma'] ?>, tem certeza?')"><i
-                                                class="icons-table fas fa-times" aria-hidden="true"></i></td>
+                                            class="material-icons-round">delete</i></td>
                                     </tr>
                                     <?php
                             }
@@ -381,10 +380,10 @@
                                         <td><?php echo $linha['emailResponsavel'] ?></td>
                                         <td><?php echo $linha['nomeAluno'] ?></td>
                                         <td><?php echo "<a class'opcao-icone btnOpenModal' href='?idResponsavel={$linha['idResponsavel']}&nomeResponsavel={$linha['nomeResponsavel']}&cpfResponsavel={$linha['cpfResponsavel']}&emailResponsavel={$linha['emailResponsavel']}&idAluno={$linha['idAluno']}&nomeAluno={$linha['nomeAluno']}&turma={$linha['turmaAluno']}&telefoneResponsavel={$linha['numTelefoneResponsavel']}&cep={$linha['cepEnderecoResponsavel']}&rua={$linha['logradouroEnderecoResponsavel']}&numCasa={$linha['numCasaEnderecoResponsavel']}&complemento={$linha['complementoEnderecoResponsavel']}&bairro={$linha['bairroEnderecoResponsavel']}&cidade={$linha['cidadeEnderecoResponsavel']}'>"?><i
-                                                class="icons-table fa fa-cog opcao-icone"></i><?php echo "</a>" ?></td>
+                                                class=" opcao-icone material-icons-round">edit</i><?php echo "</a>" ?></td>
                                         <td><?php echo "<a href='../DAO/excluir-responsavel.php?idResponsavel={$linha['idResponsavel']}'"?>
                                             onclick="return confirm('Você está prestes a excluir a conta do responsável: <?php echo $linha['nomeResponsavel'] ?>, responsável por: <?php echo $linha['nomeAluno'] ?>, tem certeza?')"><i
-                                                class="icons-table fas fa-times" aria-hidden="true"></i></td>
+                                            class="material-icons-round">delete</i></td>
                                     </tr>
                                     <?php
                        }
