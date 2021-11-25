@@ -832,7 +832,12 @@
                     url: "../DAO/inserir-professor-disciplina.php",
                     data: dados,
                     type: 'POST',
-                    sucess: feedback('success','Cadastro do Professor realizado com sucesso!')
+                    sucess: function(){
+                        feedback('success', 'Cadastro do professor e disciplinado realizado com sucesso!')
+                        setTimeout(function (){
+                            location.reload();
+                        }, 5000);
+                    },
                 });
             }
         });
@@ -850,7 +855,13 @@
                     url: "../DAO/inserir-turma-planilha.php",
                     data: dados,
                     type: 'POST',
-                    success: feedback('success', 'Cadastro da turma realizado com sucesso!')
+                    success: function(){
+                        feedback('success', 'Cadastro da turma realizado com sucesso!')
+                        setTimeout(function (){
+                            location.reload();
+                        }, 5000);
+                    },
+                        
                 });
             }else{
                 //Tem como verificar o arquivo?
@@ -1267,7 +1278,12 @@
                     url: "../DAO/inserir-aluno-responsavel.php",
                     data: dados,
                     type: 'POST',
-                    success: feedback('success', 'Cadastro do aluno e do responsável realizado com sucesso!')
+                    success: function(){
+                        feedback('success', 'Cadastro do aluno e do professor realizado com sucesso!')
+                        setTimeout(function (){
+                            location.reload();
+                        }, 5000);
+                    },
                 });
             }
 
