@@ -837,8 +837,31 @@
             }
         });
 
-        //Script Turma/HorárioTurma
+        //Script Turma
         $('#txtNomeTurma').mask("0ºS");
+        
+
+        jQuery('#formTurma').on('submit', function(e){
+            e.preventDefault();
+            var nomeTurma = $('#txtNomeTurma').val();
+            if (nomeTurma.length != 3) {
+                $('#label-nomeTurma').html('Por favor, preencha o campo de nome para a turma corretamente!');
+                $('#txtNomeTurma').addClass('erro-form');
+                $('#label-nomeTurma').show();
+                setTimeout(function () {
+                    $('#label-nomeTurma').fadeOut(1);
+                    $('#txtNomeTurma').removeClass('erro-form');
+                }, 5000);
+            }else{
+                var dados = {'txtNomeTurma':nomeTurma};
+                $.ajax({
+                    url: "../DAO/inserir-turma-planilha.php",
+                    data: dados,
+                    type: 'POST',
+                    success: feedback('success', 'Cadastro da turma realizado com sucesso!')
+                });
+            }
+        });
 
         jQuery('#txtDisciplinaHorario').keyup(function () {
             var textoInserido = $(this).val();
