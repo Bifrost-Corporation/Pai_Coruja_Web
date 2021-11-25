@@ -22,16 +22,23 @@
 
         include("../classes/Usuario.php");
         include("../classes/Professor.php");
+        include("../classes/Escola.php");
         include ('../classes/ImagemProfessor.php');
 
         $usuario = new Usuario();
         $professor = new Professor();
+        $escola = new Escola();
 
         $listaUsuario = $usuario->listar();
         $listaProfessor = $professor->listar();
 
         $imagemProfessor = new ImagemProfessor();
         $listaImagem = $imagemProfessor->listarImagem($_SESSION['idProfessor']);
+
+        $listaNomeEscola = $escola->selecionarNomeEscola($_SESSION['idEscola']);
+        foreach($listaNomeEscola as $linha){
+            $nomeEscola = $linha['nomeEscola'];
+        }
 
         
         $imagemPerfilsrc = "img/user.png";
@@ -162,11 +169,11 @@
                         <div class="detalhes-professor">
                             <div>
                                 <h2><?php echo $_SESSION['nomeProfessor'] ?></h2>
-                                <small>Bem Vindo de Volta!</small>
+                                <small>Bem Vindo(a) de Volta!</small>
                             </div>
                             <p><strong>Nome: </strong><?php echo $_SESSION['nomeProfessor'] ?></p>
                             <p><strong>Email: </strong><?php echo $_SESSION['emailProfessor'] ?></p>
-                            <p><strong>Escola: </strong>Escolinha do clodo</p>
+                            <p><strong>Escola: </strong><?php echo $nomeEscola ?></p>
                         </div>
                     </div>
 

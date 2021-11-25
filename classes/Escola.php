@@ -83,6 +83,14 @@
             return $listaEscola;
         }
 
+        public function selecionarNomeEscola($idEscola){
+            $conexao = Conexao::conectar();
+            $queryEscola = "SELECT nomeEscola FROM tbescola WHERE idEscola = '$idEscola'";
+            $resultadoEscola = $conexao->query($queryEscola);
+            $listaEscola = $resultadoEscola->fetchAll(PDO::FETCH_ASSOC);
+            return $listaEscola;
+        }
+
     }
 
 ?>
