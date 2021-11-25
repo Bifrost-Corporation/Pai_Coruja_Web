@@ -6,7 +6,7 @@
     include_once ("../classes/Usuario.php");
 
     try{
-        header("Location: ../secretaria/cadastrar-dados.php");
+        //header("Location: ../secretaria/cadastrar-dados.php");
         unset($_SESSION['repeteEmail']);
         unset($_SESSION['emailProfessor']);
         $idProfessor = $_POST['idProfessor'];

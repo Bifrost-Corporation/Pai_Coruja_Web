@@ -201,7 +201,7 @@
                                 </div>
                                 <div class="container-steps-form">
 
-                                    <form name="formProfessorDisciplina" id="formProfessorDisciplina" class="" method="POST" action="../DAO/inserir-professor-disciplina.php">
+                                    <form name="formProfessorDisciplina" id="formProfessorDisciplina" class="" method="POST" action="#">
 
                                         <div class="user-details page-form slidePage">
                                             <div class="btns-link-step-form">
@@ -774,25 +774,25 @@
     <script src="../assets/js/modalProfile.js"></script>                                                                                                                      
 
     <script>
-        function feedback(type,title,text){
-            const Toast = Swal.mixin({
-                toast: true,
-                position: 'top-end',
-                showConfirmButton: false,
-                timer: 5000,
-                timerProgressBar: true,
-                didOpen: (toast) => {
-                    toast.addEventListener('mouseenter', Swal.stopTimer)
-                    toast.addEventListener('mouseleave', Swal.resumeTimer)
-                }
-            })
-            Toast.fire({
+
+            function feedback(type,title,text){
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 5000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.addEventListener('mouseenter', Swal.stopTimer)
+                        toast.addEventListener('mouseleave', Swal.resumeTimer)
+                    }
+                })
+                Toast.fire({
                     icon:type,
                     title:title,
                 })
             }
-            
-            feedback('success','Cadastro Realizado')
+        
         //Script Form Disciplina/Professor
         jQuery('#formProfessorDisciplina').on('submit', function (e){
             var nomeDisciplina = $('#txtNomeDisciplina').val();
@@ -818,6 +818,21 @@
                     $('#txtProfessorDisciplina').removeClass('erro-form');
                 }, 5000);
                 e.preventDefault();
+            }
+            else {
+                e.preventDefault();
+                var dados = {'txtNomeProfessor':jQuery('#txtNomeProfessor').val(),
+                            'txtEmailProfessor':jQuery('#txtEmailProfessor').val(),
+                            'txtSenhaProfessor':jQuery('#txtSenhaProfessor').val(),
+                            'txtNomeDisciplina':jQuery('#txtNomeDisciplina').val(),
+                            'idProfessor':jQuery('#idProfessor').val(),
+                            'idDisciplina':jQuery('#idDisciplina').val()};
+                $.ajax({
+                    url: "../DAO/inserir-professor-disciplina.php",
+                    data: dados,
+                    type: 'POST',
+                    sucess: feedback('success','Cadastro do Professor realizado com sucesso!')
+                });
             }
         });
 
@@ -1200,19 +1215,6 @@
                 }, 5000);
                 e.preventDefault();
             }
-            /* Complemento não é obrigatório
-            if(complemento.length == 0){
-                $('#label-complemento').html('Informe o bairro do responsável!');
-                $('#txtComplemento').addClass('erro-form');
-                $('#label-complemento').show();
-                $('#txtComplemento').focus();
-                setTimeout(function(){
-                    $('#label-complemento').fadeOut(1);
-                    $('#txtComplemento').removeClass('erro-form');
-                },5000);
-                e.preventDefault();
-            }
-            */
             if (aluno.length == 0 || alunoSemEspaco == '') {
                 $('#label-alunoResponsavel').html('Informe o aluno do responsável!');
                 $('#txtAlunoResponsavel').addClass('erro-form');

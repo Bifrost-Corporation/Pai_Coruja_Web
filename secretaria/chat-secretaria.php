@@ -562,7 +562,7 @@
             btnSearch.classList.toggle('btn-search-active');
 
         };
-        
+        */
     </script>
 </body>
 
