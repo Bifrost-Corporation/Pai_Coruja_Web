@@ -202,9 +202,9 @@
             return $listaSecretaria;
         }
         
-        public function listarResponsaveis($idSecretaria){
+        public function listarResponsaveis($idEscola){
             $conexao = Conexao::conectar();
-            $querySecretaria = "SELECT tbresponsavel.idResponsavel, tbresponsavel.nomeResponsavel FROM tbresponsavel INNER JOIN tbaluno ON tbresponsavel.idAluno = tbaluno.idAluno INNER JOIN tbsecretaria ON tbaluno.idEscola = tbsecretaria.idSecretaria WHERE tbaluno.idEscola = '$idSecretaria'";
+            $querySecretaria = "SELECT tbresponsavel.idResponsavel, tbresponsavel.nomeResponsavel FROM tbresponsavel INNER JOIN tbaluno ON tbresponsavel.idAluno = tbaluno.idAluno INNER JOIN tbsecretaria ON tbaluno.idEscola = tbsecretaria.idSecretaria WHERE tbaluno.idEscola = '$idEscola'";
             $resultadoSecretaria = $conexao->query($querySecretaria);
             $listaSecretaria = $resultadoSecretaria->fetchAll(PDO::FETCH_ASSOC);
             return $listaSecretaria;

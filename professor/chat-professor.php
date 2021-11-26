@@ -157,7 +157,7 @@
                     </div>
                     <div class="container-area-conversa">
                         <div class="header-container-area-conversa">
-                            <h3>Recentes</h3>
+                            <h3>Contatos</h3>
                             
                         </div>
                     <ul>
