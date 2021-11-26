@@ -214,8 +214,18 @@
         setInterval(() => {
             let valor = document.querySelector("#range-gravidade-label");
             let label = document.querySelector("#range-gravidade");
-            label.textContent = valor.value;
-            // console.log(valor.value)
+            label.textContent = valor;
+            if (valor == 1){
+                label.textContent = "Leve (Ou Anotação)";
+            }else if (valor.value == 2){
+                 label.textContent = "Moderado";
+            }else if (valor.value == 3){
+                 label.textContent = "Procupante";
+            }else if (valor.value == 4){
+                 label.textContent = "Grave";
+            }else if (valor.value == 5){
+                 label.textContent = "Extremamente Grave";
+            }
         }, 200);
 
         $(document).ready(function(){
