@@ -174,9 +174,9 @@
                     <div class="input-box-width100">
                         <h2>Gravidade do Acontecido:</h2>
                         <label class="label-erro" id="label-gravidade"></label>
-                        <input type="range" min="0" max="5" id="range-gravidade" name="range-gravidade">
+                        <input type="range" min="0" max="5" id="range-gravidade-label" name="range-gravidade">
                         <datalist id="tickmarks">
-                            <option value="0" label="0">
+                            <option value="0" label="Leve">
                             <option value="1" label="1">
                             <option value="2" label="2">
                             <option value="3" label="3">
@@ -184,12 +184,12 @@
                             <option value="5" label="5">
                         </datalist>
                         <div class="label-do-range">
-                            <label for="range-gravidade">Sem Gravidade (deixe 0 para elogios)</label>
+                            <label id="range-gravidade">Sem Gravidade (deixe 0 para elogios)</label>
                             <!-- <label for="range-gravidade">Leve</label>
                             <label for="range-gravidade">Badaras</label>
                             <label for="range-gravidade">Grave</label>
                             <label for="range-gravidade">Muito Grave</label> -->
-                            <label for="range-gravidade">Extremamente Grave</label>
+                           
                         </div>
                     </div>
                     <div class="input-box-width100">
@@ -210,6 +210,13 @@
     <script src="../assets/js/jquery.mask.js"></script>
 
     <script>
+
+        setInterval(() => {
+            let valor = document.querySelector("#range-gravidade-label");
+            let label = document.querySelector("#range-gravidade");
+            label.textContent = valor.value;
+            // console.log(valor.value)
+        }, 200);
 
         $(document).ready(function(){
             var valueTurma = $('#txtTurma').val();

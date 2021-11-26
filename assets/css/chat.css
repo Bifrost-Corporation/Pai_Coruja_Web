@@ -53,7 +53,7 @@
 
 .caixa-mensagens{
     width: 100%;
-    height: calc(80vh - 60px);
+    height: calc(90vh - 60px);
     padding: 25px ;
     padding-top: 76px;
     overflow-y: auto;
