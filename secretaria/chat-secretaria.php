@@ -148,15 +148,9 @@
             <section class="area-chat">
             <div class="menu-lateral">
                    <div class="header-menu-lateral-title">
-                   <div class="container-box-search">
-                        <form action="" method="GET">
-                        <input class="bar-search-user"type="text" name="" id="bar-search-user" placeholder="Busque..">
-                            <button class="btn-search-user" id="btn-search-user"><i class="material-icons-round">search</i></button> 
-                        </form>
-                     </div>
-                    </div>
-                    <div class="result-search-user">
-                        <h1>Nenhum resultado encontrado!</h1>
+            
+                       <h3>Mensagens</h3>
+                      
                     </div>
                     <div class="container-area-conversa">
                         <div class="header-container-area-conversa">
