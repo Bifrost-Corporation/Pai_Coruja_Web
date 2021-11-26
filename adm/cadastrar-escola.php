@@ -164,8 +164,30 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
     <script>
+
+        function feedback(type,title,text){
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 4500,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+            })
+            Toast.fire({
+                icon:type,
+                title:title,
+            });
+        };
         
         jQuery('form').on('submit', function (e) {
+
+            var verificaForm = true;
+
+            e.preventDefault();
 
             //Parte Escola
             var nomeEscola = $('#txtNomeEscola').val();
@@ -179,21 +201,8 @@
                     $('#txtNomeEscola').removeClass('erro-form');
                     $('#txtNomeEscola').val('');
                 }, 5000);
-                e.preventDefault();
+                verificaForm = false;
             }
-            
-            //Modal de feedback 
-
-            function feedback(type,title,text){
-                Swal.fire({
-                    icon:type,
-                    title:title,
-                    text:text,
-                    showConfirmButton:false,
-                    timer:1500,
-                })
-            }
-            feedback('success','Sucesso!','Cadastro realizado!')
 
             //Parte Secretaria
             var nome = $('#txtUsuarioSecretaria').val();
@@ -212,7 +221,7 @@
                     $('#label-usuario').fadeOut(1);
                     $('#txtUsuarioSecretaria').removeClass('erro-form');
                 }, 5000);
-                e.preventDefault();
+                verificaForm = false;
             }
             if (emailSemEspaco.length == 0) {
                 $('#label-email').html('Por favor, preencha o campo de email para a secretaria!');
@@ -222,7 +231,7 @@
                     $('#label-email').fadeOut(1);
                     $('#txtEmailSecretaria').removeClass('erro-form');
                 }, 5000);
-                e.preventDefault();
+                verificaForm = false;
             } else {
                 var verificaarroba = false;
                 var verificaponto = false;
@@ -246,7 +255,7 @@
                         $('#label-email').fadeOut(1);
                         $('#txtEmailSecretaria').removeClass('erro-form');
                     }, 5000);
-                    e.preventDefault();
+                    verificaForm = false;
                 }
             }
             if (senha1SemEspaco.length == 0) {
@@ -257,7 +266,7 @@
                     $('#label-senha1').fadeOut(1);
                     $('#txtSenhaSecretaria').removeClass('erro-form');
                 }, 5000);
-                e.preventDefault();
+                verificaForm = false;
             }
             if (senha2SemEspaco.length == 0) {
                 $('#label-senha2').html('Por favor, confirme a senha!');
@@ -267,7 +276,7 @@
                     $('#label-senha2').fadeOut(1);
                     $('#txtConfirmaSenhaSecretaria').removeClass('erro-form');
                 }, 5000);
-                e.preventDefault();
+                verificaForm = false;
             }
             if (senha1 != senha2) {
                 $('#label-senha1').html('As senhas não correspondem!');
@@ -284,8 +293,29 @@
                     $('#label-senha2').fadeOut(1);
                     $('#txtConfirmaSenhaSecretaria').removeClass('erro-form');
                 }, 5000);
-                e.preventDefault();
+                verificaForm = false;
             }
+
+            if(verificaForm == true){
+                
+                var dados = {'txtNomeEscola':$('#txtNomeEscola').val(),
+                            'txtUsuarioSecretaria':$('#txtUsuarioSecretaria').val(),
+                            'txtEmailSecretaria':$('#txtEmailSecretaria').val(),
+                            'txtSenhaSecretaria':$('#txtSenhaSecretaria').val()};
+                $.ajax({
+                    url: "../DAO/inserir-escola-secretaria.php",
+                    data: dados,
+                    type: 'POST',
+                    success: function(){
+                        feedback('success', 'Cadastro da escola e secretaria realizados com sucesso!')
+                        setTimeout(function (){
+                            location.reload();
+                        }, 5000);
+                    },
+                            
+                });
+            }
+            
         });
     </script>
     <script src="../assets/js/showDiv.js">
