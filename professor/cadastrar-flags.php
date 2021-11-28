@@ -215,14 +215,16 @@
             let valor = document.querySelector("#range-gravidade-label");
             let label = document.querySelector("#range-gravidade");
             label.textContent = valor;
-            if (valor == 1){
-                label.textContent = "Leve (Ou Anotação)";
+            if (valor.value == 0){
+                label.textContent = "Anotação";
+            }else if (valor.value == 1){
+                 label.textContent = "Leve";
             }else if (valor.value == 2){
-                 label.textContent = "Moderado";
+                 label.textContent = "Média";
             }else if (valor.value == 3){
-                 label.textContent = "Procupante";
-            }else if (valor.value == 4){
                  label.textContent = "Grave";
+            }else if (valor.value == 4){
+                 label.textContent = "Muito Grave";
             }else if (valor.value == 5){
                  label.textContent = "Extremamente Grave";
             }
