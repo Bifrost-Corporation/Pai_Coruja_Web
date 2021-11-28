@@ -334,10 +334,14 @@
                                 <?php
                                     }
                                 ?>
-                                <div class="container-no-observacoes">
-                                    <h3>Seu filho ainda não tem nenhuma Observação</h3>
-                                </div>
-                   
+                                <?php
+                                    if($qtdeGravidade0 == 0 && $qtdeGravidade1 == 0 && $qtdeGravidade2 == 0 && $qtdeGravidade3 == 0
+                                        && $qtdeGravidade4 == 0 && $qtdeGravidade5 == 0){
+                                            echo "<div class='container-no-observacoes'>";
+                                                echo "<h3>Seu filho ainda não tem nenhuma Observação</h3>";
+                                            echo "</div>";
+                                        }
+                                ?>
                             
                             
                             </div>
