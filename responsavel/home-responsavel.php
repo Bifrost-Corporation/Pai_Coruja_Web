@@ -196,23 +196,6 @@
                 <h1>Olá <?php echo $_SESSION['nomeResponsavel'] ?></h1>
             </div>
 
-            <div class="alternar-alunos-container">
-                <span>Alternar Alunos</span>
-                <div class="alternar-alunos-tab-flex">
-                    <div class="alternar-alunos-tab" >
-                        <div class="alternar-alunos-tab-title">
-                            <h5>Aluno 1</h5>
-                        </div>
-                    </div>
-                    <div class="alternar-alunos-tab">
-                        <div class="alternar-alunos-tab-title">
-                            <h5>Aluno 2</h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
             <div class="conteudo-responsavel">
                 <div class="aluno-banner">
                     <div class="aluno-banner-left">

@@ -152,24 +152,7 @@
 
     <main class="container-main container-dash">
         <div class="aluno-info">
-            <div class="alternar-alunos-container">
-                <span>Alternar Alunos</span>
-                <div class="alternar-alunos-tab-flex">
-                    <div class="alternar-alunos-tab" >
-                        <img src="../img/Tony_Tony_Chopper_Anime_Pre_Timeskip_Infobox.png" alt="aluno">
-                        <div class="alternar-alunos-tab-title">
-                            <h5>Aluno 1</h5>
-                        </div>
-                    </div>
-                    <div class="alternar-alunos-tab">
-                        <img src="../img/macos.png" alt="aluno">
-                        <div class="alternar-alunos-tab-title">
-                            <h5>Aluno 2</h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div style="text-align:right">
+            <div>
                 <h1><?php echo $_SESSION['nomeAluno'] ?></h1>
                 <?php
                     $listaMediaPontosObservacao = $aluno->mediaObservacoes($_SESSION['idAluno']);
