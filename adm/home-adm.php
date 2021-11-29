@@ -320,7 +320,7 @@
                     </div>
                 </div>
                 <div class="msg-chat-dash">
-                    <h4>Mensagens do Chat</h4>
+                    <h4>Bem-Vindo de Volta Administrador!</h4>
                     <!--<img src="../img/macacopc.gif">-->
                 </div>
             </div>
