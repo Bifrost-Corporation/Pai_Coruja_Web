@@ -796,6 +796,7 @@
         
         //Script Form Disciplina/Professor
         jQuery('#formProfessorDisciplina').on('submit', function (e){
+            e.preventDefault();
             var nomeDisciplina = $('#txtNomeDisciplina').val();
             var nomeProfessor = $('#txtProfessorDisciplina').val();
             var nomeDisciplinaSemEspaco = nomeDisciplina.trim();
@@ -808,7 +809,6 @@
                     $('#label-nomeDisciplina').fadeOut(1);
                     $('#txtNomeDisciplina').removeClass('erro-form');
                 }, 5000);
-                e.preventDefault();
             }
             else if (nomeProfessor.length == 0 || nomeProfessorSemEspaco == '') {
                 $('#label-professor').html('Por favor, preencha o campo de nome para o professor responsável pela disciplina!');
@@ -818,10 +818,8 @@
                     $('#label-professor').fadeOut(1);
                     $('#txtProfessorDisciplina').removeClass('erro-form');
                 }, 5000);
-                e.preventDefault();
             }
             else {
-                e.preventDefault();
                 var dados = {'txtNomeProfessor':jQuery('#txtNomeProfessor').val(),
                             'txtEmailProfessor':jQuery('#txtEmailProfessor').val(),
                             'txtSenhaProfessor':jQuery('#txtSenhaProfessor').val(),
@@ -832,8 +830,8 @@
                     url: "../DAO/inserir-professor-disciplina.php",
                     data: dados,
                     type: 'POST',
-                    sucess: function(){
-                        feedback('success', 'Cadastro do professor e disciplinado realizado com sucesso!')
+                    success: function(){
+                        feedback('success', 'Cadastro da disciplina e turma realizados com sucesso!')
                         setTimeout(function (){
                             location.reload();
                         }, 5000);
