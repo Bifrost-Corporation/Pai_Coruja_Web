@@ -217,13 +217,13 @@
                                                                 </div>
                                                             </button>
                                                         </div>
-                                                        <h5>Ou</h5>
+                                                        <!-- <h5>Ou</h5>
                                                         <div class="input-box-width100 input-link-step">
                                                             <input type="text" placeholder="Procurar Professor">
                                                             <button type="button" onclick="linkEtapa3()" class="btn-nav-exit nextBtnSkipTwo btn-page-next">
                                                                 <i class="fas fa-search"></i>
                                                             </button>
-                                                        </div>
+                                                        </div> -->
                                                     </div>
                                                 </div>
                                             </div>
@@ -546,13 +546,13 @@
                                                                 </div>
                                                             </button>
                                                         </div>
-                                                        <h5>Ou</h5>
+                                                        <!-- <h5>Ou</h5>
                                                         <div class="input-box-width100 input-link-step">
                                                             <input type="text" placeholder="Procurar Aluno">
                                                             <button type="button" onclick="linkEtapa3form3()" class="btn-nav-exit nextBtnSkipTwo btn-page-next">
                                                                 <i class="fas fa-search"></i>
                                                             </button>
-                                                        </div>
+                                                        </div> -->
                                                     </div>
                                                 </div>
                                             </div>
@@ -605,13 +605,13 @@
                                                                 </div>
                                                             </button>
                                                         </div>
-                                                        <h5>Ou</h5>
+                                                        <!-- <h5>Ou</h5>
                                                         <div class="input-box-width100 input-link-step">
                                                             <input type="text" placeholder="Procurar Responsável">
                                                             <button class=" btn-nav-exit btn-page-next">
                                                                 <i class="fas fa-search"></i>
                                                             </button>
-                                                        </div>
+                                                        </div> -->
                                                     </div>
                                                 </div>
                                                 <div class="button">

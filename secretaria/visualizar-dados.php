@@ -265,13 +265,13 @@
                     </section>
 
                     <section class="conteudo-aba" id="Turma-tab">
-                        <div class="box-titulo-bar-search">
+                        <!-- <div class="box-titulo-bar-search">
                             <h1>Disciplinas Cadastradas</h1>
                             <form action="#" class="box-search">
                                 <button class="btn-search"><i class="opcao-icone material-icons-round">edit</i></button>
                                 <input type="text" name="search" placeholder="Busque..">
                             </form>
-                        </div>
+                        </div> -->
                         <div class="table-dados">
                             <table>
                                 <thead>

@@ -124,13 +124,13 @@
                 </div> -->
                 <div class="forms-cadastro">
                     <div class="container-exiir-dados">
-                        <div class="box-titulo-bar-search">
+                        <!-- <div class="box-titulo-bar-search">
                             <h1>Escolas Cadastradas</h1> 
                             <form action="#" class="box-search">
                                 <button class="btn-search"><i class="fa fa-search" aria-hidden="true"></i></button>
                                 <input type="text" name="search" placeholder="Busque..">
                             </form>
-                        </div>
+                        </div> -->
                     <div class="table-dados">
                         <table>
                             <thead>
