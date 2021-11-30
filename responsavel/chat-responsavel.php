@@ -461,7 +461,30 @@
                 });
             }
         });
+        if(window.innerWidth > 720){
+            const botaoContato = document.querySelectorAll(".botao-contato");
+            
+        }else{
+            const botaoContato = document.querySelectorAll(".botao-contato")
+            const botaoContatoAbrir = document.querySelector(".botao-contato-abrir")
+            const menuLateralChat = document.querySelector('.menu-lateral')
+            const containerChat = document.querySelector('.caixa-chat')
+            
+            for(i of botaoContato){
+        
+                i.addEventListener("click", function() {
+        setTimeout(()=> {
+                console.log("Abriu")
+                menuLateralChat.classList.toggle("menu-lateral-active")
+        },600)
+            });
+            botaoContatoAbrir.addEventListener("click", function() {
+                console.log("Fechou")
+                menuLateralChat.classList.remove("menu-lateral-active")
+            });
+            }     
 
+        }
         //Colocando o nome do contato na área do chat COMPLETAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAR
         <?php
         $qtdeContatos = $qtdeProfessores + 1;
