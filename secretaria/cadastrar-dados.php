@@ -831,7 +831,7 @@
                     data: dados,
                     type: 'POST',
                     success: function(){
-                        feedback('success', 'Cadastro da disciplina e turma realizados com sucesso!')
+                        feedback('success', 'Cadastro da disciplina e professor realizados com sucesso!')
                         setTimeout(function (){
                             location.reload();
                         }, 5000);
